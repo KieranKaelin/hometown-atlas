@@ -6,6 +6,7 @@ const options = {
   bundle: true,
   minify: true,
   metafile: true,
+  sourcemap: true,
   outdir: "build/",
   plugins: [
     htmlPlugin({
