@@ -1,0 +1,28 @@
+{
+  "homepage": "https://kierankaelin.github.io/hometown-atlas",
+  "type": "module",
+  "name": "hometown-atlas",
+  "scripts": {
+    "serve": "NODE_ENV=dev node esbuild.mjs",
+    "build": "node esbuild.mjs",
+    "predeploy": "npm run build",
+    "deploy": "gh-pages -d build"
+  },
+  "devDependencies": {
+    "@craftamap/esbuild-plugin-html": "^0.8.0",
+    "@types/leaflet": "^1.9.14",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "esbuild": "0.24.0",
+    "esbuild-plugin-tsc": "^0.4.0",
+    "gh-pages": "^6.2.0",
+    "prettier": "^3.4.1",
+    "typescript": "^5.7.2"
+  },
+  "dependencies": {
+    "leaflet": "^1.9.4",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-leaflet": "^4.2.1"
+  }
+}
