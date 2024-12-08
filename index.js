@@ -125,7 +125,7 @@
             ReactSharedInternals.ReactDebugCurrentFrame = ReactDebugCurrentFrame;
             ReactSharedInternals.ReactCurrentActQueue = ReactCurrentActQueue;
           }
-          function warn(format) {
+          function warn2(format) {
             {
               {
                 for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -263,7 +263,7 @@
             var defineDeprecationWarning = function(methodName, info) {
               Object.defineProperty(Component.prototype, methodName, {
                 get: function() {
-                  warn("%s(...) is deprecated in plain JavaScript React classes. %s", info[0], info[1]);
+                  warn2("%s(...) is deprecated in plain JavaScript React classes. %s", info[0], info[1]);
                   return void 0;
                 }
               });
@@ -312,7 +312,7 @@
               try {
                 testStringCoercion(value);
                 return false;
-              } catch (e2) {
+              } catch (e3) {
                 return true;
               }
             }
@@ -387,9 +387,9 @@
                 case REACT_LAZY_TYPE: {
                   var lazyComponent = type;
                   var payload = lazyComponent._payload;
-                  var init = lazyComponent._init;
+                  var init2 = lazyComponent._init;
                   try {
-                    return getComponentNameFromType(init(payload));
+                    return getComponentNameFromType(init2(payload));
                   } catch (x2) {
                     return null;
                   }
@@ -511,7 +511,7 @@
             }
             return element;
           };
-          function createElement(type, config, children) {
+          function createElement5(type, config, children) {
             var propName;
             var props = {};
             var key = null;
@@ -579,7 +579,7 @@
             var newElement = ReactElement(oldElement.type, newKey, oldElement.ref, oldElement._self, oldElement._source, oldElement._owner, oldElement.props);
             return newElement;
           }
-          function cloneElement(element, config, children) {
+          function cloneElement2(element, config, children) {
             if (element === null || element === void 0) {
               throw new Error("React.cloneElement(...): The argument must be a React element, but you passed " + element + ".");
             }
@@ -627,12 +627,12 @@
             }
             return ReactElement(element.type, key, ref, self2, source, owner, props);
           }
-          function isValidElement(object) {
+          function isValidElement2(object) {
             return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
           }
           var SEPARATOR = ".";
           var SUBSEPARATOR = ":";
-          function escape(key) {
+          function escape2(key) {
             var escapeRegex = /[=:]/g;
             var escaperLookup = {
               "=": "=0",
@@ -653,7 +653,7 @@
               {
                 checkKeyStringCoercion(element.key);
               }
-              return escape("" + element.key);
+              return escape2("" + element.key);
             }
             return index.toString(36);
           }
@@ -692,7 +692,7 @@
                   return c2;
                 });
               } else if (mappedChild != null) {
-                if (isValidElement(mappedChild)) {
+                if (isValidElement2(mappedChild)) {
                   {
                     if (mappedChild.key && (!_child || _child.key !== mappedChild.key)) {
                       checkKeyStringCoercion(mappedChild.key);
@@ -731,7 +731,7 @@
                 {
                   if (iteratorFn === iterableChildren.entries) {
                     if (!didWarnAboutMaps) {
-                      warn("Using Maps as children is not supported. Use an array of keyed ReactElements instead.");
+                      warn2("Using Maps as children is not supported. Use an array of keyed ReactElements instead.");
                     }
                     didWarnAboutMaps = true;
                   }
@@ -780,12 +780,12 @@
             }) || [];
           }
           function onlyChild(children) {
-            if (!isValidElement(children)) {
+            if (!isValidElement2(children)) {
               throw new Error("React.Children.only expected to receive a single React element child.");
             }
             return children;
           }
-          function createContext2(defaultValue) {
+          function createContext3(defaultValue) {
             var context = {
               $$typeof: REACT_CONTEXT_TYPE,
               // As a workaround to support multiple concurrent renderers, we categorize
@@ -869,7 +869,7 @@
                   },
                   set: function(displayName) {
                     if (!hasWarnedAboutDisplayNameOnConsumer) {
-                      warn("Setting `displayName` on Context.Consumer has no effect. You should set it directly on the context with Context.displayName = '%s'.", displayName);
+                      warn2("Setting `displayName` on Context.Consumer has no effect. You should set it directly on the context with Context.displayName = '%s'.", displayName);
                       hasWarnedAboutDisplayNameOnConsumer = true;
                     }
                   }
@@ -1071,7 +1071,7 @@
             }
             return dispatcher;
           }
-          function useContext2(Context) {
+          function useContext5(Context) {
             var dispatcher = resolveDispatcher();
             {
               if (Context._context !== void 0) {
@@ -1085,19 +1085,19 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState5(initialState) {
+          function useState7(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
-          function useReducer(reducer, initialArg, init) {
+          function useReducer(reducer, initialArg, init2) {
             var dispatcher = resolveDispatcher();
-            return dispatcher.useReducer(reducer, initialArg, init);
+            return dispatcher.useReducer(reducer, initialArg, init2);
           }
-          function useRef9(initialValue) {
+          function useRef10(initialValue) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
-          function useEffect15(create2, deps) {
+          function useEffect16(create2, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useEffect(create2, deps);
           }
@@ -1109,11 +1109,11 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useLayoutEffect(create2, deps);
           }
-          function useCallback5(callback, deps) {
+          function useCallback7(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
-          function useMemo5(create2, deps) {
+          function useMemo6(create2, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useMemo(create2, deps);
           }
@@ -1381,9 +1381,9 @@
                 case REACT_LAZY_TYPE: {
                   var lazyComponent = type;
                   var payload = lazyComponent._payload;
-                  var init = lazyComponent._init;
+                  var init2 = lazyComponent._init;
                   try {
-                    return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
+                    return describeUnknownElementTypeFrameInDEV(init2(payload), source, ownerFn);
                   } catch (x2) {
                   }
                 }
@@ -1511,11 +1511,11 @@
             if (isArray(node)) {
               for (var i2 = 0; i2 < node.length; i2++) {
                 var child = node[i2];
-                if (isValidElement(child)) {
+                if (isValidElement2(child)) {
                   validateExplicitKey(child, parentType);
                 }
               }
-            } else if (isValidElement(node)) {
+            } else if (isValidElement2(node)) {
               if (node._store) {
                 node._store.validated = true;
               }
@@ -1526,7 +1526,7 @@
                   var iterator = iteratorFn.call(node);
                   var step;
                   while (!(step = iterator.next()).done) {
-                    if (isValidElement(step.value)) {
+                    if (isValidElement2(step.value)) {
                       validateExplicitKey(step.value, parentType);
                     }
                   }
@@ -1610,7 +1610,7 @@
                 error("React.createElement: type is invalid -- expected a string (for built-in components) or a class/function (for composite components) but got: %s.%s", typeString, info);
               }
             }
-            var element = createElement.apply(this, arguments);
+            var element = createElement5.apply(this, arguments);
             if (element == null) {
               return element;
             }
@@ -1633,12 +1633,12 @@
             {
               if (!didWarnAboutDeprecatedCreateFactory) {
                 didWarnAboutDeprecatedCreateFactory = true;
-                warn("React.createFactory() is deprecated and will be removed in a future major release. Consider using JSX or use React.createElement() directly instead.");
+                warn2("React.createFactory() is deprecated and will be removed in a future major release. Consider using JSX or use React.createElement() directly instead.");
               }
               Object.defineProperty(validatedFactory, "type", {
                 enumerable: false,
                 get: function() {
-                  warn("Factory.type is deprecated. Access the class directly before passing it to createFactory.");
+                  warn2("Factory.type is deprecated. Access the class directly before passing it to createFactory.");
                   Object.defineProperty(this, "type", {
                     value: type
                   });
@@ -1649,7 +1649,7 @@
             return validatedFactory;
           }
           function cloneElementWithValidation(element, props, children) {
-            var newElement = cloneElement.apply(this, arguments);
+            var newElement = cloneElement2.apply(this, arguments);
             for (var i2 = 2; i2 < arguments.length; i2++) {
               validateChildKeys(arguments[i2], newElement.type);
             }
@@ -1671,7 +1671,7 @@
                 if (prevTransition === null && currentTransition._updatedFibers) {
                   var updatedFibersCount = currentTransition._updatedFibers.size;
                   if (updatedFibersCount > 10) {
-                    warn("Detected a large number of updates inside startTransition. If this is due to a subscription please re-write it to use React provided hooks. Otherwise concurrent mode guarantees are off the table.");
+                    warn2("Detected a large number of updates inside startTransition. If this is due to a subscription please re-write it to use React provided hooks. Otherwise concurrent mode guarantees are off the table.");
                   }
                   currentTransition._updatedFibers.clear();
                 }
@@ -1849,14 +1849,14 @@
           var createElement$1 = createElementWithValidation;
           var cloneElement$1 = cloneElementWithValidation;
           var createFactory = createFactoryWithValidation;
-          var Children = {
+          var Children2 = {
             map: mapChildren,
             forEach: forEachChildren,
             count: countChildren,
             toArray,
             only: onlyChild
           };
-          exports.Children = Children;
+          exports.Children = Children2;
           exports.Component = Component;
           exports.Fragment = REACT_FRAGMENT_TYPE;
           exports.Profiler = REACT_PROFILER_TYPE;
@@ -1866,29 +1866,29 @@
           exports.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED = ReactSharedInternals;
           exports.act = act;
           exports.cloneElement = cloneElement$1;
-          exports.createContext = createContext2;
+          exports.createContext = createContext3;
           exports.createElement = createElement$1;
           exports.createFactory = createFactory;
           exports.createRef = createRef;
           exports.forwardRef = forwardRef4;
-          exports.isValidElement = isValidElement;
+          exports.isValidElement = isValidElement2;
           exports.lazy = lazy;
           exports.memo = memo;
           exports.startTransition = startTransition;
           exports.unstable_act = act;
-          exports.useCallback = useCallback5;
-          exports.useContext = useContext2;
+          exports.useCallback = useCallback7;
+          exports.useContext = useContext5;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
-          exports.useEffect = useEffect15;
+          exports.useEffect = useEffect16;
           exports.useId = useId;
           exports.useImperativeHandle = useImperativeHandle4;
           exports.useInsertionEffect = useInsertionEffect;
           exports.useLayoutEffect = useLayoutEffect;
-          exports.useMemo = useMemo5;
+          exports.useMemo = useMemo6;
           exports.useReducer = useReducer;
-          exports.useRef = useRef9;
-          exports.useState = useState5;
+          exports.useRef = useRef10;
+          exports.useState = useState7;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -2384,16 +2384,16 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React6 = require_react();
+          var React8 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React6.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React8.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
               suppressWarning = newSuppressWarning;
             }
           }
-          function warn(format) {
+          function warn2(format) {
             {
               if (!suppressWarning) {
                 for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
@@ -2435,7 +2435,7 @@
           var HostPortal = 4;
           var HostComponent = 5;
           var HostText = 6;
-          var Fragment2 = 7;
+          var Fragment3 = 7;
           var Mode = 8;
           var ContextConsumer = 9;
           var ContextProvider = 10;
@@ -2503,7 +2503,7 @@
               try {
                 testStringCoercion(value);
                 return false;
-              } catch (e2) {
+              } catch (e3) {
                 return true;
               }
             }
@@ -3453,9 +3453,9 @@
                 case REACT_LAZY_TYPE: {
                   var lazyComponent = type;
                   var payload = lazyComponent._payload;
-                  var init = lazyComponent._init;
+                  var init2 = lazyComponent._init;
                   try {
-                    return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
+                    return describeUnknownElementTypeFrameInDEV(init2(payload), source, ownerFn);
                   } catch (x2) {
                   }
                 }
@@ -3559,9 +3559,9 @@
                 case REACT_LAZY_TYPE: {
                   var lazyComponent = type;
                   var payload = lazyComponent._payload;
-                  var init = lazyComponent._init;
+                  var init2 = lazyComponent._init;
                   try {
-                    return getComponentNameFromType(init(payload));
+                    return getComponentNameFromType(init2(payload));
                   } catch (x2) {
                     return null;
                   }
@@ -3592,7 +3592,7 @@
                 return "DehydratedFragment";
               case ForwardRef:
                 return getWrappedName$1(type, type.render, "ForwardRef");
-              case Fragment2:
+              case Fragment3:
                 return "Fragment";
               case HostComponent:
                 return type;
@@ -3756,11 +3756,11 @@
             if (node.hasOwnProperty(valueField) || typeof descriptor === "undefined" || typeof descriptor.get !== "function" || typeof descriptor.set !== "function") {
               return;
             }
-            var get2 = descriptor.get, set2 = descriptor.set;
+            var get3 = descriptor.get, set2 = descriptor.set;
             Object.defineProperty(node, valueField, {
               configurable: true,
               get: function() {
-                return get2.call(this);
+                return get3.call(this);
               },
               set: function(value) {
                 {
@@ -3819,7 +3819,7 @@
             }
             try {
               return doc.activeElement || doc.body;
-            } catch (e2) {
+            } catch (e3) {
               return doc.body;
             }
           }
@@ -3993,7 +3993,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React6.Children.forEach(props.children, function(child) {
+                  React8.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -5549,11 +5549,11 @@
               });
               window.addEventListener("test", options, options);
               window.removeEventListener("test", options, options);
-            } catch (e2) {
+            } catch (e3) {
               passiveBrowserEventsSupported = false;
             }
           }
-          function invokeGuardedCallbackProd(name, func, context, a2, b2, c2, d, e2, f) {
+          function invokeGuardedCallbackProd(name, func, context, a2, b2, c2, d, e3, f) {
             var funcArgs = Array.prototype.slice.call(arguments, 3);
             try {
               func.apply(context, funcArgs);
@@ -5565,7 +5565,7 @@
           {
             if (typeof window !== "undefined" && typeof window.dispatchEvent === "function" && typeof document !== "undefined" && typeof document.createEvent === "function") {
               var fakeNode = document.createElement("react");
-              invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func, context, a2, b2, c2, d, e2, f) {
+              invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func, context, a2, b2, c2, d, e3, f) {
                 if (typeof document === "undefined" || document === null) {
                   throw new Error("The `document` global was defined when React was initialized, but is not defined anymore. This can happen in a test environment if a component schedules an update from an asynchronous callback, but the test has already finished running. To solve this, you can either unmount the component at the end of your test (and ensure that any asynchronous operations get canceled in `componentWillUnmount`), or you can change the test itself to be asynchronous.");
                 }
@@ -5640,12 +5640,12 @@
               caughtError = error2;
             }
           };
-          function invokeGuardedCallback(name, func, context, a2, b2, c2, d, e2, f) {
+          function invokeGuardedCallback(name, func, context, a2, b2, c2, d, e3, f) {
             hasError = false;
             caughtError = null;
             invokeGuardedCallbackImpl$1.apply(reporter, arguments);
           }
-          function invokeGuardedCallbackAndCatchFirstError(name, func, context, a2, b2, c2, d, e2, f) {
+          function invokeGuardedCallbackAndCatchFirstError(name, func, context, a2, b2, c2, d, e3, f) {
             invokeGuardedCallback.apply(this, arguments);
             if (hasError) {
               var error2 = clearCaughtError();
@@ -5676,7 +5676,7 @@
               throw new Error("clearCaughtError was called but no error was captured. This error is likely caused by a bug in React. Please file an issue.");
             }
           }
-          function get(key) {
+          function get2(key) {
             return key._reactInternals;
           }
           function has(key) {
@@ -5844,14 +5844,14 @@
               var owner = ReactCurrentOwner.current;
               if (owner !== null && owner.tag === ClassComponent) {
                 var ownerFiber = owner;
-                var instance = ownerFiber.stateNode;
-                if (!instance._warnedAboutRefsInRender) {
+                var instance2 = ownerFiber.stateNode;
+                if (!instance2._warnedAboutRefsInRender) {
                   error("%s is accessing isMounted inside its render() function. render() should be a pure function of props and state. It should never access something that requires stale data from the previous render, such as refs. Move this logic to componentDidMount and componentDidUpdate instead.", getComponentNameFromFiber(ownerFiber) || "A component");
                 }
-                instance._warnedAboutRefsInRender = true;
+                instance2._warnedAboutRefsInRender = true;
               }
             }
-            var fiber = get(component);
+            var fiber = get2(component);
             if (!fiber) {
               return false;
             }
@@ -7193,9 +7193,9 @@
               if (nearestMounted !== null) {
                 var tag = nearestMounted.tag;
                 if (tag === SuspenseComponent) {
-                  var instance = getSuspenseInstanceFromFiber(nearestMounted);
-                  if (instance !== null) {
-                    queuedTarget.blockedOn = instance;
+                  var instance2 = getSuspenseInstanceFromFiber(nearestMounted);
+                  if (instance2 !== null) {
+                    queuedTarget.blockedOn = instance2;
                     attemptHydrationAtPriority(queuedTarget.priority, function() {
                       attemptHydrationAtCurrentPriority(nearestMounted);
                     });
@@ -7431,9 +7431,9 @@
               } else {
                 var tag = nearestMounted.tag;
                 if (tag === SuspenseComponent) {
-                  var instance = getSuspenseInstanceFromFiber(nearestMounted);
-                  if (instance !== null) {
-                    return instance;
+                  var instance2 = getSuspenseInstanceFromFiber(nearestMounted);
+                  if (instance2 !== null) {
+                    return instance2;
                   }
                   targetInst = null;
                 } else if (tag === HostRoot) {
@@ -8090,11 +8090,11 @@
                 hasSpaceKeypress = true;
                 return SPACEBAR_CHAR;
               case "textInput":
-                var chars = nativeEvent.data;
-                if (chars === SPACEBAR_CHAR && hasSpaceKeypress) {
+                var chars2 = nativeEvent.data;
+                if (chars2 === SPACEBAR_CHAR && hasSpaceKeypress) {
                   return null;
                 }
-                return chars;
+                return chars2;
               default:
                 return null;
             }
@@ -8102,10 +8102,10 @@
           function getFallbackBeforeInputChars(domEventName, nativeEvent) {
             if (isComposing) {
               if (domEventName === "compositionend" || !canUseCompositionEvent && isFallbackCompositionEnd(domEventName, nativeEvent)) {
-                var chars = getData();
+                var chars2 = getData();
                 reset();
                 isComposing = false;
-                return chars;
+                return chars2;
               }
               return null;
             }
@@ -8128,13 +8128,13 @@
             }
           }
           function extractBeforeInputEvent(dispatchQueue, domEventName, targetInst, nativeEvent, nativeEventTarget) {
-            var chars;
+            var chars2;
             if (canUseTextInputEvent) {
-              chars = getNativeBeforeInputChars(domEventName, nativeEvent);
+              chars2 = getNativeBeforeInputChars(domEventName, nativeEvent);
             } else {
-              chars = getFallbackBeforeInputChars(domEventName, nativeEvent);
+              chars2 = getFallbackBeforeInputChars(domEventName, nativeEvent);
             }
-            if (!chars) {
+            if (!chars2) {
               return null;
             }
             var listeners = accumulateTwoPhaseListeners(targetInst, "onBeforeInput");
@@ -8144,7 +8144,7 @@
                 event,
                 listeners
               });
-              event.data = chars;
+              event.data = chars2;
             }
           }
           function extractEvents(dispatchQueue, domEventName, targetInst, nativeEvent, nativeEventTarget, eventSystemFlags, targetContainer) {
@@ -8462,7 +8462,7 @@
             try {
               anchorNode.nodeType;
               focusNode.nodeType;
-            } catch (e2) {
+            } catch (e3) {
               return null;
             }
             return getModernOffsetsFromPoints(outerNode, anchorNode, anchorOffset, focusNode, focusOffset);
@@ -8957,12 +8957,12 @@
             var previousInstance;
             if (inCapturePhase) {
               for (var i2 = dispatchListeners.length - 1; i2 >= 0; i2--) {
-                var _dispatchListeners$i = dispatchListeners[i2], instance = _dispatchListeners$i.instance, currentTarget = _dispatchListeners$i.currentTarget, listener = _dispatchListeners$i.listener;
-                if (instance !== previousInstance && event.isPropagationStopped()) {
+                var _dispatchListeners$i = dispatchListeners[i2], instance2 = _dispatchListeners$i.instance, currentTarget = _dispatchListeners$i.currentTarget, listener = _dispatchListeners$i.listener;
+                if (instance2 !== previousInstance && event.isPropagationStopped()) {
                   return;
                 }
                 executeDispatch(event, listener, currentTarget);
-                previousInstance = instance;
+                previousInstance = instance2;
               }
             } else {
               for (var _i = 0; _i < dispatchListeners.length; _i++) {
@@ -9113,9 +9113,9 @@
               return dispatchEventsForPlugins(domEventName, eventSystemFlags, nativeEvent, ancestorInst);
             });
           }
-          function createDispatchListener(instance, listener, currentTarget) {
+          function createDispatchListener(instance2, listener, currentTarget) {
             return {
-              instance,
+              instance: instance2,
               listener,
               currentTarget
             };
@@ -9124,44 +9124,44 @@
             var captureName = reactName !== null ? reactName + "Capture" : null;
             var reactEventName = inCapturePhase ? captureName : reactName;
             var listeners = [];
-            var instance = targetFiber;
+            var instance2 = targetFiber;
             var lastHostComponent = null;
-            while (instance !== null) {
-              var _instance2 = instance, stateNode = _instance2.stateNode, tag = _instance2.tag;
+            while (instance2 !== null) {
+              var _instance2 = instance2, stateNode = _instance2.stateNode, tag = _instance2.tag;
               if (tag === HostComponent && stateNode !== null) {
                 lastHostComponent = stateNode;
                 if (reactEventName !== null) {
-                  var listener = getListener(instance, reactEventName);
+                  var listener = getListener(instance2, reactEventName);
                   if (listener != null) {
-                    listeners.push(createDispatchListener(instance, listener, lastHostComponent));
+                    listeners.push(createDispatchListener(instance2, listener, lastHostComponent));
                   }
                 }
               }
               if (accumulateTargetOnly) {
                 break;
               }
-              instance = instance.return;
+              instance2 = instance2.return;
             }
             return listeners;
           }
           function accumulateTwoPhaseListeners(targetFiber, reactName) {
             var captureName = reactName + "Capture";
             var listeners = [];
-            var instance = targetFiber;
-            while (instance !== null) {
-              var _instance3 = instance, stateNode = _instance3.stateNode, tag = _instance3.tag;
+            var instance2 = targetFiber;
+            while (instance2 !== null) {
+              var _instance3 = instance2, stateNode = _instance3.stateNode, tag = _instance3.tag;
               if (tag === HostComponent && stateNode !== null) {
                 var currentTarget = stateNode;
-                var captureListener = getListener(instance, captureName);
+                var captureListener = getListener(instance2, captureName);
                 if (captureListener != null) {
-                  listeners.unshift(createDispatchListener(instance, captureListener, currentTarget));
+                  listeners.unshift(createDispatchListener(instance2, captureListener, currentTarget));
                 }
-                var bubbleListener = getListener(instance, reactName);
+                var bubbleListener = getListener(instance2, reactName);
                 if (bubbleListener != null) {
-                  listeners.push(createDispatchListener(instance, bubbleListener, currentTarget));
+                  listeners.push(createDispatchListener(instance2, bubbleListener, currentTarget));
                 }
               }
-              instance = instance.return;
+              instance2 = instance2.return;
             }
             return listeners;
           }
@@ -9209,30 +9209,30 @@
           function accumulateEnterLeaveListenersForEvent(dispatchQueue, event, target, common, inCapturePhase) {
             var registrationName = event._reactName;
             var listeners = [];
-            var instance = target;
-            while (instance !== null) {
-              if (instance === common) {
+            var instance2 = target;
+            while (instance2 !== null) {
+              if (instance2 === common) {
                 break;
               }
-              var _instance4 = instance, alternate = _instance4.alternate, stateNode = _instance4.stateNode, tag = _instance4.tag;
+              var _instance4 = instance2, alternate = _instance4.alternate, stateNode = _instance4.stateNode, tag = _instance4.tag;
               if (alternate !== null && alternate === common) {
                 break;
               }
               if (tag === HostComponent && stateNode !== null) {
                 var currentTarget = stateNode;
                 if (inCapturePhase) {
-                  var captureListener = getListener(instance, registrationName);
+                  var captureListener = getListener(instance2, registrationName);
                   if (captureListener != null) {
-                    listeners.unshift(createDispatchListener(instance, captureListener, currentTarget));
+                    listeners.unshift(createDispatchListener(instance2, captureListener, currentTarget));
                   }
                 } else if (!inCapturePhase) {
-                  var bubbleListener = getListener(instance, registrationName);
+                  var bubbleListener = getListener(instance2, registrationName);
                   if (bubbleListener != null) {
-                    listeners.push(createDispatchListener(instance, bubbleListener, currentTarget));
+                    listeners.push(createDispatchListener(instance2, bubbleListener, currentTarget));
                   }
                 }
               }
-              instance = instance.return;
+              instance2 = instance2.return;
             }
             if (listeners.length !== 0) {
               dispatchQueue.push({
@@ -9354,10 +9354,10 @@
           function getOwnerDocumentFromRootContainer(rootContainerElement) {
             return rootContainerElement.nodeType === DOCUMENT_NODE ? rootContainerElement : rootContainerElement.ownerDocument;
           }
-          function noop() {
+          function noop2() {
           }
           function trapClickOnNonInteractiveElement(node) {
-            node.onclick = noop;
+            node.onclick = noop2;
           }
           function setInitialDOMProperties(tag, domElement, rootContainerElement, nextProps, isCustomComponentTag) {
             for (var propKey in nextProps) {
@@ -9417,7 +9417,7 @@
               }
             }
           }
-          function createElement(type, props, rootContainerElement, parentNamespace) {
+          function createElement5(type, props, rootContainerElement, parentNamespace) {
             var isCustomComponentTag;
             var ownerDocument = getOwnerDocumentFromRootContainer(rootContainerElement);
             var domElement;
@@ -10259,8 +10259,8 @@
               };
             }
           }
-          function getPublicInstance(instance) {
-            return instance;
+          function getPublicInstance(instance2) {
+            return instance2;
           }
           function prepareForCommit(containerInfo) {
             eventsEnabled = isEnabled();
@@ -10275,7 +10275,7 @@
             eventsEnabled = null;
             selectionInformation = null;
           }
-          function createInstance(type, props, rootContainerInstance, hostContext, internalInstanceHandle) {
+          function createInstance2(type, props, rootContainerInstance, hostContext, internalInstanceHandle) {
             var parentNamespace;
             {
               var hostContextDev = hostContext;
@@ -10287,7 +10287,7 @@
               }
               parentNamespace = hostContextDev.namespace;
             }
-            var domElement = createElement(type, props, rootContainerInstance, parentNamespace);
+            var domElement = createElement5(type, props, rootContainerInstance, parentNamespace);
             precacheFiberNode(internalInstanceHandle, domElement);
             updateFiberProps(domElement, props);
             return domElement;
@@ -10448,9 +10448,9 @@
             }
             retryIfBlockedOn(container);
           }
-          function hideInstance(instance) {
-            instance = instance;
-            var style2 = instance.style;
+          function hideInstance(instance2) {
+            instance2 = instance2;
+            var style2 = instance2.style;
             if (typeof style2.setProperty === "function") {
               style2.setProperty("display", "none", "important");
             } else {
@@ -10460,11 +10460,11 @@
           function hideTextInstance(textInstance) {
             textInstance.nodeValue = "";
           }
-          function unhideInstance(instance, props) {
-            instance = instance;
+          function unhideInstance(instance2, props) {
+            instance2 = instance2;
             var styleProp = props[STYLE$1];
             var display = styleProp !== void 0 && styleProp !== null && styleProp.hasOwnProperty("display") ? styleProp.display : null;
-            instance.style.display = dangerousStyleValue("display", display);
+            instance2.style.display = dangerousStyleValue("display", display);
           }
           function unhideTextInstance(textInstance, text) {
             textInstance.nodeValue = text;
@@ -10478,32 +10478,32 @@
               }
             }
           }
-          function canHydrateInstance(instance, type, props) {
-            if (instance.nodeType !== ELEMENT_NODE || type.toLowerCase() !== instance.nodeName.toLowerCase()) {
+          function canHydrateInstance(instance2, type, props) {
+            if (instance2.nodeType !== ELEMENT_NODE || type.toLowerCase() !== instance2.nodeName.toLowerCase()) {
               return null;
             }
-            return instance;
+            return instance2;
           }
-          function canHydrateTextInstance(instance, text) {
-            if (text === "" || instance.nodeType !== TEXT_NODE) {
+          function canHydrateTextInstance(instance2, text) {
+            if (text === "" || instance2.nodeType !== TEXT_NODE) {
               return null;
             }
-            return instance;
+            return instance2;
           }
-          function canHydrateSuspenseInstance(instance) {
-            if (instance.nodeType !== COMMENT_NODE) {
+          function canHydrateSuspenseInstance(instance2) {
+            if (instance2.nodeType !== COMMENT_NODE) {
               return null;
             }
-            return instance;
+            return instance2;
           }
-          function isSuspenseInstancePending(instance) {
-            return instance.data === SUSPENSE_PENDING_START_DATA;
+          function isSuspenseInstancePending(instance2) {
+            return instance2.data === SUSPENSE_PENDING_START_DATA;
           }
-          function isSuspenseInstanceFallback(instance) {
-            return instance.data === SUSPENSE_FALLBACK_START_DATA;
+          function isSuspenseInstanceFallback(instance2) {
+            return instance2.data === SUSPENSE_FALLBACK_START_DATA;
           }
-          function getSuspenseInstanceFallbackErrorDetails(instance) {
-            var dataset = instance.nextSibling && instance.nextSibling.dataset;
+          function getSuspenseInstanceFallbackErrorDetails(instance2) {
+            var dataset = instance2.nextSibling && instance2.nextSibling.dataset;
             var digest, message, stack;
             if (dataset) {
               digest = dataset.dgst;
@@ -10520,8 +10520,8 @@
               };
             }
           }
-          function registerSuspenseInstanceRetry(instance, callback) {
-            instance._reactRetry = callback;
+          function registerSuspenseInstanceRetry(instance2, callback) {
+            instance2._reactRetry = callback;
           }
           function getNextHydratable(node) {
             for (; node != null; node = node.nextSibling) {
@@ -10541,8 +10541,8 @@
             }
             return node;
           }
-          function getNextHydratableSibling(instance) {
-            return getNextHydratable(instance.nextSibling);
+          function getNextHydratableSibling(instance2) {
+            return getNextHydratable(instance2.nextSibling);
           }
           function getFirstHydratableChild(parentInstance) {
             return getNextHydratable(parentInstance.firstChild);
@@ -10553,16 +10553,16 @@
           function getFirstHydratableChildWithinSuspenseInstance(parentInstance) {
             return getNextHydratable(parentInstance.nextSibling);
           }
-          function hydrateInstance(instance, type, props, rootContainerInstance, hostContext, internalInstanceHandle, shouldWarnDev) {
-            precacheFiberNode(internalInstanceHandle, instance);
-            updateFiberProps(instance, props);
+          function hydrateInstance(instance2, type, props, rootContainerInstance, hostContext, internalInstanceHandle, shouldWarnDev) {
+            precacheFiberNode(internalInstanceHandle, instance2);
+            updateFiberProps(instance2, props);
             var parentNamespace;
             {
               var hostContextDev = hostContext;
               parentNamespace = hostContextDev.namespace;
             }
             var isConcurrentMode = (internalInstanceHandle.mode & ConcurrentMode) !== NoMode;
-            return diffHydratedProperties(instance, type, props, parentNamespace, rootContainerInstance, isConcurrentMode, shouldWarnDev);
+            return diffHydratedProperties(instance2, type, props, parentNamespace, rootContainerInstance, isConcurrentMode, shouldWarnDev);
           }
           function hydrateTextInstance(textInstance, text, internalInstanceHandle, shouldWarnDev) {
             precacheFiberNode(internalInstanceHandle, textInstance);
@@ -10631,37 +10631,37 @@
               checkForUnmatchedText(textInstance.nodeValue, text, isConcurrentMode, shouldWarnDev);
             }
           }
-          function didNotHydrateInstanceWithinContainer(parentContainer, instance) {
+          function didNotHydrateInstanceWithinContainer(parentContainer, instance2) {
             {
-              if (instance.nodeType === ELEMENT_NODE) {
-                warnForDeletedHydratableElement(parentContainer, instance);
-              } else if (instance.nodeType === COMMENT_NODE) ;
+              if (instance2.nodeType === ELEMENT_NODE) {
+                warnForDeletedHydratableElement(parentContainer, instance2);
+              } else if (instance2.nodeType === COMMENT_NODE) ;
               else {
-                warnForDeletedHydratableText(parentContainer, instance);
+                warnForDeletedHydratableText(parentContainer, instance2);
               }
             }
           }
-          function didNotHydrateInstanceWithinSuspenseInstance(parentInstance, instance) {
+          function didNotHydrateInstanceWithinSuspenseInstance(parentInstance, instance2) {
             {
               var parentNode = parentInstance.parentNode;
               if (parentNode !== null) {
-                if (instance.nodeType === ELEMENT_NODE) {
-                  warnForDeletedHydratableElement(parentNode, instance);
-                } else if (instance.nodeType === COMMENT_NODE) ;
+                if (instance2.nodeType === ELEMENT_NODE) {
+                  warnForDeletedHydratableElement(parentNode, instance2);
+                } else if (instance2.nodeType === COMMENT_NODE) ;
                 else {
-                  warnForDeletedHydratableText(parentNode, instance);
+                  warnForDeletedHydratableText(parentNode, instance2);
                 }
               }
             }
           }
-          function didNotHydrateInstance(parentType, parentProps, parentInstance, instance, isConcurrentMode) {
+          function didNotHydrateInstance(parentType, parentProps, parentInstance, instance2, isConcurrentMode) {
             {
               if (isConcurrentMode || parentProps[SUPPRESS_HYDRATION_WARNING$1] !== true) {
-                if (instance.nodeType === ELEMENT_NODE) {
-                  warnForDeletedHydratableElement(parentInstance, instance);
-                } else if (instance.nodeType === COMMENT_NODE) ;
+                if (instance2.nodeType === ELEMENT_NODE) {
+                  warnForDeletedHydratableElement(parentInstance, instance2);
+                } else if (instance2.nodeType === COMMENT_NODE) ;
                 else {
-                  warnForDeletedHydratableText(parentInstance, instance);
+                  warnForDeletedHydratableText(parentInstance, instance2);
                 }
               }
             }
@@ -10896,9 +10896,9 @@
           }
           function cacheContext(workInProgress2, unmaskedContext, maskedContext) {
             {
-              var instance = workInProgress2.stateNode;
-              instance.__reactInternalMemoizedUnmaskedChildContext = unmaskedContext;
-              instance.__reactInternalMemoizedMaskedChildContext = maskedContext;
+              var instance2 = workInProgress2.stateNode;
+              instance2.__reactInternalMemoizedUnmaskedChildContext = unmaskedContext;
+              instance2.__reactInternalMemoizedMaskedChildContext = maskedContext;
             }
           }
           function getMaskedContext(workInProgress2, unmaskedContext) {
@@ -10908,9 +10908,9 @@
               if (!contextTypes) {
                 return emptyContextObject;
               }
-              var instance = workInProgress2.stateNode;
-              if (instance && instance.__reactInternalMemoizedUnmaskedChildContext === unmaskedContext) {
-                return instance.__reactInternalMemoizedMaskedChildContext;
+              var instance2 = workInProgress2.stateNode;
+              if (instance2 && instance2.__reactInternalMemoizedUnmaskedChildContext === unmaskedContext) {
+                return instance2.__reactInternalMemoizedMaskedChildContext;
               }
               var context = {};
               for (var key in contextTypes) {
@@ -10920,7 +10920,7 @@
                 var name = getComponentNameFromFiber(workInProgress2) || "Unknown";
                 checkPropTypes(contextTypes, context, "context", name);
               }
-              if (instance) {
+              if (instance2) {
                 cacheContext(workInProgress2, unmaskedContext, context);
               }
               return context;
@@ -10960,9 +10960,9 @@
           }
           function processChildContext(fiber, type, parentContext) {
             {
-              var instance = fiber.stateNode;
+              var instance2 = fiber.stateNode;
               var childContextTypes = type.childContextTypes;
-              if (typeof instance.getChildContext !== "function") {
+              if (typeof instance2.getChildContext !== "function") {
                 {
                   var componentName = getComponentNameFromFiber(fiber) || "Unknown";
                   if (!warnedAboutMissingGetChildContext[componentName]) {
@@ -10972,7 +10972,7 @@
                 }
                 return parentContext;
               }
-              var childContext = instance.getChildContext();
+              var childContext = instance2.getChildContext();
               for (var contextKey in childContext) {
                 if (!(contextKey in childContextTypes)) {
                   throw new Error((getComponentNameFromFiber(fiber) || "Unknown") + '.getChildContext(): key "' + contextKey + '" is not defined in childContextTypes.');
@@ -10987,8 +10987,8 @@
           }
           function pushContextProvider(workInProgress2) {
             {
-              var instance = workInProgress2.stateNode;
-              var memoizedMergedChildContext = instance && instance.__reactInternalMemoizedMergedChildContext || emptyContextObject;
+              var instance2 = workInProgress2.stateNode;
+              var memoizedMergedChildContext = instance2 && instance2.__reactInternalMemoizedMergedChildContext || emptyContextObject;
               previousContext = contextStackCursor.current;
               push(contextStackCursor, memoizedMergedChildContext, workInProgress2);
               push(didPerformWorkStackCursor, didPerformWorkStackCursor.current, workInProgress2);
@@ -10997,13 +10997,13 @@
           }
           function invalidateContextProvider(workInProgress2, type, didChange) {
             {
-              var instance = workInProgress2.stateNode;
-              if (!instance) {
+              var instance2 = workInProgress2.stateNode;
+              if (!instance2) {
                 throw new Error("Expected to have an instance by this point. This error is likely caused by a bug in React. Please file an issue.");
               }
               if (didChange) {
                 var mergedContext = processChildContext(workInProgress2, type, previousContext);
-                instance.__reactInternalMemoizedMergedChildContext = mergedContext;
+                instance2.__reactInternalMemoizedMergedChildContext = mergedContext;
                 pop(didPerformWorkStackCursor, workInProgress2);
                 pop(contextStackCursor, workInProgress2);
                 push(contextStackCursor, mergedContext, workInProgress2);
@@ -11251,11 +11251,11 @@
             }
             return true;
           }
-          function warnUnhydratedInstance(returnFiber, instance) {
+          function warnUnhydratedInstance(returnFiber, instance2) {
             {
               switch (returnFiber.tag) {
                 case HostRoot: {
-                  didNotHydrateInstanceWithinContainer(returnFiber.stateNode.containerInfo, instance);
+                  didNotHydrateInstanceWithinContainer(returnFiber.stateNode.containerInfo, instance2);
                   break;
                 }
                 case HostComponent: {
@@ -11264,7 +11264,7 @@
                     returnFiber.type,
                     returnFiber.memoizedProps,
                     returnFiber.stateNode,
-                    instance,
+                    instance2,
                     // TODO: Delete this argument when we remove the legacy root API.
                     isConcurrentMode
                   );
@@ -11272,16 +11272,16 @@
                 }
                 case SuspenseComponent: {
                   var suspenseState = returnFiber.memoizedState;
-                  if (suspenseState.dehydrated !== null) didNotHydrateInstanceWithinSuspenseInstance(suspenseState.dehydrated, instance);
+                  if (suspenseState.dehydrated !== null) didNotHydrateInstanceWithinSuspenseInstance(suspenseState.dehydrated, instance2);
                   break;
                 }
               }
             }
           }
-          function deleteHydratableInstance(returnFiber, instance) {
-            warnUnhydratedInstance(returnFiber, instance);
+          function deleteHydratableInstance(returnFiber, instance2) {
+            warnUnhydratedInstance(returnFiber, instance2);
             var childToDelete = createFiberFromHostInstanceForDeletion();
-            childToDelete.stateNode = instance;
+            childToDelete.stateNode = instance2;
             childToDelete.return = returnFiber;
             var deletions = returnFiber.deletions;
             if (deletions === null) {
@@ -11378,11 +11378,11 @@
               case HostComponent: {
                 var type = fiber.type;
                 var props = fiber.pendingProps;
-                var instance = canHydrateInstance(nextInstance, type);
-                if (instance !== null) {
-                  fiber.stateNode = instance;
+                var instance2 = canHydrateInstance(nextInstance, type);
+                if (instance2 !== null) {
+                  fiber.stateNode = instance2;
                   hydrationParentFiber = fiber;
-                  nextHydratableInstance = getFirstHydratableChild(instance);
+                  nextHydratableInstance = getFirstHydratableChild(instance2);
                   return true;
                 }
                 return false;
@@ -11459,9 +11459,9 @@
             }
           }
           function prepareToHydrateHostInstance(fiber, rootContainerInstance, hostContext) {
-            var instance = fiber.stateNode;
+            var instance2 = fiber.stateNode;
             var shouldWarnIfMismatchDev = !didSuspendOrErrorDEV;
-            var updatePayload = hydrateInstance(instance, fiber.type, fiber.memoizedProps, rootContainerInstance, hostContext, fiber, shouldWarnIfMismatchDev);
+            var updatePayload = hydrateInstance(instance2, fiber.type, fiber.memoizedProps, rootContainerInstance, hostContext, fiber, shouldWarnIfMismatchDev);
             fiber.updateQueue = updatePayload;
             if (updatePayload !== null) {
               return true;
@@ -11601,11 +11601,11 @@
             return ReactCurrentBatchConfig$1.transition;
           }
           var ReactStrictModeWarnings = {
-            recordUnsafeLifecycleWarnings: function(fiber, instance) {
+            recordUnsafeLifecycleWarnings: function(fiber, instance2) {
             },
             flushPendingUnsafeLifecycleWarnings: function() {
             },
-            recordLegacyContextWarning: function(fiber, instance) {
+            recordLegacyContextWarning: function(fiber, instance2) {
             },
             flushLegacyContextWarning: function() {
             },
@@ -11638,27 +11638,27 @@
             var pendingComponentWillUpdateWarnings = [];
             var pendingUNSAFE_ComponentWillUpdateWarnings = [];
             var didWarnAboutUnsafeLifecycles = /* @__PURE__ */ new Set();
-            ReactStrictModeWarnings.recordUnsafeLifecycleWarnings = function(fiber, instance) {
+            ReactStrictModeWarnings.recordUnsafeLifecycleWarnings = function(fiber, instance2) {
               if (didWarnAboutUnsafeLifecycles.has(fiber.type)) {
                 return;
               }
-              if (typeof instance.componentWillMount === "function" && // Don't warn about react-lifecycles-compat polyfilled components.
-              instance.componentWillMount.__suppressDeprecationWarning !== true) {
+              if (typeof instance2.componentWillMount === "function" && // Don't warn about react-lifecycles-compat polyfilled components.
+              instance2.componentWillMount.__suppressDeprecationWarning !== true) {
                 pendingComponentWillMountWarnings.push(fiber);
               }
-              if (fiber.mode & StrictLegacyMode && typeof instance.UNSAFE_componentWillMount === "function") {
+              if (fiber.mode & StrictLegacyMode && typeof instance2.UNSAFE_componentWillMount === "function") {
                 pendingUNSAFE_ComponentWillMountWarnings.push(fiber);
               }
-              if (typeof instance.componentWillReceiveProps === "function" && instance.componentWillReceiveProps.__suppressDeprecationWarning !== true) {
+              if (typeof instance2.componentWillReceiveProps === "function" && instance2.componentWillReceiveProps.__suppressDeprecationWarning !== true) {
                 pendingComponentWillReceivePropsWarnings.push(fiber);
               }
-              if (fiber.mode & StrictLegacyMode && typeof instance.UNSAFE_componentWillReceiveProps === "function") {
+              if (fiber.mode & StrictLegacyMode && typeof instance2.UNSAFE_componentWillReceiveProps === "function") {
                 pendingUNSAFE_ComponentWillReceivePropsWarnings.push(fiber);
               }
-              if (typeof instance.componentWillUpdate === "function" && instance.componentWillUpdate.__suppressDeprecationWarning !== true) {
+              if (typeof instance2.componentWillUpdate === "function" && instance2.componentWillUpdate.__suppressDeprecationWarning !== true) {
                 pendingComponentWillUpdateWarnings.push(fiber);
               }
-              if (fiber.mode & StrictLegacyMode && typeof instance.UNSAFE_componentWillUpdate === "function") {
+              if (fiber.mode & StrictLegacyMode && typeof instance2.UNSAFE_componentWillUpdate === "function") {
                 pendingUNSAFE_ComponentWillUpdateWarnings.push(fiber);
               }
             };
@@ -11725,20 +11725,20 @@
               }
               if (componentWillMountUniqueNames.size > 0) {
                 var _sortedNames3 = setToSortedString(componentWillMountUniqueNames);
-                warn("componentWillMount has been renamed, and is not recommended for use. See https://reactjs.org/link/unsafe-component-lifecycles for details.\n\n* Move code with side effects to componentDidMount, and set initial state in the constructor.\n* Rename componentWillMount to UNSAFE_componentWillMount to suppress this warning in non-strict mode. In React 18.x, only the UNSAFE_ name will work. To rename all deprecated lifecycles to their new names, you can run `npx react-codemod rename-unsafe-lifecycles` in your project source folder.\n\nPlease update the following components: %s", _sortedNames3);
+                warn2("componentWillMount has been renamed, and is not recommended for use. See https://reactjs.org/link/unsafe-component-lifecycles for details.\n\n* Move code with side effects to componentDidMount, and set initial state in the constructor.\n* Rename componentWillMount to UNSAFE_componentWillMount to suppress this warning in non-strict mode. In React 18.x, only the UNSAFE_ name will work. To rename all deprecated lifecycles to their new names, you can run `npx react-codemod rename-unsafe-lifecycles` in your project source folder.\n\nPlease update the following components: %s", _sortedNames3);
               }
               if (componentWillReceivePropsUniqueNames.size > 0) {
                 var _sortedNames4 = setToSortedString(componentWillReceivePropsUniqueNames);
-                warn("componentWillReceiveProps has been renamed, and is not recommended for use. See https://reactjs.org/link/unsafe-component-lifecycles for details.\n\n* Move data fetching code or side effects to componentDidUpdate.\n* If you're updating state whenever props change, refactor your code to use memoization techniques or move it to static getDerivedStateFromProps. Learn more at: https://reactjs.org/link/derived-state\n* Rename componentWillReceiveProps to UNSAFE_componentWillReceiveProps to suppress this warning in non-strict mode. In React 18.x, only the UNSAFE_ name will work. To rename all deprecated lifecycles to their new names, you can run `npx react-codemod rename-unsafe-lifecycles` in your project source folder.\n\nPlease update the following components: %s", _sortedNames4);
+                warn2("componentWillReceiveProps has been renamed, and is not recommended for use. See https://reactjs.org/link/unsafe-component-lifecycles for details.\n\n* Move data fetching code or side effects to componentDidUpdate.\n* If you're updating state whenever props change, refactor your code to use memoization techniques or move it to static getDerivedStateFromProps. Learn more at: https://reactjs.org/link/derived-state\n* Rename componentWillReceiveProps to UNSAFE_componentWillReceiveProps to suppress this warning in non-strict mode. In React 18.x, only the UNSAFE_ name will work. To rename all deprecated lifecycles to their new names, you can run `npx react-codemod rename-unsafe-lifecycles` in your project source folder.\n\nPlease update the following components: %s", _sortedNames4);
               }
               if (componentWillUpdateUniqueNames.size > 0) {
                 var _sortedNames5 = setToSortedString(componentWillUpdateUniqueNames);
-                warn("componentWillUpdate has been renamed, and is not recommended for use. See https://reactjs.org/link/unsafe-component-lifecycles for details.\n\n* Move data fetching code or side effects to componentDidUpdate.\n* Rename componentWillUpdate to UNSAFE_componentWillUpdate to suppress this warning in non-strict mode. In React 18.x, only the UNSAFE_ name will work. To rename all deprecated lifecycles to their new names, you can run `npx react-codemod rename-unsafe-lifecycles` in your project source folder.\n\nPlease update the following components: %s", _sortedNames5);
+                warn2("componentWillUpdate has been renamed, and is not recommended for use. See https://reactjs.org/link/unsafe-component-lifecycles for details.\n\n* Move data fetching code or side effects to componentDidUpdate.\n* Rename componentWillUpdate to UNSAFE_componentWillUpdate to suppress this warning in non-strict mode. In React 18.x, only the UNSAFE_ name will work. To rename all deprecated lifecycles to their new names, you can run `npx react-codemod rename-unsafe-lifecycles` in your project source folder.\n\nPlease update the following components: %s", _sortedNames5);
               }
             };
             var pendingLegacyContextWarning = /* @__PURE__ */ new Map();
             var didWarnAboutLegacyContext = /* @__PURE__ */ new Set();
-            ReactStrictModeWarnings.recordLegacyContextWarning = function(fiber, instance) {
+            ReactStrictModeWarnings.recordLegacyContextWarning = function(fiber, instance2) {
               var strictRoot = findStrictRoot(fiber);
               if (strictRoot === null) {
                 error("Expected to find a StrictMode component in a strict mode tree. This error is likely caused by a bug in React. Please file an issue.");
@@ -11748,7 +11748,7 @@
                 return;
               }
               var warningsForRoot = pendingLegacyContextWarning.get(strictRoot);
-              if (fiber.type.contextTypes != null || fiber.type.childContextTypes != null || instance !== null && typeof instance.getChildContext === "function") {
+              if (fiber.type.contextTypes != null || fiber.type.childContextTypes != null || instance2 !== null && typeof instance2.getChildContext === "function") {
                 if (warningsForRoot === void 0) {
                   warningsForRoot = [];
                   pendingLegacyContextWarning.set(strictRoot, warningsForRoot);
@@ -11899,8 +11899,8 @@
           }
           function resolveLazy(lazyType) {
             var payload = lazyType._payload;
-            var init = lazyType._init;
-            return init(payload);
+            var init2 = lazyType._init;
+            return init2(payload);
           }
           function ChildReconciler(shouldTrackSideEffects) {
             function deleteChild(returnFiber, childToDelete) {
@@ -12021,7 +12021,7 @@
               }
             }
             function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-              if (current2 === null || current2.tag !== Fragment2) {
+              if (current2 === null || current2.tag !== Fragment3) {
                 var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
                 created.return = returnFiber;
                 return created;
@@ -12052,8 +12052,8 @@
                   }
                   case REACT_LAZY_TYPE: {
                     var payload = newChild._payload;
-                    var init = newChild._init;
-                    return createChild(returnFiber, init(payload), lanes);
+                    var init2 = newChild._init;
+                    return createChild(returnFiber, init2(payload), lanes);
                   }
                 }
                 if (isArray(newChild) || getIteratorFn(newChild)) {
@@ -12096,8 +12096,8 @@
                   }
                   case REACT_LAZY_TYPE: {
                     var payload = newChild._payload;
-                    var init = newChild._init;
-                    return updateSlot(returnFiber, oldFiber, init(payload), lanes);
+                    var init2 = newChild._init;
+                    return updateSlot(returnFiber, oldFiber, init2(payload), lanes);
                   }
                 }
                 if (isArray(newChild) || getIteratorFn(newChild)) {
@@ -12132,8 +12132,8 @@
                   }
                   case REACT_LAZY_TYPE:
                     var payload = newChild._payload;
-                    var init = newChild._init;
-                    return updateFromMap(existingChildren, returnFiber, newIdx, init(payload), lanes);
+                    var init2 = newChild._init;
+                    return updateFromMap(existingChildren, returnFiber, newIdx, init2(payload), lanes);
                 }
                 if (isArray(newChild) || getIteratorFn(newChild)) {
                   var _matchedFiber3 = existingChildren.get(newIdx) || null;
@@ -12174,8 +12174,8 @@
                     break;
                   case REACT_LAZY_TYPE:
                     var payload = child._payload;
-                    var init = child._init;
-                    warnOnInvalidKey(init(payload), knownKeys, returnFiber);
+                    var init2 = child._init;
+                    warnOnInvalidKey(init2(payload), knownKeys, returnFiber);
                     break;
                 }
               }
@@ -12424,7 +12424,7 @@
                 if (child.key === key) {
                   var elementType = element.type;
                   if (elementType === REACT_FRAGMENT_TYPE) {
-                    if (child.tag === Fragment2) {
+                    if (child.tag === Fragment3) {
                       deleteRemainingChildren(returnFiber, child.sibling);
                       var existing = useFiber(child, element.props.children);
                       existing.return = returnFiber;
@@ -12506,8 +12506,8 @@
                     return placeSingleChild(reconcileSinglePortal(returnFiber, currentFirstChild, newChild, lanes));
                   case REACT_LAZY_TYPE:
                     var payload = newChild._payload;
-                    var init = newChild._init;
-                    return reconcileChildFibers2(returnFiber, currentFirstChild, init(payload), lanes);
+                    var init2 = newChild._init;
+                    return reconcileChildFibers2(returnFiber, currentFirstChild, init2(payload), lanes);
                 }
                 if (isArray(newChild)) {
                   return reconcileChildrenArray(returnFiber, currentFirstChild, newChild, lanes);
@@ -13006,7 +13006,7 @@
             }
             queue.lastBaseUpdate = capturedUpdate;
           }
-          function getStateFromUpdate(workInProgress2, queue, update, prevState, nextProps, instance) {
+          function getStateFromUpdate(workInProgress2, queue, update, prevState, nextProps, instance2) {
             switch (update.tag) {
               case ReplaceState: {
                 var payload = update.payload;
@@ -13014,12 +13014,12 @@
                   {
                     enterDisallowedContextReadInDEV();
                   }
-                  var nextState = payload.call(instance, prevState, nextProps);
+                  var nextState = payload.call(instance2, prevState, nextProps);
                   {
                     if (workInProgress2.mode & StrictLegacyMode) {
                       setIsStrictModeForDevtools(true);
                       try {
-                        payload.call(instance, prevState, nextProps);
+                        payload.call(instance2, prevState, nextProps);
                       } finally {
                         setIsStrictModeForDevtools(false);
                       }
@@ -13041,12 +13041,12 @@
                   {
                     enterDisallowedContextReadInDEV();
                   }
-                  partialState = _payload.call(instance, prevState, nextProps);
+                  partialState = _payload.call(instance2, prevState, nextProps);
                   {
                     if (workInProgress2.mode & StrictLegacyMode) {
                       setIsStrictModeForDevtools(true);
                       try {
-                        _payload.call(instance, prevState, nextProps);
+                        _payload.call(instance2, prevState, nextProps);
                       } finally {
                         setIsStrictModeForDevtools(false);
                       }
@@ -13068,7 +13068,7 @@
             }
             return prevState;
           }
-          function processUpdateQueue(workInProgress2, props, instance, renderLanes2) {
+          function processUpdateQueue(workInProgress2, props, instance2, renderLanes2) {
             var queue = workInProgress2.updateQueue;
             hasForceUpdate = false;
             {
@@ -13143,7 +13143,7 @@
                     };
                     newLastBaseUpdate = newLastBaseUpdate.next = _clone;
                   }
-                  newState = getStateFromUpdate(workInProgress2, queue, update, newState, props, instance);
+                  newState = getStateFromUpdate(workInProgress2, queue, update, newState, props, instance2);
                   var callback = update.callback;
                   if (callback !== null && // If the update was already committed, we should not queue its
                   // callback again.
@@ -13208,7 +13208,7 @@
           function checkHasForceUpdateAfterProcessing() {
             return hasForceUpdate;
           }
-          function commitUpdateQueue(finishedWork, finishedQueue, instance) {
+          function commitUpdateQueue(finishedWork, finishedQueue, instance2) {
             var effects = finishedQueue.effects;
             finishedQueue.effects = null;
             if (effects !== null) {
@@ -13217,7 +13217,7 @@
                 var callback = effect.callback;
                 if (callback !== null) {
                   effect.callback = null;
-                  callCallback(callback, instance);
+                  callCallback(callback, instance2);
                 }
               }
             }
@@ -13657,11 +13657,11 @@
           function basicStateReducer(state, action) {
             return typeof action === "function" ? action(state) : action;
           }
-          function mountReducer(reducer, initialArg, init) {
+          function mountReducer(reducer, initialArg, init2) {
             var hook = mountWorkInProgressHook();
             var initialState;
-            if (init !== void 0) {
-              initialState = init(initialArg);
+            if (init2 !== void 0) {
+              initialState = init2(initialArg);
             } else {
               initialState = initialArg;
             }
@@ -13678,7 +13678,7 @@
             var dispatch = queue.dispatch = dispatchReducerAction.bind(null, currentlyRenderingFiber$1, queue);
             return [hook.memoizedState, dispatch];
           }
-          function updateReducer(reducer, initialArg, init) {
+          function updateReducer(reducer, initialArg, init2) {
             var hook = updateWorkInProgressHook();
             var queue = hook.queue;
             if (queue === null) {
@@ -13779,7 +13779,7 @@
             var dispatch = queue.dispatch;
             return [hook.memoizedState, dispatch];
           }
-          function rerenderReducer(reducer, initialArg, init) {
+          function rerenderReducer(reducer, initialArg, init2) {
             var hook = updateWorkInProgressHook();
             var queue = hook.queue;
             if (queue === null) {
@@ -14226,7 +14226,7 @@
                 if (prevTransition === null && currentTransition._updatedFibers) {
                   var updatedFibersCount = currentTransition._updatedFibers.size;
                   if (updatedFibersCount > 10) {
-                    warn("Detected a large number of updates inside startTransition. If this is due to a subscription please re-write it to use React provided hooks. Otherwise concurrent mode guarantees are off the table.");
+                    warn2("Detected a large number of updates inside startTransition. If this is due to a subscription please re-write it to use React provided hooks. Otherwise concurrent mode guarantees are off the table.");
                   }
                   currentTransition._updatedFibers.clear();
                 }
@@ -14475,13 +14475,13 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useReducer: function(reducer, initialArg, init) {
+              useReducer: function(reducer, initialArg, init2) {
                 currentHookNameInDev = "useReducer";
                 mountHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnMountInDEV;
                 try {
-                  return mountReducer(reducer, initialArg, init);
+                  return mountReducer(reducer, initialArg, init2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -14579,13 +14579,13 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useReducer: function(reducer, initialArg, init) {
+              useReducer: function(reducer, initialArg, init2) {
                 currentHookNameInDev = "useReducer";
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnMountInDEV;
                 try {
-                  return mountReducer(reducer, initialArg, init);
+                  return mountReducer(reducer, initialArg, init2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -14683,13 +14683,13 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useReducer: function(reducer, initialArg, init) {
+              useReducer: function(reducer, initialArg, init2) {
                 currentHookNameInDev = "useReducer";
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
                 try {
-                  return updateReducer(reducer, initialArg, init);
+                  return updateReducer(reducer, initialArg, init2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -14787,13 +14787,13 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useReducer: function(reducer, initialArg, init) {
+              useReducer: function(reducer, initialArg, init2) {
                 currentHookNameInDev = "useReducer";
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnRerenderInDEV;
                 try {
-                  return rerenderReducer(reducer, initialArg, init);
+                  return rerenderReducer(reducer, initialArg, init2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -14899,14 +14899,14 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useReducer: function(reducer, initialArg, init) {
+              useReducer: function(reducer, initialArg, init2) {
                 currentHookNameInDev = "useReducer";
                 warnInvalidHookAccess();
                 mountHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnMountInDEV;
                 try {
-                  return mountReducer(reducer, initialArg, init);
+                  return mountReducer(reducer, initialArg, init2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -15020,14 +15020,14 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useReducer: function(reducer, initialArg, init) {
+              useReducer: function(reducer, initialArg, init2) {
                 currentHookNameInDev = "useReducer";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
                 try {
-                  return updateReducer(reducer, initialArg, init);
+                  return updateReducer(reducer, initialArg, init2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -15141,14 +15141,14 @@
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
               },
-              useReducer: function(reducer, initialArg, init) {
+              useReducer: function(reducer, initialArg, init2) {
                 currentHookNameInDev = "useReducer";
                 warnInvalidHookAccess();
                 updateHookTypesDev();
                 var prevDispatcher = ReactCurrentDispatcher$1.current;
                 ReactCurrentDispatcher$1.current = InvalidNestedHooksDispatcherOnUpdateInDEV;
                 try {
-                  return rerenderReducer(reducer, initialArg, init);
+                  return rerenderReducer(reducer, initialArg, init2);
                 } finally {
                   ReactCurrentDispatcher$1.current = prevDispatcher;
                 }
@@ -15406,7 +15406,7 @@
           var classComponentUpdater = {
             isMounted,
             enqueueSetState: function(inst, payload, callback) {
-              var fiber = get(inst);
+              var fiber = get2(inst);
               var eventTime = requestEventTime();
               var lane = requestUpdateLane(fiber);
               var update = createUpdate(eventTime, lane);
@@ -15427,7 +15427,7 @@
               }
             },
             enqueueReplaceState: function(inst, payload, callback) {
-              var fiber = get(inst);
+              var fiber = get2(inst);
               var eventTime = requestEventTime();
               var lane = requestUpdateLane(fiber);
               var update = createUpdate(eventTime, lane);
@@ -15449,7 +15449,7 @@
               }
             },
             enqueueForceUpdate: function(inst, callback) {
-              var fiber = get(inst);
+              var fiber = get2(inst);
               var eventTime = requestEventTime();
               var lane = requestUpdateLane(fiber);
               var update = createUpdate(eventTime, lane);
@@ -15471,14 +15471,14 @@
             }
           };
           function checkShouldComponentUpdate(workInProgress2, ctor, oldProps, newProps, oldState, newState, nextContext) {
-            var instance = workInProgress2.stateNode;
-            if (typeof instance.shouldComponentUpdate === "function") {
-              var shouldUpdate = instance.shouldComponentUpdate(newProps, newState, nextContext);
+            var instance2 = workInProgress2.stateNode;
+            if (typeof instance2.shouldComponentUpdate === "function") {
+              var shouldUpdate = instance2.shouldComponentUpdate(newProps, newState, nextContext);
               {
                 if (workInProgress2.mode & StrictLegacyMode) {
                   setIsStrictModeForDevtools(true);
                   try {
-                    shouldUpdate = instance.shouldComponentUpdate(newProps, newState, nextContext);
+                    shouldUpdate = instance2.shouldComponentUpdate(newProps, newState, nextContext);
                   } finally {
                     setIsStrictModeForDevtools(false);
                   }
@@ -15495,10 +15495,10 @@
             return true;
           }
           function checkClassInstance(workInProgress2, ctor, newProps) {
-            var instance = workInProgress2.stateNode;
+            var instance2 = workInProgress2.stateNode;
             {
               var name = getComponentNameFromType(ctor) || "Component";
-              var renderPresent = instance.render;
+              var renderPresent = instance2.render;
               if (!renderPresent) {
                 if (ctor.prototype && typeof ctor.prototype.render === "function") {
                   error("%s(...): No `render` method found on the returned component instance: did you accidentally return an object from the constructor?", name);
@@ -15506,16 +15506,16 @@
                   error("%s(...): No `render` method found on the returned component instance: you may have forgotten to define `render`.", name);
                 }
               }
-              if (instance.getInitialState && !instance.getInitialState.isReactClassApproved && !instance.state) {
+              if (instance2.getInitialState && !instance2.getInitialState.isReactClassApproved && !instance2.state) {
                 error("getInitialState was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Did you mean to define a state property instead?", name);
               }
-              if (instance.getDefaultProps && !instance.getDefaultProps.isReactClassApproved) {
+              if (instance2.getDefaultProps && !instance2.getDefaultProps.isReactClassApproved) {
                 error("getDefaultProps was defined on %s, a plain JavaScript class. This is only supported for classes created using React.createClass. Use a static property to define defaultProps instead.", name);
               }
-              if (instance.propTypes) {
+              if (instance2.propTypes) {
                 error("propTypes was defined as an instance property on %s. Use a static property to define propTypes instead.", name);
               }
-              if (instance.contextType) {
+              if (instance2.contextType) {
                 error("contextType was defined as an instance property on %s. Use a static property to define contextType instead.", name);
               }
               {
@@ -15531,7 +15531,7 @@
                   didWarnAboutLegacyContext$1.add(ctor);
                   error("%s uses the legacy contextTypes API which is no longer supported and will be removed in the next major release. Use React.createContext() with static contextType instead.\n\nLearn more about this warning here: https://reactjs.org/link/legacy-context", name);
                 }
-                if (instance.contextTypes) {
+                if (instance2.contextTypes) {
                   error("contextTypes was defined as an instance property on %s. Use a static property to define contextTypes instead.", name);
                 }
                 if (ctor.contextType && ctor.contextTypes && !didWarnAboutContextTypeAndContextTypes.has(ctor)) {
@@ -15539,59 +15539,59 @@
                   error("%s declares both contextTypes and contextType static properties. The legacy contextTypes property will be ignored.", name);
                 }
               }
-              if (typeof instance.componentShouldUpdate === "function") {
+              if (typeof instance2.componentShouldUpdate === "function") {
                 error("%s has a method called componentShouldUpdate(). Did you mean shouldComponentUpdate()? The name is phrased as a question because the function is expected to return a value.", name);
               }
-              if (ctor.prototype && ctor.prototype.isPureReactComponent && typeof instance.shouldComponentUpdate !== "undefined") {
+              if (ctor.prototype && ctor.prototype.isPureReactComponent && typeof instance2.shouldComponentUpdate !== "undefined") {
                 error("%s has a method called shouldComponentUpdate(). shouldComponentUpdate should not be used when extending React.PureComponent. Please extend React.Component if shouldComponentUpdate is used.", getComponentNameFromType(ctor) || "A pure component");
               }
-              if (typeof instance.componentDidUnmount === "function") {
+              if (typeof instance2.componentDidUnmount === "function") {
                 error("%s has a method called componentDidUnmount(). But there is no such lifecycle method. Did you mean componentWillUnmount()?", name);
               }
-              if (typeof instance.componentDidReceiveProps === "function") {
+              if (typeof instance2.componentDidReceiveProps === "function") {
                 error("%s has a method called componentDidReceiveProps(). But there is no such lifecycle method. If you meant to update the state in response to changing props, use componentWillReceiveProps(). If you meant to fetch data or run side-effects or mutations after React has updated the UI, use componentDidUpdate().", name);
               }
-              if (typeof instance.componentWillRecieveProps === "function") {
+              if (typeof instance2.componentWillRecieveProps === "function") {
                 error("%s has a method called componentWillRecieveProps(). Did you mean componentWillReceiveProps()?", name);
               }
-              if (typeof instance.UNSAFE_componentWillRecieveProps === "function") {
+              if (typeof instance2.UNSAFE_componentWillRecieveProps === "function") {
                 error("%s has a method called UNSAFE_componentWillRecieveProps(). Did you mean UNSAFE_componentWillReceiveProps()?", name);
               }
-              var hasMutatedProps = instance.props !== newProps;
-              if (instance.props !== void 0 && hasMutatedProps) {
+              var hasMutatedProps = instance2.props !== newProps;
+              if (instance2.props !== void 0 && hasMutatedProps) {
                 error("%s(...): When calling super() in `%s`, make sure to pass up the same props that your component's constructor was passed.", name, name);
               }
-              if (instance.defaultProps) {
+              if (instance2.defaultProps) {
                 error("Setting defaultProps as an instance property on %s is not supported and will be ignored. Instead, define defaultProps as a static property on %s.", name, name);
               }
-              if (typeof instance.getSnapshotBeforeUpdate === "function" && typeof instance.componentDidUpdate !== "function" && !didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.has(ctor)) {
+              if (typeof instance2.getSnapshotBeforeUpdate === "function" && typeof instance2.componentDidUpdate !== "function" && !didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.has(ctor)) {
                 didWarnAboutGetSnapshotBeforeUpdateWithoutDidUpdate.add(ctor);
                 error("%s: getSnapshotBeforeUpdate() should be used with componentDidUpdate(). This component defines getSnapshotBeforeUpdate() only.", getComponentNameFromType(ctor));
               }
-              if (typeof instance.getDerivedStateFromProps === "function") {
+              if (typeof instance2.getDerivedStateFromProps === "function") {
                 error("%s: getDerivedStateFromProps() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name);
               }
-              if (typeof instance.getDerivedStateFromError === "function") {
+              if (typeof instance2.getDerivedStateFromError === "function") {
                 error("%s: getDerivedStateFromError() is defined as an instance method and will be ignored. Instead, declare it as a static method.", name);
               }
               if (typeof ctor.getSnapshotBeforeUpdate === "function") {
                 error("%s: getSnapshotBeforeUpdate() is defined as a static method and will be ignored. Instead, declare it as an instance method.", name);
               }
-              var _state = instance.state;
+              var _state = instance2.state;
               if (_state && (typeof _state !== "object" || isArray(_state))) {
                 error("%s.state: must be set to an object or null", name);
               }
-              if (typeof instance.getChildContext === "function" && typeof ctor.childContextTypes !== "object") {
+              if (typeof instance2.getChildContext === "function" && typeof ctor.childContextTypes !== "object") {
                 error("%s.getChildContext(): childContextTypes must be defined in order to use getChildContext().", name);
               }
             }
           }
-          function adoptClassInstance(workInProgress2, instance) {
-            instance.updater = classComponentUpdater;
-            workInProgress2.stateNode = instance;
-            set(instance, workInProgress2);
+          function adoptClassInstance(workInProgress2, instance2) {
+            instance2.updater = classComponentUpdater;
+            workInProgress2.stateNode = instance2;
+            set(instance2, workInProgress2);
             {
-              instance._reactInternalInstance = fakeInternalInstance;
+              instance2._reactInternalInstance = fakeInternalInstance;
             }
           }
           function constructClassInstance(workInProgress2, ctor, props) {
@@ -15631,44 +15631,44 @@
               isLegacyContextConsumer = contextTypes !== null && contextTypes !== void 0;
               context = isLegacyContextConsumer ? getMaskedContext(workInProgress2, unmaskedContext) : emptyContextObject;
             }
-            var instance = new ctor(props, context);
+            var instance2 = new ctor(props, context);
             {
               if (workInProgress2.mode & StrictLegacyMode) {
                 setIsStrictModeForDevtools(true);
                 try {
-                  instance = new ctor(props, context);
+                  instance2 = new ctor(props, context);
                 } finally {
                   setIsStrictModeForDevtools(false);
                 }
               }
             }
-            var state = workInProgress2.memoizedState = instance.state !== null && instance.state !== void 0 ? instance.state : null;
-            adoptClassInstance(workInProgress2, instance);
+            var state = workInProgress2.memoizedState = instance2.state !== null && instance2.state !== void 0 ? instance2.state : null;
+            adoptClassInstance(workInProgress2, instance2);
             {
               if (typeof ctor.getDerivedStateFromProps === "function" && state === null) {
                 var componentName = getComponentNameFromType(ctor) || "Component";
                 if (!didWarnAboutUninitializedState.has(componentName)) {
                   didWarnAboutUninitializedState.add(componentName);
-                  error("`%s` uses `getDerivedStateFromProps` but its initial state is %s. This is not recommended. Instead, define the initial state by assigning an object to `this.state` in the constructor of `%s`. This ensures that `getDerivedStateFromProps` arguments have a consistent shape.", componentName, instance.state === null ? "null" : "undefined", componentName);
+                  error("`%s` uses `getDerivedStateFromProps` but its initial state is %s. This is not recommended. Instead, define the initial state by assigning an object to `this.state` in the constructor of `%s`. This ensures that `getDerivedStateFromProps` arguments have a consistent shape.", componentName, instance2.state === null ? "null" : "undefined", componentName);
                 }
               }
-              if (typeof ctor.getDerivedStateFromProps === "function" || typeof instance.getSnapshotBeforeUpdate === "function") {
+              if (typeof ctor.getDerivedStateFromProps === "function" || typeof instance2.getSnapshotBeforeUpdate === "function") {
                 var foundWillMountName = null;
                 var foundWillReceivePropsName = null;
                 var foundWillUpdateName = null;
-                if (typeof instance.componentWillMount === "function" && instance.componentWillMount.__suppressDeprecationWarning !== true) {
+                if (typeof instance2.componentWillMount === "function" && instance2.componentWillMount.__suppressDeprecationWarning !== true) {
                   foundWillMountName = "componentWillMount";
-                } else if (typeof instance.UNSAFE_componentWillMount === "function") {
+                } else if (typeof instance2.UNSAFE_componentWillMount === "function") {
                   foundWillMountName = "UNSAFE_componentWillMount";
                 }
-                if (typeof instance.componentWillReceiveProps === "function" && instance.componentWillReceiveProps.__suppressDeprecationWarning !== true) {
+                if (typeof instance2.componentWillReceiveProps === "function" && instance2.componentWillReceiveProps.__suppressDeprecationWarning !== true) {
                   foundWillReceivePropsName = "componentWillReceiveProps";
-                } else if (typeof instance.UNSAFE_componentWillReceiveProps === "function") {
+                } else if (typeof instance2.UNSAFE_componentWillReceiveProps === "function") {
                   foundWillReceivePropsName = "UNSAFE_componentWillReceiveProps";
                 }
-                if (typeof instance.componentWillUpdate === "function" && instance.componentWillUpdate.__suppressDeprecationWarning !== true) {
+                if (typeof instance2.componentWillUpdate === "function" && instance2.componentWillUpdate.__suppressDeprecationWarning !== true) {
                   foundWillUpdateName = "componentWillUpdate";
-                } else if (typeof instance.UNSAFE_componentWillUpdate === "function") {
+                } else if (typeof instance2.UNSAFE_componentWillUpdate === "function") {
                   foundWillUpdateName = "UNSAFE_componentWillUpdate";
                 }
                 if (foundWillMountName !== null || foundWillReceivePropsName !== null || foundWillUpdateName !== null) {
@@ -15684,32 +15684,32 @@
             if (isLegacyContextConsumer) {
               cacheContext(workInProgress2, unmaskedContext, context);
             }
-            return instance;
+            return instance2;
           }
-          function callComponentWillMount(workInProgress2, instance) {
-            var oldState = instance.state;
-            if (typeof instance.componentWillMount === "function") {
-              instance.componentWillMount();
+          function callComponentWillMount(workInProgress2, instance2) {
+            var oldState = instance2.state;
+            if (typeof instance2.componentWillMount === "function") {
+              instance2.componentWillMount();
             }
-            if (typeof instance.UNSAFE_componentWillMount === "function") {
-              instance.UNSAFE_componentWillMount();
+            if (typeof instance2.UNSAFE_componentWillMount === "function") {
+              instance2.UNSAFE_componentWillMount();
             }
-            if (oldState !== instance.state) {
+            if (oldState !== instance2.state) {
               {
                 error("%s.componentWillMount(): Assigning directly to this.state is deprecated (except inside a component's constructor). Use setState instead.", getComponentNameFromFiber(workInProgress2) || "Component");
               }
-              classComponentUpdater.enqueueReplaceState(instance, instance.state, null);
+              classComponentUpdater.enqueueReplaceState(instance2, instance2.state, null);
             }
           }
-          function callComponentWillReceiveProps(workInProgress2, instance, newProps, nextContext) {
-            var oldState = instance.state;
-            if (typeof instance.componentWillReceiveProps === "function") {
-              instance.componentWillReceiveProps(newProps, nextContext);
+          function callComponentWillReceiveProps(workInProgress2, instance2, newProps, nextContext) {
+            var oldState = instance2.state;
+            if (typeof instance2.componentWillReceiveProps === "function") {
+              instance2.componentWillReceiveProps(newProps, nextContext);
             }
-            if (typeof instance.UNSAFE_componentWillReceiveProps === "function") {
-              instance.UNSAFE_componentWillReceiveProps(newProps, nextContext);
+            if (typeof instance2.UNSAFE_componentWillReceiveProps === "function") {
+              instance2.UNSAFE_componentWillReceiveProps(newProps, nextContext);
             }
-            if (instance.state !== oldState) {
+            if (instance2.state !== oldState) {
               {
                 var componentName = getComponentNameFromFiber(workInProgress2) || "Component";
                 if (!didWarnAboutStateAssignmentForComponent.has(componentName)) {
@@ -15717,27 +15717,27 @@
                   error("%s.componentWillReceiveProps(): Assigning directly to this.state is deprecated (except inside a component's constructor). Use setState instead.", componentName);
                 }
               }
-              classComponentUpdater.enqueueReplaceState(instance, instance.state, null);
+              classComponentUpdater.enqueueReplaceState(instance2, instance2.state, null);
             }
           }
           function mountClassInstance(workInProgress2, ctor, newProps, renderLanes2) {
             {
               checkClassInstance(workInProgress2, ctor, newProps);
             }
-            var instance = workInProgress2.stateNode;
-            instance.props = newProps;
-            instance.state = workInProgress2.memoizedState;
-            instance.refs = {};
+            var instance2 = workInProgress2.stateNode;
+            instance2.props = newProps;
+            instance2.state = workInProgress2.memoizedState;
+            instance2.refs = {};
             initializeUpdateQueue(workInProgress2);
             var contextType = ctor.contextType;
             if (typeof contextType === "object" && contextType !== null) {
-              instance.context = readContext(contextType);
+              instance2.context = readContext(contextType);
             } else {
               var unmaskedContext = getUnmaskedContext(workInProgress2, ctor, true);
-              instance.context = getMaskedContext(workInProgress2, unmaskedContext);
+              instance2.context = getMaskedContext(workInProgress2, unmaskedContext);
             }
             {
-              if (instance.state === newProps) {
+              if (instance2.state === newProps) {
                 var componentName = getComponentNameFromType(ctor) || "Component";
                 if (!didWarnAboutDirectlyAssigningPropsToState.has(componentName)) {
                   didWarnAboutDirectlyAssigningPropsToState.add(componentName);
@@ -15745,24 +15745,24 @@
                 }
               }
               if (workInProgress2.mode & StrictLegacyMode) {
-                ReactStrictModeWarnings.recordLegacyContextWarning(workInProgress2, instance);
+                ReactStrictModeWarnings.recordLegacyContextWarning(workInProgress2, instance2);
               }
               {
-                ReactStrictModeWarnings.recordUnsafeLifecycleWarnings(workInProgress2, instance);
+                ReactStrictModeWarnings.recordUnsafeLifecycleWarnings(workInProgress2, instance2);
               }
             }
-            instance.state = workInProgress2.memoizedState;
+            instance2.state = workInProgress2.memoizedState;
             var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
             if (typeof getDerivedStateFromProps === "function") {
               applyDerivedStateFromProps(workInProgress2, ctor, getDerivedStateFromProps, newProps);
-              instance.state = workInProgress2.memoizedState;
+              instance2.state = workInProgress2.memoizedState;
             }
-            if (typeof ctor.getDerivedStateFromProps !== "function" && typeof instance.getSnapshotBeforeUpdate !== "function" && (typeof instance.UNSAFE_componentWillMount === "function" || typeof instance.componentWillMount === "function")) {
-              callComponentWillMount(workInProgress2, instance);
-              processUpdateQueue(workInProgress2, newProps, instance, renderLanes2);
-              instance.state = workInProgress2.memoizedState;
+            if (typeof ctor.getDerivedStateFromProps !== "function" && typeof instance2.getSnapshotBeforeUpdate !== "function" && (typeof instance2.UNSAFE_componentWillMount === "function" || typeof instance2.componentWillMount === "function")) {
+              callComponentWillMount(workInProgress2, instance2);
+              processUpdateQueue(workInProgress2, newProps, instance2, renderLanes2);
+              instance2.state = workInProgress2.memoizedState;
             }
-            if (typeof instance.componentDidMount === "function") {
+            if (typeof instance2.componentDidMount === "function") {
               var fiberFlags = Update;
               {
                 fiberFlags |= LayoutStatic;
@@ -15774,10 +15774,10 @@
             }
           }
           function resumeMountClassInstance(workInProgress2, ctor, newProps, renderLanes2) {
-            var instance = workInProgress2.stateNode;
+            var instance2 = workInProgress2.stateNode;
             var oldProps = workInProgress2.memoizedProps;
-            instance.props = oldProps;
-            var oldContext = instance.context;
+            instance2.props = oldProps;
+            var oldContext = instance2.context;
             var contextType = ctor.contextType;
             var nextContext = emptyContextObject;
             if (typeof contextType === "object" && contextType !== null) {
@@ -15787,19 +15787,19 @@
               nextContext = getMaskedContext(workInProgress2, nextLegacyUnmaskedContext);
             }
             var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
-            var hasNewLifecycles = typeof getDerivedStateFromProps === "function" || typeof instance.getSnapshotBeforeUpdate === "function";
-            if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === "function" || typeof instance.componentWillReceiveProps === "function")) {
+            var hasNewLifecycles = typeof getDerivedStateFromProps === "function" || typeof instance2.getSnapshotBeforeUpdate === "function";
+            if (!hasNewLifecycles && (typeof instance2.UNSAFE_componentWillReceiveProps === "function" || typeof instance2.componentWillReceiveProps === "function")) {
               if (oldProps !== newProps || oldContext !== nextContext) {
-                callComponentWillReceiveProps(workInProgress2, instance, newProps, nextContext);
+                callComponentWillReceiveProps(workInProgress2, instance2, newProps, nextContext);
               }
             }
             resetHasForceUpdateBeforeProcessing();
             var oldState = workInProgress2.memoizedState;
-            var newState = instance.state = oldState;
-            processUpdateQueue(workInProgress2, newProps, instance, renderLanes2);
+            var newState = instance2.state = oldState;
+            processUpdateQueue(workInProgress2, newProps, instance2, renderLanes2);
             newState = workInProgress2.memoizedState;
             if (oldProps === newProps && oldState === newState && !hasContextChanged() && !checkHasForceUpdateAfterProcessing()) {
-              if (typeof instance.componentDidMount === "function") {
+              if (typeof instance2.componentDidMount === "function") {
                 var fiberFlags = Update;
                 {
                   fiberFlags |= LayoutStatic;
@@ -15817,15 +15817,15 @@
             }
             var shouldUpdate = checkHasForceUpdateAfterProcessing() || checkShouldComponentUpdate(workInProgress2, ctor, oldProps, newProps, oldState, newState, nextContext);
             if (shouldUpdate) {
-              if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillMount === "function" || typeof instance.componentWillMount === "function")) {
-                if (typeof instance.componentWillMount === "function") {
-                  instance.componentWillMount();
+              if (!hasNewLifecycles && (typeof instance2.UNSAFE_componentWillMount === "function" || typeof instance2.componentWillMount === "function")) {
+                if (typeof instance2.componentWillMount === "function") {
+                  instance2.componentWillMount();
                 }
-                if (typeof instance.UNSAFE_componentWillMount === "function") {
-                  instance.UNSAFE_componentWillMount();
+                if (typeof instance2.UNSAFE_componentWillMount === "function") {
+                  instance2.UNSAFE_componentWillMount();
                 }
               }
-              if (typeof instance.componentDidMount === "function") {
+              if (typeof instance2.componentDidMount === "function") {
                 var _fiberFlags = Update;
                 {
                   _fiberFlags |= LayoutStatic;
@@ -15836,7 +15836,7 @@
                 workInProgress2.flags |= _fiberFlags;
               }
             } else {
-              if (typeof instance.componentDidMount === "function") {
+              if (typeof instance2.componentDidMount === "function") {
                 var _fiberFlags2 = Update;
                 {
                   _fiberFlags2 |= LayoutStatic;
@@ -15849,19 +15849,19 @@
               workInProgress2.memoizedProps = newProps;
               workInProgress2.memoizedState = newState;
             }
-            instance.props = newProps;
-            instance.state = newState;
-            instance.context = nextContext;
+            instance2.props = newProps;
+            instance2.state = newState;
+            instance2.context = nextContext;
             return shouldUpdate;
           }
           function updateClassInstance(current2, workInProgress2, ctor, newProps, renderLanes2) {
-            var instance = workInProgress2.stateNode;
+            var instance2 = workInProgress2.stateNode;
             cloneUpdateQueue(current2, workInProgress2);
             var unresolvedOldProps = workInProgress2.memoizedProps;
             var oldProps = workInProgress2.type === workInProgress2.elementType ? unresolvedOldProps : resolveDefaultProps(workInProgress2.type, unresolvedOldProps);
-            instance.props = oldProps;
+            instance2.props = oldProps;
             var unresolvedNewProps = workInProgress2.pendingProps;
-            var oldContext = instance.context;
+            var oldContext = instance2.context;
             var contextType = ctor.contextType;
             var nextContext = emptyContextObject;
             if (typeof contextType === "object" && contextType !== null) {
@@ -15871,24 +15871,24 @@
               nextContext = getMaskedContext(workInProgress2, nextUnmaskedContext);
             }
             var getDerivedStateFromProps = ctor.getDerivedStateFromProps;
-            var hasNewLifecycles = typeof getDerivedStateFromProps === "function" || typeof instance.getSnapshotBeforeUpdate === "function";
-            if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillReceiveProps === "function" || typeof instance.componentWillReceiveProps === "function")) {
+            var hasNewLifecycles = typeof getDerivedStateFromProps === "function" || typeof instance2.getSnapshotBeforeUpdate === "function";
+            if (!hasNewLifecycles && (typeof instance2.UNSAFE_componentWillReceiveProps === "function" || typeof instance2.componentWillReceiveProps === "function")) {
               if (unresolvedOldProps !== unresolvedNewProps || oldContext !== nextContext) {
-                callComponentWillReceiveProps(workInProgress2, instance, newProps, nextContext);
+                callComponentWillReceiveProps(workInProgress2, instance2, newProps, nextContext);
               }
             }
             resetHasForceUpdateBeforeProcessing();
             var oldState = workInProgress2.memoizedState;
-            var newState = instance.state = oldState;
-            processUpdateQueue(workInProgress2, newProps, instance, renderLanes2);
+            var newState = instance2.state = oldState;
+            processUpdateQueue(workInProgress2, newProps, instance2, renderLanes2);
             newState = workInProgress2.memoizedState;
             if (unresolvedOldProps === unresolvedNewProps && oldState === newState && !hasContextChanged() && !checkHasForceUpdateAfterProcessing() && !enableLazyContextPropagation) {
-              if (typeof instance.componentDidUpdate === "function") {
+              if (typeof instance2.componentDidUpdate === "function") {
                 if (unresolvedOldProps !== current2.memoizedProps || oldState !== current2.memoizedState) {
                   workInProgress2.flags |= Update;
                 }
               }
-              if (typeof instance.getSnapshotBeforeUpdate === "function") {
+              if (typeof instance2.getSnapshotBeforeUpdate === "function") {
                 if (unresolvedOldProps !== current2.memoizedProps || oldState !== current2.memoizedState) {
                   workInProgress2.flags |= Snapshot;
                 }
@@ -15905,27 +15905,27 @@
             // components so it's not that common.
             enableLazyContextPropagation;
             if (shouldUpdate) {
-              if (!hasNewLifecycles && (typeof instance.UNSAFE_componentWillUpdate === "function" || typeof instance.componentWillUpdate === "function")) {
-                if (typeof instance.componentWillUpdate === "function") {
-                  instance.componentWillUpdate(newProps, newState, nextContext);
+              if (!hasNewLifecycles && (typeof instance2.UNSAFE_componentWillUpdate === "function" || typeof instance2.componentWillUpdate === "function")) {
+                if (typeof instance2.componentWillUpdate === "function") {
+                  instance2.componentWillUpdate(newProps, newState, nextContext);
                 }
-                if (typeof instance.UNSAFE_componentWillUpdate === "function") {
-                  instance.UNSAFE_componentWillUpdate(newProps, newState, nextContext);
+                if (typeof instance2.UNSAFE_componentWillUpdate === "function") {
+                  instance2.UNSAFE_componentWillUpdate(newProps, newState, nextContext);
                 }
               }
-              if (typeof instance.componentDidUpdate === "function") {
+              if (typeof instance2.componentDidUpdate === "function") {
                 workInProgress2.flags |= Update;
               }
-              if (typeof instance.getSnapshotBeforeUpdate === "function") {
+              if (typeof instance2.getSnapshotBeforeUpdate === "function") {
                 workInProgress2.flags |= Snapshot;
               }
             } else {
-              if (typeof instance.componentDidUpdate === "function") {
+              if (typeof instance2.componentDidUpdate === "function") {
                 if (unresolvedOldProps !== current2.memoizedProps || oldState !== current2.memoizedState) {
                   workInProgress2.flags |= Update;
                 }
               }
-              if (typeof instance.getSnapshotBeforeUpdate === "function") {
+              if (typeof instance2.getSnapshotBeforeUpdate === "function") {
                 if (unresolvedOldProps !== current2.memoizedProps || oldState !== current2.memoizedState) {
                   workInProgress2.flags |= Snapshot;
                 }
@@ -15933,9 +15933,9 @@
               workInProgress2.memoizedProps = newProps;
               workInProgress2.memoizedState = newState;
             }
-            instance.props = newProps;
-            instance.state = newState;
-            instance.context = nextContext;
+            instance2.props = newProps;
+            instance2.state = newState;
+            instance2.context = nextContext;
             return shouldUpdate;
           }
           function createCapturedValueAtFiber(value, source) {
@@ -15988,9 +15988,9 @@
               } else {
                 console["error"](error2);
               }
-            } catch (e2) {
+            } catch (e3) {
               setTimeout(function() {
-                throw e2;
+                throw e3;
               });
             }
           }
@@ -16199,8 +16199,8 @@
                 case ClassComponent:
                   var errorInfo = value;
                   var ctor = workInProgress2.type;
-                  var instance = workInProgress2.stateNode;
-                  if ((workInProgress2.flags & DidCapture) === NoFlags && (typeof ctor.getDerivedStateFromError === "function" || instance !== null && typeof instance.componentDidCatch === "function" && !isAlreadyFailedLegacyErrorBoundary(instance))) {
+                  var instance2 = workInProgress2.stateNode;
+                  if ((workInProgress2.flags & DidCapture) === NoFlags && (typeof ctor.getDerivedStateFromError === "function" || instance2 !== null && typeof instance2.componentDidCatch === "function" && !isAlreadyFailedLegacyErrorBoundary(instance2))) {
                     workInProgress2.flags |= ShouldCapture;
                     var _lane = pickArbitraryLane(rootRenderLanes);
                     workInProgress2.lanes = mergeLanes(workInProgress2.lanes, _lane);
@@ -16382,9 +16382,9 @@
                 if (outerMemoType.$$typeof === REACT_LAZY_TYPE) {
                   var lazyComponent = outerMemoType;
                   var payload = lazyComponent._payload;
-                  var init = lazyComponent._init;
+                  var init2 = lazyComponent._init;
                   try {
-                    outerMemoType = init(payload);
+                    outerMemoType = init2(payload);
                   } catch (x2) {
                     outerMemoType = null;
                   }
@@ -16604,9 +16604,9 @@
               hasContext = false;
             }
             prepareToReadContext(workInProgress2, renderLanes2);
-            var instance = workInProgress2.stateNode;
+            var instance2 = workInProgress2.stateNode;
             var shouldUpdate;
-            if (instance === null) {
+            if (instance2 === null) {
               resetSuspendedCurrentOnMountInLegacyMode(current2, workInProgress2);
               constructClassInstance(workInProgress2, Component, nextProps);
               mountClassInstance(workInProgress2, Component, nextProps, renderLanes2);
@@ -16637,7 +16637,7 @@
               }
               return bailoutOnAlreadyFinishedWork(current2, workInProgress2, renderLanes2);
             }
-            var instance = workInProgress2.stateNode;
+            var instance2 = workInProgress2.stateNode;
             ReactCurrentOwner$1.current = workInProgress2;
             var nextChildren;
             if (didCaptureError && typeof Component.getDerivedStateFromError !== "function") {
@@ -16651,11 +16651,11 @@
               }
               {
                 setIsRendering(true);
-                nextChildren = instance.render();
+                nextChildren = instance2.render();
                 if (workInProgress2.mode & StrictLegacyMode) {
                   setIsStrictModeForDevtools(true);
                   try {
-                    instance.render();
+                    instance2.render();
                   } finally {
                     setIsStrictModeForDevtools(false);
                   }
@@ -16672,7 +16672,7 @@
             } else {
               reconcileChildren(current2, workInProgress2, nextChildren, renderLanes2);
             }
-            workInProgress2.memoizedState = instance.state;
+            workInProgress2.memoizedState = instance2.state;
             if (hasContext) {
               invalidateContextProvider(workInProgress2, Component, true);
             }
@@ -16773,8 +16773,8 @@
             var props = workInProgress2.pendingProps;
             var lazyComponent = elementType;
             var payload = lazyComponent._payload;
-            var init = lazyComponent._init;
-            var Component = init(payload);
+            var init2 = lazyComponent._init;
+            var Component = init2(payload);
             workInProgress2.type = Component;
             var resolvedTag = workInProgress2.tag = resolveLazyComponentTag(Component);
             var resolvedProps = resolveDefaultProps(Component, props);
@@ -17900,7 +17900,7 @@
                 var _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
                 return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
               }
-              case Fragment2:
+              case Fragment3:
                 return updateFragment(current2, workInProgress2, renderLanes2);
               case Mode:
                 return updateMode(current2, workInProgress2, renderLanes2);
@@ -17997,9 +17997,9 @@
               if (oldProps === newProps) {
                 return;
               }
-              var instance = workInProgress2.stateNode;
+              var instance2 = workInProgress2.stateNode;
               var currentHostContext = getHostContext();
-              var updatePayload = prepareUpdate(instance, type, oldProps, newProps, rootContainerInstance, currentHostContext);
+              var updatePayload = prepareUpdate(instance2, type, oldProps, newProps, rootContainerInstance, currentHostContext);
               workInProgress2.updateQueue = updatePayload;
               if (updatePayload) {
                 markUpdate(workInProgress2);
@@ -18172,7 +18172,7 @@
               case SimpleMemoComponent:
               case FunctionComponent:
               case ForwardRef:
-              case Fragment2:
+              case Fragment3:
               case Mode:
               case Profiler:
               case ContextConsumer:
@@ -18242,10 +18242,10 @@
                       markUpdate(workInProgress2);
                     }
                   } else {
-                    var instance = createInstance(type, newProps, rootContainerInstance, currentHostContext, workInProgress2);
-                    appendAllChildren(instance, workInProgress2, false, false);
-                    workInProgress2.stateNode = instance;
-                    if (finalizeInitialChildren(instance, type, newProps, rootContainerInstance)) {
+                    var instance2 = createInstance2(type, newProps, rootContainerInstance, currentHostContext, workInProgress2);
+                    appendAllChildren(instance2, workInProgress2, false, false);
+                    workInProgress2.stateNode = instance2;
+                    if (finalizeInitialChildren(instance2, type, newProps, rootContainerInstance)) {
                       markUpdate(workInProgress2);
                     }
                   }
@@ -18627,18 +18627,18 @@
               clearCaughtError();
             }
           }
-          var callComponentWillUnmountWithTimer = function(current2, instance) {
-            instance.props = current2.memoizedProps;
-            instance.state = current2.memoizedState;
+          var callComponentWillUnmountWithTimer = function(current2, instance2) {
+            instance2.props = current2.memoizedProps;
+            instance2.state = current2.memoizedState;
             if (current2.mode & ProfileMode) {
               try {
                 startLayoutEffectTimer();
-                instance.componentWillUnmount();
+                instance2.componentWillUnmount();
               } finally {
                 recordLayoutEffectDuration(current2);
               }
             } else {
-              instance.componentWillUnmount();
+              instance2.componentWillUnmount();
             }
           };
           function safelyCallCommitHookLayoutEffectListMount(current2, nearestMountedAncestor) {
@@ -18648,16 +18648,16 @@
               captureCommitPhaseError(current2, nearestMountedAncestor, error2);
             }
           }
-          function safelyCallComponentWillUnmount(current2, nearestMountedAncestor, instance) {
+          function safelyCallComponentWillUnmount(current2, nearestMountedAncestor, instance2) {
             try {
-              callComponentWillUnmountWithTimer(current2, instance);
+              callComponentWillUnmountWithTimer(current2, instance2);
             } catch (error2) {
               captureCommitPhaseError(current2, nearestMountedAncestor, error2);
             }
           }
-          function safelyCallComponentDidMount(current2, nearestMountedAncestor, instance) {
+          function safelyCallComponentDidMount(current2, nearestMountedAncestor, instance2) {
             try {
-              instance.componentDidMount();
+              instance2.componentDidMount();
             } catch (error2) {
               captureCommitPhaseError(current2, nearestMountedAncestor, error2);
             }
@@ -18762,18 +18762,18 @@
                   if (current2 !== null) {
                     var prevProps = current2.memoizedProps;
                     var prevState = current2.memoizedState;
-                    var instance = finishedWork.stateNode;
+                    var instance2 = finishedWork.stateNode;
                     {
                       if (finishedWork.type === finishedWork.elementType && !didWarnAboutReassigningProps) {
-                        if (instance.props !== finishedWork.memoizedProps) {
+                        if (instance2.props !== finishedWork.memoizedProps) {
                           error("Expected %s props to match memoized props before getSnapshotBeforeUpdate. This might either be because of a bug in React, or because a component reassigns its own `this.props`. Please file an issue.", getComponentNameFromFiber(finishedWork) || "instance");
                         }
-                        if (instance.state !== finishedWork.memoizedState) {
+                        if (instance2.state !== finishedWork.memoizedState) {
                           error("Expected %s state to match memoized state before getSnapshotBeforeUpdate. This might either be because of a bug in React, or because a component reassigns its own `this.state`. Please file an issue.", getComponentNameFromFiber(finishedWork) || "instance");
                         }
                       }
                     }
-                    var snapshot = instance.getSnapshotBeforeUpdate(finishedWork.elementType === finishedWork.type ? prevProps : resolveDefaultProps(finishedWork.type, prevProps), prevState);
+                    var snapshot = instance2.getSnapshotBeforeUpdate(finishedWork.elementType === finishedWork.type ? prevProps : resolveDefaultProps(finishedWork.type, prevProps), prevState);
                     {
                       var didWarnSet = didWarnAboutUndefinedSnapshotBeforeUpdate;
                       if (snapshot === void 0 && !didWarnSet.has(finishedWork.type)) {
@@ -18781,7 +18781,7 @@
                         error("%s.getSnapshotBeforeUpdate(): A snapshot value (or null) must be returned. You have returned undefined.", getComponentNameFromFiber(finishedWork));
                       }
                     }
-                    instance.__reactInternalSnapshotBeforeUpdate = snapshot;
+                    instance2.__reactInternalSnapshotBeforeUpdate = snapshot;
                   }
                   break;
                 }
@@ -18965,16 +18965,16 @@
                   break;
                 }
                 case ClassComponent: {
-                  var instance = finishedWork.stateNode;
+                  var instance2 = finishedWork.stateNode;
                   if (finishedWork.flags & Update) {
                     if (!offscreenSubtreeWasHidden) {
                       if (current2 === null) {
                         {
                           if (finishedWork.type === finishedWork.elementType && !didWarnAboutReassigningProps) {
-                            if (instance.props !== finishedWork.memoizedProps) {
+                            if (instance2.props !== finishedWork.memoizedProps) {
                               error("Expected %s props to match memoized props before componentDidMount. This might either be because of a bug in React, or because a component reassigns its own `this.props`. Please file an issue.", getComponentNameFromFiber(finishedWork) || "instance");
                             }
-                            if (instance.state !== finishedWork.memoizedState) {
+                            if (instance2.state !== finishedWork.memoizedState) {
                               error("Expected %s state to match memoized state before componentDidMount. This might either be because of a bug in React, or because a component reassigns its own `this.state`. Please file an issue.", getComponentNameFromFiber(finishedWork) || "instance");
                             }
                           }
@@ -18982,22 +18982,22 @@
                         if (finishedWork.mode & ProfileMode) {
                           try {
                             startLayoutEffectTimer();
-                            instance.componentDidMount();
+                            instance2.componentDidMount();
                           } finally {
                             recordLayoutEffectDuration(finishedWork);
                           }
                         } else {
-                          instance.componentDidMount();
+                          instance2.componentDidMount();
                         }
                       } else {
                         var prevProps = finishedWork.elementType === finishedWork.type ? current2.memoizedProps : resolveDefaultProps(finishedWork.type, current2.memoizedProps);
                         var prevState = current2.memoizedState;
                         {
                           if (finishedWork.type === finishedWork.elementType && !didWarnAboutReassigningProps) {
-                            if (instance.props !== finishedWork.memoizedProps) {
+                            if (instance2.props !== finishedWork.memoizedProps) {
                               error("Expected %s props to match memoized props before componentDidUpdate. This might either be because of a bug in React, or because a component reassigns its own `this.props`. Please file an issue.", getComponentNameFromFiber(finishedWork) || "instance");
                             }
-                            if (instance.state !== finishedWork.memoizedState) {
+                            if (instance2.state !== finishedWork.memoizedState) {
                               error("Expected %s state to match memoized state before componentDidUpdate. This might either be because of a bug in React, or because a component reassigns its own `this.state`. Please file an issue.", getComponentNameFromFiber(finishedWork) || "instance");
                             }
                           }
@@ -19005,12 +19005,12 @@
                         if (finishedWork.mode & ProfileMode) {
                           try {
                             startLayoutEffectTimer();
-                            instance.componentDidUpdate(prevProps, prevState, instance.__reactInternalSnapshotBeforeUpdate);
+                            instance2.componentDidUpdate(prevProps, prevState, instance2.__reactInternalSnapshotBeforeUpdate);
                           } finally {
                             recordLayoutEffectDuration(finishedWork);
                           }
                         } else {
-                          instance.componentDidUpdate(prevProps, prevState, instance.__reactInternalSnapshotBeforeUpdate);
+                          instance2.componentDidUpdate(prevProps, prevState, instance2.__reactInternalSnapshotBeforeUpdate);
                         }
                       }
                     }
@@ -19019,15 +19019,15 @@
                   if (updateQueue !== null) {
                     {
                       if (finishedWork.type === finishedWork.elementType && !didWarnAboutReassigningProps) {
-                        if (instance.props !== finishedWork.memoizedProps) {
+                        if (instance2.props !== finishedWork.memoizedProps) {
                           error("Expected %s props to match memoized props before processing the update queue. This might either be because of a bug in React, or because a component reassigns its own `this.props`. Please file an issue.", getComponentNameFromFiber(finishedWork) || "instance");
                         }
-                        if (instance.state !== finishedWork.memoizedState) {
+                        if (instance2.state !== finishedWork.memoizedState) {
                           error("Expected %s state to match memoized state before processing the update queue. This might either be because of a bug in React, or because a component reassigns its own `this.state`. Please file an issue.", getComponentNameFromFiber(finishedWork) || "instance");
                         }
                       }
                     }
-                    commitUpdateQueue(finishedWork, updateQueue, instance);
+                    commitUpdateQueue(finishedWork, updateQueue, instance2);
                   }
                   break;
                 }
@@ -19143,9 +19143,9 @@
                 break;
               }
               case ClassComponent: {
-                var instance = node.stateNode;
-                if (typeof instance.componentDidMount === "function") {
-                  safelyCallComponentDidMount(node, node.return, instance);
+                var instance2 = node.stateNode;
+                if (typeof instance2.componentDidMount === "function") {
+                  safelyCallComponentDidMount(node, node.return, instance2);
                 }
                 safelyAttachRef(node, node.return);
                 break;
@@ -19165,9 +19165,9 @@
                   if (hostSubtreeRoot === null) {
                     hostSubtreeRoot = node;
                     try {
-                      var instance = node.stateNode;
+                      var instance2 = node.stateNode;
                       if (isHidden) {
-                        hideInstance(instance);
+                        hideInstance(instance2);
                       } else {
                         unhideInstance(node.stateNode, node.memoizedProps);
                       }
@@ -19217,14 +19217,14 @@
           function commitAttachRef(finishedWork) {
             var ref = finishedWork.ref;
             if (ref !== null) {
-              var instance = finishedWork.stateNode;
+              var instance2 = finishedWork.stateNode;
               var instanceToUse;
               switch (finishedWork.tag) {
                 case HostComponent:
-                  instanceToUse = getPublicInstance(instance);
+                  instanceToUse = getPublicInstance(instance2);
                   break;
                 default:
-                  instanceToUse = instance;
+                  instanceToUse = instance2;
               }
               if (typeof ref === "function") {
                 var retVal;
@@ -19537,9 +19537,9 @@
               case ClassComponent: {
                 if (!offscreenSubtreeWasHidden) {
                   safelyDetachRef(deletedFiber, nearestMountedAncestor);
-                  var instance = deletedFiber.stateNode;
-                  if (typeof instance.componentWillUnmount === "function") {
-                    safelyCallComponentWillUnmount(deletedFiber, nearestMountedAncestor, instance);
+                  var instance2 = deletedFiber.stateNode;
+                  if (typeof instance2.componentWillUnmount === "function") {
+                    safelyCallComponentWillUnmount(deletedFiber, nearestMountedAncestor, instance2);
                   }
                 }
                 recursivelyTraverseDeletionEffects(finishedRoot, nearestMountedAncestor, deletedFiber);
@@ -19700,9 +19700,9 @@
                 }
                 {
                   if (finishedWork.flags & ContentReset) {
-                    var instance = finishedWork.stateNode;
+                    var instance2 = finishedWork.stateNode;
                     try {
-                      resetTextContent(instance);
+                      resetTextContent(instance2);
                     } catch (error2) {
                       captureCommitPhaseError(finishedWork, finishedWork.return, error2);
                     }
@@ -19976,9 +19976,9 @@
                 }
                 case ClassComponent: {
                   safelyDetachRef(fiber, fiber.return);
-                  var instance = fiber.stateNode;
-                  if (typeof instance.componentWillUnmount === "function") {
-                    safelyCallComponentWillUnmount(fiber, fiber.return, instance);
+                  var instance2 = fiber.stateNode;
+                  if (typeof instance2.componentWillUnmount === "function") {
+                    safelyCallComponentWillUnmount(fiber, fiber.return, instance2);
                   }
                   break;
                 }
@@ -20260,9 +20260,9 @@
                   break;
                 }
                 case ClassComponent: {
-                  var instance = fiber.stateNode;
+                  var instance2 = fiber.stateNode;
                   try {
-                    instance.componentDidMount();
+                    instance2.componentDidMount();
                   } catch (error2) {
                     captureCommitPhaseError(fiber, fiber.return, error2);
                   }
@@ -20301,9 +20301,9 @@
                   break;
                 }
                 case ClassComponent: {
-                  var instance = fiber.stateNode;
-                  if (typeof instance.componentWillUnmount === "function") {
-                    safelyCallComponentWillUnmount(fiber, fiber.return, instance);
+                  var instance2 = fiber.stateNode;
+                  if (typeof instance2.componentWillUnmount === "function") {
+                    safelyCallComponentWillUnmount(fiber, fiber.return, instance2);
                   }
                   break;
                 }
@@ -21486,14 +21486,14 @@
             }
             return true;
           }
-          function isAlreadyFailedLegacyErrorBoundary(instance) {
-            return legacyErrorBoundariesThatAlreadyFailed !== null && legacyErrorBoundariesThatAlreadyFailed.has(instance);
+          function isAlreadyFailedLegacyErrorBoundary(instance2) {
+            return legacyErrorBoundariesThatAlreadyFailed !== null && legacyErrorBoundariesThatAlreadyFailed.has(instance2);
           }
-          function markLegacyErrorBoundaryAsFailed(instance) {
+          function markLegacyErrorBoundaryAsFailed(instance2) {
             if (legacyErrorBoundariesThatAlreadyFailed === null) {
-              legacyErrorBoundariesThatAlreadyFailed = /* @__PURE__ */ new Set([instance]);
+              legacyErrorBoundariesThatAlreadyFailed = /* @__PURE__ */ new Set([instance2]);
             } else {
-              legacyErrorBoundariesThatAlreadyFailed.add(instance);
+              legacyErrorBoundariesThatAlreadyFailed.add(instance2);
             }
           }
           function prepareToThrowUncaughtError(error2) {
@@ -21532,8 +21532,8 @@
                 return;
               } else if (fiber.tag === ClassComponent) {
                 var ctor = fiber.type;
-                var instance = fiber.stateNode;
-                if (typeof ctor.getDerivedStateFromError === "function" || typeof instance.componentDidCatch === "function" && !isAlreadyFailedLegacyErrorBoundary(instance)) {
+                var instance2 = fiber.stateNode;
+                if (typeof ctor.getDerivedStateFromError === "function" || typeof instance2.componentDidCatch === "function" && !isAlreadyFailedLegacyErrorBoundary(instance2)) {
                   var errorInfo = createCapturedValueAtFiber(error$1, sourceFiber);
                   var update = createClassErrorUpdate(fiber, errorInfo, SyncLane);
                   var root3 = enqueueUpdate(fiber, update, SyncLane);
@@ -22135,7 +22135,7 @@
               var nonExtensibleObject = Object.preventExtensions({});
               /* @__PURE__ */ new Map([[nonExtensibleObject, null]]);
               /* @__PURE__ */ new Set([nonExtensibleObject]);
-            } catch (e2) {
+            } catch (e3) {
               hasBadMapPolyfill = true;
             }
           }
@@ -22433,7 +22433,7 @@
             return fiber;
           }
           function createFiberFromFragment(elements, mode, lanes, key) {
-            var fiber = createFiber(Fragment2, elements, key, mode);
+            var fiber = createFiber(Fragment3, elements, key, mode);
             fiber.lanes = lanes;
             return fiber;
           }
@@ -22634,7 +22634,7 @@
             if (!parentComponent) {
               return emptyContextObject;
             }
-            var fiber = get(parentComponent);
+            var fiber = get2(parentComponent);
             var parentContext = findCurrentUnmaskedContext(fiber);
             if (fiber.tag === ClassComponent) {
               var Component = fiber.type;
@@ -22646,7 +22646,7 @@
           }
           function findHostInstanceWithWarning(component, methodName) {
             {
-              var fiber = get(component);
+              var fiber = get2(component);
               if (fiber === void 0) {
                 if (typeof component.render === "function") {
                   throw new Error("Unable to find node on an unmounted component.");
@@ -22845,10 +22845,10 @@
           var setErrorHandler = null;
           var setSuspenseHandler = null;
           {
-            var copyWithDeleteImpl = function(obj, path, index2) {
-              var key = path[index2];
+            var copyWithDeleteImpl = function(obj, path2, index2) {
+              var key = path2[index2];
               var updated = isArray(obj) ? obj.slice() : assign({}, obj);
-              if (index2 + 1 === path.length) {
+              if (index2 + 1 === path2.length) {
                 if (isArray(updated)) {
                   updated.splice(key, 1);
                 } else {
@@ -22856,11 +22856,11 @@
                 }
                 return updated;
               }
-              updated[key] = copyWithDeleteImpl(obj[key], path, index2 + 1);
+              updated[key] = copyWithDeleteImpl(obj[key], path2, index2 + 1);
               return updated;
             };
-            var copyWithDelete = function(obj, path) {
-              return copyWithDeleteImpl(obj, path, 0);
+            var copyWithDelete = function(obj, path2) {
+              return copyWithDeleteImpl(obj, path2, 0);
             };
             var copyWithRenameImpl = function(obj, oldPath, newPath, index2) {
               var oldKey = oldPath[index2];
@@ -22886,29 +22886,29 @@
             };
             var copyWithRename = function(obj, oldPath, newPath) {
               if (oldPath.length !== newPath.length) {
-                warn("copyWithRename() expects paths of the same length");
+                warn2("copyWithRename() expects paths of the same length");
                 return;
               } else {
                 for (var i2 = 0; i2 < newPath.length - 1; i2++) {
                   if (oldPath[i2] !== newPath[i2]) {
-                    warn("copyWithRename() expects paths to be the same except for the deepest key");
+                    warn2("copyWithRename() expects paths to be the same except for the deepest key");
                     return;
                   }
                 }
               }
               return copyWithRenameImpl(obj, oldPath, newPath, 0);
             };
-            var copyWithSetImpl = function(obj, path, index2, value) {
-              if (index2 >= path.length) {
+            var copyWithSetImpl = function(obj, path2, index2, value) {
+              if (index2 >= path2.length) {
                 return value;
               }
-              var key = path[index2];
+              var key = path2[index2];
               var updated = isArray(obj) ? obj.slice() : assign({}, obj);
-              updated[key] = copyWithSetImpl(obj[key], path, index2 + 1, value);
+              updated[key] = copyWithSetImpl(obj[key], path2, index2 + 1, value);
               return updated;
             };
-            var copyWithSet = function(obj, path, value) {
-              return copyWithSetImpl(obj, path, 0, value);
+            var copyWithSet = function(obj, path2, value) {
+              return copyWithSetImpl(obj, path2, 0, value);
             };
             var findHook = function(fiber, id) {
               var currentHook2 = fiber.memoizedState;
@@ -22918,10 +22918,10 @@
               }
               return currentHook2;
             };
-            overrideHookState = function(fiber, id, path, value) {
+            overrideHookState = function(fiber, id, path2, value) {
               var hook = findHook(fiber, id);
               if (hook !== null) {
-                var newState = copyWithSet(hook.memoizedState, path, value);
+                var newState = copyWithSet(hook.memoizedState, path2, value);
                 hook.memoizedState = newState;
                 hook.baseState = newState;
                 fiber.memoizedProps = assign({}, fiber.memoizedProps);
@@ -22931,10 +22931,10 @@
                 }
               }
             };
-            overrideHookStateDeletePath = function(fiber, id, path) {
+            overrideHookStateDeletePath = function(fiber, id, path2) {
               var hook = findHook(fiber, id);
               if (hook !== null) {
-                var newState = copyWithDelete(hook.memoizedState, path);
+                var newState = copyWithDelete(hook.memoizedState, path2);
                 hook.memoizedState = newState;
                 hook.baseState = newState;
                 fiber.memoizedProps = assign({}, fiber.memoizedProps);
@@ -22957,8 +22957,8 @@
                 }
               }
             };
-            overrideProps = function(fiber, path, value) {
-              fiber.pendingProps = copyWithSet(fiber.memoizedProps, path, value);
+            overrideProps = function(fiber, path2, value) {
+              fiber.pendingProps = copyWithSet(fiber.memoizedProps, path2, value);
               if (fiber.alternate) {
                 fiber.alternate.pendingProps = fiber.pendingProps;
               }
@@ -22967,8 +22967,8 @@
                 scheduleUpdateOnFiber(root3, fiber, SyncLane, NoTimestamp);
               }
             };
-            overridePropsDeletePath = function(fiber, path) {
-              fiber.pendingProps = copyWithDelete(fiber.memoizedProps, path);
+            overridePropsDeletePath = function(fiber, path2) {
+              fiber.pendingProps = copyWithDelete(fiber.memoizedProps, path2);
               if (fiber.alternate) {
                 fiber.alternate.pendingProps = fiber.pendingProps;
               }
@@ -23007,7 +23007,7 @@
             }
             return hostFiber.stateNode;
           }
-          function emptyFindFiberByHostInstance(instance) {
+          function emptyFindFiberByHostInstance(instance2) {
             return null;
           }
           function getCurrentFiberForDevTools() {
@@ -23114,7 +23114,7 @@
             if (options2 !== null && options2 !== void 0) {
               {
                 if (options2.hydrate) {
-                  warn("hydrate through createRoot is deprecated. Use ReactDOMClient.hydrateRoot(container, <App />) instead.");
+                  warn2("hydrate through createRoot is deprecated. Use ReactDOMClient.hydrateRoot(container, <App />) instead.");
                 } else {
                   if (typeof options2 === "object" && options2 !== null && options2.$$typeof === REACT_ELEMENT_TYPE) {
                     error("You passed a JSX element to createRoot. You probably meant to call root.render instead. Example usage:\n\n  let root = createRoot(domContainer);\n  root.render(<App />);");
@@ -23247,8 +23247,8 @@
               if (typeof callback === "function") {
                 var originalCallback = callback;
                 callback = function() {
-                  var instance = getPublicRootInstance(root3);
-                  originalCallback.call(instance);
+                  var instance2 = getPublicRootInstance(root3);
+                  originalCallback.call(instance2);
                 };
               }
               var root3 = createHydrationContainer(
@@ -23280,8 +23280,8 @@
               if (typeof callback === "function") {
                 var _originalCallback = callback;
                 callback = function() {
-                  var instance = getPublicRootInstance(_root);
-                  _originalCallback.call(instance);
+                  var instance2 = getPublicRootInstance(_root);
+                  _originalCallback.call(instance2);
                 };
               }
               var _root = createContainer(
@@ -23328,8 +23328,8 @@
               if (typeof callback === "function") {
                 var originalCallback = callback;
                 callback = function() {
-                  var instance = getPublicRootInstance(root3);
-                  originalCallback.call(instance);
+                  var instance2 = getPublicRootInstance(root3);
+                  originalCallback.call(instance2);
                 };
               }
               updateContainer(children, root3, parentComponent, callback);
@@ -23609,13 +23609,13 @@
           };
         }();
         function bind(fn, obj) {
-          var slice = Array.prototype.slice;
+          var slice2 = Array.prototype.slice;
           if (fn.bind) {
-            return fn.bind.apply(fn, slice.call(arguments, 1));
+            return fn.bind.apply(fn, slice2.call(arguments, 1));
           }
-          var args = slice.call(arguments, 2);
+          var args = slice2.call(arguments, 2);
           return function() {
-            return fn.apply(obj, args.length ? args.concat(slice.call(arguments)) : arguments);
+            return fn.apply(obj, args.length ? args.concat(slice2.call(arguments)) : arguments);
           };
         }
         var lastId = 0;
@@ -23819,11 +23819,11 @@
         };
         Class.addInitHook = function(fn) {
           var args = Array.prototype.slice.call(arguments, 1);
-          var init = typeof fn === "function" ? fn : function() {
+          var init2 = typeof fn === "function" ? fn : function() {
             this[fn].apply(this, args);
           };
           this.prototype._initHooks = this.prototype._initHooks || [];
-          this.prototype._initHooks.push(init);
+          this.prototype._initHooks.push(init2);
           return this;
         };
         function checkDeprecatedMixinEvents(includes) {
@@ -24052,12 +24052,12 @@
             }
             return this;
           },
-          _propagateEvent: function(e2) {
+          _propagateEvent: function(e3) {
             for (var id in this._eventParents) {
-              this._eventParents[id].fire(e2.type, extend({
-                layer: e2.target,
-                propagatedFrom: e2.target
-              }, e2), true);
+              this._eventParents[id].fire(e3.type, extend({
+                layer: e3.target,
+                propagatedFrom: e3.target
+              }, e3), true);
             }
           }
         };
@@ -24775,7 +24775,7 @@
               p = points[j2];
               str += (j2 ? "L" : "M") + p.x + " " + p.y;
             }
-            str += closed ? Browser.svg ? "z" : "x" : "";
+            str += closed ? Browser2.svg ? "z" : "x" : "";
           }
           return str || "M0 0";
         }
@@ -24819,7 +24819,7 @@
             });
             window.addEventListener("testPassiveEventSupport", falseFn, opts);
             window.removeEventListener("testPassiveEventSupport", falseFn, opts);
-          } catch (e2) {
+          } catch (e3) {
           }
           return supportsPassiveOption;
         }();
@@ -24839,7 +24839,7 @@
             var shape = div.firstChild;
             shape.style.behavior = "url(#default#VML)";
             return shape && typeof shape.adj === "object";
-          } catch (e2) {
+          } catch (e3) {
             return false;
           }
         }();
@@ -24848,7 +24848,7 @@
         function userAgentContains(str) {
           return navigator.userAgent.toLowerCase().indexOf(str) >= 0;
         }
-        var Browser = {
+        var Browser2 = {
           ie,
           ielt9,
           edge,
@@ -24885,10 +24885,10 @@
           mac,
           linux
         };
-        var POINTER_DOWN = Browser.msPointer ? "MSPointerDown" : "pointerdown";
-        var POINTER_MOVE = Browser.msPointer ? "MSPointerMove" : "pointermove";
-        var POINTER_UP = Browser.msPointer ? "MSPointerUp" : "pointerup";
-        var POINTER_CANCEL = Browser.msPointer ? "MSPointerCancel" : "pointercancel";
+        var POINTER_DOWN = Browser2.msPointer ? "MSPointerDown" : "pointerdown";
+        var POINTER_MOVE = Browser2.msPointer ? "MSPointerMove" : "pointermove";
+        var POINTER_UP = Browser2.msPointer ? "MSPointerUp" : "pointerup";
+        var POINTER_CANCEL = Browser2.msPointer ? "MSPointerCancel" : "pointercancel";
         var pEvent = {
           touchstart: POINTER_DOWN,
           touchmove: POINTER_MOVE,
@@ -24922,16 +24922,16 @@
           }
           obj.removeEventListener(pEvent[type], handler, false);
         }
-        function _globalPointerDown(e2) {
-          _pointers[e2.pointerId] = e2;
+        function _globalPointerDown(e3) {
+          _pointers[e3.pointerId] = e3;
         }
-        function _globalPointerMove(e2) {
-          if (_pointers[e2.pointerId]) {
-            _pointers[e2.pointerId] = e2;
+        function _globalPointerMove(e3) {
+          if (_pointers[e3.pointerId]) {
+            _pointers[e3.pointerId] = e3;
           }
         }
-        function _globalPointerUp(e2) {
-          delete _pointers[e2.pointerId];
+        function _globalPointerUp(e3) {
+          delete _pointers[e3.pointerId];
         }
         function _addPointerDocListener() {
           if (!_pointerDocListener) {
@@ -24942,22 +24942,22 @@
             _pointerDocListener = true;
           }
         }
-        function _handlePointer(handler, e2) {
-          if (e2.pointerType === (e2.MSPOINTER_TYPE_MOUSE || "mouse")) {
+        function _handlePointer(handler, e3) {
+          if (e3.pointerType === (e3.MSPOINTER_TYPE_MOUSE || "mouse")) {
             return;
           }
-          e2.touches = [];
+          e3.touches = [];
           for (var i2 in _pointers) {
-            e2.touches.push(_pointers[i2]);
+            e3.touches.push(_pointers[i2]);
           }
-          e2.changedTouches = [e2];
-          handler(e2);
+          e3.changedTouches = [e3];
+          handler(e3);
         }
-        function _onPointerStart(handler, e2) {
-          if (e2.MSPOINTER_TYPE_TOUCH && e2.pointerType === e2.MSPOINTER_TYPE_TOUCH) {
-            preventDefault(e2);
+        function _onPointerStart(handler, e3) {
+          if (e3.MSPOINTER_TYPE_TOUCH && e3.pointerType === e3.MSPOINTER_TYPE_TOUCH) {
+            preventDefault(e3);
           }
-          _handlePointer(handler, e2);
+          _handlePointer(handler, e3);
         }
         function makeDblclick(event) {
           var newEvent = {}, prop, i2;
@@ -24976,18 +24976,18 @@
         function addDoubleTapListener(obj, handler) {
           obj.addEventListener("dblclick", handler);
           var last = 0, detail;
-          function simDblclick(e2) {
-            if (e2.detail !== 1) {
-              detail = e2.detail;
+          function simDblclick(e3) {
+            if (e3.detail !== 1) {
+              detail = e3.detail;
               return;
             }
-            if (e2.pointerType === "mouse" || e2.sourceCapabilities && !e2.sourceCapabilities.firesTouchEvents) {
+            if (e3.pointerType === "mouse" || e3.sourceCapabilities && !e3.sourceCapabilities.firesTouchEvents) {
               return;
             }
-            var path = getPropagationPath(e2);
-            if (path.some(function(el) {
+            var path2 = getPropagationPath(e3);
+            if (path2.some(function(el) {
               return el instanceof HTMLLabelElement && el.attributes.for;
-            }) && !path.some(function(el) {
+            }) && !path2.some(function(el) {
               return el instanceof HTMLInputElement || el instanceof HTMLSelectElement;
             })) {
               return;
@@ -24996,7 +24996,7 @@
             if (now - last <= delay) {
               detail++;
               if (detail === 2) {
-                handler(makeDblclick(e2));
+                handler(makeDblclick(e3));
               }
             } else {
               detail = 1;
@@ -25020,7 +25020,7 @@
           ["webkitTransition", "transition", "OTransition", "MozTransition", "msTransition"]
         );
         var TRANSITION_END = TRANSITION === "webkitTransition" || TRANSITION === "OTransition" ? TRANSITION + "End" : "transitionend";
-        function get(id) {
+        function get2(id) {
           return typeof id === "string" ? document.getElementById(id) : id;
         }
         function getStyle(el, style2) {
@@ -25111,7 +25111,7 @@
           var filter = false, filterName = "DXImageTransform.Microsoft.Alpha";
           try {
             filter = el.filters.item(filterName);
-          } catch (e2) {
+          } catch (e3) {
             if (value === 1) {
               return;
             }
@@ -25135,11 +25135,11 @@
         }
         function setTransform(el, offset3, scale2) {
           var pos = offset3 || new Point(0, 0);
-          el.style[TRANSFORM] = (Browser.ie3d ? "translate(" + pos.x + "px," + pos.y + "px)" : "translate3d(" + pos.x + "px," + pos.y + "px,0)") + (scale2 ? " scale(" + scale2 + ")" : "");
+          el.style[TRANSFORM] = (Browser2.ie3d ? "translate(" + pos.x + "px," + pos.y + "px)" : "translate3d(" + pos.x + "px," + pos.y + "px,0)") + (scale2 ? " scale(" + scale2 + ")" : "");
         }
         function setPosition(el, point) {
           el._leaflet_pos = point;
-          if (Browser.any3d) {
+          if (Browser2.any3d) {
             setTransform(el, point);
           } else {
             el.style.left = point.x + "px";
@@ -25225,7 +25225,7 @@
           TRANSFORM,
           TRANSITION,
           TRANSITION_END,
-          get,
+          get: get2,
           getStyle,
           create: create$1,
           remove,
@@ -25309,22 +25309,22 @@
           if (obj[eventsKey] && obj[eventsKey][id]) {
             return this;
           }
-          var handler = function(e2) {
-            return fn.call(context || obj, e2 || window.event);
+          var handler = function(e3) {
+            return fn.call(context || obj, e3 || window.event);
           };
           var originalHandler = handler;
-          if (!Browser.touchNative && Browser.pointer && type.indexOf("touch") === 0) {
+          if (!Browser2.touchNative && Browser2.pointer && type.indexOf("touch") === 0) {
             handler = addPointerListener(obj, type, handler);
-          } else if (Browser.touch && type === "dblclick") {
+          } else if (Browser2.touch && type === "dblclick") {
             handler = addDoubleTapListener(obj, handler);
           } else if ("addEventListener" in obj) {
             if (type === "touchstart" || type === "touchmove" || type === "wheel" || type === "mousewheel") {
-              obj.addEventListener(mouseSubst[type] || type, handler, Browser.passiveEvents ? { passive: false } : false);
+              obj.addEventListener(mouseSubst[type] || type, handler, Browser2.passiveEvents ? { passive: false } : false);
             } else if (type === "mouseenter" || type === "mouseleave") {
-              handler = function(e2) {
-                e2 = e2 || window.event;
-                if (isExternalTarget(obj, e2)) {
-                  originalHandler(e2);
+              handler = function(e3) {
+                e3 = e3 || window.event;
+                if (isExternalTarget(obj, e3)) {
+                  originalHandler(e3);
                 }
               };
               obj.addEventListener(mouseSubst[type], handler, false);
@@ -25343,9 +25343,9 @@
           if (!handler) {
             return this;
           }
-          if (!Browser.touchNative && Browser.pointer && type.indexOf("touch") === 0) {
+          if (!Browser2.touchNative && Browser2.pointer && type.indexOf("touch") === 0) {
             removePointerListener(obj, type, handler);
-          } else if (Browser.touch && type === "dblclick") {
+          } else if (Browser2.touch && type === "dblclick") {
             removeDoubleTapListener(obj, handler);
           } else if ("removeEventListener" in obj) {
             obj.removeEventListener(mouseSubst[type] || type, handler, false);
@@ -25354,13 +25354,13 @@
           }
           obj[eventsKey][id] = null;
         }
-        function stopPropagation(e2) {
-          if (e2.stopPropagation) {
-            e2.stopPropagation();
-          } else if (e2.originalEvent) {
-            e2.originalEvent._stopped = true;
+        function stopPropagation(e3) {
+          if (e3.stopPropagation) {
+            e3.stopPropagation();
+          } else if (e3.originalEvent) {
+            e3.originalEvent._stopped = true;
           } else {
-            e2.cancelBubble = true;
+            e3.cancelBubble = true;
           }
           return this;
         }
@@ -25373,60 +25373,60 @@
           el["_leaflet_disable_click"] = true;
           return this;
         }
-        function preventDefault(e2) {
-          if (e2.preventDefault) {
-            e2.preventDefault();
+        function preventDefault(e3) {
+          if (e3.preventDefault) {
+            e3.preventDefault();
           } else {
-            e2.returnValue = false;
+            e3.returnValue = false;
           }
           return this;
         }
-        function stop(e2) {
-          preventDefault(e2);
-          stopPropagation(e2);
+        function stop(e3) {
+          preventDefault(e3);
+          stopPropagation(e3);
           return this;
         }
         function getPropagationPath(ev) {
           if (ev.composedPath) {
             return ev.composedPath();
           }
-          var path = [];
+          var path2 = [];
           var el = ev.target;
           while (el) {
-            path.push(el);
+            path2.push(el);
             el = el.parentNode;
           }
-          return path;
+          return path2;
         }
-        function getMousePosition(e2, container) {
+        function getMousePosition(e3, container) {
           if (!container) {
-            return new Point(e2.clientX, e2.clientY);
+            return new Point(e3.clientX, e3.clientY);
           }
           var scale2 = getScale2(container), offset3 = scale2.boundingClientRect;
           return new Point(
             // offset.left/top values are in page scale (like clientX/Y),
             // whereas clientLeft/Top (border width) values are the original values (before CSS scale applies).
-            (e2.clientX - offset3.left) / scale2.x - container.clientLeft,
-            (e2.clientY - offset3.top) / scale2.y - container.clientTop
+            (e3.clientX - offset3.left) / scale2.x - container.clientLeft,
+            (e3.clientY - offset3.top) / scale2.y - container.clientTop
           );
         }
-        var wheelPxFactor = Browser.linux && Browser.chrome ? window.devicePixelRatio : Browser.mac ? window.devicePixelRatio * 3 : window.devicePixelRatio > 0 ? 2 * window.devicePixelRatio : 1;
-        function getWheelDelta(e2) {
-          return Browser.edge ? e2.wheelDeltaY / 2 : (
+        var wheelPxFactor = Browser2.linux && Browser2.chrome ? window.devicePixelRatio : Browser2.mac ? window.devicePixelRatio * 3 : window.devicePixelRatio > 0 ? 2 * window.devicePixelRatio : 1;
+        function getWheelDelta(e3) {
+          return Browser2.edge ? e3.wheelDeltaY / 2 : (
             // Don't trust window-geometry-based delta
-            e2.deltaY && e2.deltaMode === 0 ? -e2.deltaY / wheelPxFactor : (
+            e3.deltaY && e3.deltaMode === 0 ? -e3.deltaY / wheelPxFactor : (
               // Pixels
-              e2.deltaY && e2.deltaMode === 1 ? -e2.deltaY * 20 : (
+              e3.deltaY && e3.deltaMode === 1 ? -e3.deltaY * 20 : (
                 // Lines
-                e2.deltaY && e2.deltaMode === 2 ? -e2.deltaY * 60 : (
+                e3.deltaY && e3.deltaMode === 2 ? -e3.deltaY * 60 : (
                   // Pages
-                  e2.deltaX || e2.deltaZ ? 0 : (
+                  e3.deltaX || e3.deltaZ ? 0 : (
                     // Skip horizontal/depth wheel events
-                    e2.wheelDelta ? (e2.wheelDeltaY || e2.wheelDelta) / 2 : (
+                    e3.wheelDelta ? (e3.wheelDeltaY || e3.wheelDelta) / 2 : (
                       // Legacy IE pixels
-                      e2.detail && Math.abs(e2.detail) < 32765 ? -e2.detail * 20 : (
+                      e3.detail && Math.abs(e3.detail) < 32765 ? -e3.detail * 20 : (
                         // Legacy Moz lines
-                        e2.detail ? e2.detail / -32765 * 60 : (
+                        e3.detail ? e3.detail / -32765 * 60 : (
                           // Legacy Moz pages
                           0
                         )
@@ -25438,8 +25438,8 @@
             )
           );
         }
-        function isExternalTarget(el, e2) {
-          var related = e2.relatedTarget;
+        function isExternalTarget(el, e3) {
+          var related = e3.relatedTarget;
           if (!related) {
             return true;
           }
@@ -25521,8 +25521,8 @@
             this._inProgress = false;
             this.fire("end");
           },
-          _easeOut: function(t2) {
-            return 1 - Math.pow(1 - t2, this._easeOutPower);
+          _easeOut: function(t3) {
+            return 1 - Math.pow(1 - t3, this._easeOutPower);
           }
         });
         var Map3 = Evented.extend({
@@ -25622,7 +25622,7 @@
               this.setView(toLatLng(options.center), options.zoom, { reset: true });
             }
             this.callInitHooks();
-            this._zoomAnimated = TRANSITION && Browser.any3d && !Browser.mobileOpera && this.options.zoomAnimation;
+            this._zoomAnimated = TRANSITION && Browser2.any3d && !Browser2.mobileOpera && this.options.zoomAnimation;
             if (this._zoomAnimated) {
               this._createAnimProxy();
               on(this._proxy, TRANSITION_END, this._catchTransitionEnd, this);
@@ -25664,13 +25664,13 @@
           // @method zoomIn(delta?: Number, options?: Zoom options): this
           // Increases the zoom of the map by `delta` ([`zoomDelta`](#map-zoomdelta) by default).
           zoomIn: function(delta, options) {
-            delta = delta || (Browser.any3d ? this.options.zoomDelta : 1);
+            delta = delta || (Browser2.any3d ? this.options.zoomDelta : 1);
             return this.setZoom(this._zoom + delta, options);
           },
           // @method zoomOut(delta?: Number, options?: Zoom options): this
           // Decreases the zoom of the map by `delta` ([`zoomDelta`](#map-zoomdelta) by default).
           zoomOut: function(delta, options) {
-            delta = delta || (Browser.any3d ? this.options.zoomDelta : 1);
+            delta = delta || (Browser2.any3d ? this.options.zoomDelta : 1);
             return this.setZoom(this._zoom - delta, options);
           },
           // @method setZoomAround(latlng: LatLng, zoom: Number, options: Zoom options): this
@@ -25759,7 +25759,7 @@
           // pan-zoom animation.
           flyTo: function(targetCenter, targetZoom, options) {
             options = options || {};
-            if (options.animate === false || !Browser.any3d) {
+            if (options.animate === false || !Browser2.any3d) {
               return this.setView(targetCenter, targetZoom, options);
             }
             this._stop();
@@ -25788,13 +25788,13 @@
             function u(s2) {
               return w0 * (cosh(r0) * tanh(r0 + rho * s2) - sinh(r0)) / rho2;
             }
-            function easeOut(t2) {
-              return 1 - Math.pow(1 - t2, 1.5);
+            function easeOut(t3) {
+              return 1 - Math.pow(1 - t3, 1.5);
             }
             var start = Date.now(), S2 = (r2(1) - r0) / rho, duration = options.duration ? 1e3 * options.duration : 1e3 * S2 * 0.8;
             function frame() {
-              var t2 = (Date.now() - start) / duration, s2 = easeOut(t2) * S2;
-              if (t2 <= 1) {
+              var t3 = (Date.now() - start) / duration, s2 = easeOut(t3) * S2;
+              if (t3 <= 1) {
                 this._flyToFrame = requestAnimFrame(frame, this);
                 this._move(
                   this.unproject(from.add(to.subtract(from).multiplyBy(u(s2) / u1)), startZoom),
@@ -26053,7 +26053,7 @@
             try {
               delete this._container._leaflet_id;
               delete this._containerId;
-            } catch (e2) {
+            } catch (e3) {
               this._container._leaflet_id = void 0;
               this._containerId = void 0;
             }
@@ -26137,7 +26137,7 @@
           getBoundsZoom: function(bounds, inside, padding) {
             bounds = toLatLngBounds(bounds);
             padding = toPoint(padding || [0, 0]);
-            var zoom2 = this.getZoom() || 0, min2 = this.getMinZoom(), max2 = this.getMaxZoom(), nw = bounds.getNorthWest(), se = bounds.getSouthEast(), size2 = this.getSize().subtract(padding), boundsSize = toBounds(this.project(se, zoom2), this.project(nw, zoom2)).getSize(), snap = Browser.any3d ? this.options.zoomSnap : 1, scalex = size2.x / boundsSize.x, scaley = size2.y / boundsSize.y, scale2 = inside ? Math.max(scalex, scaley) : Math.min(scalex, scaley);
+            var zoom2 = this.getZoom() || 0, min2 = this.getMinZoom(), max2 = this.getMaxZoom(), nw = bounds.getNorthWest(), se = bounds.getSouthEast(), size2 = this.getSize().subtract(padding), boundsSize = toBounds(this.project(se, zoom2), this.project(nw, zoom2)).getSize(), snap = Browser2.any3d ? this.options.zoomSnap : 1, scalex = size2.x / boundsSize.x, scaley = size2.y / boundsSize.y, scale2 = inside ? Math.max(scalex, scaley) : Math.min(scalex, scaley);
             zoom2 = this.getScaleZoom(scale2, zoom2);
             if (snap) {
               zoom2 = Math.round(zoom2 / (snap / 100)) * (snap / 100);
@@ -26297,24 +26297,24 @@
           // @method mouseEventToContainerPoint(ev: MouseEvent): Point
           // Given a MouseEvent object, returns the pixel coordinate relative to the
           // map container where the event took place.
-          mouseEventToContainerPoint: function(e2) {
-            return getMousePosition(e2, this._container);
+          mouseEventToContainerPoint: function(e3) {
+            return getMousePosition(e3, this._container);
           },
           // @method mouseEventToLayerPoint(ev: MouseEvent): Point
           // Given a MouseEvent object, returns the pixel coordinate relative to
           // the [origin pixel](#map-getpixelorigin) where the event took place.
-          mouseEventToLayerPoint: function(e2) {
-            return this.containerPointToLayerPoint(this.mouseEventToContainerPoint(e2));
+          mouseEventToLayerPoint: function(e3) {
+            return this.containerPointToLayerPoint(this.mouseEventToContainerPoint(e3));
           },
           // @method mouseEventToLatLng(ev: MouseEvent): LatLng
           // Given a MouseEvent object, returns geographical coordinate where the
           // event took place.
-          mouseEventToLatLng: function(e2) {
-            return this.layerPointToLatLng(this.mouseEventToLayerPoint(e2));
+          mouseEventToLatLng: function(e3) {
+            return this.layerPointToLatLng(this.mouseEventToLayerPoint(e3));
           },
           // map initialization methods
           _initContainer: function(id) {
-            var container = this._container = get(id);
+            var container = this._container = get2(id);
             if (!container) {
               throw new Error("Map container not found.");
             } else if (container._leaflet_id) {
@@ -26325,8 +26325,8 @@
           },
           _initLayout: function() {
             var container = this._container;
-            this._fadeAnimated = this.options.fadeAnimation && Browser.any3d;
-            addClass(container, "leaflet-container" + (Browser.touch ? " leaflet-touch" : "") + (Browser.retina ? " leaflet-retina" : "") + (Browser.ielt9 ? " leaflet-oldie" : "") + (Browser.safari ? " leaflet-safari" : "") + (this._fadeAnimated ? " leaflet-fade-anim" : ""));
+            this._fadeAnimated = this.options.fadeAnimation && Browser2.any3d;
+            addClass(container, "leaflet-container" + (Browser2.touch ? " leaflet-touch" : "") + (Browser2.retina ? " leaflet-retina" : "") + (Browser2.ielt9 ? " leaflet-oldie" : "") + (Browser2.safari ? " leaflet-safari" : "") + (this._fadeAnimated ? " leaflet-fade-anim" : ""));
             var position = getStyle(container, "position");
             if (position !== "absolute" && position !== "relative" && position !== "fixed" && position !== "sticky") {
               container.style.position = "relative";
@@ -26433,7 +26433,7 @@
             if (this.options.trackResize) {
               onOff(window, "resize", this._onResize, this);
             }
-            if (Browser.any3d && this.options.transform3DLimit) {
+            if (Browser2.any3d && this.options.transform3DLimit) {
               (remove2 ? this.off : this.on).call(this, "moveend", this._onMoveEnd);
             }
           },
@@ -26456,8 +26456,8 @@
               this._resetView(this.getCenter(), this.getZoom());
             }
           },
-          _findEventTargets: function(e2, type) {
-            var targets = [], target, isHover = type === "mouseout" || type === "mouseover", src = e2.target || e2.srcElement, dragging = false;
+          _findEventTargets: function(e3, type) {
+            var targets = [], target, isHover = type === "mouseout" || type === "mouseover", src = e3.target || e3.srcElement, dragging = false;
             while (src) {
               target = this._targets[stamp(src)];
               if (target && (type === "click" || type === "preclick") && this._draggableMoved(target)) {
@@ -26465,7 +26465,7 @@
                 break;
               }
               if (target && target.listens(type, true)) {
-                if (isHover && !isExternalTarget(src, e2)) {
+                if (isHover && !isExternalTarget(src, e3)) {
                   break;
                 }
                 targets.push(target);
@@ -26491,25 +26491,25 @@
               el = el.parentNode;
             }
           },
-          _handleDOMEvent: function(e2) {
-            var el = e2.target || e2.srcElement;
-            if (!this._loaded || el["_leaflet_disable_events"] || e2.type === "click" && this._isClickDisabled(el)) {
+          _handleDOMEvent: function(e3) {
+            var el = e3.target || e3.srcElement;
+            if (!this._loaded || el["_leaflet_disable_events"] || e3.type === "click" && this._isClickDisabled(el)) {
               return;
             }
-            var type = e2.type;
+            var type = e3.type;
             if (type === "mousedown") {
               preventOutline(el);
             }
-            this._fireDOMEvent(e2, type);
+            this._fireDOMEvent(e3, type);
           },
           _mouseEvents: ["click", "dblclick", "mouseover", "mouseout", "contextmenu"],
-          _fireDOMEvent: function(e2, type, canvasTargets) {
-            if (e2.type === "click") {
-              var synth = extend({}, e2);
+          _fireDOMEvent: function(e3, type, canvasTargets) {
+            if (e3.type === "click") {
+              var synth = extend({}, e3);
               synth.type = "preclick";
               this._fireDOMEvent(synth, synth.type, canvasTargets);
             }
-            var targets = this._findEventTargets(e2, type);
+            var targets = this._findEventTargets(e3, type);
             if (canvasTargets) {
               var filtered = [];
               for (var i2 = 0; i2 < canvasTargets.length; i2++) {
@@ -26523,15 +26523,15 @@
               return;
             }
             if (type === "contextmenu") {
-              preventDefault(e2);
+              preventDefault(e3);
             }
             var target = targets[0];
             var data = {
-              originalEvent: e2
+              originalEvent: e3
             };
-            if (e2.type !== "keypress" && e2.type !== "keydown" && e2.type !== "keyup") {
+            if (e3.type !== "keypress" && e3.type !== "keydown" && e3.type !== "keyup") {
               var isMarker = target.getLatLng && (!target._radius || target._radius <= 10);
-              data.containerPoint = isMarker ? this.latLngToContainerPoint(target.getLatLng()) : this.mouseEventToContainerPoint(e2);
+              data.containerPoint = isMarker ? this.latLngToContainerPoint(target.getLatLng()) : this.mouseEventToContainerPoint(e3);
               data.layerPoint = this.containerPointToLayerPoint(data.containerPoint);
               data.latlng = isMarker ? target.getLatLng() : this.layerPointToLatLng(data.layerPoint);
             }
@@ -26632,7 +26632,7 @@
             return left + right > 0 ? Math.round(left - right) / 2 : Math.max(0, Math.ceil(left)) - Math.max(0, Math.floor(right));
           },
           _limitZoom: function(zoom2) {
-            var min2 = this.getMinZoom(), max2 = this.getMaxZoom(), snap = Browser.any3d ? this.options.zoomSnap : 1;
+            var min2 = this.getMinZoom(), max2 = this.getMaxZoom(), snap = Browser2.any3d ? this.options.zoomSnap : 1;
             if (snap) {
               zoom2 = Math.round(zoom2 / snap) * snap;
             }
@@ -26656,9 +26656,9 @@
           _createAnimProxy: function() {
             var proxy = this._proxy = create$1("div", "leaflet-proxy leaflet-zoom-animated");
             this._panes.mapPane.appendChild(proxy);
-            this.on("zoomanim", function(e2) {
+            this.on("zoomanim", function(e3) {
               var prop = TRANSFORM, transform = this._proxy.style[prop];
-              setTransform(this._proxy, this.project(e2.center, e2.zoom), this.getZoomScale(e2.zoom, 1));
+              setTransform(this._proxy, this.project(e3.center, e3.zoom), this.getZoomScale(e3.zoom, 1));
               if (transform === this._proxy.style[prop] && this._animatingZoom) {
                 this._onZoomTransitionEnd();
               }
@@ -26675,8 +26675,8 @@
             var c2 = this.getCenter(), z2 = this.getZoom();
             setTransform(this._proxy, this.project(c2, z2), this.getZoomScale(z2, 1));
           },
-          _catchTransitionEnd: function(e2) {
-            if (this._animatingZoom && e2.propertyName.indexOf("transform") >= 0) {
+          _catchTransitionEnd: function(e3) {
+            if (this._animatingZoom && e3.propertyName.indexOf("transform") >= 0) {
               this._onZoomTransitionEnd();
             }
           },
@@ -26741,7 +26741,7 @@
         function createMap(id, options) {
           return new Map3(id, options);
         }
-        var Control = Class.extend({
+        var Control2 = Class.extend({
           // @section
           // @aka Control Options
           options: {
@@ -26809,14 +26809,14 @@
             this._map = null;
             return this;
           },
-          _refocusOnMap: function(e2) {
-            if (this._map && e2 && e2.screenX > 0 && e2.screenY > 0) {
+          _refocusOnMap: function(e3) {
+            if (this._map && e3 && e3.screenX > 0 && e3.screenY > 0) {
               this._map.getContainer().focus();
             }
           }
         });
         var control = function(options) {
-          return new Control(options);
+          return new Control2(options);
         };
         Map3.include({
           // @method addControl(control: Control): this
@@ -26851,7 +26851,7 @@
             delete this._controlContainer;
           }
         });
-        var Layers = Control.extend({
+        var Layers = Control2.extend({
           // @section
           // @aka Control.Layers options
           options: {
@@ -26904,7 +26904,7 @@
             return this._container;
           },
           addTo: function(map) {
-            Control.prototype.addTo.call(this, map);
+            Control2.prototype.addTo.call(this, map);
             return this._expandIfNotCollapsed();
           },
           onRemove: function() {
@@ -26974,14 +26974,14 @@
             link.title = "Layers";
             link.setAttribute("role", "button");
             on(link, {
-              keydown: function(e2) {
-                if (e2.keyCode === 13) {
+              keydown: function(e3) {
+                if (e3.keyCode === 13) {
                   this._expandSafely();
                 }
               },
               // Certain screen readers intercept the key event and instead send a click event
-              click: function(e2) {
-                preventDefault(e2);
+              click: function(e3) {
+                preventDefault(e3);
                 this._expandSafely();
               }
             }, this);
@@ -27042,12 +27042,12 @@
             this._separator.style.display = overlaysPresent && baseLayersPresent ? "" : "none";
             return this;
           },
-          _onLayerChange: function(e2) {
+          _onLayerChange: function(e3) {
             if (!this._handlingClick) {
               this._update();
             }
-            var obj = this._getLayer(stamp(e2.target));
-            var type = obj.overlay ? e2.type === "add" ? "overlayadd" : "overlayremove" : e2.type === "add" ? "baselayerchange" : null;
+            var obj = this._getLayer(stamp(e3.target));
+            var type = obj.overlay ? e3.type === "add" ? "overlayadd" : "overlayremove" : e3.type === "add" ? "baselayerchange" : null;
             if (type) {
               this._map.fire(type, obj);
             }
@@ -27141,7 +27141,7 @@
         var layers = function(baseLayers, overlays, options) {
           return new Layers(baseLayers, overlays, options);
         };
-        var Zoom = Control.extend({
+        var Zoom = Control2.extend({
           // @section
           // @aka Control.Zoom options
           options: {
@@ -27192,14 +27192,14 @@
             this._updateDisabled();
             return this;
           },
-          _zoomIn: function(e2) {
+          _zoomIn: function(e3) {
             if (!this._disabled && this._map._zoom < this._map.getMaxZoom()) {
-              this._map.zoomIn(this._map.options.zoomDelta * (e2.shiftKey ? 3 : 1));
+              this._map.zoomIn(this._map.options.zoomDelta * (e3.shiftKey ? 3 : 1));
             }
           },
-          _zoomOut: function(e2) {
+          _zoomOut: function(e3) {
             if (!this._disabled && this._map._zoom > this._map.getMinZoom()) {
-              this._map.zoomOut(this._map.options.zoomDelta * (e2.shiftKey ? 3 : 1));
+              this._map.zoomOut(this._map.options.zoomDelta * (e3.shiftKey ? 3 : 1));
             }
           },
           _createButton: function(html, title, className, container, fn) {
@@ -27243,7 +27243,7 @@
         var zoom = function(options) {
           return new Zoom(options);
         };
-        var Scale = Control.extend({
+        var Scale = Control2.extend({
           // @section
           // @aka Control.Scale options
           options: {
@@ -27323,14 +27323,14 @@
           return new Scale(options);
         };
         var ukrainianFlag = '<svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="12" height="8" viewBox="0 0 12 8" class="leaflet-attribution-flag"><path fill="#4C7BE1" d="M0 0h12v4H0z"/><path fill="#FFD500" d="M0 4h12v3H0z"/><path fill="#E0BC00" d="M0 7h12v1H0z"/></svg>';
-        var Attribution = Control.extend({
+        var Attribution = Control2.extend({
           // @section
           // @aka Control.Attribution options
           options: {
             position: "bottomright",
             // @option prefix: String|false = 'Leaflet'
             // The HTML text shown before the attributions. Pass `false` to disable.
-            prefix: '<a href="https://leafletjs.com" title="A JavaScript library for interactive maps">' + (Browser.inlineSvg ? ukrainianFlag + " " : "") + "Leaflet</a>"
+            prefix: '<a href="https://leafletjs.com" title="A JavaScript library for interactive maps">' + (Browser2.inlineSvg ? ukrainianFlag + " " : "") + "Leaflet</a>"
           },
           initialize: function(options) {
             setOptions(this, options);
@@ -27423,10 +27423,10 @@
         var attribution = function(options) {
           return new Attribution(options);
         };
-        Control.Layers = Layers;
-        Control.Zoom = Zoom;
-        Control.Scale = Scale;
-        Control.Attribution = Attribution;
+        Control2.Layers = Layers;
+        Control2.Zoom = Zoom;
+        Control2.Scale = Scale;
+        Control2.Attribution = Attribution;
         control.layers = layers;
         control.zoom = zoom;
         control.scale = scale;
@@ -27472,7 +27472,7 @@
           return this;
         };
         var Mixin = { Events };
-        var START = Browser.touch ? "touchstart mousedown" : "mousedown";
+        var START = Browser2.touch ? "touchstart mousedown" : "mousedown";
         var Draggable = Evented.extend({
           options: {
             // @section
@@ -27512,7 +27512,7 @@
             this._enabled = false;
             this._moved = false;
           },
-          _onDown: function(e2) {
+          _onDown: function(e3) {
             if (!this._enabled) {
               return;
             }
@@ -27520,13 +27520,13 @@
             if (hasClass(this._element, "leaflet-zoom-anim")) {
               return;
             }
-            if (e2.touches && e2.touches.length !== 1) {
+            if (e3.touches && e3.touches.length !== 1) {
               if (Draggable._dragging === this) {
                 this.finishDrag();
               }
               return;
             }
-            if (Draggable._dragging || e2.shiftKey || e2.which !== 1 && e2.button !== 1 && !e2.touches) {
+            if (Draggable._dragging || e3.shiftKey || e3.which !== 1 && e3.button !== 1 && !e3.touches) {
               return;
             }
             Draggable._dragging = this;
@@ -27539,23 +27539,23 @@
               return;
             }
             this.fire("down");
-            var first = e2.touches ? e2.touches[0] : e2, sizedParent = getSizedParentNode(this._element);
+            var first = e3.touches ? e3.touches[0] : e3, sizedParent = getSizedParentNode(this._element);
             this._startPoint = new Point(first.clientX, first.clientY);
             this._startPos = getPosition(this._element);
             this._parentScale = getScale2(sizedParent);
-            var mouseevent = e2.type === "mousedown";
+            var mouseevent = e3.type === "mousedown";
             on(document, mouseevent ? "mousemove" : "touchmove", this._onMove, this);
             on(document, mouseevent ? "mouseup" : "touchend touchcancel", this._onUp, this);
           },
-          _onMove: function(e2) {
+          _onMove: function(e3) {
             if (!this._enabled) {
               return;
             }
-            if (e2.touches && e2.touches.length > 1) {
+            if (e3.touches && e3.touches.length > 1) {
               this._moved = true;
               return;
             }
-            var first = e2.touches && e2.touches.length === 1 ? e2.touches[0] : e2, offset3 = new Point(first.clientX, first.clientY)._subtract(this._startPoint);
+            var first = e3.touches && e3.touches.length === 1 ? e3.touches[0] : e3, offset3 = new Point(first.clientX, first.clientY)._subtract(this._startPoint);
             if (!offset3.x && !offset3.y) {
               return;
             }
@@ -27564,12 +27564,12 @@
             }
             offset3.x /= this._parentScale.x;
             offset3.y /= this._parentScale.y;
-            preventDefault(e2);
+            preventDefault(e3);
             if (!this._moved) {
               this.fire("dragstart");
               this._moved = true;
               addClass(document.body, "leaflet-dragging");
-              this._lastTarget = e2.target || e2.srcElement;
+              this._lastTarget = e3.target || e3.srcElement;
               if (window.SVGElementInstance && this._lastTarget instanceof window.SVGElementInstance) {
                 this._lastTarget = this._lastTarget.correspondingUseElement;
               }
@@ -27577,14 +27577,14 @@
             }
             this._newPos = this._startPos.add(offset3);
             this._moving = true;
-            this._lastEvent = e2;
+            this._lastEvent = e3;
             this._updatePosition();
           },
           _updatePosition: function() {
-            var e2 = { originalEvent: this._lastEvent };
-            this.fire("predrag", e2);
+            var e3 = { originalEvent: this._lastEvent };
+            this.fire("predrag", e3);
             setPosition(this._element, this._newPos);
-            this.fire("drag", e2);
+            this.fire("drag", e3);
           },
           _onUp: function() {
             if (!this._enabled) {
@@ -27811,15 +27811,15 @@
           return dx * dx + dy * dy;
         }
         function _sqClosestPointOnSegment(p, p1, p2, sqDist) {
-          var x2 = p1.x, y2 = p1.y, dx = p2.x - x2, dy = p2.y - y2, dot = dx * dx + dy * dy, t2;
+          var x2 = p1.x, y2 = p1.y, dx = p2.x - x2, dy = p2.y - y2, dot = dx * dx + dy * dy, t3;
           if (dot > 0) {
-            t2 = ((p.x - x2) * dx + (p.y - y2) * dy) / dot;
-            if (t2 > 1) {
+            t3 = ((p.x - x2) * dx + (p.y - y2) * dy) / dot;
+            if (t3 > 1) {
               x2 = p2.x;
               y2 = p2.y;
-            } else if (t2 > 0) {
-              x2 += dx * t2;
-              y2 += dy * t2;
+            } else if (t3 > 0) {
+              x2 += dx * t3;
+              y2 += dy * t3;
             }
           }
           dx = p.x - x2;
@@ -27905,16 +27905,16 @@
           R_MINOR: 6356752314245179e-9,
           bounds: new Bounds([-2003750834279e-5, -1549657073972e-5], [2003750834279e-5, 1876465623138e-5]),
           project: function(latlng) {
-            var d = Math.PI / 180, r2 = this.R, y2 = latlng.lat * d, tmp = this.R_MINOR / r2, e2 = Math.sqrt(1 - tmp * tmp), con = e2 * Math.sin(y2);
-            var ts = Math.tan(Math.PI / 4 - y2 / 2) / Math.pow((1 - con) / (1 + con), e2 / 2);
+            var d = Math.PI / 180, r2 = this.R, y2 = latlng.lat * d, tmp = this.R_MINOR / r2, e3 = Math.sqrt(1 - tmp * tmp), con = e3 * Math.sin(y2);
+            var ts = Math.tan(Math.PI / 4 - y2 / 2) / Math.pow((1 - con) / (1 + con), e3 / 2);
             y2 = -r2 * Math.log(Math.max(ts, 1e-10));
             return new Point(latlng.lng * d * r2, y2);
           },
           unproject: function(point) {
-            var d = 180 / Math.PI, r2 = this.R, tmp = this.R_MINOR / r2, e2 = Math.sqrt(1 - tmp * tmp), ts = Math.exp(-point.y / r2), phi = Math.PI / 2 - 2 * Math.atan(ts);
+            var d = 180 / Math.PI, r2 = this.R, tmp = this.R_MINOR / r2, e3 = Math.sqrt(1 - tmp * tmp), ts = Math.exp(-point.y / r2), phi = Math.PI / 2 - 2 * Math.atan(ts);
             for (var i2 = 0, dphi = 0.1, con; i2 < 15 && Math.abs(dphi) > 1e-7; i2++) {
-              con = e2 * Math.sin(phi);
-              con = Math.pow((1 - con) / (1 + con), e2 / 2);
+              con = e3 * Math.sin(phi);
+              con = Math.pow((1 - con) / (1 + con), e3 / 2);
               dphi = Math.PI / 2 - 2 * Math.atan(ts * con) - phi;
               phi += dphi;
             }
@@ -28017,8 +28017,8 @@
           getAttribution: function() {
             return this.options.attribution;
           },
-          _layerAdd: function(e2) {
-            var map = e2.target;
+          _layerAdd: function(e3) {
+            var map = e3.target;
             if (!map.hasLayer(this)) {
               return;
             }
@@ -28388,7 +28388,7 @@
             return el;
           },
           _getIconUrl: function(name) {
-            return Browser.retina && this.options[name + "RetinaUrl"] || this.options[name + "Url"];
+            return Browser2.retina && this.options[name + "RetinaUrl"] || this.options[name + "Url"];
           }
         });
         function icon(options) {
@@ -28411,21 +28411,21 @@
             }
             return (this.options.imagePath || IconDefault.imagePath) + Icon.prototype._getIconUrl.call(this, name);
           },
-          _stripUrl: function(path) {
+          _stripUrl: function(path2) {
             var strip = function(str, re, idx) {
               var match = re.exec(str);
               return match && match[idx];
             };
-            path = strip(path, /^url\((['"])?(.+)\1\)$/, 2);
-            return path && strip(path, /^(.*)marker-icon\.png$/, 1);
+            path2 = strip(path2, /^url\((['"])?(.+)\1\)$/, 2);
+            return path2 && strip(path2, /^(.*)marker-icon\.png$/, 1);
           },
           _detectIconPath: function() {
             var el = create$1("div", "leaflet-default-icon-path", document.body);
-            var path = getStyle(el, "background-image") || getStyle(el, "backgroundImage");
+            var path2 = getStyle(el, "background-image") || getStyle(el, "backgroundImage");
             document.body.removeChild(el);
-            path = this._stripUrl(path);
-            if (path) {
-              return path;
+            path2 = this._stripUrl(path2);
+            if (path2) {
+              return path2;
             }
             var link = document.querySelector('link[href$="leaflet.css"]');
             if (!link) {
@@ -28465,7 +28465,7 @@
           moved: function() {
             return this._draggable && this._draggable._moved;
           },
-          _adjustPan: function(e2) {
+          _adjustPan: function(e3) {
             var marker2 = this._marker, map = marker2._map, speed = this._marker.options.autoPanSpeed, padding = this._marker.options.autoPanPadding, iconPos = getPosition(marker2._icon), bounds = map.getPixelBounds(), origin = map.getPixelOrigin();
             var panBounds = toBounds(
               bounds.min._subtract(origin).add(padding),
@@ -28480,8 +28480,8 @@
               this._draggable._newPos._add(movement);
               this._draggable._startPos._add(movement);
               setPosition(marker2._icon, this._draggable._newPos);
-              this._onDrag(e2);
-              this._panRequest = requestAnimFrame(this._adjustPan.bind(this, e2));
+              this._onDrag(e3);
+              this._panRequest = requestAnimFrame(this._adjustPan.bind(this, e3));
             }
           },
           _onDragStart: function() {
@@ -28489,26 +28489,26 @@
             this._marker.closePopup && this._marker.closePopup();
             this._marker.fire("movestart").fire("dragstart");
           },
-          _onPreDrag: function(e2) {
+          _onPreDrag: function(e3) {
             if (this._marker.options.autoPan) {
               cancelAnimFrame(this._panRequest);
-              this._panRequest = requestAnimFrame(this._adjustPan.bind(this, e2));
+              this._panRequest = requestAnimFrame(this._adjustPan.bind(this, e3));
             }
           },
-          _onDrag: function(e2) {
+          _onDrag: function(e3) {
             var marker2 = this._marker, shadow = marker2._shadow, iconPos = getPosition(marker2._icon), latlng = marker2._map.layerPointToLatLng(iconPos);
             if (shadow) {
               setPosition(shadow, iconPos);
             }
             marker2._latlng = latlng;
-            e2.latlng = latlng;
-            e2.oldLatLng = this._oldLatLng;
-            marker2.fire("move", e2).fire("drag", e2);
+            e3.latlng = latlng;
+            e3.oldLatLng = this._oldLatLng;
+            marker2.fire("move", e3).fire("drag", e3);
           },
-          _onDragEnd: function(e2) {
+          _onDragEnd: function(e3) {
             cancelAnimFrame(this._panRequest);
             delete this._oldLatLng;
-            this._marker.fire("moveend").fire("dragend", e2);
+            this._marker.fire("moveend").fire("dragend", e3);
           }
         });
         var Marker = Layer.extend({
@@ -29761,8 +29761,8 @@
             img.src = this._url;
             img.alt = this.options.alt;
           },
-          _animateZoom: function(e2) {
-            var scale2 = this._map.getZoomScale(e2.zoom), offset3 = this._map._latLngBoundsToNewLayerBounds(this._bounds, e2.zoom, e2.center).min;
+          _animateZoom: function(e3) {
+            var scale2 = this._map.getZoomScale(e3.zoom), offset3 = this._map._latLngBoundsToNewLayerBounds(this._bounds, e3.zoom, e3.center).min;
             setTransform(this._image, offset3, scale2);
           },
           _reset: function() {
@@ -30307,8 +30307,8 @@
             }
             this._containerWidth = this._container.offsetWidth;
           },
-          _animateZoom: function(e2) {
-            var pos = this._map._latLngToNewLayerPoint(this._latlng, e2.zoom, e2.center), anchor = this._getAnchor();
+          _animateZoom: function(e3) {
+            var pos = this._map._latLngToNewLayerPoint(this._latlng, e3.zoom, e3.center), anchor = this._getAnchor();
             setPosition(this._container, pos.add(anchor));
           },
           _adjustPan: function() {
@@ -30454,29 +30454,29 @@
           getPopup: function() {
             return this._popup;
           },
-          _openPopup: function(e2) {
+          _openPopup: function(e3) {
             if (!this._popup || !this._map) {
               return;
             }
-            stop(e2);
-            var target = e2.layer || e2.target;
+            stop(e3);
+            var target = e3.layer || e3.target;
             if (this._popup._source === target && !(target instanceof Path)) {
               if (this._map.hasLayer(this._popup)) {
                 this.closePopup();
               } else {
-                this.openPopup(e2.latlng);
+                this.openPopup(e3.latlng);
               }
               return;
             }
             this._popup._source = target;
-            this.openPopup(e2.latlng);
+            this.openPopup(e3.latlng);
           },
-          _movePopup: function(e2) {
-            this._popup.setLatLng(e2.latlng);
+          _movePopup: function(e3) {
+            this._popup.setLatLng(e3.latlng);
           },
-          _onKeyPress: function(e2) {
-            if (e2.originalEvent.keyCode === 13) {
-              this._openPopup(e2);
+          _onKeyPress: function(e3) {
+            if (e3.originalEvent.keyCode === 13) {
+              this._openPopup(e3);
             }
           }
         });
@@ -30584,8 +30584,8 @@
               setOpacity(this._container, opacity);
             }
           },
-          _animateZoom: function(e2) {
-            var pos = this._map._latLngToNewLayerPoint(this._latlng, e2.zoom, e2.center);
+          _animateZoom: function(e3) {
+            var pos = this._map._latLngToNewLayerPoint(this._latlng, e3.zoom, e3.center);
             this._setPosition(pos);
           },
           _getAnchor: function() {
@@ -30738,7 +30738,7 @@
               el.setAttribute("aria-describedby", this._tooltip._container.id);
             }
           },
-          _openTooltip: function(e2) {
+          _openTooltip: function(e3) {
             if (!this._tooltip || !this._map) {
               return;
             }
@@ -30747,17 +30747,17 @@
               var that = this;
               this._map.once("moveend", function() {
                 that._openOnceFlag = false;
-                that._openTooltip(e2);
+                that._openTooltip(e3);
               });
               return;
             }
-            this._tooltip._source = e2.layer || e2.target;
-            this.openTooltip(this._tooltip.options.sticky ? e2.latlng : void 0);
+            this._tooltip._source = e3.layer || e3.target;
+            this.openTooltip(this._tooltip.options.sticky ? e3.latlng : void 0);
           },
-          _moveTooltip: function(e2) {
-            var latlng = e2.latlng, containerPoint, layerPoint;
-            if (this._tooltip.options.sticky && e2.originalEvent) {
-              containerPoint = this._map.mouseEventToContainerPoint(e2.originalEvent);
+          _moveTooltip: function(e3) {
+            var latlng = e3.latlng, containerPoint, layerPoint;
+            if (this._tooltip.options.sticky && e3.originalEvent) {
+              containerPoint = this._map.mouseEventToContainerPoint(e3.originalEvent);
               layerPoint = this._map.containerPointToLayerPoint(containerPoint);
               latlng = this._map.layerPointToLatLng(layerPoint);
             }
@@ -30819,7 +30819,7 @@
             // `true` by default on mobile browsers, in order to avoid too many requests and keep smooth navigation.
             // `false` otherwise in order to display new tiles _during_ panning, since it is easy to pan outside the
             // [`keepBuffer`](#gridlayer-keepbuffer) option in desktop browsers.
-            updateWhenIdle: Browser.mobile,
+            updateWhenIdle: Browser2.mobile,
             // @option updateWhenZooming: Boolean = true
             // By default, a smooth zoom animation (during a [touch zoom](#map-touchzoom) or a [`flyTo()`](#map-flyto)) will update grid layers every integer zoom level. Setting this option to `false` will update the grid layer only when the smooth animation ends.
             updateWhenZooming: true,
@@ -30996,7 +30996,7 @@
             if (!this._map) {
               return;
             }
-            if (Browser.ielt9) {
+            if (Browser2.ielt9) {
               return;
             }
             setOpacity(this._container, this.options.opacity);
@@ -31157,12 +31157,12 @@
               }
             }
           },
-          _resetView: function(e2) {
-            var animating = e2 && (e2.pinch || e2.flyTo);
+          _resetView: function(e3) {
+            var animating = e3 && (e3.pinch || e3.flyTo);
             this._setView(this._map.getCenter(), this._map.getZoom(), animating, animating);
           },
-          _animateZoom: function(e2) {
-            this._setView(e2.center, e2.zoom, true, e2.noUpdate);
+          _animateZoom: function(e3) {
+            this._setView(e3.center, e3.zoom, true, e3.noUpdate);
           },
           _clampZoom: function(zoom2) {
             var options = this.options;
@@ -31206,7 +31206,7 @@
           },
           _setZoomTransform: function(level, center, zoom2) {
             var scale2 = this._map.getZoomScale(zoom2, level.zoom), translate = level.origin.multiplyBy(scale2).subtract(this._map._getNewPixelOrigin(center, zoom2)).round();
-            if (Browser.any3d) {
+            if (Browser2.any3d) {
               setTransform(level.el, translate, scale2);
             } else {
               setPosition(level.el, translate);
@@ -31355,7 +31355,7 @@
             tile.style.height = tileSize.y + "px";
             tile.onselectstart = falseFn;
             tile.onmousemove = falseFn;
-            if (Browser.ielt9 && this.options.opacity < 1) {
+            if (Browser2.ielt9 && this.options.opacity < 1) {
               setOpacity(tile, this.options.opacity);
             }
           },
@@ -31410,7 +31410,7 @@
             if (this._noTilesToLoad()) {
               this._loading = false;
               this.fire("load");
-              if (Browser.ielt9 || !this._map._fadeAnimated) {
+              if (Browser2.ielt9 || !this._map._fadeAnimated) {
                 requestAnimFrame(this._pruneTiles, this);
               } else {
                 setTimeout(bind(this._pruneTiles, this), 250);
@@ -31491,7 +31491,7 @@
           initialize: function(url, options) {
             this._url = url;
             options = setOptions(this, options);
-            if (options.detectRetina && Browser.retina && options.maxZoom > 0) {
+            if (options.detectRetina && Browser2.retina && options.maxZoom > 0) {
               options.tileSize = Math.floor(options.tileSize / 2);
               if (!options.zoomReverse) {
                 options.zoomOffset++;
@@ -31551,7 +31551,7 @@
           // Classes extending `TileLayer` can override this function to provide custom tile URL naming schemes.
           getTileUrl: function(coords) {
             var data = {
-              r: Browser.retina ? "@2x" : "",
+              r: Browser2.retina ? "@2x" : "",
               s: this._getSubdomain(coords),
               x: coords.x,
               y: coords.y,
@@ -31567,21 +31567,21 @@
             return template(this._url, extend(data, this.options));
           },
           _tileOnLoad: function(done, tile) {
-            if (Browser.ielt9) {
+            if (Browser2.ielt9) {
               setTimeout(bind(done, this, null, tile), 0);
             } else {
               done(null, tile);
             }
           },
-          _tileOnError: function(done, tile, e2) {
+          _tileOnError: function(done, tile, e3) {
             var errorUrl = this.options.errorTileUrl;
             if (errorUrl && tile.getAttribute("src") !== errorUrl) {
               tile.src = errorUrl;
             }
-            done(e2, tile);
+            done(e3, tile);
           },
-          _onTileRemove: function(e2) {
-            e2.tile.onload = null;
+          _onTileRemove: function(e3) {
+            e3.tile.onload = null;
           },
           _getZoomForUrl: function() {
             var zoom2 = this._tileZoom, maxZoom = this.options.maxZoom, zoomReverse = this.options.zoomReverse, zoomOffset = this.options.zoomOffset;
@@ -31676,7 +31676,7 @@
               }
             }
             options = setOptions(this, options);
-            var realRetina = options.detectRetina && Browser.retina ? 2 : 1;
+            var realRetina = options.detectRetina && Browser2.retina ? 2 : 1;
             var tileSize = this.getTileSize();
             wmsParams.width = tileSize.x * realRetina;
             wmsParams.height = tileSize.y * realRetina;
@@ -31755,7 +31755,7 @@
           },
           _updateTransform: function(center, zoom2) {
             var scale2 = this._map.getZoomScale(zoom2, this._zoom), viewHalf = this._map.getSize().multiplyBy(0.5 + this.options.padding), currentCenterPoint = this._map.project(this._center, zoom2), topLeftOffset = viewHalf.multiplyBy(-scale2).add(currentCenterPoint).subtract(this._map._getNewPixelOrigin(center, zoom2));
-            if (Browser.any3d) {
+            if (Browser2.any3d) {
               setTransform(this._container, topLeftOffset, scale2);
             } else {
               setPosition(this._container, topLeftOffset);
@@ -31837,13 +31837,13 @@
               return;
             }
             Renderer.prototype._update.call(this);
-            var b2 = this._bounds, container = this._container, size2 = b2.getSize(), m = Browser.retina ? 2 : 1;
+            var b2 = this._bounds, container = this._container, size2 = b2.getSize(), m = Browser2.retina ? 2 : 1;
             setPosition(container, b2.min);
             container.width = m * size2.x;
             container.height = m * size2.y;
             container.style.width = size2.x + "px";
             container.style.height = size2.y + "px";
-            if (Browser.retina) {
+            if (Browser2.retina) {
               this._ctx.scale(2, 2);
             }
             this._ctx.translate(-b2.min.x, -b2.min.y);
@@ -31859,24 +31859,24 @@
           _initPath: function(layer) {
             this._updateDashArray(layer);
             this._layers[stamp(layer)] = layer;
-            var order = layer._order = {
+            var order2 = layer._order = {
               layer,
               prev: this._drawLast,
               next: null
             };
             if (this._drawLast) {
-              this._drawLast.next = order;
+              this._drawLast.next = order2;
             }
-            this._drawLast = order;
+            this._drawLast = order2;
             this._drawFirst = this._drawFirst || this._drawLast;
           },
           _addPath: function(layer) {
             this._requestRedraw(layer);
           },
           _removePath: function(layer) {
-            var order = layer._order;
-            var next = order.next;
-            var prev = order.prev;
+            var order2 = layer._order;
+            var next = order2.next;
+            var prev = order2.prev;
             if (next) {
               next.prev = prev;
             } else {
@@ -31963,8 +31963,8 @@
               this._ctx.clip();
             }
             this._drawing = true;
-            for (var order = this._drawFirst; order; order = order.next) {
-              layer = order.layer;
+            for (var order2 = this._drawFirst; order2; order2 = order2.next) {
+              layer = order2.layer;
               if (!bounds || layer._pxBounds && layer._pxBounds.intersects(bounds)) {
                 layer._updatePath();
               }
@@ -32029,69 +32029,69 @@
           },
           // Canvas obviously doesn't have mouse events for individual drawn objects,
           // so we emulate that by calculating what's under the mouse on mousemove/click manually
-          _onClick: function(e2) {
-            var point = this._map.mouseEventToLayerPoint(e2), layer, clickedLayer;
-            for (var order = this._drawFirst; order; order = order.next) {
-              layer = order.layer;
+          _onClick: function(e3) {
+            var point = this._map.mouseEventToLayerPoint(e3), layer, clickedLayer;
+            for (var order2 = this._drawFirst; order2; order2 = order2.next) {
+              layer = order2.layer;
               if (layer.options.interactive && layer._containsPoint(point)) {
-                if (!(e2.type === "click" || e2.type === "preclick") || !this._map._draggableMoved(layer)) {
+                if (!(e3.type === "click" || e3.type === "preclick") || !this._map._draggableMoved(layer)) {
                   clickedLayer = layer;
                 }
               }
             }
-            this._fireEvent(clickedLayer ? [clickedLayer] : false, e2);
+            this._fireEvent(clickedLayer ? [clickedLayer] : false, e3);
           },
-          _onMouseMove: function(e2) {
+          _onMouseMove: function(e3) {
             if (!this._map || this._map.dragging.moving() || this._map._animatingZoom) {
               return;
             }
-            var point = this._map.mouseEventToLayerPoint(e2);
-            this._handleMouseHover(e2, point);
+            var point = this._map.mouseEventToLayerPoint(e3);
+            this._handleMouseHover(e3, point);
           },
-          _handleMouseOut: function(e2) {
+          _handleMouseOut: function(e3) {
             var layer = this._hoveredLayer;
             if (layer) {
               removeClass(this._container, "leaflet-interactive");
-              this._fireEvent([layer], e2, "mouseout");
+              this._fireEvent([layer], e3, "mouseout");
               this._hoveredLayer = null;
               this._mouseHoverThrottled = false;
             }
           },
-          _handleMouseHover: function(e2, point) {
+          _handleMouseHover: function(e3, point) {
             if (this._mouseHoverThrottled) {
               return;
             }
             var layer, candidateHoveredLayer;
-            for (var order = this._drawFirst; order; order = order.next) {
-              layer = order.layer;
+            for (var order2 = this._drawFirst; order2; order2 = order2.next) {
+              layer = order2.layer;
               if (layer.options.interactive && layer._containsPoint(point)) {
                 candidateHoveredLayer = layer;
               }
             }
             if (candidateHoveredLayer !== this._hoveredLayer) {
-              this._handleMouseOut(e2);
+              this._handleMouseOut(e3);
               if (candidateHoveredLayer) {
                 addClass(this._container, "leaflet-interactive");
-                this._fireEvent([candidateHoveredLayer], e2, "mouseover");
+                this._fireEvent([candidateHoveredLayer], e3, "mouseover");
                 this._hoveredLayer = candidateHoveredLayer;
               }
             }
-            this._fireEvent(this._hoveredLayer ? [this._hoveredLayer] : false, e2);
+            this._fireEvent(this._hoveredLayer ? [this._hoveredLayer] : false, e3);
             this._mouseHoverThrottled = true;
             setTimeout(bind(function() {
               this._mouseHoverThrottled = false;
             }, this), 32);
           },
-          _fireEvent: function(layers2, e2, type) {
-            this._map._fireDOMEvent(e2, type || e2.type, layers2);
+          _fireEvent: function(layers2, e3, type) {
+            this._map._fireDOMEvent(e3, type || e3.type, layers2);
           },
           _bringToFront: function(layer) {
-            var order = layer._order;
-            if (!order) {
+            var order2 = layer._order;
+            if (!order2) {
               return;
             }
-            var next = order.next;
-            var prev = order.prev;
+            var next = order2.next;
+            var prev = order2.prev;
             if (next) {
               next.prev = prev;
             } else {
@@ -32102,19 +32102,19 @@
             } else if (next) {
               this._drawFirst = next;
             }
-            order.prev = this._drawLast;
-            this._drawLast.next = order;
-            order.next = null;
-            this._drawLast = order;
+            order2.prev = this._drawLast;
+            this._drawLast.next = order2;
+            order2.next = null;
+            this._drawLast = order2;
             this._requestRedraw(layer);
           },
           _bringToBack: function(layer) {
-            var order = layer._order;
-            if (!order) {
+            var order2 = layer._order;
+            if (!order2) {
               return;
             }
-            var next = order.next;
-            var prev = order.prev;
+            var next = order2.next;
+            var prev = order2.prev;
             if (prev) {
               prev.next = next;
             } else {
@@ -32125,15 +32125,15 @@
             } else if (prev) {
               this._drawLast = prev;
             }
-            order.prev = null;
-            order.next = this._drawFirst;
-            this._drawFirst.prev = order;
-            this._drawFirst = order;
+            order2.prev = null;
+            order2.next = this._drawFirst;
+            this._drawFirst.prev = order2;
+            this._drawFirst = order2;
             this._requestRedraw(layer);
           }
         });
         function canvas(options) {
-          return Browser.canvas ? new Canvas(options) : null;
+          return Browser2.canvas ? new Canvas(options) : null;
         }
         var vmlCreate = function() {
           try {
@@ -32141,7 +32141,7 @@
             return function(name) {
               return document.createElement("<lvml:" + name + ' class="lvml">');
             };
-          } catch (e2) {
+          } catch (e3) {
           }
           return function(name) {
             return document.createElement("<" + name + ' xmlns="urn:schemas-microsoft.com:vml" class="lvml">');
@@ -32219,8 +32219,8 @@
             var p = layer._point.round(), r2 = Math.round(layer._radius), r22 = Math.round(layer._radiusY || r2);
             this._setPath(layer, layer._empty() ? "M0 0" : "AL " + p.x + "," + p.y + " " + r2 + "," + r22 + " 0," + 65535 * 360);
           },
-          _setPath: function(layer, path) {
-            layer._path.v = path;
+          _setPath: function(layer, path2) {
+            layer._path.v = path2;
           },
           _bringToFront: function(layer) {
             toFront(layer._container);
@@ -32229,7 +32229,7 @@
             toBack(layer._container);
           }
         };
-        var create2 = Browser.vml ? vmlCreate : svgCreate;
+        var create2 = Browser2.vml ? vmlCreate : svgCreate;
         var SVG = Renderer.extend({
           _initContainer: function() {
             this._container = create2("svg");
@@ -32261,12 +32261,12 @@
           },
           // methods below are called by vector layers implementations
           _initPath: function(layer) {
-            var path = layer._path = create2("path");
+            var path2 = layer._path = create2("path");
             if (layer.options.className) {
-              addClass(path, layer.options.className);
+              addClass(path2, layer.options.className);
             }
             if (layer.options.interactive) {
-              addClass(path, "leaflet-interactive");
+              addClass(path2, "leaflet-interactive");
             }
             this._updateStyle(layer);
             this._layers[stamp(layer)] = layer;
@@ -32288,35 +32288,35 @@
             layer._update();
           },
           _updateStyle: function(layer) {
-            var path = layer._path, options = layer.options;
-            if (!path) {
+            var path2 = layer._path, options = layer.options;
+            if (!path2) {
               return;
             }
             if (options.stroke) {
-              path.setAttribute("stroke", options.color);
-              path.setAttribute("stroke-opacity", options.opacity);
-              path.setAttribute("stroke-width", options.weight);
-              path.setAttribute("stroke-linecap", options.lineCap);
-              path.setAttribute("stroke-linejoin", options.lineJoin);
+              path2.setAttribute("stroke", options.color);
+              path2.setAttribute("stroke-opacity", options.opacity);
+              path2.setAttribute("stroke-width", options.weight);
+              path2.setAttribute("stroke-linecap", options.lineCap);
+              path2.setAttribute("stroke-linejoin", options.lineJoin);
               if (options.dashArray) {
-                path.setAttribute("stroke-dasharray", options.dashArray);
+                path2.setAttribute("stroke-dasharray", options.dashArray);
               } else {
-                path.removeAttribute("stroke-dasharray");
+                path2.removeAttribute("stroke-dasharray");
               }
               if (options.dashOffset) {
-                path.setAttribute("stroke-dashoffset", options.dashOffset);
+                path2.setAttribute("stroke-dashoffset", options.dashOffset);
               } else {
-                path.removeAttribute("stroke-dashoffset");
+                path2.removeAttribute("stroke-dashoffset");
               }
             } else {
-              path.setAttribute("stroke", "none");
+              path2.setAttribute("stroke", "none");
             }
             if (options.fill) {
-              path.setAttribute("fill", options.fillColor || options.color);
-              path.setAttribute("fill-opacity", options.fillOpacity);
-              path.setAttribute("fill-rule", options.fillRule || "evenodd");
+              path2.setAttribute("fill", options.fillColor || options.color);
+              path2.setAttribute("fill-opacity", options.fillOpacity);
+              path2.setAttribute("fill-rule", options.fillRule || "evenodd");
             } else {
-              path.setAttribute("fill", "none");
+              path2.setAttribute("fill", "none");
             }
           },
           _updatePoly: function(layer, closed) {
@@ -32327,8 +32327,8 @@
             var d = layer._empty() ? "M0 0" : "M" + (p.x - r2) + "," + p.y + arc + r2 * 2 + ",0 " + arc + -r2 * 2 + ",0 ";
             this._setPath(layer, d);
           },
-          _setPath: function(layer, path) {
-            layer._path.setAttribute("d", path);
+          _setPath: function(layer, path2) {
+            layer._path.setAttribute("d", path2);
           },
           // SVG does not have the concept of zIndex so we resort to changing the DOM order of elements
           _bringToFront: function(layer) {
@@ -32338,11 +32338,11 @@
             toBack(layer._path);
           }
         });
-        if (Browser.vml) {
+        if (Browser2.vml) {
           SVG.include(vmlMixin);
         }
         function svg(options) {
-          return Browser.svg || Browser.vml ? new SVG(options) : null;
+          return Browser2.svg || Browser2.vml ? new SVG(options) : null;
         }
         Map3.include({
           // @namespace Map; @method getRenderer(layer: Path): Renderer
@@ -32442,15 +32442,15 @@
               this._resetStateTimeout = 0;
             }
           },
-          _onMouseDown: function(e2) {
-            if (!e2.shiftKey || e2.which !== 1 && e2.button !== 1) {
+          _onMouseDown: function(e3) {
+            if (!e3.shiftKey || e3.which !== 1 && e3.button !== 1) {
               return false;
             }
             this._clearDeferredResetState();
             this._resetState();
             disableTextSelection();
             disableImageDrag();
-            this._startPoint = this._map.mouseEventToContainerPoint(e2);
+            this._startPoint = this._map.mouseEventToContainerPoint(e3);
             on(document, {
               contextmenu: stop,
               mousemove: this._onMouseMove,
@@ -32458,14 +32458,14 @@
               keydown: this._onKeyDown
             }, this);
           },
-          _onMouseMove: function(e2) {
+          _onMouseMove: function(e3) {
             if (!this._moved) {
               this._moved = true;
               this._box = create$1("div", "leaflet-zoom-box", this._container);
               addClass(this._container, "leaflet-crosshair");
               this._map.fire("boxzoomstart");
             }
-            this._point = this._map.mouseEventToContainerPoint(e2);
+            this._point = this._map.mouseEventToContainerPoint(e3);
             var bounds = new Bounds(this._point, this._startPoint), size2 = bounds.getSize();
             setPosition(this._box, bounds.min);
             this._box.style.width = size2.x + "px";
@@ -32485,8 +32485,8 @@
               keydown: this._onKeyDown
             }, this);
           },
-          _onMouseUp: function(e2) {
-            if (e2.which !== 1 && e2.button !== 1) {
+          _onMouseUp: function(e3) {
+            if (e3.which !== 1 && e3.button !== 1) {
               return;
             }
             this._finish();
@@ -32501,8 +32501,8 @@
             );
             this._map.fitBounds(bounds).fire("boxzoomend", { boxZoomBounds: bounds });
           },
-          _onKeyDown: function(e2) {
-            if (e2.keyCode === 27) {
+          _onKeyDown: function(e3) {
+            if (e3.keyCode === 27) {
               this._finish();
               this._clearDeferredResetState();
               this._resetState();
@@ -32525,12 +32525,12 @@
           removeHooks: function() {
             this._map.off("dblclick", this._onDoubleClick, this);
           },
-          _onDoubleClick: function(e2) {
-            var map = this._map, oldZoom = map.getZoom(), delta = map.options.zoomDelta, zoom2 = e2.originalEvent.shiftKey ? oldZoom - delta : oldZoom + delta;
+          _onDoubleClick: function(e3) {
+            var map = this._map, oldZoom = map.getZoom(), delta = map.options.zoomDelta, zoom2 = e3.originalEvent.shiftKey ? oldZoom - delta : oldZoom + delta;
             if (map.options.doubleClickZoom === "center") {
               map.setZoom(zoom2);
             } else {
-              map.setZoomAround(e2.containerPoint, zoom2);
+              map.setZoomAround(e3.containerPoint, zoom2);
             }
           }
         });
@@ -32622,14 +32622,14 @@
               this._times = [];
             }
           },
-          _onDrag: function(e2) {
+          _onDrag: function(e3) {
             if (this._map.options.inertia) {
               var time = this._lastTime = +/* @__PURE__ */ new Date(), pos = this._lastPos = this._draggable._absPos || this._draggable._newPos;
               this._positions.push(pos);
               this._times.push(time);
               this._prunePositions(time);
             }
-            this._map.fire("move", e2).fire("drag", e2);
+            this._map.fire("move", e3).fire("drag", e3);
           },
           _prunePositions: function(time) {
             while (this._positions.length > 1 && time - this._times[0] > 50) {
@@ -32670,9 +32670,9 @@
             this._draggable._absPos = this._draggable._newPos.clone();
             this._draggable._newPos.x = newX;
           },
-          _onDragEnd: function(e2) {
-            var map = this._map, options = map.options, noInertia = !options.inertia || e2.noInertia || this._times.length < 2;
-            map.fire("dragend", e2);
+          _onDragEnd: function(e3) {
+            var map = this._map, options = map.options, noInertia = !options.inertia || e3.noInertia || this._times.length < 2;
+            map.fire("dragend", e3);
             if (noInertia) {
               map.fire("moveend");
             } else {
@@ -32791,15 +32791,15 @@
           _removeHooks: function() {
             off(document, "keydown", this._onKeyDown, this);
           },
-          _onKeyDown: function(e2) {
-            if (e2.altKey || e2.ctrlKey || e2.metaKey) {
+          _onKeyDown: function(e3) {
+            if (e3.altKey || e3.ctrlKey || e3.metaKey) {
               return;
             }
-            var key = e2.keyCode, map = this._map, offset3;
+            var key = e3.keyCode, map = this._map, offset3;
             if (key in this._panKeys) {
               if (!map._panAnim || !map._panAnim._inProgress) {
                 offset3 = this._panKeys[key];
-                if (e2.shiftKey) {
+                if (e3.shiftKey) {
                   offset3 = toPoint(offset3).multiplyBy(3);
                 }
                 if (map.options.maxBounds) {
@@ -32813,13 +32813,13 @@
                 }
               }
             } else if (key in this._zoomKeys) {
-              map.setZoom(map.getZoom() + (e2.shiftKey ? 3 : 1) * this._zoomKeys[key]);
+              map.setZoom(map.getZoom() + (e3.shiftKey ? 3 : 1) * this._zoomKeys[key]);
             } else if (key === 27 && map._popup && map._popup.options.closeOnEscapeKey) {
               map.closePopup();
             } else {
               return;
             }
-            stop(e2);
+            stop(e3);
           }
         });
         Map3.addInitHook("addHandler", "keyboard", Keyboard);
@@ -32847,18 +32847,18 @@
           removeHooks: function() {
             off(this._map._container, "wheel", this._onWheelScroll, this);
           },
-          _onWheelScroll: function(e2) {
-            var delta = getWheelDelta(e2);
+          _onWheelScroll: function(e3) {
+            var delta = getWheelDelta(e3);
             var debounce = this._map.options.wheelDebounceTime;
             this._delta += delta;
-            this._lastMousePos = this._map.mouseEventToContainerPoint(e2);
+            this._lastMousePos = this._map.mouseEventToContainerPoint(e3);
             if (!this._startTime) {
               this._startTime = +/* @__PURE__ */ new Date();
             }
             var left = Math.max(debounce - (+/* @__PURE__ */ new Date() - this._startTime), 0);
             clearTimeout(this._timer);
             this._timer = setTimeout(bind(this._performZoom, this), left);
-            stop(e2);
+            stop(e3);
           },
           _performZoom: function() {
             var map = this._map, zoom2 = map.getZoom(), snap = this._map.options.zoomSnap || 0;
@@ -32882,7 +32882,7 @@
           // @section Touch interaction options
           // @option tapHold: Boolean
           // Enables simulation of `contextmenu` event, default is `true` for mobile Safari.
-          tapHold: Browser.touchNative && Browser.safari && Browser.mobile,
+          tapHold: Browser2.touchNative && Browser2.safari && Browser2.mobile,
           // @option tapTolerance: Number = 15
           // The max number of pixels a user can shift his finger during touch
           // for it to be considered a valid tap.
@@ -32895,12 +32895,12 @@
           removeHooks: function() {
             off(this._map._container, "touchstart", this._onDown, this);
           },
-          _onDown: function(e2) {
+          _onDown: function(e3) {
             clearTimeout(this._holdTimeout);
-            if (e2.touches.length !== 1) {
+            if (e3.touches.length !== 1) {
               return;
             }
-            var first = e2.touches[0];
+            var first = e3.touches[0];
             this._startPos = this._newPos = new Point(first.clientX, first.clientY);
             this._holdTimeout = setTimeout(bind(function() {
               this._cancel();
@@ -32923,28 +32923,28 @@
             off(document, "touchend touchcancel contextmenu", this._cancel, this);
             off(document, "touchmove", this._onMove, this);
           },
-          _onMove: function(e2) {
-            var first = e2.touches[0];
+          _onMove: function(e3) {
+            var first = e3.touches[0];
             this._newPos = new Point(first.clientX, first.clientY);
           },
           _isTapValid: function() {
             return this._newPos.distanceTo(this._startPos) <= this._map.options.tapTolerance;
           },
-          _simulateEvent: function(type, e2) {
+          _simulateEvent: function(type, e3) {
             var simulatedEvent = new MouseEvent(type, {
               bubbles: true,
               cancelable: true,
               view: window,
               // detail: 1,
-              screenX: e2.screenX,
-              screenY: e2.screenY,
-              clientX: e2.clientX,
-              clientY: e2.clientY
+              screenX: e3.screenX,
+              screenY: e3.screenY,
+              clientX: e3.clientX,
+              clientY: e3.clientY
               // button: 2,
               // buttons: 2
             });
             simulatedEvent._simulated = true;
-            e2.target.dispatchEvent(simulatedEvent);
+            e3.target.dispatchEvent(simulatedEvent);
           }
         });
         Map3.addInitHook("addHandler", "tapHold", TapHold);
@@ -32955,7 +32955,7 @@
           // passed `'center'`, it will zoom to the center of the view regardless of
           // where the touch events (fingers) were. Enabled for touch-capable web
           // browsers.
-          touchZoom: Browser.touch,
+          touchZoom: Browser2.touch,
           // @option bounceAtZoomLimits: Boolean = true
           // Set it to false if you don't want the map to zoom beyond min/max zoom
           // and then bounce back when pinch-zooming.
@@ -32970,12 +32970,12 @@
             removeClass(this._map._container, "leaflet-touch-zoom");
             off(this._map._container, "touchstart", this._onTouchStart, this);
           },
-          _onTouchStart: function(e2) {
+          _onTouchStart: function(e3) {
             var map = this._map;
-            if (!e2.touches || e2.touches.length !== 2 || map._animatingZoom || this._zooming) {
+            if (!e3.touches || e3.touches.length !== 2 || map._animatingZoom || this._zooming) {
               return;
             }
-            var p1 = map.mouseEventToContainerPoint(e2.touches[0]), p2 = map.mouseEventToContainerPoint(e2.touches[1]);
+            var p1 = map.mouseEventToContainerPoint(e3.touches[0]), p2 = map.mouseEventToContainerPoint(e3.touches[1]);
             this._centerPoint = map.getSize()._divideBy(2);
             this._startLatLng = map.containerPointToLatLng(this._centerPoint);
             if (map.options.touchZoom !== "center") {
@@ -32988,13 +32988,13 @@
             map._stop();
             on(document, "touchmove", this._onTouchMove, this);
             on(document, "touchend touchcancel", this._onTouchEnd, this);
-            preventDefault(e2);
+            preventDefault(e3);
           },
-          _onTouchMove: function(e2) {
-            if (!e2.touches || e2.touches.length !== 2 || !this._zooming) {
+          _onTouchMove: function(e3) {
+            if (!e3.touches || e3.touches.length !== 2 || !this._zooming) {
               return;
             }
-            var map = this._map, p1 = map.mouseEventToContainerPoint(e2.touches[0]), p2 = map.mouseEventToContainerPoint(e2.touches[1]), scale2 = p1.distanceTo(p2) / this._startDist;
+            var map = this._map, p1 = map.mouseEventToContainerPoint(e3.touches[0]), p2 = map.mouseEventToContainerPoint(e3.touches[1]), scale2 = p1.distanceTo(p2) / this._startDist;
             this._zoom = map.getScaleZoom(scale2, this._startZoom);
             if (!map.options.bounceAtZoomLimits && (this._zoom < map.getMinZoom() && scale2 < 1 || this._zoom > map.getMaxZoom() && scale2 > 1)) {
               this._zoom = map._limitZoom(this._zoom);
@@ -33018,7 +33018,7 @@
             cancelAnimFrame(this._animRequest);
             var moveFn = bind(map._move, map, this._center, this._zoom, { pinch: true, round: false }, void 0);
             this._animRequest = requestAnimFrame(moveFn, this, true);
-            preventDefault(e2);
+            preventDefault(e3);
           },
           _onTouchEnd: function() {
             if (!this._moved || !this._zooming) {
@@ -33045,13 +33045,13 @@
         Map3.TapHold = TapHold;
         Map3.TouchZoom = TouchZoom;
         exports2.Bounds = Bounds;
-        exports2.Browser = Browser;
+        exports2.Browser = Browser2;
         exports2.CRS = CRS;
         exports2.Canvas = Canvas;
         exports2.Circle = Circle;
         exports2.CircleMarker = CircleMarker;
         exports2.Class = Class;
-        exports2.Control = Control;
+        exports2.Control = Control2;
         exports2.DivIcon = DivIcon;
         exports2.DivOverlay = DivOverlay;
         exports2.DomEvent = DomEvent;
@@ -33144,8 +33144,8 @@
         if (typeof window2 !== "undefined" && window2.L) {
           factory(window2.L);
         }
-      })((L4) => {
-        L4.Editable = L4.Evented.extend({
+      })((L5) => {
+        L5.Editable = L5.Evented.extend({
           statics: {
             FORWARD: 1,
             BACKWARD: -1
@@ -33157,22 +33157,22 @@
             zIndex: 1e3,
             // 🍂option polygonClass: class = L.Polygon
             // Class to be used when creating a new Polygon.
-            polygonClass: L4.Polygon,
+            polygonClass: L5.Polygon,
             // 🍂option polylineClass: class = L.Polyline
             // Class to be used when creating a new Polyline.
-            polylineClass: L4.Polyline,
+            polylineClass: L5.Polyline,
             // 🍂option markerClass: class = L.Marker
             // Class to be used when creating a new Marker.
-            markerClass: L4.Marker,
+            markerClass: L5.Marker,
             // 🍂option circleMarkerClass: class = L.CircleMarker
             // Class to be used when creating a new CircleMarker.
-            circleMarkerClass: L4.CircleMarker,
+            circleMarkerClass: L5.CircleMarker,
             // 🍂option rectangleClass: class = L.Rectangle
             // Class to be used when creating a new Rectangle.
-            rectangleClass: L4.Rectangle,
+            rectangleClass: L5.Rectangle,
             // 🍂option circleClass: class = L.Circle
             // Class to be used when creating a new Circle.
-            circleClass: L4.Circle,
+            circleClass: L5.Circle,
             // 🍂option drawingCSSClass: string = 'leaflet-editable-drawing'
             // CSS class to be added to the map container while drawing.
             drawingCSSClass: "leaflet-editable-drawing",
@@ -33211,7 +33211,7 @@
             skipMiddleMarkers: false
           },
           initialize: function(map, options) {
-            L4.setOptions(this, options);
+            L5.setOptions(this, options);
             this._lastZIndex = this.options.zIndex;
             this.map = map;
             this.editLayer = this.createEditLayer();
@@ -33219,25 +33219,25 @@
             this.forwardLineGuide = this.createLineGuide();
             this.backwardLineGuide = this.createLineGuide();
           },
-          fireAndForward: function(type, e2) {
-            e2 = e2 || {};
-            e2.editTools = this;
-            this.fire(type, e2);
-            this.map.fire(type, e2);
+          fireAndForward: function(type, e3) {
+            e3 = e3 || {};
+            e3.editTools = this;
+            this.fire(type, e3);
+            this.map.fire(type, e3);
           },
           createLineGuide: function() {
-            const options = L4.extend(
+            const options = L5.extend(
               { dashArray: "5,10", weight: 1, interactive: false },
               this.options.lineGuideOptions
             );
-            return L4.polyline([], options);
+            return L5.polyline([], options);
           },
-          createVertexIcon: (options) => L4.Browser.mobile && L4.Browser.touch ? new L4.Editable.TouchVertexIcon(options) : new L4.Editable.VertexIcon(options),
+          createVertexIcon: (options) => L5.Browser.mobile && L5.Browser.touch ? new L5.Editable.TouchVertexIcon(options) : new L5.Editable.VertexIcon(options),
           createEditLayer: function() {
-            return this.options.editLayer || new L4.LayerGroup().addTo(this.map);
+            return this.options.editLayer || new L5.LayerGroup().addTo(this.map);
           },
           createFeaturesLayer: function() {
-            return this.options.featuresLayer || new L4.LayerGroup().addTo(this.map);
+            return this.options.featuresLayer || new L5.LayerGroup().addTo(this.map);
           },
           moveForwardLineGuide: function(latlng) {
             if (this.forwardLineGuide._latlngs.length) {
@@ -33285,7 +33285,7 @@
           },
           unblockEvents: function() {
             if (this._oldTargets) {
-              this.map._targets = L4.extend(this.map._targets, this._oldTargets);
+              this.map._targets = L5.extend(this.map._targets, this._oldTargets);
               delete this._oldTargets;
             }
           },
@@ -33297,13 +33297,13 @@
             this.map.on("mousemove touchmove", editor.onDrawingMouseMove, editor);
             this.map.on("mousedown", this.onMousedown, this);
             this.map.on("mouseup", this.onMouseup, this);
-            L4.DomUtil.addClass(this.map._container, this.options.drawingCSSClass);
+            L5.DomUtil.addClass(this.map._container, this.options.drawingCSSClass);
             this.defaultMapCursor = this.map._container.style.cursor;
             this.map._container.style.cursor = this.options.drawingCursor;
           },
           unregisterForDrawing: function(editor) {
             this.unblockEvents();
-            L4.DomUtil.removeClass(this.map._container, this.options.drawingCSSClass);
+            L5.DomUtil.removeClass(this.map._container, this.options.drawingCSSClass);
             this.map._container.style.cursor = this.defaultMapCursor;
             editor = editor || this._drawingEditor;
             if (!editor) return;
@@ -33314,28 +33314,28 @@
             delete this._drawingEditor;
             if (editor._drawing) editor.cancelDrawing();
           },
-          onMousedown: function(e2) {
-            if (e2.originalEvent.which != 1) return;
-            this._mouseDown = e2;
-            this._drawingEditor.onDrawingMouseDown(e2);
+          onMousedown: function(e3) {
+            if (e3.originalEvent.which != 1) return;
+            this._mouseDown = e3;
+            this._drawingEditor.onDrawingMouseDown(e3);
           },
-          onMouseup: function(e2) {
+          onMouseup: function(e3) {
             if (this._mouseDown) {
               const editor = this._drawingEditor;
               const mouseDown = this._mouseDown;
               this._mouseDown = null;
-              editor.onDrawingMouseUp(e2);
+              editor.onDrawingMouseUp(e3);
               if (this._drawingEditor !== editor) return;
-              const origin = L4.point(
+              const origin = L5.point(
                 mouseDown.originalEvent.clientX,
                 mouseDown.originalEvent.clientY
               );
-              const distance = L4.point(
-                e2.originalEvent.clientX,
-                e2.originalEvent.clientY
+              const distance = L5.point(
+                e3.originalEvent.clientX,
+                e3.originalEvent.clientY
               ).distanceTo(origin);
               if (Math.abs(distance) < 9 * (window.devicePixelRatio || 1))
-                this._drawingEditor.onDrawingClick(e2);
+                this._drawingEditor.onDrawingClick(e3);
             }
           },
           // 🍂section Public methods
@@ -33355,9 +33355,9 @@
           },
           // 🍂method commitDrawing()
           // When you need to commit any ongoing drawing, without needing to know which editor is active.
-          commitDrawing: function(e2) {
+          commitDrawing: function(e3) {
             if (!this._drawingEditor) return;
-            this._drawingEditor.commitDrawing(e2);
+            this._drawingEditor.commitDrawing(e3);
           },
           connectCreatedToMap: function(layer) {
             return this.featuresLayer.addLayer(layer);
@@ -33402,8 +33402,8 @@
           // Start drawing a Rectangle. If `latlng` is given, the Rectangle anchor will be added. In any case, continuing on user drag.
           // If `options` is given, it will be passed to the Rectangle class constructor.
           startRectangle: function(latlng, options) {
-            const corner = latlng || L4.latLng([0, 0]);
-            const bounds = new L4.LatLngBounds(corner, corner);
+            const corner = latlng || L5.latLng([0, 0]);
+            const bounds = new L5.LatLngBounds(corner, corner);
             const rectangle = this.createRectangle(bounds, options);
             rectangle.enableEdit(this.map).startDrawing();
             return rectangle;
@@ -33421,7 +33421,7 @@
             editor.newHole(latlng);
           },
           createLayer: function(klass, latlngs, options) {
-            options = L4.Util.extend({ editOptions: { editTools: this } }, options);
+            options = L5.Util.extend({ editOptions: { editTools: this } }, options);
             const layer = new klass(latlngs, options);
             this.fireAndForward("editable:created", { layer });
             return layer;
@@ -33469,19 +33469,19 @@
             );
           }
         });
-        L4.extend(L4.Editable, {
-          makeCancellable: (e2) => {
-            e2.cancel = () => {
-              e2._cancelled = true;
+        L5.extend(L5.Editable, {
+          makeCancellable: (e3) => {
+            e3.cancel = () => {
+              e3._cancelled = true;
             };
           }
         });
-        L4.Map.mergeOptions({
+        L5.Map.mergeOptions({
           // 🍂namespace Map
           // 🍂section Map Options
           // 🍂option editToolsClass: class = L.Editable
           // Class to be used as vertex, for path editing.
-          editToolsClass: L4.Editable,
+          editToolsClass: L5.Editable,
           // 🍂option editable: boolean = false
           // Whether to create a L.Editable instance at map init.
           editable: false,
@@ -33489,24 +33489,24 @@
           // Options to pass to L.Editable when instantiating.
           editOptions: {}
         });
-        L4.Map.addInitHook(function() {
+        L5.Map.addInitHook(function() {
           this.whenReady(function() {
             if (this.options.editable) {
               this.editTools = new this.options.editToolsClass(this, this.options.editOptions);
             }
           });
         });
-        L4.Editable.VertexIcon = L4.DivIcon.extend({
+        L5.Editable.VertexIcon = L5.DivIcon.extend({
           options: {
-            iconSize: new L4.Point(8, 8)
+            iconSize: new L5.Point(8, 8)
           }
         });
-        L4.Editable.TouchVertexIcon = L4.Editable.VertexIcon.extend({
+        L5.Editable.TouchVertexIcon = L5.Editable.VertexIcon.extend({
           options: {
-            iconSize: new L4.Point(20, 20)
+            iconSize: new L5.Point(20, 20)
           }
         });
-        L4.Editable.VertexMarker = L4.Marker.extend({
+        L5.Editable.VertexMarker = L5.Marker.extend({
           options: {
             draggable: true,
             className: "leaflet-div-icon leaflet-vertex-icon"
@@ -33518,7 +33518,7 @@
             this.latlng = latlng;
             this.latlngs = latlngs;
             this.editor = editor;
-            L4.Marker.prototype.initialize.call(this, latlng, options);
+            L5.Marker.prototype.initialize.call(this, latlng, options);
             this.options.icon = this.editor.tools.createVertexIcon({
               className: this.options.className
             });
@@ -33530,7 +33530,7 @@
             this.editor.editLayer.addLayer(this);
           },
           onAdd: function(map) {
-            L4.Marker.prototype.onAdd.call(this, map);
+            L5.Marker.prototype.onAdd.call(this, map);
             this.on("drag", this.onDrag);
             this.on("dragstart", this.onDragStart);
             this.on("dragend", this.onDragEnd);
@@ -33554,12 +33554,12 @@
             this.off("mousedown touchstart", this.onMouseDown);
             this.off("mouseover", this.onMouseOver);
             this.off("mouseout", this.onMouseOut);
-            L4.Marker.prototype.onRemove.call(this, map);
+            L5.Marker.prototype.onRemove.call(this, map);
           },
-          onDrag: function(e2) {
-            e2.vertex = this;
-            this.editor.onVertexMarkerDrag(e2);
-            const iconPos = L4.DomUtil.getPosition(this._icon);
+          onDrag: function(e3) {
+            e3.vertex = this;
+            this.editor.onVertexMarkerDrag(e3);
+            const iconPos = L5.DomUtil.getPosition(this._icon);
             const latlng = this._map.layerPointToLatLng(iconPos);
             this.latlng.update(latlng);
             this._latlng = this.latlng;
@@ -33568,38 +33568,38 @@
             const next = this.getNext();
             if (next?.middleMarker) next.middleMarker.updateLatLng();
           },
-          onDragStart: function(e2) {
-            e2.vertex = this;
-            this.editor.onVertexMarkerDragStart(e2);
+          onDragStart: function(e3) {
+            e3.vertex = this;
+            this.editor.onVertexMarkerDragStart(e3);
           },
-          onDragEnd: function(e2) {
-            e2.vertex = this;
-            this.editor.onVertexMarkerDragEnd(e2);
+          onDragEnd: function(e3) {
+            e3.vertex = this;
+            this.editor.onVertexMarkerDragEnd(e3);
           },
-          onClick: function(e2) {
-            e2.vertex = this;
-            this.editor.onVertexMarkerClick(e2);
+          onClick: function(e3) {
+            e3.vertex = this;
+            this.editor.onVertexMarkerClick(e3);
           },
-          onMouseup: function(e2) {
-            L4.DomEvent.stop(e2);
-            e2.vertex = this;
-            this.editor.map.fire("mouseup", e2);
+          onMouseup: function(e3) {
+            L5.DomEvent.stop(e3);
+            e3.vertex = this;
+            this.editor.map.fire("mouseup", e3);
           },
-          onContextMenu: function(e2) {
-            e2.vertex = this;
-            this.editor.onVertexMarkerContextMenu(e2);
+          onContextMenu: function(e3) {
+            e3.vertex = this;
+            this.editor.onVertexMarkerContextMenu(e3);
           },
-          onMouseDown: function(e2) {
-            e2.vertex = this;
-            this.editor.onVertexMarkerMouseDown(e2);
+          onMouseDown: function(e3) {
+            e3.vertex = this;
+            this.editor.onVertexMarkerMouseDown(e3);
           },
-          onMouseOver: function(e2) {
-            e2.vertex = this;
-            this.editor.onVertexMarkerMouseOver(e2);
+          onMouseOver: function(e3) {
+            e3.vertex = this;
+            this.editor.onVertexMarkerMouseOver(e3);
           },
-          onMouseOut: function(e2) {
-            e2.vertex = this;
-            this.editor.onVertexMarkerMouseOut(e2);
+          onMouseOut: function(e3) {
+            e3.vertex = this;
+            this.editor.onVertexMarkerMouseOut(e3);
           },
           // 🍂method delete()
           // Delete a vertex and the related LatLng.
@@ -33679,13 +33679,13 @@
             else if (index === this.getLastIndex()) this.editor.continueForward(this.latlngs);
           }
         });
-        L4.Editable.mergeOptions({
+        L5.Editable.mergeOptions({
           // 🍂namespace Editable
           // 🍂option vertexMarkerClass: class = VertexMarker
           // Class to be used as vertex, for path editing.
-          vertexMarkerClass: L4.Editable.VertexMarker
+          vertexMarkerClass: L5.Editable.VertexMarker
         });
-        L4.Editable.MiddleMarker = L4.Marker.extend({
+        L5.Editable.MiddleMarker = L5.Marker.extend({
           options: {
             opacity: 0.5,
             className: "leaflet-div-icon leaflet-middle-icon",
@@ -33696,7 +33696,7 @@
             this.right = right;
             this.editor = editor;
             this.latlngs = latlngs;
-            L4.Marker.prototype.initialize.call(this, this.computeLatLng(), options);
+            L5.Marker.prototype.initialize.call(this, this.computeLatLng(), options);
             this._opacity = this.options.opacity;
             this.options.icon = this.editor.tools.createVertexIcon({
               className: this.options.className
@@ -33707,7 +33707,7 @@
           setVisibility: function() {
             const leftPoint = this._map.latLngToContainerPoint(this.left.latlng);
             const rightPoint = this._map.latLngToContainerPoint(this.right.latlng);
-            const size2 = L4.point(this.options.icon.options.iconSize);
+            const size2 = L5.point(this.options.icon.options.iconSize);
             if (leftPoint.distanceTo(rightPoint) < size2.x * 3) this.hide();
             else this.show();
           },
@@ -33729,31 +33729,31 @@
             return this.editor.map.containerPointToLatLng([x2, y2]);
           },
           onAdd: function(map) {
-            L4.Marker.prototype.onAdd.call(this, map);
-            L4.DomEvent.on(this._icon, "mousedown touchstart", this.onMouseDown, this);
+            L5.Marker.prototype.onAdd.call(this, map);
+            L5.DomEvent.on(this._icon, "mousedown touchstart", this.onMouseDown, this);
             map.on("zoomend", this.setVisibility, this);
           },
           onRemove: function(map) {
             delete this.right.middleMarker;
-            L4.DomEvent.off(this._icon, "mousedown touchstart", this.onMouseDown, this);
+            L5.DomEvent.off(this._icon, "mousedown touchstart", this.onMouseDown, this);
             map.off("zoomend", this.setVisibility, this);
-            L4.Marker.prototype.onRemove.call(this, map);
+            L5.Marker.prototype.onRemove.call(this, map);
           },
-          onMouseDown: function(e2) {
-            const iconPos = L4.DomUtil.getPosition(this._icon);
+          onMouseDown: function(e3) {
+            const iconPos = L5.DomUtil.getPosition(this._icon);
             const latlng = this.editor.map.layerPointToLatLng(iconPos);
-            e2 = {
-              originalEvent: e2,
+            e3 = {
+              originalEvent: e3,
               latlng
             };
             if (this.options.opacity === 0) return;
-            L4.Editable.makeCancellable(e2);
-            this.editor.onMiddleMarkerMouseDown(e2);
-            if (e2._cancelled) return;
-            this.latlngs.splice(this.index(), 0, e2.latlng);
+            L5.Editable.makeCancellable(e3);
+            this.editor.onMiddleMarkerMouseDown(e3);
+            if (e3._cancelled) return;
+            this.latlngs.splice(this.index(), 0, e3.latlng);
             this.editor.refresh();
             const icon = this._icon;
-            const marker = this.editor.addVertexMarker(e2.latlng, this.latlngs);
+            const marker = this.editor.addVertexMarker(e3.latlng, this.latlngs);
             this.editor.onNewVertex(marker);
             const parent = marker._icon.parentNode;
             parent.removeChild(marker._icon);
@@ -33762,8 +33762,8 @@
             marker._initIcon();
             marker._initInteraction();
             marker.setOpacity(1);
-            L4.Draggable._dragging = false;
-            marker.dragging._draggable._onDown(e2.originalEvent);
+            L5.Draggable._dragging = false;
+            marker.dragging._draggable._onDown(e3.originalEvent);
             this.delete();
           },
           delete: function() {
@@ -33773,19 +33773,19 @@
             return this.latlngs.indexOf(this.right.latlng);
           }
         });
-        L4.Editable.mergeOptions({
+        L5.Editable.mergeOptions({
           // 🍂namespace Editable
           // 🍂option middleMarkerClass: class = VertexMarker
           // Class to be used as middle vertex, pulled by the user to create a new point in the middle of a path.
-          middleMarkerClass: L4.Editable.MiddleMarker
+          middleMarkerClass: L5.Editable.MiddleMarker
         });
-        L4.Editable.BaseEditor = L4.Handler.extend({
+        L5.Editable.BaseEditor = L5.Handler.extend({
           initialize: function(map, feature, options) {
-            L4.setOptions(this, options);
+            L5.setOptions(this, options);
             this.map = map;
             this.feature = feature;
             this.feature.editor = this;
-            this.editLayer = new L4.LayerGroup();
+            this.editLayer = new L5.LayerGroup();
             this.tools = this.options.editTools || map.editTools;
           },
           // 🍂method enable(): this
@@ -33820,11 +33820,11 @@
           hasMiddleMarkers: function() {
             return !this.options.skipMiddleMarkers && !this.tools.options.skipMiddleMarkers;
           },
-          fireAndForward: function(type, e2) {
-            e2 = e2 || {};
-            e2.layer = this.feature;
-            this.feature.fire(type, e2);
-            this.tools.fireAndForward(type, e2);
+          fireAndForward: function(type, e3) {
+            e3 = e3 || {};
+            e3.layer = this.feature;
+            this.feature.fire(type, e3);
+            this.tools.fireAndForward(type, e3);
           },
           onEnable: function() {
             this.fireAndForward("editable:enable");
@@ -33847,27 +33847,27 @@
           onCancelDrawing: function() {
             this.fireAndForward("editable:drawing:cancel");
           },
-          onCommitDrawing: function(e2) {
-            this.fireAndForward("editable:drawing:commit", e2);
+          onCommitDrawing: function(e3) {
+            this.fireAndForward("editable:drawing:commit", e3);
             this.onEdited();
           },
-          onDrawingMouseDown: function(e2) {
-            this.fireAndForward("editable:drawing:mousedown", e2);
+          onDrawingMouseDown: function(e3) {
+            this.fireAndForward("editable:drawing:mousedown", e3);
           },
-          onDrawingMouseUp: function(e2) {
-            this.fireAndForward("editable:drawing:mouseup", e2);
+          onDrawingMouseUp: function(e3) {
+            this.fireAndForward("editable:drawing:mouseup", e3);
           },
           startDrawing: function() {
-            if (!this._drawing) this._drawing = L4.Editable.FORWARD;
+            if (!this._drawing) this._drawing = L5.Editable.FORWARD;
             this.tools.registerForDrawing(this);
             this.onStartDrawing();
           },
-          commitDrawing: function(e2) {
-            this.onCommitDrawing(e2);
+          commitDrawing: function(e3) {
+            this.onCommitDrawing(e3);
             this.endDrawing();
           },
           cancelDrawing: function() {
-            L4.Draggable._dragging = false;
+            L5.Draggable._dragging = false;
             this.onCancelDrawing();
             this.endDrawing();
           },
@@ -33876,13 +33876,13 @@
             this.tools.unregisterForDrawing(this);
             this.onEndDrawing();
           },
-          onDrawingClick: function(e2) {
+          onDrawingClick: function(e3) {
             if (!this.drawing()) return;
-            L4.Editable.makeCancellable(e2);
-            this.fireAndForward("editable:drawing:click", e2);
-            if (e2._cancelled) return;
-            if (!this.isConnected()) this.connect(e2);
-            this.processDrawingClick(e2);
+            L5.Editable.makeCancellable(e3);
+            this.fireAndForward("editable:drawing:click", e3);
+            if (e3._cancelled) return;
+            if (!this.isConnected()) this.connect(e3);
+            this.processDrawingClick(e3);
           },
           isConnected: function() {
             return this.map.hasLayer(this.feature);
@@ -33891,11 +33891,11 @@
             this.tools.connectCreatedToMap(this.feature);
             this.tools.editLayer.addLayer(this.editLayer);
           },
-          onMove: function(e2) {
-            this.fireAndForward("editable:drawing:move", e2);
+          onMove: function(e3) {
+            this.fireAndForward("editable:drawing:move", e3);
           },
-          onDrawingMouseMove: function(e2) {
-            this.onMove(e2);
+          onDrawingMouseMove: function(e3) {
+            this.onMove(e3);
           },
           _getEvents: function() {
             return {
@@ -33905,52 +33905,52 @@
               remove: this.disable
             };
           },
-          onDragStart: function(e2) {
+          onDragStart: function(e3) {
             this.onEditing();
-            this.fireAndForward("editable:dragstart", e2);
+            this.fireAndForward("editable:dragstart", e3);
           },
-          onDrag: function(e2) {
-            this.onMove(e2);
-            this.fireAndForward("editable:drag", e2);
+          onDrag: function(e3) {
+            this.onMove(e3);
+            this.fireAndForward("editable:drag", e3);
           },
-          onDragEnd: function(e2) {
-            this.fireAndForward("editable:dragend", e2);
+          onDragEnd: function(e3) {
+            this.fireAndForward("editable:dragend", e3);
             this.onEdited();
           }
         });
-        L4.Editable.MarkerEditor = L4.Editable.BaseEditor.extend({
-          onDrawingMouseMove: function(e2) {
-            L4.Editable.BaseEditor.prototype.onDrawingMouseMove.call(this, e2);
-            if (this._drawing) this.feature.setLatLng(e2.latlng);
+        L5.Editable.MarkerEditor = L5.Editable.BaseEditor.extend({
+          onDrawingMouseMove: function(e3) {
+            L5.Editable.BaseEditor.prototype.onDrawingMouseMove.call(this, e3);
+            if (this._drawing) this.feature.setLatLng(e3.latlng);
           },
-          processDrawingClick: function(e2) {
-            this.fireAndForward("editable:drawing:clicked", e2);
-            this.commitDrawing(e2);
+          processDrawingClick: function(e3) {
+            this.fireAndForward("editable:drawing:clicked", e3);
+            this.commitDrawing(e3);
           },
-          connect: function(e2) {
-            if (e2) this.feature._latlng = e2.latlng;
-            L4.Editable.BaseEditor.prototype.connect.call(this, e2);
+          connect: function(e3) {
+            if (e3) this.feature._latlng = e3.latlng;
+            L5.Editable.BaseEditor.prototype.connect.call(this, e3);
           }
         });
-        L4.Editable.CircleMarkerEditor = L4.Editable.BaseEditor.extend({
-          onDrawingMouseMove: function(e2) {
-            L4.Editable.BaseEditor.prototype.onDrawingMouseMove.call(this, e2);
-            if (this._drawing) this.feature.setLatLng(e2.latlng);
+        L5.Editable.CircleMarkerEditor = L5.Editable.BaseEditor.extend({
+          onDrawingMouseMove: function(e3) {
+            L5.Editable.BaseEditor.prototype.onDrawingMouseMove.call(this, e3);
+            if (this._drawing) this.feature.setLatLng(e3.latlng);
           },
-          processDrawingClick: function(e2) {
-            this.fireAndForward("editable:drawing:clicked", e2);
-            this.commitDrawing(e2);
+          processDrawingClick: function(e3) {
+            this.fireAndForward("editable:drawing:clicked", e3);
+            this.commitDrawing(e3);
           },
-          connect: function(e2) {
-            if (e2) this.feature._latlng = e2.latlng;
-            L4.Editable.BaseEditor.prototype.connect.call(this, e2);
+          connect: function(e3) {
+            if (e3) this.feature._latlng = e3.latlng;
+            L5.Editable.BaseEditor.prototype.connect.call(this, e3);
           }
         });
-        L4.Editable.PathEditor = L4.Editable.BaseEditor.extend({
+        L5.Editable.PathEditor = L5.Editable.BaseEditor.extend({
           CLOSED: false,
           MIN_VERTEX: 2,
           addHooks: function() {
-            L4.Editable.BaseEditor.prototype.addHooks.call(this);
+            L5.Editable.BaseEditor.prototype.addHooks.call(this);
             if (this.feature) {
               this.initVertexMarkers();
               this.map.on("moveend", this.onMoveEnd, this);
@@ -33958,7 +33958,7 @@
             return this;
           },
           removeHooks: function() {
-            L4.Editable.BaseEditor.prototype.removeHooks.call(this);
+            L5.Editable.BaseEditor.prototype.removeHooks.call(this);
             if (this.feature) {
               this.map.off("moveend", this.onMoveEnd, this);
             }
@@ -34015,82 +34015,82 @@
           addMiddleMarker: function(left, right, latlngs) {
             return new this.tools.options.middleMarkerClass(left, right, latlngs, this);
           },
-          onVertexMarkerClick: function(e2) {
-            L4.Editable.makeCancellable(e2);
-            this.fireAndForward("editable:vertex:click", e2);
-            if (e2._cancelled) return;
+          onVertexMarkerClick: function(e3) {
+            L5.Editable.makeCancellable(e3);
+            this.fireAndForward("editable:vertex:click", e3);
+            if (e3._cancelled) return;
             if (this.tools.drawing() && this.tools._drawingEditor !== this) return;
-            const index = e2.vertex.getIndex();
+            const index = e3.vertex.getIndex();
             let commit;
-            if (e2.originalEvent.ctrlKey) {
-              this.onVertexMarkerCtrlClick(e2);
-            } else if (e2.originalEvent.altKey) {
-              this.onVertexMarkerAltClick(e2);
-            } else if (e2.originalEvent.shiftKey) {
-              this.onVertexMarkerShiftClick(e2);
-            } else if (e2.originalEvent.metaKey) {
-              this.onVertexMarkerMetaKeyClick(e2);
-            } else if (index === e2.vertex.getLastIndex() && this._drawing === L4.Editable.FORWARD) {
+            if (e3.originalEvent.ctrlKey) {
+              this.onVertexMarkerCtrlClick(e3);
+            } else if (e3.originalEvent.altKey) {
+              this.onVertexMarkerAltClick(e3);
+            } else if (e3.originalEvent.shiftKey) {
+              this.onVertexMarkerShiftClick(e3);
+            } else if (e3.originalEvent.metaKey) {
+              this.onVertexMarkerMetaKeyClick(e3);
+            } else if (index === e3.vertex.getLastIndex() && this._drawing === L5.Editable.FORWARD) {
               if (index >= this.MIN_VERTEX - 1) commit = true;
-            } else if (index === 0 && this._drawing === L4.Editable.BACKWARD && this._drawnLatLngs.length >= this.MIN_VERTEX) {
+            } else if (index === 0 && this._drawing === L5.Editable.BACKWARD && this._drawnLatLngs.length >= this.MIN_VERTEX) {
               commit = true;
-            } else if (index === 0 && this._drawing === L4.Editable.FORWARD && this._drawnLatLngs.length >= this.MIN_VERTEX && this.CLOSED) {
+            } else if (index === 0 && this._drawing === L5.Editable.FORWARD && this._drawnLatLngs.length >= this.MIN_VERTEX && this.CLOSED) {
               commit = true;
             } else {
-              this.onVertexRawMarkerClick(e2);
+              this.onVertexRawMarkerClick(e3);
             }
-            this.fireAndForward("editable:vertex:clicked", e2);
-            if (commit) this.commitDrawing(e2);
+            this.fireAndForward("editable:vertex:clicked", e3);
+            if (commit) this.commitDrawing(e3);
           },
-          onVertexRawMarkerClick: function(e2) {
-            this.fireAndForward("editable:vertex:rawclick", e2);
-            if (e2._cancelled) return;
-            if (!this.vertexCanBeDeleted(e2.vertex)) return;
-            e2.vertex.delete();
+          onVertexRawMarkerClick: function(e3) {
+            this.fireAndForward("editable:vertex:rawclick", e3);
+            if (e3._cancelled) return;
+            if (!this.vertexCanBeDeleted(e3.vertex)) return;
+            e3.vertex.delete();
           },
           vertexCanBeDeleted: function(vertex) {
             return vertex.latlngs.length > this.MIN_VERTEX;
           },
-          onVertexDeleted: function(e2) {
-            this.fireAndForward("editable:vertex:deleted", e2);
+          onVertexDeleted: function(e3) {
+            this.fireAndForward("editable:vertex:deleted", e3);
           },
-          onVertexMarkerCtrlClick: function(e2) {
-            this.fireAndForward("editable:vertex:ctrlclick", e2);
+          onVertexMarkerCtrlClick: function(e3) {
+            this.fireAndForward("editable:vertex:ctrlclick", e3);
           },
-          onVertexMarkerShiftClick: function(e2) {
-            this.fireAndForward("editable:vertex:shiftclick", e2);
+          onVertexMarkerShiftClick: function(e3) {
+            this.fireAndForward("editable:vertex:shiftclick", e3);
           },
-          onVertexMarkerMetaKeyClick: function(e2) {
-            this.fireAndForward("editable:vertex:metakeyclick", e2);
+          onVertexMarkerMetaKeyClick: function(e3) {
+            this.fireAndForward("editable:vertex:metakeyclick", e3);
           },
-          onVertexMarkerAltClick: function(e2) {
-            this.fireAndForward("editable:vertex:altclick", e2);
+          onVertexMarkerAltClick: function(e3) {
+            this.fireAndForward("editable:vertex:altclick", e3);
           },
-          onVertexMarkerContextMenu: function(e2) {
-            this.fireAndForward("editable:vertex:contextmenu", e2);
+          onVertexMarkerContextMenu: function(e3) {
+            this.fireAndForward("editable:vertex:contextmenu", e3);
           },
-          onVertexMarkerMouseDown: function(e2) {
-            this.fireAndForward("editable:vertex:mousedown", e2);
+          onVertexMarkerMouseDown: function(e3) {
+            this.fireAndForward("editable:vertex:mousedown", e3);
           },
-          onVertexMarkerMouseOver: function(e2) {
-            this.fireAndForward("editable:vertex:mouseover", e2);
+          onVertexMarkerMouseOver: function(e3) {
+            this.fireAndForward("editable:vertex:mouseover", e3);
           },
-          onVertexMarkerMouseOut: function(e2) {
-            this.fireAndForward("editable:vertex:mouseout", e2);
+          onVertexMarkerMouseOut: function(e3) {
+            this.fireAndForward("editable:vertex:mouseout", e3);
           },
-          onMiddleMarkerMouseDown: function(e2) {
-            this.fireAndForward("editable:middlemarker:mousedown", e2);
+          onMiddleMarkerMouseDown: function(e3) {
+            this.fireAndForward("editable:middlemarker:mousedown", e3);
           },
-          onVertexMarkerDrag: function(e2) {
-            this.onMove(e2);
-            if (this.feature._bounds) this.extendBounds(e2);
-            this.fireAndForward("editable:vertex:drag", e2);
+          onVertexMarkerDrag: function(e3) {
+            this.onMove(e3);
+            if (this.feature._bounds) this.extendBounds(e3);
+            this.fireAndForward("editable:vertex:drag", e3);
           },
-          onVertexMarkerDragStart: function(e2) {
-            this.fireAndForward("editable:vertex:dragstart", e2);
+          onVertexMarkerDragStart: function(e3) {
+            this.fireAndForward("editable:vertex:dragstart", e3);
           },
-          onVertexMarkerDragEnd: function(e2) {
-            this.fireAndForward("editable:vertex:dragend", e2);
+          onVertexMarkerDragEnd: function(e3) {
+            this.fireAndForward("editable:vertex:dragend", e3);
             this.onEdited();
           },
           setDrawnLatLngs: function(latlngs) {
@@ -34098,7 +34098,7 @@
           },
           startDrawing: function() {
             if (!this._drawnLatLngs) this.setDrawnLatLngs();
-            L4.Editable.BaseEditor.prototype.startDrawing.call(this);
+            L5.Editable.BaseEditor.prototype.startDrawing.call(this);
           },
           startDrawingForward: function() {
             this.startDrawing();
@@ -34108,11 +34108,11 @@
             this.tools.detachBackwardLineGuide();
             if (this._drawnLatLngs && this._drawnLatLngs.length < this.MIN_VERTEX)
               this.deleteShape(this._drawnLatLngs);
-            L4.Editable.BaseEditor.prototype.endDrawing.call(this);
+            L5.Editable.BaseEditor.prototype.endDrawing.call(this);
             delete this._drawnLatLngs;
           },
           addLatLng: function(latlng) {
-            if (this._drawing === L4.Editable.FORWARD) this._drawnLatLngs.push(latlng);
+            if (this._drawing === L5.Editable.FORWARD) this._drawnLatLngs.push(latlng);
             else this._drawnLatLngs.unshift(latlng);
             this.feature._bounds.extend(latlng);
             const vertex = this.addVertexMarker(latlng, this._drawnLatLngs);
@@ -34136,7 +34136,7 @@
               return console.error(
                 "L.Editable.PathEditor.push expect a valid latlng as parameter"
               );
-            if (this._drawing === L4.Editable.FORWARD) this.newPointForward(latlng);
+            if (this._drawing === L5.Editable.FORWARD) this.newPointForward(latlng);
             else this.newPointBackward(latlng);
           },
           removeLatLng: function(latlng) {
@@ -34148,13 +34148,13 @@
           pop: function() {
             if (this._drawnLatLngs.length <= 1) return;
             let latlng;
-            if (this._drawing === L4.Editable.FORWARD) {
+            if (this._drawing === L5.Editable.FORWARD) {
               latlng = this._drawnLatLngs[this._drawnLatLngs.length - 1];
             } else {
               latlng = this._drawnLatLngs[0];
             }
             this.removeLatLng(latlng);
-            if (this._drawing === L4.Editable.FORWARD) {
+            if (this._drawing === L5.Editable.FORWARD) {
               this.tools.anchorForwardLineGuide(
                 this._drawnLatLngs[this._drawnLatLngs.length - 1]
               );
@@ -34163,17 +34163,17 @@
             }
             return latlng;
           },
-          processDrawingClick: function(e2) {
-            if (e2.vertex && e2.vertex.editor === this) return;
-            if (this._drawing === L4.Editable.FORWARD) this.newPointForward(e2.latlng);
-            else this.newPointBackward(e2.latlng);
-            this.fireAndForward("editable:drawing:clicked", e2);
+          processDrawingClick: function(e3) {
+            if (e3.vertex && e3.vertex.editor === this) return;
+            if (this._drawing === L5.Editable.FORWARD) this.newPointForward(e3.latlng);
+            else this.newPointBackward(e3.latlng);
+            this.fireAndForward("editable:drawing:clicked", e3);
           },
-          onDrawingMouseMove: function(e2) {
-            L4.Editable.BaseEditor.prototype.onDrawingMouseMove.call(this, e2);
+          onDrawingMouseMove: function(e3) {
+            L5.Editable.BaseEditor.prototype.onDrawingMouseMove.call(this, e3);
             if (this._drawing) {
-              this.tools.moveForwardLineGuide(e2.latlng);
-              this.tools.moveBackwardLineGuide(e2.latlng);
+              this.tools.moveForwardLineGuide(e3.latlng);
+              this.tools.moveBackwardLineGuide(e3.latlng);
             }
           },
           refresh: function() {
@@ -34193,10 +34193,10 @@
             if (latlng) this.newPointForward(latlng);
           },
           deleteShape: function(shape, latlngs) {
-            const e2 = { shape };
-            L4.Editable.makeCancellable(e2);
-            this.fireAndForward("editable:shape:delete", e2);
-            if (e2._cancelled) return;
+            const e3 = { shape };
+            L5.Editable.makeCancellable(e3);
+            this.fireAndForward("editable:shape:delete", e3);
+            if (e3._cancelled) return;
             shape = this._deleteShape(shape, latlngs);
             if (this.ensureNotFlat) this.ensureNotFlat();
             this.feature.setLatLngs(this.getLatLngs());
@@ -34250,21 +34250,21 @@
             this.feature.redraw();
             if (this._enabled) this.reset();
           },
-          extendBounds: function(e2) {
-            this.feature._bounds.extend(e2.vertex.latlng);
+          extendBounds: function(e3) {
+            this.feature._bounds.extend(e3.vertex.latlng);
           },
-          onDragStart: function(e2) {
+          onDragStart: function(e3) {
             this.editLayer.clearLayers();
-            L4.Editable.BaseEditor.prototype.onDragStart.call(this, e2);
+            L5.Editable.BaseEditor.prototype.onDragStart.call(this, e3);
           },
-          onDragEnd: function(e2) {
+          onDragEnd: function(e3) {
             this.initVertexMarkers();
-            L4.Editable.BaseEditor.prototype.onDragEnd.call(this, e2);
+            L5.Editable.BaseEditor.prototype.onDragEnd.call(this, e3);
           }
         });
-        L4.Editable.PolylineEditor = L4.Editable.PathEditor.extend({
+        L5.Editable.PolylineEditor = L5.Editable.PathEditor.extend({
           startDrawingBackward: function() {
-            this._drawing = L4.Editable.BACKWARD;
+            this._drawing = L5.Editable.BACKWARD;
             this.startDrawing();
           },
           // 🍂method continueBackward(latlngs?: Array)
@@ -34293,7 +34293,7 @@
           },
           getDefaultLatLngs: function(latlngs) {
             latlngs = latlngs || this.feature._latlngs;
-            if (!latlngs.length || latlngs[0] instanceof L4.LatLng) return latlngs;
+            if (!latlngs.length || latlngs[0] instanceof L5.LatLng) return latlngs;
             return this.getDefaultLatLngs(latlngs[0]);
           },
           ensureMulti: function() {
@@ -34322,18 +34322,18 @@
             if (shapeIndex === -1) return;
             const first = shape.slice(0, index + 1);
             const second = shape.slice(index);
-            second[0] = L4.latLng(second[0].lat, second[0].lng, second[0].alt);
+            second[0] = L5.latLng(second[0].lat, second[0].lng, second[0].alt);
             this.feature._latlngs.splice(shapeIndex, 1, first, second);
             this.refresh();
             this.reset();
             this.onEdited();
           }
         });
-        L4.Editable.PolygonEditor = L4.Editable.PathEditor.extend({
+        L5.Editable.PolygonEditor = L5.Editable.PathEditor.extend({
           CLOSED: true,
           MIN_VERTEX: 3,
           newPointForward: function(latlng) {
-            L4.Editable.PathEditor.prototype.newPointForward.call(this, latlng);
+            L5.Editable.PathEditor.prototype.newPointForward.call(this, latlng);
             if (!this.tools.backwardLineGuide._latlngs.length)
               this.tools.anchorBackwardLineGuide(latlng);
             if (this._drawnLatLngs.length === 2) this.tools.attachBackwardLineGuide();
@@ -34374,9 +34374,9 @@
           },
           vertexCanBeDeleted: function(vertex) {
             const parent = this.feature.parentShape(vertex.latlngs);
-            const idx = L4.Util.indexOf(parent, vertex.latlngs);
+            const idx = L5.Util.indexOf(parent, vertex.latlngs);
             if (idx > 0) return true;
-            return L4.Editable.PathEditor.prototype.vertexCanBeDeleted.call(this, vertex);
+            return L5.Editable.PathEditor.prototype.vertexCanBeDeleted.call(this, vertex);
           },
           getDefaultLatLngs: function() {
             if (!this.feature._latlngs.length) this.feature._latlngs.push([]);
@@ -34387,46 +34387,46 @@
             return shape;
           }
         });
-        L4.Editable.RectangleEditor = L4.Editable.PathEditor.extend({
+        L5.Editable.RectangleEditor = L5.Editable.PathEditor.extend({
           CLOSED: true,
           MIN_VERTEX: 4,
           options: {
             skipMiddleMarkers: true
           },
-          extendBounds: function(e2) {
-            const index = e2.vertex.getIndex();
-            const next = e2.vertex.getNext();
-            const previous = e2.vertex.getPrevious();
+          extendBounds: function(e3) {
+            const index = e3.vertex.getIndex();
+            const next = e3.vertex.getNext();
+            const previous = e3.vertex.getPrevious();
             const oppositeIndex = (index + 2) % 4;
-            const opposite = e2.vertex.latlngs[oppositeIndex];
-            const bounds = new L4.LatLngBounds(e2.latlng, opposite);
-            previous.latlng.update([e2.latlng.lat, opposite.lng]);
-            next.latlng.update([opposite.lat, e2.latlng.lng]);
+            const opposite = e3.vertex.latlngs[oppositeIndex];
+            const bounds = new L5.LatLngBounds(e3.latlng, opposite);
+            previous.latlng.update([e3.latlng.lat, opposite.lng]);
+            next.latlng.update([opposite.lat, e3.latlng.lng]);
             this.updateBounds(bounds);
             this.refreshVertexMarkers();
           },
-          onDrawingMouseDown: function(e2) {
-            L4.Editable.PathEditor.prototype.onDrawingMouseDown.call(this, e2);
+          onDrawingMouseDown: function(e3) {
+            L5.Editable.PathEditor.prototype.onDrawingMouseDown.call(this, e3);
             this.connect();
             const latlngs = this.getDefaultLatLngs();
-            if (latlngs.length === 3) latlngs.push(e2.latlng);
-            const bounds = new L4.LatLngBounds(e2.latlng, e2.latlng);
+            if (latlngs.length === 3) latlngs.push(e3.latlng);
+            const bounds = new L5.LatLngBounds(e3.latlng, e3.latlng);
             this.updateBounds(bounds);
             this.updateLatLngs(bounds);
             this.refresh();
             this.reset();
-            e2.originalEvent._simulated = false;
-            this.map.dragging._draggable._onUp(e2.originalEvent);
-            latlngs[3].__vertex.dragging._draggable._onDown(e2.originalEvent);
+            e3.originalEvent._simulated = false;
+            this.map.dragging._draggable._onUp(e3.originalEvent);
+            latlngs[3].__vertex.dragging._draggable._onDown(e3.originalEvent);
           },
-          onDrawingMouseUp: function(e2) {
-            this.commitDrawing(e2);
-            e2.originalEvent._simulated = false;
-            L4.Editable.PathEditor.prototype.onDrawingMouseUp.call(this, e2);
+          onDrawingMouseUp: function(e3) {
+            this.commitDrawing(e3);
+            e3.originalEvent._simulated = false;
+            L5.Editable.PathEditor.prototype.onDrawingMouseUp.call(this, e3);
           },
-          onDrawingMouseMove: function(e2) {
-            e2.originalEvent._simulated = false;
-            L4.Editable.PathEditor.prototype.onDrawingMouseMove.call(this, e2);
+          onDrawingMouseMove: function(e3) {
+            e3.originalEvent._simulated = false;
+            L5.Editable.PathEditor.prototype.onDrawingMouseMove.call(this, e3);
           },
           getDefaultLatLngs: function(latlngs) {
             return latlngs || this.feature._latlngs[0];
@@ -34442,13 +34442,13 @@
             }
           }
         });
-        L4.Editable.CircleEditor = L4.Editable.PathEditor.extend({
+        L5.Editable.CircleEditor = L5.Editable.PathEditor.extend({
           MIN_VERTEX: 2,
           options: {
             skipMiddleMarkers: true
           },
           initialize: function(map, feature, options) {
-            L4.Editable.PathEditor.prototype.initialize.call(this, map, feature, options);
+            L5.Editable.PathEditor.prototype.initialize.call(this, map, feature, options);
             this._resizeLatLng = this.computeResizeLatLng();
           },
           computeResizeLatLng: function() {
@@ -34466,40 +34466,40 @@
           getDefaultLatLngs: function() {
             return this.getLatLngs();
           },
-          onVertexMarkerDrag: function(e2) {
-            if (e2.vertex.getIndex() === 1) this.resize(e2);
-            else this.updateResizeLatLng(e2);
-            L4.Editable.PathEditor.prototype.onVertexMarkerDrag.call(this, e2);
+          onVertexMarkerDrag: function(e3) {
+            if (e3.vertex.getIndex() === 1) this.resize(e3);
+            else this.updateResizeLatLng(e3);
+            L5.Editable.PathEditor.prototype.onVertexMarkerDrag.call(this, e3);
           },
-          resize: function(e2) {
+          resize: function(e3) {
             let radius;
             if (this.map.options.crs) {
-              radius = this.map.options.crs.distance(this.feature._latlng, e2.latlng);
+              radius = this.map.options.crs.distance(this.feature._latlng, e3.latlng);
             } else {
-              radius = this.feature._latlng.distanceTo(e2.latlng);
+              radius = this.feature._latlng.distanceTo(e3.latlng);
             }
             this.feature.setRadius(radius);
           },
-          onDrawingMouseDown: function(e2) {
-            L4.Editable.PathEditor.prototype.onDrawingMouseDown.call(this, e2);
-            this._resizeLatLng.update(e2.latlng);
-            this.feature._latlng.update(e2.latlng);
+          onDrawingMouseDown: function(e3) {
+            L5.Editable.PathEditor.prototype.onDrawingMouseDown.call(this, e3);
+            this._resizeLatLng.update(e3.latlng);
+            this.feature._latlng.update(e3.latlng);
             this.connect();
-            e2.originalEvent._simulated = false;
-            this.map.dragging._draggable._onUp(e2.originalEvent);
-            this._resizeLatLng.__vertex.dragging._draggable._onDown(e2.originalEvent);
+            e3.originalEvent._simulated = false;
+            this.map.dragging._draggable._onUp(e3.originalEvent);
+            this._resizeLatLng.__vertex.dragging._draggable._onDown(e3.originalEvent);
           },
-          onDrawingMouseUp: function(e2) {
-            this.commitDrawing(e2);
-            e2.originalEvent._simulated = false;
-            L4.Editable.PathEditor.prototype.onDrawingMouseUp.call(this, e2);
+          onDrawingMouseUp: function(e3) {
+            this.commitDrawing(e3);
+            e3.originalEvent._simulated = false;
+            L5.Editable.PathEditor.prototype.onDrawingMouseUp.call(this, e3);
           },
-          onDrawingMouseMove: function(e2) {
-            e2.originalEvent._simulated = false;
-            L4.Editable.PathEditor.prototype.onDrawingMouseMove.call(this, e2);
+          onDrawingMouseMove: function(e3) {
+            e3.originalEvent._simulated = false;
+            L5.Editable.PathEditor.prototype.onDrawingMouseMove.call(this, e3);
           },
-          onDrag: function(e2) {
-            L4.Editable.PathEditor.prototype.onDrag.call(this, e2);
+          onDrag: function(e3) {
+            L5.Editable.PathEditor.prototype.onDrag.call(this, e3);
             this.feature.dragging.updateLatLng(this._resizeLatLng);
           }
         });
@@ -34543,7 +34543,7 @@
         };
         const PolylineMixin = {
           getEditorClass: (tools) => {
-            return tools?.options?.polylineEditorClass || L4.Editable.PolylineEditor;
+            return tools?.options?.polylineEditorClass || L5.Editable.PolylineEditor;
           },
           shapeAt: function(latlng, latlngs) {
             let shape = null;
@@ -34572,7 +34572,7 @@
               return false;
             }
             for (i2 = 1, len = part.length, k2 = 0; i2 < len; k2 = i2++) {
-              if (L4.LineUtil.pointToSegmentDistance(p, part[k2], part[i2]) <= w2) {
+              if (L5.LineUtil.pointToSegmentDistance(p, part[k2], part[i2]) <= w2) {
                 return true;
               }
             }
@@ -34581,7 +34581,7 @@
         };
         const PolygonMixin = {
           getEditorClass: (tools) => {
-            return tools?.options?.polygonEditorClass || L4.Editable.PolygonEditor;
+            return tools?.options?.polygonEditorClass || L5.Editable.PolygonEditor;
           },
           shapeAt: function(latlng, latlngs) {
             let shape = null;
@@ -34616,67 +34616,67 @@
           parentShape: function(shape, latlngs) {
             latlngs = latlngs || this._latlngs;
             if (!latlngs) return;
-            let idx = L4.Util.indexOf(latlngs, shape);
+            let idx = L5.Util.indexOf(latlngs, shape);
             if (idx !== -1) return latlngs;
             for (const member of latlngs) {
-              idx = L4.Util.indexOf(member, shape);
+              idx = L5.Util.indexOf(member, shape);
               if (idx !== -1) return member;
             }
           }
         };
         const MarkerMixin = {
           getEditorClass: (tools) => {
-            return tools?.options?.markerEditorClass || L4.Editable.MarkerEditor;
+            return tools?.options?.markerEditorClass || L5.Editable.MarkerEditor;
           }
         };
         const CircleMarkerMixin = {
           getEditorClass: (tools) => {
-            return tools?.options?.circleMarkerEditorClass || L4.Editable.CircleMarkerEditor;
+            return tools?.options?.circleMarkerEditorClass || L5.Editable.CircleMarkerEditor;
           }
         };
         const RectangleMixin = {
           getEditorClass: (tools) => {
-            return tools?.options?.rectangleEditorClass || L4.Editable.RectangleEditor;
+            return tools?.options?.rectangleEditorClass || L5.Editable.RectangleEditor;
           }
         };
         const CircleMixin = {
           getEditorClass: (tools) => {
-            return tools?.options?.circleEditorClass || L4.Editable.CircleEditor;
+            return tools?.options?.circleEditorClass || L5.Editable.CircleEditor;
           }
         };
         const keepEditable = function() {
           this.on("add", this._onEditableAdd);
         };
-        const isFlat = L4.LineUtil.isFlat || L4.LineUtil._flat || L4.Polyline._flat;
-        if (L4.Polyline) {
-          L4.Polyline.include(EditableMixin);
-          L4.Polyline.include(PolylineMixin);
-          L4.Polyline.addInitHook(keepEditable);
+        const isFlat = L5.LineUtil.isFlat || L5.LineUtil._flat || L5.Polyline._flat;
+        if (L5.Polyline) {
+          L5.Polyline.include(EditableMixin);
+          L5.Polyline.include(PolylineMixin);
+          L5.Polyline.addInitHook(keepEditable);
         }
-        if (L4.Polygon) {
-          L4.Polygon.include(EditableMixin);
-          L4.Polygon.include(PolygonMixin);
+        if (L5.Polygon) {
+          L5.Polygon.include(EditableMixin);
+          L5.Polygon.include(PolygonMixin);
         }
-        if (L4.Marker) {
-          L4.Marker.include(EditableMixin);
-          L4.Marker.include(MarkerMixin);
-          L4.Marker.addInitHook(keepEditable);
+        if (L5.Marker) {
+          L5.Marker.include(EditableMixin);
+          L5.Marker.include(MarkerMixin);
+          L5.Marker.addInitHook(keepEditable);
         }
-        if (L4.CircleMarker) {
-          L4.CircleMarker.include(EditableMixin);
-          L4.CircleMarker.include(CircleMarkerMixin);
-          L4.CircleMarker.addInitHook(keepEditable);
+        if (L5.CircleMarker) {
+          L5.CircleMarker.include(EditableMixin);
+          L5.CircleMarker.include(CircleMarkerMixin);
+          L5.CircleMarker.addInitHook(keepEditable);
         }
-        if (L4.Rectangle) {
-          L4.Rectangle.include(EditableMixin);
-          L4.Rectangle.include(RectangleMixin);
+        if (L5.Rectangle) {
+          L5.Rectangle.include(EditableMixin);
+          L5.Rectangle.include(RectangleMixin);
         }
-        if (L4.Circle) {
-          L4.Circle.include(EditableMixin);
-          L4.Circle.include(CircleMixin);
+        if (L5.Circle) {
+          L5.Circle.include(EditableMixin);
+          L5.Circle.include(CircleMixin);
         }
-        L4.LatLng.prototype.update = function(latlng) {
-          latlng = L4.latLng(latlng);
+        L5.LatLng.prototype.update = function(latlng) {
+          latlng = L5.latLng(latlng);
           this.lat = latlng.lat;
           this.lng = latlng.lng;
         };
@@ -35355,11 +35355,11 @@
             }
             this.evtListeners = {};
           }
-          parse(xml, parent, dir) {
-            dir = dir ? dir + "." : "";
+          parse(xml, parent, dir2) {
+            dir2 = dir2 ? dir2 + "." : "";
             let nodeRegEx = /<([^ >\/]+)(.*?)>/mg, nodeMatch = null, nodes = [];
             while (nodeMatch = nodeRegEx.exec(xml)) {
-              let tag = nodeMatch[1], node = { $tag: tag }, fullTag = dir + tag;
+              let tag = nodeMatch[1], node = { $tag: tag }, fullTag = dir2 + tag;
               let attrText = nodeMatch[2].trim(), closed = false;
               if (attrText.endsWith("/") || tag.startsWith("?") || tag.startsWith("!")) {
                 closed = true;
@@ -35772,6 +35772,28 @@
     }
   });
 
+  // node_modules/void-elements/index.js
+  var require_void_elements = __commonJS({
+    "node_modules/void-elements/index.js"(exports, module) {
+      module.exports = {
+        "area": true,
+        "base": true,
+        "br": true,
+        "col": true,
+        "embed": true,
+        "hr": true,
+        "img": true,
+        "input": true,
+        "link": true,
+        "meta": true,
+        "param": true,
+        "source": true,
+        "track": true,
+        "wbr": true
+      };
+    }
+  });
+
   // node_modules/react/cjs/react-jsx-runtime.development.js
   var require_react_jsx_runtime_development = __commonJS({
     "node_modules/react/cjs/react-jsx-runtime.development.js"(exports) {
@@ -35779,7 +35801,7 @@
       if (true) {
         (function() {
           "use strict";
-          var React6 = require_react();
+          var React8 = require_react();
           var REACT_ELEMENT_TYPE = Symbol.for("react.element");
           var REACT_PORTAL_TYPE = Symbol.for("react.portal");
           var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -35805,7 +35827,7 @@
             }
             return null;
           }
-          var ReactSharedInternals = React6.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React8.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           function error(format) {
             {
               {
@@ -35917,9 +35939,9 @@
                 case REACT_LAZY_TYPE: {
                   var lazyComponent = type;
                   var payload = lazyComponent._payload;
-                  var init = lazyComponent._init;
+                  var init2 = lazyComponent._init;
                   try {
-                    return getComponentNameFromType(init(payload));
+                    return getComponentNameFromType(init2(payload));
                   } catch (x2) {
                     return null;
                   }
@@ -36167,9 +36189,9 @@
                 case REACT_LAZY_TYPE: {
                   var lazyComponent = type;
                   var payload = lazyComponent._payload;
-                  var init = lazyComponent._init;
+                  var init2 = lazyComponent._init;
                   try {
-                    return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
+                    return describeUnknownElementTypeFrameInDEV(init2(payload), source, ownerFn);
                   } catch (x2) {
                   }
                 }
@@ -36238,7 +36260,7 @@
               try {
                 testStringCoercion(value);
                 return false;
-              } catch (e2) {
+              } catch (e3) {
                 return true;
               }
             }
@@ -36433,7 +36455,7 @@
           {
             propTypesMisspellWarningShown = false;
           }
-          function isValidElement(object) {
+          function isValidElement2(object) {
             {
               return typeof object === "object" && object !== null && object.$$typeof === REACT_ELEMENT_TYPE;
             }
@@ -36500,11 +36522,11 @@
               if (isArray(node)) {
                 for (var i2 = 0; i2 < node.length; i2++) {
                   var child = node[i2];
-                  if (isValidElement(child)) {
+                  if (isValidElement2(child)) {
                     validateExplicitKey(child, parentType);
                   }
                 }
-              } else if (isValidElement(node)) {
+              } else if (isValidElement2(node)) {
                 if (node._store) {
                   node._store.validated = true;
                 }
@@ -36515,7 +36537,7 @@
                     var iterator = iteratorFn.call(node);
                     var step;
                     while (!(step = iterator.next()).done) {
-                      if (isValidElement(step.value)) {
+                      if (isValidElement2(step.value)) {
                         validateExplicitKey(step.value, parentType);
                       }
                     }
@@ -36655,11 +36677,11 @@
               return jsxWithValidation(type, props, key, false);
             }
           }
-          var jsx7 = jsxWithValidationDynamic;
-          var jsxs4 = jsxWithValidationStatic;
+          var jsx13 = jsxWithValidationDynamic;
+          var jsxs10 = jsxWithValidationStatic;
           exports.Fragment = REACT_FRAGMENT_TYPE;
-          exports.jsx = jsx7;
-          exports.jsxs = jsxs4;
+          exports.jsx = jsx13;
+          exports.jsxs = jsxs10;
         })();
       }
     }
@@ -36795,8 +36817,8 @@
   // node_modules/@react-leaflet/core/lib/component.js
   function createContainerComponent(useElement) {
     function ContainerComponent(props, forwardedRef) {
-      const { instance, context } = useElement(props).current;
-      (0, import_react3.useImperativeHandle)(forwardedRef, () => instance);
+      const { instance: instance2, context } = useElement(props).current;
+      (0, import_react3.useImperativeHandle)(forwardedRef, () => instance2);
       return props.children == null ? null : /* @__PURE__ */ import_react3.default.createElement(LeafletProvider, {
         value: context
       }, props.children);
@@ -36806,26 +36828,26 @@
   function createDivOverlayComponent(useElement) {
     function OverlayComponent(props, forwardedRef) {
       const [isOpen, setOpen] = (0, import_react3.useState)(false);
-      const { instance } = useElement(props, setOpen).current;
-      (0, import_react3.useImperativeHandle)(forwardedRef, () => instance);
+      const { instance: instance2 } = useElement(props, setOpen).current;
+      (0, import_react3.useImperativeHandle)(forwardedRef, () => instance2);
       (0, import_react3.useEffect)(function updateOverlay() {
         if (isOpen) {
-          instance.update();
+          instance2.update();
         }
       }, [
-        instance,
+        instance2,
         isOpen,
         props.children
       ]);
-      const contentNode = instance._contentNode;
+      const contentNode = instance2._contentNode;
       return contentNode ? /* @__PURE__ */ (0, import_react_dom.createPortal)(props.children, contentNode) : null;
     }
     return /* @__PURE__ */ (0, import_react3.forwardRef)(OverlayComponent);
   }
   function createLeafComponent(useElement) {
     function LeafComponent(props, forwardedRef) {
-      const { instance } = useElement(props).current;
-      (0, import_react3.useImperativeHandle)(forwardedRef, () => instance);
+      const { instance: instance2 } = useElement(props).current;
+      (0, import_react3.useImperativeHandle)(forwardedRef, () => instance2);
       return null;
     }
     return /* @__PURE__ */ (0, import_react3.forwardRef)(LeafComponent);
@@ -36886,33 +36908,33 @@
 
   // node_modules/@react-leaflet/core/lib/element.js
   var import_react5 = __toESM(require_react(), 1);
-  function createElementObject(instance, context, container) {
+  function createElementObject(instance2, context, container) {
     return Object.freeze({
-      instance,
+      instance: instance2,
       context,
       container
     });
   }
-  function createElementHook(createElement, updateElement) {
+  function createElementHook(createElement5, updateElement) {
     if (updateElement == null) {
       return function useImmutableLeafletElement(props, context) {
         const elementRef = (0, import_react5.useRef)();
-        if (!elementRef.current) elementRef.current = createElement(props, context);
+        if (!elementRef.current) elementRef.current = createElement5(props, context);
         return elementRef;
       };
     }
     return function useMutableLeafletElement(props, context) {
       const elementRef = (0, import_react5.useRef)();
-      if (!elementRef.current) elementRef.current = createElement(props, context);
+      if (!elementRef.current) elementRef.current = createElement5(props, context);
       const propsRef = (0, import_react5.useRef)(props);
-      const { instance } = elementRef.current;
+      const { instance: instance2 } = elementRef.current;
       (0, import_react5.useEffect)(function updateElementProps() {
         if (propsRef.current !== props) {
-          updateElement(instance, props, propsRef.current);
+          updateElement(instance2, props, propsRef.current);
           propsRef.current = props;
         }
       }, [
-        instance,
+        instance2,
         props,
         context
       ]);
@@ -36973,23 +36995,23 @@
   }
 
   // node_modules/@react-leaflet/core/lib/generic.js
-  function createLayerComponent(createElement, updateElement) {
-    const useElement = createElementHook(createElement, updateElement);
+  function createLayerComponent(createElement5, updateElement) {
+    const useElement = createElementHook(createElement5, updateElement);
     const useLayer = createLayerHook(useElement);
     return createContainerComponent(useLayer);
   }
-  function createOverlayComponent(createElement, useLifecycle) {
-    const useElement = createElementHook(createElement);
+  function createOverlayComponent(createElement5, useLifecycle) {
+    const useElement = createElementHook(createElement5);
     const useOverlay = createDivOverlayHook(useElement, useLifecycle);
     return createDivOverlayComponent(useOverlay);
   }
-  function createPathComponent(createElement, updateElement) {
-    const useElement = createElementHook(createElement, updateElement);
+  function createPathComponent(createElement5, updateElement) {
+    const useElement = createElementHook(createElement5, updateElement);
     const usePath = createPathHook(useElement);
     return createContainerComponent(usePath);
   }
-  function createTileLayerComponent(createElement, updateElement) {
-    const useElement = createElementHook(createElement, updateElement);
+  function createTileLayerComponent(createElement5, updateElement) {
+    const useElement = createElementHook(createElement5, updateElement);
     const useLayer = createLayerHook(useElement);
     return createLeafComponent(useLayer);
   }
@@ -37208,18 +37230,18 @@
       if (container == null) {
         return;
       }
-      const { instance } = element;
+      const { instance: instance2 } = element;
       const onTooltipOpen = (event) => {
-        if (event.tooltip === instance) {
+        if (event.tooltip === instance2) {
           if (position != null) {
-            instance.setLatLng(position);
+            instance2.setLatLng(position);
           }
-          instance.update();
+          instance2.update();
           setOpen(true);
         }
       };
       const onTooltipClose = (event) => {
-        if (event.tooltip === instance) {
+        if (event.tooltip === instance2) {
           setOpen(false);
         }
       };
@@ -37227,7 +37249,7 @@
         tooltipopen: onTooltipOpen,
         tooltipclose: onTooltipClose
       });
-      container.bindTooltip(instance);
+      container.bindTooltip(instance2);
       return function removeTooltip() {
         container.off({
           tooltipopen: onTooltipOpen,
@@ -37246,7 +37268,7 @@
   });
 
   // src/components/map.tsx
-  var import_react19 = __toESM(require_react(), 1);
+  var import_react29 = __toESM(require_react(), 1);
 
   // src/overpass.ts
   var fetchApi = async (query) => {
@@ -37281,30 +37303,30 @@ out geom;`;
   };
 
   // src/components/geocoder.tsx
-  var import_react13 = __toESM(require_react(), 1);
+  var import_react21 = __toESM(require_react(), 1);
 
   // node_modules/leaflet-control-geocoder/dist/Control.Geocoder.js
-  var leafletControlGeocoder = function(exports, L4) {
-    function _interopNamespace(e2) {
-      if (e2 && e2.__esModule) return e2;
+  var leafletControlGeocoder = function(exports, L5) {
+    function _interopNamespace(e3) {
+      if (e3 && e3.__esModule) return e3;
       var n2 = /* @__PURE__ */ Object.create(null);
-      if (e2) {
-        Object.keys(e2).forEach(function(k2) {
+      if (e3) {
+        Object.keys(e3).forEach(function(k2) {
           if (k2 !== "default") {
-            var d = Object.getOwnPropertyDescriptor(e2, k2);
+            var d = Object.getOwnPropertyDescriptor(e3, k2);
             Object.defineProperty(n2, k2, d.get ? d : {
               enumerable: true,
               get: function() {
-                return e2[k2];
+                return e3[k2];
               }
             });
           }
         });
       }
-      n2["default"] = e2;
+      n2["default"] = e3;
       return n2;
     }
-    var L__namespace = /* @__PURE__ */ _interopNamespace(L4);
+    var L__namespace = /* @__PURE__ */ _interopNamespace(L5);
     function _inheritsLoose(subClass, superClass) {
       subClass.prototype = Object.create(superClass.prototype);
       subClass.prototype.constructor = subClass;
@@ -37325,7 +37347,7 @@ out geom;`;
     var lastCallbackId = 0;
     var badChars = /[&<>"'`]/g;
     var possible = /[&<>"'`]/;
-    var escape = {
+    var escape2 = {
       "&": "&amp;",
       "<": "&lt;",
       ">": "&gt;",
@@ -37334,7 +37356,7 @@ out geom;`;
       "`": "&#x60;"
     };
     function escapeChar(chr) {
-      return escape[chr];
+      return escape2[chr];
     }
     function htmlEscape(string) {
       if (string == null) {
@@ -37370,7 +37392,7 @@ out geom;`;
         } else if (typeof xmlHttp.response === "string") {
           try {
             message = JSON.parse(xmlHttp.response);
-          } catch (e2) {
+          } catch (e3) {
             message = xmlHttp.response;
           }
         } else {
@@ -38062,8 +38084,8 @@ out geom;`;
             bbox: L__namespace.latLngBounds(L__namespace.latLng(decoded.latitudeLo, decoded.longitudeLo), L__namespace.latLng(decoded.latitudeHi, decoded.longitudeHi))
           };
           cb.call(context, [result]);
-        } catch (e2) {
-          console.warn(e2);
+        } catch (e3) {
+          console.warn(e3);
           cb.call(context, []);
         }
       };
@@ -38076,8 +38098,8 @@ out geom;`;
             bbox: L__namespace.latLngBounds(L__namespace.latLng(location.lat, location.lng), L__namespace.latLng(location.lat, location.lng))
           };
           cb.call(context, [result]);
-        } catch (e2) {
-          console.warn(e2);
+        } catch (e3) {
+          console.warn(e3);
           cb.call(context, []);
         }
       };
@@ -38477,16 +38499,16 @@ out geom;`;
         });
         if (this.options.collapsed) {
           if (this.options.expand === "click") {
-            L__namespace.DomEvent.addListener(container, "click", function(e2) {
-              if (e2.button === 0 && e2.detail !== 2) {
+            L__namespace.DomEvent.addListener(container, "click", function(e3) {
+              if (e3.button === 0 && e3.detail !== 2) {
                 _this2._toggle();
               }
             });
           } else if (this.options.expand === "touch") {
-            L__namespace.DomEvent.addListener(container, L__namespace.Browser.touch ? "touchstart mousedown" : "mousedown", function(e2) {
+            L__namespace.DomEvent.addListener(container, L__namespace.Browser.touch ? "touchstart mousedown" : "mousedown", function(e3) {
               _this2._toggle();
-              e2.preventDefault();
-              e2.stopPropagation();
+              e3.preventDefault();
+              e3.stopPropagation();
             }, this);
           } else {
             L__namespace.DomEvent.addListener(container, "mouseover", this._expand, this);
@@ -38611,9 +38633,9 @@ out geom;`;
       };
       _proto._createAlt = function _createAlt(result, index) {
         var _this4 = this;
-        var li = L__namespace.DomUtil.create("li", ""), a2 = L__namespace.DomUtil.create("a", "", li), icon = this.options.showResultIcons && result.icon ? L__namespace.DomUtil.create("img", "", a2) : null, text = result.html ? void 0 : document.createTextNode(result.name), mouseDownHandler = function mouseDownHandler2(e2) {
+        var li = L__namespace.DomUtil.create("li", ""), a2 = L__namespace.DomUtil.create("a", "", li), icon = this.options.showResultIcons && result.icon ? L__namespace.DomUtil.create("img", "", a2) : null, text = result.html ? void 0 : document.createTextNode(result.name), mouseDownHandler = function mouseDownHandler2(e3) {
           _this4._preventBlurCollapse = true;
-          L__namespace.DomEvent.stop(e2);
+          L__namespace.DomEvent.stop(e3);
           _this4._geocodeResultSelected(result);
           L__namespace.DomEvent.on(li, "click touchend", function() {
             if (_this4.options.collapsed) {
@@ -38635,21 +38657,21 @@ out geom;`;
         L__namespace.DomEvent.addListener(li, "mousedown touchstart", mouseDownHandler, this);
         return li;
       };
-      _proto._keydown = function _keydown(e2) {
+      _proto._keydown = function _keydown(e3) {
         var _this5 = this;
-        var select = function select2(dir) {
+        var select = function select2(dir2) {
           if (_this5._selection) {
             L__namespace.DomUtil.removeClass(_this5._selection, "leaflet-control-geocoder-selected");
-            _this5._selection = _this5._selection[dir > 0 ? "nextSibling" : "previousSibling"];
+            _this5._selection = _this5._selection[dir2 > 0 ? "nextSibling" : "previousSibling"];
           }
           if (!_this5._selection) {
-            _this5._selection = _this5._alts[dir > 0 ? "firstChild" : "lastChild"];
+            _this5._selection = _this5._alts[dir2 > 0 ? "firstChild" : "lastChild"];
           }
           if (_this5._selection) {
             L__namespace.DomUtil.addClass(_this5._selection, "leaflet-control-geocoder-selected");
           }
         };
-        switch (e2.keyCode) {
+        switch (e3.keyCode) {
           // Escape
           case 27:
             if (this.options.collapsed) {
@@ -38679,7 +38701,7 @@ out geom;`;
           default:
             return;
         }
-        L__namespace.DomEvent.preventDefault(e2);
+        L__namespace.DomEvent.preventDefault(e3);
       };
       _proto._change = function _change() {
         var _this6 = this;
@@ -38743,13 +38765,13 @@ out geom;`;
   var import_react12 = __toESM(require_react(), 1);
   var identity = (arg) => arg;
   function useStore(api, selector = identity) {
-    const slice = import_react12.default.useSyncExternalStore(
+    const slice2 = import_react12.default.useSyncExternalStore(
       api.subscribe,
       () => selector(api.getState()),
       () => selector(api.getInitialState())
     );
-    import_react12.default.useDebugValue(slice);
-    return slice;
+    import_react12.default.useDebugValue(slice2);
+    return slice2;
   }
   var createImpl = (createState) => {
     const api = createStore(createState);
@@ -38761,7 +38783,7 @@ out geom;`;
 
   // src/store.ts
   var import_leaflet9 = __toESM(require_leaflet_src(), 1);
-  var useStore2 = create()((set, get) => ({
+  var useStore2 = create()((set, get2) => ({
     isPlaying: false,
     wrongGuesses: 0,
     roads: [],
@@ -38774,7 +38796,7 @@ out geom;`;
     ],
     setSelection: (selection) => set(() => ({ selection })),
     startGame: async () => {
-      const raw = await fetchRoads(get().selection);
+      const raw = await fetchRoads(get2().selection);
       const roadsObject = {};
       for (const road of raw.elements) {
         const name = road.tags.name;
@@ -38793,7 +38815,7 @@ out geom;`;
       let result = false;
       let roadName = "";
       set(({ roads, wrongGuesses }) => {
-        const road = get().roads.find((road2) => road2.state === "current");
+        const road = get2().roads.find((road2) => road2.state === "current");
         roadName = road.name;
         const expect = normalizeString(roadName);
         const guess = normalizeString(value);
@@ -38815,30 +38837,293 @@ out geom;`;
   // src/components/geocoder.tsx
   var import_osm2geojson_lite = __toESM(require_lib(), 1);
   var import_simplify_geojson = __toESM(require_simplify_geojson(), 1);
+
+  // node_modules/react-i18next/dist/es/Trans.js
+  var import_react15 = __toESM(require_react(), 1);
+
+  // node_modules/react-i18next/dist/es/TransWithoutContext.js
+  var import_react13 = __toESM(require_react(), 1);
+
+  // node_modules/html-parse-stringify/dist/html-parse-stringify.module.js
+  var import_void_elements = __toESM(require_void_elements());
+
+  // node_modules/react-i18next/dist/es/utils.js
+  var warn = (...args) => {
+    if (console?.warn) {
+      if (isString(args[0])) args[0] = `react-i18next:: ${args[0]}`;
+      console.warn(...args);
+    }
+  };
+  var alreadyWarned = {};
+  var warnOnce = (...args) => {
+    if (isString(args[0]) && alreadyWarned[args[0]]) return;
+    if (isString(args[0])) alreadyWarned[args[0]] = /* @__PURE__ */ new Date();
+    warn(...args);
+  };
+  var loadedClb = (i18n, cb) => () => {
+    if (i18n.isInitialized) {
+      cb();
+    } else {
+      const initialized = () => {
+        setTimeout(() => {
+          i18n.off("initialized", initialized);
+        }, 0);
+        cb();
+      };
+      i18n.on("initialized", initialized);
+    }
+  };
+  var loadNamespaces = (i18n, ns, cb) => {
+    i18n.loadNamespaces(ns, loadedClb(i18n, cb));
+  };
+  var loadLanguages = (i18n, lng, ns, cb) => {
+    if (isString(ns)) ns = [ns];
+    if (i18n.options.preload && i18n.options.preload.indexOf(lng) > -1) return loadNamespaces(i18n, ns, cb);
+    ns.forEach((n2) => {
+      if (i18n.options.ns.indexOf(n2) < 0) i18n.options.ns.push(n2);
+    });
+    i18n.loadLanguages(lng, loadedClb(i18n, cb));
+  };
+  var hasLoadedNamespace = (ns, i18n, options = {}) => {
+    if (!i18n.languages || !i18n.languages.length) {
+      warnOnce("i18n.languages were undefined or empty", i18n.languages);
+      return true;
+    }
+    return i18n.hasLoadedNamespace(ns, {
+      lng: options.lng,
+      precheck: (i18nInstance2, loadNotPending) => {
+        if (options.bindI18n?.indexOf("languageChanging") > -1 && i18nInstance2.services.backendConnector.backend && i18nInstance2.isLanguageChangingTo && !loadNotPending(i18nInstance2.isLanguageChangingTo, ns)) return false;
+      }
+    });
+  };
+  var isString = (obj) => typeof obj === "string";
+  var isObject = (obj) => typeof obj === "object" && obj !== null;
+
+  // node_modules/react-i18next/dist/es/unescape.js
+  var matchHtmlEntity = /&(?:amp|#38|lt|#60|gt|#62|apos|#39|quot|#34|nbsp|#160|copy|#169|reg|#174|hellip|#8230|#x2F|#47);/g;
+  var htmlEntities = {
+    "&amp;": "&",
+    "&#38;": "&",
+    "&lt;": "<",
+    "&#60;": "<",
+    "&gt;": ">",
+    "&#62;": ">",
+    "&apos;": "'",
+    "&#39;": "'",
+    "&quot;": '"',
+    "&#34;": '"',
+    "&nbsp;": " ",
+    "&#160;": " ",
+    "&copy;": "\xA9",
+    "&#169;": "\xA9",
+    "&reg;": "\xAE",
+    "&#174;": "\xAE",
+    "&hellip;": "\u2026",
+    "&#8230;": "\u2026",
+    "&#x2F;": "/",
+    "&#47;": "/"
+  };
+  var unescapeHtmlEntity = (m) => htmlEntities[m];
+  var unescape = (text) => text.replace(matchHtmlEntity, unescapeHtmlEntity);
+
+  // node_modules/react-i18next/dist/es/defaults.js
+  var defaultOptions = {
+    bindI18n: "languageChanged",
+    bindI18nStore: "",
+    transEmptyNodeValue: "",
+    transSupportBasicHtmlNodes: true,
+    transWrapTextNodes: "",
+    transKeepBasicHtmlNodesFor: ["br", "strong", "i", "p"],
+    useSuspense: true,
+    unescape
+  };
+  var setDefaults = (options = {}) => {
+    defaultOptions = {
+      ...defaultOptions,
+      ...options
+    };
+  };
+  var getDefaults = () => defaultOptions;
+
+  // node_modules/react-i18next/dist/es/i18nInstance.js
+  var i18nInstance;
+  var setI18n = (instance2) => {
+    i18nInstance = instance2;
+  };
+  var getI18n = () => i18nInstance;
+
+  // node_modules/react-i18next/dist/es/context.js
+  var import_react14 = __toESM(require_react(), 1);
+
+  // node_modules/react-i18next/dist/es/initReactI18next.js
+  var initReactI18next = {
+    type: "3rdParty",
+    init(instance2) {
+      setDefaults(instance2.options.react);
+      setI18n(instance2);
+    }
+  };
+
+  // node_modules/react-i18next/dist/es/context.js
+  var I18nContext = (0, import_react14.createContext)();
+  var ReportNamespaces = class {
+    constructor() {
+      this.usedNamespaces = {};
+    }
+    addUsedNamespaces(namespaces) {
+      namespaces.forEach((ns) => {
+        if (!this.usedNamespaces[ns]) this.usedNamespaces[ns] = true;
+      });
+    }
+    getUsedNamespaces() {
+      return Object.keys(this.usedNamespaces);
+    }
+  };
+
+  // node_modules/react-i18next/dist/es/useTranslation.js
+  var import_react16 = __toESM(require_react(), 1);
+  var usePrevious = (value, ignore) => {
+    const ref = (0, import_react16.useRef)();
+    (0, import_react16.useEffect)(() => {
+      ref.current = ignore ? ref.current : value;
+    }, [value, ignore]);
+    return ref.current;
+  };
+  var alwaysNewT = (i18n, language, namespace, keyPrefix) => i18n.getFixedT(language, namespace, keyPrefix);
+  var useMemoizedT = (i18n, language, namespace, keyPrefix) => (0, import_react16.useCallback)(alwaysNewT(i18n, language, namespace, keyPrefix), [i18n, language, namespace, keyPrefix]);
+  var useTranslation = (ns, props = {}) => {
+    const {
+      i18n: i18nFromProps
+    } = props;
+    const {
+      i18n: i18nFromContext,
+      defaultNS: defaultNSFromContext
+    } = (0, import_react16.useContext)(I18nContext) || {};
+    const i18n = i18nFromProps || i18nFromContext || getI18n();
+    if (i18n && !i18n.reportNamespaces) i18n.reportNamespaces = new ReportNamespaces();
+    if (!i18n) {
+      warnOnce("You will need to pass in an i18next instance by using initReactI18next");
+      const notReadyT = (k2, optsOrDefaultValue) => {
+        if (isString(optsOrDefaultValue)) return optsOrDefaultValue;
+        if (isObject(optsOrDefaultValue) && isString(optsOrDefaultValue.defaultValue)) return optsOrDefaultValue.defaultValue;
+        return Array.isArray(k2) ? k2[k2.length - 1] : k2;
+      };
+      const retNotReady = [notReadyT, {}, false];
+      retNotReady.t = notReadyT;
+      retNotReady.i18n = {};
+      retNotReady.ready = false;
+      return retNotReady;
+    }
+    if (i18n.options.react?.wait) warnOnce("It seems you are still using the old wait option, you may migrate to the new useSuspense behaviour.");
+    const i18nOptions = {
+      ...getDefaults(),
+      ...i18n.options.react,
+      ...props
+    };
+    const {
+      useSuspense,
+      keyPrefix
+    } = i18nOptions;
+    let namespaces = ns || defaultNSFromContext || i18n.options?.defaultNS;
+    namespaces = isString(namespaces) ? [namespaces] : namespaces || ["translation"];
+    i18n.reportNamespaces.addUsedNamespaces?.(namespaces);
+    const ready = (i18n.isInitialized || i18n.initializedStoreOnce) && namespaces.every((n2) => hasLoadedNamespace(n2, i18n, i18nOptions));
+    const memoGetT = useMemoizedT(i18n, props.lng || null, i18nOptions.nsMode === "fallback" ? namespaces : namespaces[0], keyPrefix);
+    const getT = () => memoGetT;
+    const getNewT = () => alwaysNewT(i18n, props.lng || null, i18nOptions.nsMode === "fallback" ? namespaces : namespaces[0], keyPrefix);
+    const [t3, setT] = (0, import_react16.useState)(getT);
+    let joinedNS = namespaces.join();
+    if (props.lng) joinedNS = `${props.lng}${joinedNS}`;
+    const previousJoinedNS = usePrevious(joinedNS);
+    const isMounted = (0, import_react16.useRef)(true);
+    (0, import_react16.useEffect)(() => {
+      const {
+        bindI18n,
+        bindI18nStore
+      } = i18nOptions;
+      isMounted.current = true;
+      if (!ready && !useSuspense) {
+        if (props.lng) {
+          loadLanguages(i18n, props.lng, namespaces, () => {
+            if (isMounted.current) setT(getNewT);
+          });
+        } else {
+          loadNamespaces(i18n, namespaces, () => {
+            if (isMounted.current) setT(getNewT);
+          });
+        }
+      }
+      if (ready && previousJoinedNS && previousJoinedNS !== joinedNS && isMounted.current) {
+        setT(getNewT);
+      }
+      const boundReset = () => {
+        if (isMounted.current) setT(getNewT);
+      };
+      if (bindI18n) i18n?.on(bindI18n, boundReset);
+      if (bindI18nStore) i18n?.store.on(bindI18nStore, boundReset);
+      return () => {
+        isMounted.current = false;
+        if (i18n) bindI18n?.split(" ").forEach((e3) => i18n.off(e3, boundReset));
+        if (bindI18nStore && i18n) bindI18nStore.split(" ").forEach((e3) => i18n.store.off(e3, boundReset));
+      };
+    }, [i18n, joinedNS]);
+    (0, import_react16.useEffect)(() => {
+      if (isMounted.current && ready) {
+        setT(getT);
+      }
+    }, [i18n, keyPrefix, ready]);
+    const ret = [t3, i18n, ready];
+    ret.t = t3;
+    ret.i18n = i18n;
+    ret.ready = ready;
+    if (ready) return ret;
+    if (!ready && !useSuspense) return ret;
+    throw new Promise((resolve) => {
+      if (props.lng) {
+        loadLanguages(i18n, props.lng, namespaces, () => resolve());
+      } else {
+        loadNamespaces(i18n, namespaces, () => resolve());
+      }
+    });
+  };
+
+  // node_modules/react-i18next/dist/es/withTranslation.js
+  var import_react17 = __toESM(require_react(), 1);
+
+  // node_modules/react-i18next/dist/es/I18nextProvider.js
+  var import_react18 = __toESM(require_react(), 1);
+
+  // node_modules/react-i18next/dist/es/withSSR.js
+  var import_react20 = __toESM(require_react(), 1);
+
+  // node_modules/react-i18next/dist/es/useSSR.js
+  var import_react19 = __toESM(require_react(), 1);
+
+  // src/components/geocoder.tsx
   var OSM_TYPE_MAPPING = {
     N: "node",
     R: "relation",
     W: "way"
   };
   var LeafletControlGeocoder = (props) => {
+    const { t: t3 } = useTranslation();
     const setSelection = useStore2((state) => state.setSelection);
     const map = useMap();
-    (0, import_react13.useEffect)(() => {
+    (0, import_react21.useEffect)(() => {
       let geocoder = import_leaflet10.default.Control.Geocoder.photon();
       import_leaflet10.default.Control.geocoder({
         query: "",
-        placeholder: "Search...",
+        placeholder: t3("controls.search"),
         defaultMarkGeocode: false,
         geocoder
-      }).on("markgeocode", async (e2) => {
-        map.fitBounds(e2.geocode.bbox);
+      }).on("markgeocode", async (e3) => {
+        map.fitBounds(e3.geocode.bbox);
         const positions = [];
-        if (e2.geocode.properties.osm_type === "R") {
+        if (e3.geocode.properties.osm_type === "R") {
           const boundaries = await fetchCityBoundaries(
-            OSM_TYPE_MAPPING[e2.geocode.properties.osm_type],
-            e2.geocode.properties.osm_id
+            OSM_TYPE_MAPPING[e3.geocode.properties.osm_type],
+            e3.geocode.properties.osm_id
           );
-          console.log(boundaries);
           const geo = { type: "Feature", geometry: (0, import_osm2geojson_lite.default)(boundaries) };
           const simplified = (0, import_simplify_geojson.default)(geo, 1e-3);
           positions.push(
@@ -38848,8 +39133,7 @@ out geom;`;
             ])
           );
         } else {
-          console.log(e2.geocode);
-          const { lat, lng } = e2.geocode.center;
+          const { lat, lng } = e3.geocode.center;
           const latOffset = 1e-3;
           const lngOffset = 1e-3;
           positions.push(
@@ -38858,9 +39142,7 @@ out geom;`;
             [lat - latOffset, lng + lngOffset],
             [lat - latOffset, lng - lngOffset]
           );
-          console.log(positions);
         }
-        console.log(positions);
         setSelection(positions);
       }).addTo(map);
     }, [props.onSearch]);
@@ -38872,10 +39154,10 @@ out geom;`;
   var import_osm2geojson_lite2 = __toESM(require_lib(), 1);
 
   // src/components/selection.tsx
-  var import_react15 = __toESM(require_react(), 1);
+  var import_react23 = __toESM(require_react(), 1);
 
   // node_modules/zustand/esm/react/shallow.mjs
-  var import_react14 = __toESM(require_react(), 1);
+  var import_react22 = __toESM(require_react(), 1);
 
   // node_modules/zustand/esm/vanilla/shallow.mjs
   var isIterable = (obj) => Symbol.iterator in obj;
@@ -38931,7 +39213,7 @@ out geom;`;
 
   // node_modules/zustand/esm/react/shallow.mjs
   function useShallow(selector) {
-    const prev = import_react14.default.useRef();
+    const prev = import_react22.default.useRef();
     return (state) => {
       const next = selector(state);
       return shallow(prev.current, next) ? prev.current : prev.current = next;
@@ -38948,17 +39230,17 @@ out geom;`;
         state.isPlaying
       ])
     );
-    const ref = (0, import_react15.useRef)(null);
-    (0, import_react15.useEffect)(() => {
+    const ref = (0, import_react23.useRef)(null);
+    (0, import_react23.useEffect)(() => {
       ref.current?.disableEdit();
       ref.current?.setLatLngs(selection);
       ref.current?.enableEdit();
       ref.current?.redraw();
     }, [selection]);
-    (0, import_react15.useEffect)(() => {
+    (0, import_react23.useEffect)(() => {
       ref?.current?.enableEdit();
     }, [ref]);
-    (0, import_react15.useEffect)(() => {
+    (0, import_react23.useEffect)(() => {
       if (isPlaying) {
         ref.current?.disableEdit();
         ref.current?.setStyle({ opacity: 0 });
@@ -38967,16 +39249,16 @@ out geom;`;
         ref.current?.setStyle({ opacity: 1 });
       }
     }, [isPlaying]);
-    const onSelectionUpdate = (0, import_react15.useCallback)(
+    const onSelectionUpdate = (0, import_react23.useCallback)(
       (layer) => setSelection(
         layer.toGeoJSON().geometry.coordinates[0].map((point) => [point[1], point[0]])
       ),
       [setSelection]
     );
-    const eventHandlers = (0, import_react15.useMemo)(
+    const eventHandlers = (0, import_react23.useMemo)(
       () => ({
-        "editable:edited": (e2) => onSelectionUpdate(e2.layer),
-        "editable:vertex:deleted": (e2) => onSelectionUpdate(e2.layer)
+        "editable:edited": (e3) => onSelectionUpdate(e3.layer),
+        "editable:vertex:deleted": (e3) => onSelectionUpdate(e3.layer)
       }),
       [onSelectionUpdate]
     );
@@ -38999,7 +39281,7 @@ out geom;`;
   };
 
   // src/components/form.tsx
-  var import_react17 = __toESM(require_react(), 1);
+  var import_react25 = __toESM(require_react(), 1);
 
   // src/icons/cancel.tsx
   var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
@@ -39027,7 +39309,7 @@ out geom;`;
   );
 
   // node_modules/react-tooltip/dist/react-tooltip.min.mjs
-  var import_react16 = __toESM(require_react(), 1);
+  var import_react24 = __toESM(require_react(), 1);
 
   // node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
   var min = Math.min;
@@ -39718,7 +40000,7 @@ out geom;`;
     return [":popover-open", ":modal"].some((selector) => {
       try {
         return element.matches(selector);
-      } catch (e2) {
+      } catch (e3) {
         return false;
       }
     });
@@ -40296,7 +40578,7 @@ out geom;`;
           // Handle <iframe>s
           root: root2.ownerDocument
         });
-      } catch (e2) {
+      } catch (e3) {
         io = new IntersectionObserver(handleObserve, options);
       }
       io.observe(element);
@@ -40397,89 +40679,89 @@ out geom;`;
   var h = "react-tooltip-core-styles";
   var w = "react-tooltip-base-styles";
   var b = { core: false, base: false };
-  function S({ css: e2, id: t2 = w, type: o2 = "base", ref: l2 }) {
+  function S({ css: e3, id: t3 = w, type: o2 = "base", ref: l2 }) {
     var r2, n2;
-    if (!e2 || "undefined" == typeof document || b[o2]) return;
+    if (!e3 || "undefined" == typeof document || b[o2]) return;
     if ("core" === o2 && "undefined" != typeof process && (null === (r2 = null === process || void 0 === process ? void 0 : process.env) || void 0 === r2 ? void 0 : r2.REACT_TOOLTIP_DISABLE_CORE_STYLES)) return;
     if ("base" !== o2 && "undefined" != typeof process && (null === (n2 = null === process || void 0 === process ? void 0 : process.env) || void 0 === n2 ? void 0 : n2.REACT_TOOLTIP_DISABLE_BASE_STYLES)) return;
-    "core" === o2 && (t2 = h), l2 || (l2 = {});
+    "core" === o2 && (t3 = h), l2 || (l2 = {});
     const { insertAt: i2 } = l2;
-    if (document.getElementById(t2)) return;
+    if (document.getElementById(t3)) return;
     const c2 = document.head || document.getElementsByTagName("head")[0], s2 = document.createElement("style");
-    s2.id = t2, s2.type = "text/css", "top" === i2 && c2.firstChild ? c2.insertBefore(s2, c2.firstChild) : c2.appendChild(s2), s2.styleSheet ? s2.styleSheet.cssText = e2 : s2.appendChild(document.createTextNode(e2)), b[o2] = true;
+    s2.id = t3, s2.type = "text/css", "top" === i2 && c2.firstChild ? c2.insertBefore(s2, c2.firstChild) : c2.appendChild(s2), s2.styleSheet ? s2.styleSheet.cssText = e3 : s2.appendChild(document.createTextNode(e3)), b[o2] = true;
   }
-  var E = async ({ elementReference: e2 = null, tooltipReference: t2 = null, tooltipArrowReference: o2 = null, place: l2 = "top", offset: r2 = 10, strategy: n2 = "absolute", middlewares: i2 = [offset2(Number(r2)), flip2({ fallbackAxisSideDirection: "start" }), shift2({ padding: 5 })], border: c2 }) => {
-    if (!e2) return { tooltipStyles: {}, tooltipArrowStyles: {}, place: l2 };
-    if (null === t2) return { tooltipStyles: {}, tooltipArrowStyles: {}, place: l2 };
+  var E = async ({ elementReference: e3 = null, tooltipReference: t3 = null, tooltipArrowReference: o2 = null, place: l2 = "top", offset: r2 = 10, strategy: n2 = "absolute", middlewares: i2 = [offset2(Number(r2)), flip2({ fallbackAxisSideDirection: "start" }), shift2({ padding: 5 })], border: c2 }) => {
+    if (!e3) return { tooltipStyles: {}, tooltipArrowStyles: {}, place: l2 };
+    if (null === t3) return { tooltipStyles: {}, tooltipArrowStyles: {}, place: l2 };
     const s2 = i2;
-    return o2 ? (s2.push(arrow2({ element: o2, padding: 5 })), computePosition2(e2, t2, { placement: l2, strategy: n2, middleware: s2 }).then(({ x: e3, y: t3, placement: o3, middlewareData: l3 }) => {
+    return o2 ? (s2.push(arrow2({ element: o2, padding: 5 })), computePosition2(e3, t3, { placement: l2, strategy: n2, middleware: s2 }).then(({ x: e4, y: t4, placement: o3, middlewareData: l3 }) => {
       var r3, n3;
-      const i3 = { left: `${e3}px`, top: `${t3}px`, border: c2 }, { x: s3, y: a2 } = null !== (r3 = l3.arrow) && void 0 !== r3 ? r3 : { x: 0, y: 0 }, u = null !== (n3 = { top: "bottom", right: "left", bottom: "top", left: "right" }[o3.split("-")[0]]) && void 0 !== n3 ? n3 : "bottom", d = c2 && { borderBottom: c2, borderRight: c2 };
+      const i3 = { left: `${e4}px`, top: `${t4}px`, border: c2 }, { x: s3, y: a2 } = null !== (r3 = l3.arrow) && void 0 !== r3 ? r3 : { x: 0, y: 0 }, u = null !== (n3 = { top: "bottom", right: "left", bottom: "top", left: "right" }[o3.split("-")[0]]) && void 0 !== n3 ? n3 : "bottom", d = c2 && { borderBottom: c2, borderRight: c2 };
       let p = 0;
       if (c2) {
-        const e4 = `${c2}`.match(/(\d+)px/);
-        p = (null == e4 ? void 0 : e4[1]) ? Number(e4[1]) : 1;
+        const e5 = `${c2}`.match(/(\d+)px/);
+        p = (null == e5 ? void 0 : e5[1]) ? Number(e5[1]) : 1;
       }
       return { tooltipStyles: i3, tooltipArrowStyles: { left: null != s3 ? `${s3}px` : "", top: null != a2 ? `${a2}px` : "", right: "", bottom: "", ...d, [u]: `-${4 + p}px` }, place: o3 };
-    })) : computePosition2(e2, t2, { placement: "bottom", strategy: n2, middleware: s2 }).then(({ x: e3, y: t3, placement: o3 }) => ({ tooltipStyles: { left: `${e3}px`, top: `${t3}px` }, tooltipArrowStyles: {}, place: o3 }));
+    })) : computePosition2(e3, t3, { placement: "bottom", strategy: n2, middleware: s2 }).then(({ x: e4, y: t4, placement: o3 }) => ({ tooltipStyles: { left: `${e4}px`, top: `${t4}px` }, tooltipArrowStyles: {}, place: o3 }));
   };
-  var A = (e2, t2) => !("CSS" in window && "supports" in window.CSS) || window.CSS.supports(e2, t2);
-  var _ = (e2, t2, o2) => {
+  var A = (e3, t3) => !("CSS" in window && "supports" in window.CSS) || window.CSS.supports(e3, t3);
+  var _ = (e3, t3, o2) => {
     let l2 = null;
     const r2 = function(...r3) {
       const n2 = () => {
-        l2 = null, o2 || e2.apply(this, r3);
+        l2 = null, o2 || e3.apply(this, r3);
       };
-      o2 && !l2 && (e2.apply(this, r3), l2 = setTimeout(n2, t2)), o2 || (l2 && clearTimeout(l2), l2 = setTimeout(n2, t2));
+      o2 && !l2 && (e3.apply(this, r3), l2 = setTimeout(n2, t3)), o2 || (l2 && clearTimeout(l2), l2 = setTimeout(n2, t3));
     };
     return r2.cancel = () => {
       l2 && (clearTimeout(l2), l2 = null);
     }, r2;
   };
-  var O = (e2) => null !== e2 && !Array.isArray(e2) && "object" == typeof e2;
-  var k = (e2, t2) => {
-    if (e2 === t2) return true;
-    if (Array.isArray(e2) && Array.isArray(t2)) return e2.length === t2.length && e2.every((e3, o3) => k(e3, t2[o3]));
-    if (Array.isArray(e2) !== Array.isArray(t2)) return false;
-    if (!O(e2) || !O(t2)) return e2 === t2;
-    const o2 = Object.keys(e2), l2 = Object.keys(t2);
-    return o2.length === l2.length && o2.every((o3) => k(e2[o3], t2[o3]));
+  var O = (e3) => null !== e3 && !Array.isArray(e3) && "object" == typeof e3;
+  var k = (e3, t3) => {
+    if (e3 === t3) return true;
+    if (Array.isArray(e3) && Array.isArray(t3)) return e3.length === t3.length && e3.every((e4, o3) => k(e4, t3[o3]));
+    if (Array.isArray(e3) !== Array.isArray(t3)) return false;
+    if (!O(e3) || !O(t3)) return e3 === t3;
+    const o2 = Object.keys(e3), l2 = Object.keys(t3);
+    return o2.length === l2.length && o2.every((o3) => k(e3[o3], t3[o3]));
   };
-  var T = (e2) => {
-    if (!(e2 instanceof HTMLElement || e2 instanceof SVGElement)) return false;
-    const t2 = getComputedStyle(e2);
-    return ["overflow", "overflow-x", "overflow-y"].some((e3) => {
-      const o2 = t2.getPropertyValue(e3);
+  var T = (e3) => {
+    if (!(e3 instanceof HTMLElement || e3 instanceof SVGElement)) return false;
+    const t3 = getComputedStyle(e3);
+    return ["overflow", "overflow-x", "overflow-y"].some((e4) => {
+      const o2 = t3.getPropertyValue(e4);
       return "auto" === o2 || "scroll" === o2;
     });
   };
-  var L3 = (e2) => {
-    if (!e2) return null;
-    let t2 = e2.parentElement;
-    for (; t2; ) {
-      if (T(t2)) return t2;
-      t2 = t2.parentElement;
+  var L3 = (e3) => {
+    if (!e3) return null;
+    let t3 = e3.parentElement;
+    for (; t3; ) {
+      if (T(t3)) return t3;
+      t3 = t3.parentElement;
     }
     return document.scrollingElement || document.documentElement;
   };
-  var C = "undefined" != typeof window ? import_react16.useLayoutEffect : import_react16.useEffect;
-  var R = (e2) => {
-    e2.current && (clearTimeout(e2.current), e2.current = null);
+  var C = "undefined" != typeof window ? import_react24.useLayoutEffect : import_react24.useEffect;
+  var R = (e3) => {
+    e3.current && (clearTimeout(e3.current), e3.current = null);
   };
   var x = "DEFAULT_TOOLTIP_ID";
   var N = { anchorRefs: /* @__PURE__ */ new Set(), activeAnchor: { current: null }, attach: () => {
   }, detach: () => {
   }, setActiveAnchor: () => {
   } };
-  var $ = (0, import_react16.createContext)({ getTooltipData: () => N });
-  function j(e2 = x) {
-    return (0, import_react16.useContext)($).getTooltipData(e2);
+  var $ = (0, import_react24.createContext)({ getTooltipData: () => N });
+  function j(e3 = x) {
+    return (0, import_react24.useContext)($).getTooltipData(e3);
   }
   var z = { tooltip: "core-styles-module_tooltip__3vRRp", fixed: "core-styles-module_fixed__pcSol", arrow: "core-styles-module_arrow__cvMwQ", noArrow: "core-styles-module_noArrow__xock6", clickable: "core-styles-module_clickable__ZuTTB", show: "core-styles-module_show__Nt9eE", closing: "core-styles-module_closing__sGnxF" };
   var D = { tooltip: "styles-module_tooltip__mnnfp", arrow: "styles-module_arrow__K0L3T", dark: "styles-module_dark__xNqje", light: "styles-module_light__Z6W-X", success: "styles-module_success__A2AKt", warning: "styles-module_warning__SCK0X", error: "styles-module_error__JvumD", info: "styles-module_info__BWdHW" };
-  var q = ({ forwardRef: t2, id: l2, className: i2, classNameArrow: c2, variant: u = "dark", anchorId: d, anchorSelect: p, place: v = "top", offset: m = 10, events: h2 = ["hover"], openOnClick: w2 = false, positionStrategy: b2 = "absolute", middlewares: S2, wrapper: g, delayShow: A2 = 0, delayHide: O2 = 0, float: T2 = false, hidden: x2 = false, noArrow: N2 = false, clickable: $2 = false, closeOnEsc: I = false, closeOnScroll: B = false, closeOnResize: q2 = false, openEvents: H2, closeEvents: M2, globalCloseEvents: W, imperativeModeOnly: P, style: V, position: F, afterShow: K, afterHide: U, disableTooltip: X, content: Y, contentWrapperRef: G, isOpen: Z, defaultIsOpen: J = false, setIsOpen: Q, activeAnchor: ee, setActiveAnchor: te, border: oe, opacity: le, arrowColor: re, role: ne = "tooltip" }) => {
+  var q = ({ forwardRef: t3, id: l2, className: i2, classNameArrow: c2, variant: u = "dark", anchorId: d, anchorSelect: p, place: v = "top", offset: m = 10, events: h2 = ["hover"], openOnClick: w2 = false, positionStrategy: b2 = "absolute", middlewares: S2, wrapper: g, delayShow: A2 = 0, delayHide: O2 = 0, float: T2 = false, hidden: x2 = false, noArrow: N2 = false, clickable: $2 = false, closeOnEsc: I = false, closeOnScroll: B = false, closeOnResize: q2 = false, openEvents: H2, closeEvents: M2, globalCloseEvents: W, imperativeModeOnly: P, style: V, position: F, afterShow: K, afterHide: U, disableTooltip: X, content: Y, contentWrapperRef: G, isOpen: Z, defaultIsOpen: J = false, setIsOpen: Q, activeAnchor: ee, setActiveAnchor: te, border: oe, opacity: le, arrowColor: re, role: ne = "tooltip" }) => {
     var ie;
-    const ce = (0, import_react16.useRef)(null), se = (0, import_react16.useRef)(null), ae = (0, import_react16.useRef)(null), ue = (0, import_react16.useRef)(null), de = (0, import_react16.useRef)(null), [pe, ve] = (0, import_react16.useState)({ tooltipStyles: {}, tooltipArrowStyles: {}, place: v }), [me, fe] = (0, import_react16.useState)(false), [ye, he] = (0, import_react16.useState)(false), [we, be] = (0, import_react16.useState)(null), Se = (0, import_react16.useRef)(false), ge = (0, import_react16.useRef)(null), { anchorRefs: Ee, setActiveAnchor: Ae } = j(l2), _e = (0, import_react16.useRef)(false), [Oe, ke] = (0, import_react16.useState)([]), Te = (0, import_react16.useRef)(false), Le = w2 || h2.includes("click"), Ce = Le || (null == H2 ? void 0 : H2.click) || (null == H2 ? void 0 : H2.dblclick) || (null == H2 ? void 0 : H2.mousedown), Re = H2 ? { ...H2 } : { mouseover: true, focus: true, mouseenter: false, click: false, dblclick: false, mousedown: false };
+    const ce = (0, import_react24.useRef)(null), se = (0, import_react24.useRef)(null), ae = (0, import_react24.useRef)(null), ue = (0, import_react24.useRef)(null), de = (0, import_react24.useRef)(null), [pe, ve] = (0, import_react24.useState)({ tooltipStyles: {}, tooltipArrowStyles: {}, place: v }), [me, fe] = (0, import_react24.useState)(false), [ye, he] = (0, import_react24.useState)(false), [we, be] = (0, import_react24.useState)(null), Se = (0, import_react24.useRef)(false), ge = (0, import_react24.useRef)(null), { anchorRefs: Ee, setActiveAnchor: Ae } = j(l2), _e = (0, import_react24.useRef)(false), [Oe, ke] = (0, import_react24.useState)([]), Te = (0, import_react24.useRef)(false), Le = w2 || h2.includes("click"), Ce = Le || (null == H2 ? void 0 : H2.click) || (null == H2 ? void 0 : H2.dblclick) || (null == H2 ? void 0 : H2.mousedown), Re = H2 ? { ...H2 } : { mouseover: true, focus: true, mouseenter: false, click: false, dblclick: false, mousedown: false };
     !H2 && Le && Object.assign(Re, { mouseenter: false, focus: false, mouseover: false, click: true });
     const xe = M2 ? { ...M2 } : { mouseout: true, blur: true, mouseleave: false, click: false, dblclick: false, mouseup: false };
     !M2 && Le && Object.assign(xe, { mouseleave: false, blur: false, mouseout: false });
@@ -40487,85 +40769,85 @@ out geom;`;
     P && (Object.assign(Re, { mouseenter: false, focus: false, click: false, dblclick: false, mousedown: false }), Object.assign(xe, { mouseleave: false, blur: false, click: false, dblclick: false, mouseup: false }), Object.assign(Ne, { escape: false, scroll: false, resize: false, clickOutsideAnchor: false })), C(() => (Te.current = true, () => {
       Te.current = false;
     }), []);
-    const $e = (e2) => {
-      Te.current && (e2 && he(true), setTimeout(() => {
-        Te.current && (null == Q || Q(e2), void 0 === Z && fe(e2));
+    const $e = (e3) => {
+      Te.current && (e3 && he(true), setTimeout(() => {
+        Te.current && (null == Q || Q(e3), void 0 === Z && fe(e3));
       }, 10));
     };
-    (0, import_react16.useEffect)(() => {
+    (0, import_react24.useEffect)(() => {
       if (void 0 === Z) return () => null;
       Z && he(true);
-      const e2 = setTimeout(() => {
+      const e3 = setTimeout(() => {
         fe(Z);
       }, 10);
       return () => {
-        clearTimeout(e2);
+        clearTimeout(e3);
       };
-    }, [Z]), (0, import_react16.useEffect)(() => {
+    }, [Z]), (0, import_react24.useEffect)(() => {
       if (me !== Se.current) if (R(de), Se.current = me, me) null == K || K();
       else {
-        const e2 = ((e3) => {
-          const t3 = e3.match(/^([\d.]+)(ms|s)$/);
-          if (!t3) return 0;
-          const [, o2, l3] = t3;
+        const e3 = ((e4) => {
+          const t4 = e4.match(/^([\d.]+)(ms|s)$/);
+          if (!t4) return 0;
+          const [, o2, l3] = t4;
           return Number(o2) * ("ms" === l3 ? 1 : 1e3);
         })(getComputedStyle(document.body).getPropertyValue("--rt-transition-show-delay"));
         de.current = setTimeout(() => {
           he(false), be(null), null == U || U();
-        }, e2 + 25);
+        }, e3 + 25);
       }
     }, [me]);
-    const Ie = (e2) => {
-      ve((t3) => k(t3, e2) ? t3 : e2);
-    }, je = (e2 = A2) => {
+    const Ie = (e3) => {
+      ve((t4) => k(t4, e3) ? t4 : e3);
+    }, je = (e3 = A2) => {
       R(ae), ye ? $e(true) : ae.current = setTimeout(() => {
         $e(true);
-      }, e2);
-    }, Be = (e2 = O2) => {
+      }, e3);
+    }, Be = (e3 = O2) => {
       R(ue), ue.current = setTimeout(() => {
         _e.current || $e(false);
-      }, e2);
-    }, ze = (e2) => {
-      var t3;
-      if (!e2) return;
-      const o2 = null !== (t3 = e2.currentTarget) && void 0 !== t3 ? t3 : e2.target;
+      }, e3);
+    }, ze = (e3) => {
+      var t4;
+      if (!e3) return;
+      const o2 = null !== (t4 = e3.currentTarget) && void 0 !== t4 ? t4 : e3.target;
       if (!(null == o2 ? void 0 : o2.isConnected)) return te(null), void Ae({ current: null });
       A2 ? je() : $e(true), te(o2), Ae({ current: o2 }), R(ue);
     }, De = () => {
       $2 ? Be(O2 || 100) : O2 ? Be() : $e(false), R(ae);
-    }, qe = ({ x: e2, y: t3 }) => {
+    }, qe = ({ x: e3, y: t4 }) => {
       var o2;
-      const l3 = { getBoundingClientRect: () => ({ x: e2, y: t3, width: 0, height: 0, top: t3, left: e2, right: e2, bottom: t3 }) };
-      E({ place: null !== (o2 = null == we ? void 0 : we.place) && void 0 !== o2 ? o2 : v, offset: m, elementReference: l3, tooltipReference: ce.current, tooltipArrowReference: se.current, strategy: b2, middlewares: S2, border: oe }).then((e3) => {
-        Ie(e3);
+      const l3 = { getBoundingClientRect: () => ({ x: e3, y: t4, width: 0, height: 0, top: t4, left: e3, right: e3, bottom: t4 }) };
+      E({ place: null !== (o2 = null == we ? void 0 : we.place) && void 0 !== o2 ? o2 : v, offset: m, elementReference: l3, tooltipReference: ce.current, tooltipArrowReference: se.current, strategy: b2, middlewares: S2, border: oe }).then((e4) => {
+        Ie(e4);
       });
-    }, He = (e2) => {
-      if (!e2) return;
-      const t3 = e2, o2 = { x: t3.clientX, y: t3.clientY };
+    }, He = (e3) => {
+      if (!e3) return;
+      const t4 = e3, o2 = { x: t4.clientX, y: t4.clientY };
       qe(o2), ge.current = o2;
-    }, Me = (e2) => {
-      var t3;
+    }, Me = (e3) => {
+      var t4;
       if (!me) return;
-      const o2 = e2.target;
+      const o2 = e3.target;
       if (!o2.isConnected) return;
-      if (null === (t3 = ce.current) || void 0 === t3 ? void 0 : t3.contains(o2)) return;
-      [document.querySelector(`[id='${d}']`), ...Oe].some((e3) => null == e3 ? void 0 : e3.contains(o2)) || ($e(false), R(ae));
-    }, We = _(ze, 50, true), Pe = _(De, 50, true), Ve = (e2) => {
-      Pe.cancel(), We(e2);
+      if (null === (t4 = ce.current) || void 0 === t4 ? void 0 : t4.contains(o2)) return;
+      [document.querySelector(`[id='${d}']`), ...Oe].some((e4) => null == e4 ? void 0 : e4.contains(o2)) || ($e(false), R(ae));
+    }, We = _(ze, 50, true), Pe = _(De, 50, true), Ve = (e3) => {
+      Pe.cancel(), We(e3);
     }, Fe = () => {
       We.cancel(), Pe();
-    }, Ke = (0, import_react16.useCallback)(() => {
-      var e2, t3;
-      const o2 = null !== (e2 = null == we ? void 0 : we.position) && void 0 !== e2 ? e2 : F;
-      o2 ? qe(o2) : T2 ? ge.current && qe(ge.current) : (null == ee ? void 0 : ee.isConnected) && E({ place: null !== (t3 = null == we ? void 0 : we.place) && void 0 !== t3 ? t3 : v, offset: m, elementReference: ee, tooltipReference: ce.current, tooltipArrowReference: se.current, strategy: b2, middlewares: S2, border: oe }).then((e3) => {
-        Te.current && Ie(e3);
+    }, Ke = (0, import_react24.useCallback)(() => {
+      var e3, t4;
+      const o2 = null !== (e3 = null == we ? void 0 : we.position) && void 0 !== e3 ? e3 : F;
+      o2 ? qe(o2) : T2 ? ge.current && qe(ge.current) : (null == ee ? void 0 : ee.isConnected) && E({ place: null !== (t4 = null == we ? void 0 : we.place) && void 0 !== t4 ? t4 : v, offset: m, elementReference: ee, tooltipReference: ce.current, tooltipArrowReference: se.current, strategy: b2, middlewares: S2, border: oe }).then((e4) => {
+        Te.current && Ie(e4);
       });
     }, [me, ee, Y, V, v, null == we ? void 0 : we.place, m, b2, F, null == we ? void 0 : we.position, T2]);
-    (0, import_react16.useEffect)(() => {
-      var e2, t3;
+    (0, import_react24.useEffect)(() => {
+      var e3, t4;
       const o2 = new Set(Ee);
-      Oe.forEach((e3) => {
-        (null == X ? void 0 : X(e3)) || o2.add({ current: e3 });
+      Oe.forEach((e4) => {
+        (null == X ? void 0 : X(e4)) || o2.add({ current: e4 });
       });
       const l3 = document.querySelector(`[id='${d}']`);
       l3 && !(null == X ? void 0 : X(l3)) && o2.add({ current: l3 });
@@ -40575,233 +40857,234 @@ out geom;`;
       Ne.scroll && (window.addEventListener("scroll", r2), null == n2 || n2.addEventListener("scroll", r2), null == i3 || i3.addEventListener("scroll", r2));
       let c3 = null;
       Ne.resize ? window.addEventListener("resize", r2) : ee && ce.current && (c3 = autoUpdate(ee, ce.current, Ke, { ancestorResize: true, elementResize: true, layoutShift: true }));
-      const s2 = (e3) => {
-        "Escape" === e3.key && $e(false);
+      const s2 = (e4) => {
+        "Escape" === e4.key && $e(false);
       };
       Ne.escape && window.addEventListener("keydown", s2), Ne.clickOutsideAnchor && window.addEventListener("click", Me);
-      const a2 = [], u2 = (e3) => {
-        me && (null == e3 ? void 0 : e3.target) === ee || ze(e3);
-      }, p2 = (e3) => {
-        me && (null == e3 ? void 0 : e3.target) === ee && De();
+      const a2 = [], u2 = (e4) => {
+        me && (null == e4 ? void 0 : e4.target) === ee || ze(e4);
+      }, p2 = (e4) => {
+        me && (null == e4 ? void 0 : e4.target) === ee && De();
       }, v2 = ["mouseover", "mouseout", "mouseenter", "mouseleave", "focus", "blur"], m2 = ["click", "dblclick", "mousedown", "mouseup"];
-      Object.entries(Re).forEach(([e3, t4]) => {
-        t4 && (v2.includes(e3) ? a2.push({ event: e3, listener: Ve }) : m2.includes(e3) && a2.push({ event: e3, listener: u2 }));
-      }), Object.entries(xe).forEach(([e3, t4]) => {
-        t4 && (v2.includes(e3) ? a2.push({ event: e3, listener: Fe }) : m2.includes(e3) && a2.push({ event: e3, listener: p2 }));
+      Object.entries(Re).forEach(([e4, t5]) => {
+        t5 && (v2.includes(e4) ? a2.push({ event: e4, listener: Ve }) : m2.includes(e4) && a2.push({ event: e4, listener: u2 }));
+      }), Object.entries(xe).forEach(([e4, t5]) => {
+        t5 && (v2.includes(e4) ? a2.push({ event: e4, listener: Fe }) : m2.includes(e4) && a2.push({ event: e4, listener: p2 }));
       }), T2 && a2.push({ event: "pointermove", listener: He });
       const y2 = () => {
         _e.current = true;
       }, h3 = () => {
         _e.current = false, De();
       };
-      return $2 && !Ce && (null === (e2 = ce.current) || void 0 === e2 || e2.addEventListener("mouseenter", y2), null === (t3 = ce.current) || void 0 === t3 || t3.addEventListener("mouseleave", h3)), a2.forEach(({ event: e3, listener: t4 }) => {
+      return $2 && !Ce && (null === (e3 = ce.current) || void 0 === e3 || e3.addEventListener("mouseenter", y2), null === (t4 = ce.current) || void 0 === t4 || t4.addEventListener("mouseleave", h3)), a2.forEach(({ event: e4, listener: t5 }) => {
         o2.forEach((o3) => {
           var l4;
-          null === (l4 = o3.current) || void 0 === l4 || l4.addEventListener(e3, t4);
+          null === (l4 = o3.current) || void 0 === l4 || l4.addEventListener(e4, t5);
         });
       }), () => {
-        var e3, t4;
-        Ne.scroll && (window.removeEventListener("scroll", r2), null == n2 || n2.removeEventListener("scroll", r2), null == i3 || i3.removeEventListener("scroll", r2)), Ne.resize ? window.removeEventListener("resize", r2) : null == c3 || c3(), Ne.clickOutsideAnchor && window.removeEventListener("click", Me), Ne.escape && window.removeEventListener("keydown", s2), $2 && !Ce && (null === (e3 = ce.current) || void 0 === e3 || e3.removeEventListener("mouseenter", y2), null === (t4 = ce.current) || void 0 === t4 || t4.removeEventListener("mouseleave", h3)), a2.forEach(({ event: e4, listener: t5 }) => {
+        var e4, t5;
+        Ne.scroll && (window.removeEventListener("scroll", r2), null == n2 || n2.removeEventListener("scroll", r2), null == i3 || i3.removeEventListener("scroll", r2)), Ne.resize ? window.removeEventListener("resize", r2) : null == c3 || c3(), Ne.clickOutsideAnchor && window.removeEventListener("click", Me), Ne.escape && window.removeEventListener("keydown", s2), $2 && !Ce && (null === (e4 = ce.current) || void 0 === e4 || e4.removeEventListener("mouseenter", y2), null === (t5 = ce.current) || void 0 === t5 || t5.removeEventListener("mouseleave", h3)), a2.forEach(({ event: e5, listener: t6 }) => {
           o2.forEach((o3) => {
             var l4;
-            null === (l4 = o3.current) || void 0 === l4 || l4.removeEventListener(e4, t5);
+            null === (l4 = o3.current) || void 0 === l4 || l4.removeEventListener(e5, t6);
           });
         });
       };
-    }, [ee, Ke, ye, Ee, Oe, H2, M2, W, Le, A2, O2]), (0, import_react16.useEffect)(() => {
-      var e2, t3;
-      let o2 = null !== (t3 = null !== (e2 = null == we ? void 0 : we.anchorSelect) && void 0 !== e2 ? e2 : p) && void 0 !== t3 ? t3 : "";
+    }, [ee, Ke, ye, Ee, Oe, H2, M2, W, Le, A2, O2]), (0, import_react24.useEffect)(() => {
+      var e3, t4;
+      let o2 = null !== (t4 = null !== (e3 = null == we ? void 0 : we.anchorSelect) && void 0 !== e3 ? e3 : p) && void 0 !== t4 ? t4 : "";
       !o2 && l2 && (o2 = `[data-tooltip-id='${l2.replace(/'/g, "\\'")}']`);
-      const r2 = new MutationObserver((e3) => {
-        const t4 = [], r3 = [];
-        e3.forEach((e4) => {
-          if ("attributes" === e4.type && "data-tooltip-id" === e4.attributeName) {
-            e4.target.getAttribute("data-tooltip-id") === l2 ? t4.push(e4.target) : e4.oldValue === l2 && r3.push(e4.target);
+      const r2 = new MutationObserver((e4) => {
+        const t5 = [], r3 = [];
+        e4.forEach((e5) => {
+          if ("attributes" === e5.type && "data-tooltip-id" === e5.attributeName) {
+            e5.target.getAttribute("data-tooltip-id") === l2 ? t5.push(e5.target) : e5.oldValue === l2 && r3.push(e5.target);
           }
-          if ("childList" === e4.type) {
+          if ("childList" === e5.type) {
             if (ee) {
-              const t5 = [...e4.removedNodes].filter((e5) => 1 === e5.nodeType);
+              const t6 = [...e5.removedNodes].filter((e6) => 1 === e6.nodeType);
               if (o2) try {
-                r3.push(...t5.filter((e5) => e5.matches(o2))), r3.push(...t5.flatMap((e5) => [...e5.querySelectorAll(o2)]));
-              } catch (e5) {
+                r3.push(...t6.filter((e6) => e6.matches(o2))), r3.push(...t6.flatMap((e6) => [...e6.querySelectorAll(o2)]));
+              } catch (e6) {
               }
-              t5.some((e5) => {
-                var t6;
-                return !!(null === (t6 = null == e5 ? void 0 : e5.contains) || void 0 === t6 ? void 0 : t6.call(e5, ee)) && (he(false), $e(false), te(null), R(ae), R(ue), true);
+              t6.some((e6) => {
+                var t7;
+                return !!(null === (t7 = null == e6 ? void 0 : e6.contains) || void 0 === t7 ? void 0 : t7.call(e6, ee)) && (he(false), $e(false), te(null), R(ae), R(ue), true);
               });
             }
             if (o2) try {
-              const l3 = [...e4.addedNodes].filter((e5) => 1 === e5.nodeType);
-              t4.push(...l3.filter((e5) => e5.matches(o2))), t4.push(...l3.flatMap((e5) => [...e5.querySelectorAll(o2)]));
-            } catch (e5) {
+              const l3 = [...e5.addedNodes].filter((e6) => 1 === e6.nodeType);
+              t5.push(...l3.filter((e6) => e6.matches(o2))), t5.push(...l3.flatMap((e6) => [...e6.querySelectorAll(o2)]));
+            } catch (e6) {
             }
           }
-        }), (t4.length || r3.length) && ke((e4) => [...e4.filter((e5) => !r3.includes(e5)), ...t4]);
+        }), (t5.length || r3.length) && ke((e5) => [...e5.filter((e6) => !r3.includes(e6)), ...t5]);
       });
       return r2.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["data-tooltip-id"], attributeOldValue: true }), () => {
         r2.disconnect();
       };
-    }, [l2, p, null == we ? void 0 : we.anchorSelect, ee]), (0, import_react16.useEffect)(() => {
+    }, [l2, p, null == we ? void 0 : we.anchorSelect, ee]), (0, import_react24.useEffect)(() => {
       Ke();
-    }, [Ke]), (0, import_react16.useEffect)(() => {
+    }, [Ke]), (0, import_react24.useEffect)(() => {
       if (!(null == G ? void 0 : G.current)) return () => null;
-      const e2 = new ResizeObserver(() => {
+      const e3 = new ResizeObserver(() => {
         setTimeout(() => Ke());
       });
-      return e2.observe(G.current), () => {
-        e2.disconnect();
+      return e3.observe(G.current), () => {
+        e3.disconnect();
       };
-    }, [Y, null == G ? void 0 : G.current]), (0, import_react16.useEffect)(() => {
-      var e2;
-      const t3 = document.querySelector(`[id='${d}']`), o2 = [...Oe, t3];
-      ee && o2.includes(ee) || te(null !== (e2 = Oe[0]) && void 0 !== e2 ? e2 : t3);
-    }, [d, Oe, ee]), (0, import_react16.useEffect)(() => (J && $e(true), () => {
+    }, [Y, null == G ? void 0 : G.current]), (0, import_react24.useEffect)(() => {
+      var e3;
+      const t4 = document.querySelector(`[id='${d}']`), o2 = [...Oe, t4];
+      ee && o2.includes(ee) || te(null !== (e3 = Oe[0]) && void 0 !== e3 ? e3 : t4);
+    }, [d, Oe, ee]), (0, import_react24.useEffect)(() => (J && $e(true), () => {
       R(ae), R(ue);
-    }), []), (0, import_react16.useEffect)(() => {
-      var e2;
-      let t3 = null !== (e2 = null == we ? void 0 : we.anchorSelect) && void 0 !== e2 ? e2 : p;
-      if (!t3 && l2 && (t3 = `[data-tooltip-id='${l2.replace(/'/g, "\\'")}']`), t3) try {
-        const e3 = Array.from(document.querySelectorAll(t3));
-        ke(e3);
-      } catch (e3) {
+    }), []), (0, import_react24.useEffect)(() => {
+      var e3;
+      let t4 = null !== (e3 = null == we ? void 0 : we.anchorSelect) && void 0 !== e3 ? e3 : p;
+      if (!t4 && l2 && (t4 = `[data-tooltip-id='${l2.replace(/'/g, "\\'")}']`), t4) try {
+        const e4 = Array.from(document.querySelectorAll(t4));
+        ke(e4);
+      } catch (e4) {
         ke([]);
       }
-    }, [l2, p, null == we ? void 0 : we.anchorSelect]), (0, import_react16.useEffect)(() => {
+    }, [l2, p, null == we ? void 0 : we.anchorSelect]), (0, import_react24.useEffect)(() => {
       ae.current && (R(ae), je(A2));
     }, [A2]);
     const Ue = null !== (ie = null == we ? void 0 : we.content) && void 0 !== ie ? ie : Y, Xe = me && Object.keys(pe.tooltipStyles).length > 0;
-    return (0, import_react16.useImperativeHandle)(t2, () => ({ open: (e2) => {
-      if (null == e2 ? void 0 : e2.anchorSelect) try {
-        document.querySelector(e2.anchorSelect);
-      } catch (t3) {
-        return void console.warn(`[react-tooltip] "${e2.anchorSelect}" is not a valid CSS selector`);
+    return (0, import_react24.useImperativeHandle)(t3, () => ({ open: (e3) => {
+      if (null == e3 ? void 0 : e3.anchorSelect) try {
+        document.querySelector(e3.anchorSelect);
+      } catch (t4) {
+        return void console.warn(`[react-tooltip] "${e3.anchorSelect}" is not a valid CSS selector`);
       }
-      be(null != e2 ? e2 : null), (null == e2 ? void 0 : e2.delay) ? je(e2.delay) : $e(true);
-    }, close: (e2) => {
-      (null == e2 ? void 0 : e2.delay) ? Be(e2.delay) : $e(false);
-    }, activeAnchor: ee, place: pe.place, isOpen: Boolean(ye && !x2 && Ue && Xe) })), ye && !x2 && Ue ? import_react16.default.createElement(g, { id: l2, role: ne, className: (0, import_classnames.default)("react-tooltip", z.tooltip, D.tooltip, D[u], i2, `react-tooltip__place-${pe.place}`, z[Xe ? "show" : "closing"], Xe ? "react-tooltip__show" : "react-tooltip__closing", "fixed" === b2 && z.fixed, $2 && z.clickable), onTransitionEnd: (e2) => {
-      R(de), me || "opacity" !== e2.propertyName || (he(false), be(null), null == U || U());
-    }, style: { ...V, ...pe.tooltipStyles, opacity: void 0 !== le && Xe ? le : void 0 }, ref: ce }, Ue, import_react16.default.createElement(g, { className: (0, import_classnames.default)("react-tooltip-arrow", z.arrow, D.arrow, c2, N2 && z.noArrow), style: { ...pe.tooltipArrowStyles, background: re ? `linear-gradient(to right bottom, transparent 50%, ${re} 50%)` : void 0 }, ref: se })) : null;
+      be(null != e3 ? e3 : null), (null == e3 ? void 0 : e3.delay) ? je(e3.delay) : $e(true);
+    }, close: (e3) => {
+      (null == e3 ? void 0 : e3.delay) ? Be(e3.delay) : $e(false);
+    }, activeAnchor: ee, place: pe.place, isOpen: Boolean(ye && !x2 && Ue && Xe) })), ye && !x2 && Ue ? import_react24.default.createElement(g, { id: l2, role: ne, className: (0, import_classnames.default)("react-tooltip", z.tooltip, D.tooltip, D[u], i2, `react-tooltip__place-${pe.place}`, z[Xe ? "show" : "closing"], Xe ? "react-tooltip__show" : "react-tooltip__closing", "fixed" === b2 && z.fixed, $2 && z.clickable), onTransitionEnd: (e3) => {
+      R(de), me || "opacity" !== e3.propertyName || (he(false), be(null), null == U || U());
+    }, style: { ...V, ...pe.tooltipStyles, opacity: void 0 !== le && Xe ? le : void 0 }, ref: ce }, Ue, import_react24.default.createElement(g, { className: (0, import_classnames.default)("react-tooltip-arrow", z.arrow, D.arrow, c2, N2 && z.noArrow), style: { ...pe.tooltipArrowStyles, background: re ? `linear-gradient(to right bottom, transparent 50%, ${re} 50%)` : void 0 }, ref: se })) : null;
   };
-  var H = ({ content: t2 }) => import_react16.default.createElement("span", { dangerouslySetInnerHTML: { __html: t2 } });
-  var M = import_react16.default.forwardRef(({ id: t2, anchorId: l2, anchorSelect: n2, content: i2, html: c2, render: a2, className: u, classNameArrow: d, variant: p = "dark", place: v = "top", offset: m = 10, wrapper: f = "div", children: h2 = null, events: w2 = ["hover"], openOnClick: b2 = false, positionStrategy: S2 = "absolute", middlewares: g, delayShow: E2 = 0, delayHide: _2 = 0, float: O2 = false, hidden: k2 = false, noArrow: T2 = false, clickable: L4 = false, closeOnEsc: C2 = false, closeOnScroll: R2 = false, closeOnResize: x2 = false, openEvents: N2, closeEvents: $2, globalCloseEvents: I, imperativeModeOnly: B = false, style: z2, position: D2, isOpen: M2, defaultIsOpen: W = false, disableStyleInjection: P = false, border: V, opacity: F, arrowColor: K, setIsOpen: U, afterShow: X, afterHide: Y, disableTooltip: G, role: Z = "tooltip" }, J) => {
-    const [Q, ee] = (0, import_react16.useState)(i2), [te, oe] = (0, import_react16.useState)(c2), [le, re] = (0, import_react16.useState)(v), [ne, ie] = (0, import_react16.useState)(p), [ce, se] = (0, import_react16.useState)(m), [ae, ue] = (0, import_react16.useState)(E2), [de, pe] = (0, import_react16.useState)(_2), [ve, me] = (0, import_react16.useState)(O2), [fe, ye] = (0, import_react16.useState)(k2), [he, we] = (0, import_react16.useState)(f), [be, Se] = (0, import_react16.useState)(w2), [ge, Ee] = (0, import_react16.useState)(S2), [Ae, _e] = (0, import_react16.useState)(null), [Oe, ke] = (0, import_react16.useState)(null), Te = (0, import_react16.useRef)(P), { anchorRefs: Le, activeAnchor: Ce } = j(t2), Re = (e2) => null == e2 ? void 0 : e2.getAttributeNames().reduce((t3, o2) => {
+  var H = ({ content: t3 }) => import_react24.default.createElement("span", { dangerouslySetInnerHTML: { __html: t3 } });
+  var M = import_react24.default.forwardRef(({ id: t3, anchorId: l2, anchorSelect: n2, content: i2, html: c2, render: a2, className: u, classNameArrow: d, variant: p = "dark", place: v = "top", offset: m = 10, wrapper: f = "div", children: h2 = null, events: w2 = ["hover"], openOnClick: b2 = false, positionStrategy: S2 = "absolute", middlewares: g, delayShow: E2 = 0, delayHide: _2 = 0, float: O2 = false, hidden: k2 = false, noArrow: T2 = false, clickable: L5 = false, closeOnEsc: C2 = false, closeOnScroll: R2 = false, closeOnResize: x2 = false, openEvents: N2, closeEvents: $2, globalCloseEvents: I, imperativeModeOnly: B = false, style: z2, position: D2, isOpen: M2, defaultIsOpen: W = false, disableStyleInjection: P = false, border: V, opacity: F, arrowColor: K, setIsOpen: U, afterShow: X, afterHide: Y, disableTooltip: G, role: Z = "tooltip" }, J) => {
+    const [Q, ee] = (0, import_react24.useState)(i2), [te, oe] = (0, import_react24.useState)(c2), [le, re] = (0, import_react24.useState)(v), [ne, ie] = (0, import_react24.useState)(p), [ce, se] = (0, import_react24.useState)(m), [ae, ue] = (0, import_react24.useState)(E2), [de, pe] = (0, import_react24.useState)(_2), [ve, me] = (0, import_react24.useState)(O2), [fe, ye] = (0, import_react24.useState)(k2), [he, we] = (0, import_react24.useState)(f), [be, Se] = (0, import_react24.useState)(w2), [ge, Ee] = (0, import_react24.useState)(S2), [Ae, _e] = (0, import_react24.useState)(null), [Oe, ke] = (0, import_react24.useState)(null), Te = (0, import_react24.useRef)(P), { anchorRefs: Le, activeAnchor: Ce } = j(t3), Re = (e3) => null == e3 ? void 0 : e3.getAttributeNames().reduce((t4, o2) => {
       var l3;
       if (o2.startsWith("data-tooltip-")) {
-        t3[o2.replace(/^data-tooltip-/, "")] = null !== (l3 = null == e2 ? void 0 : e2.getAttribute(o2)) && void 0 !== l3 ? l3 : null;
+        t4[o2.replace(/^data-tooltip-/, "")] = null !== (l3 = null == e3 ? void 0 : e3.getAttribute(o2)) && void 0 !== l3 ? l3 : null;
       }
-      return t3;
-    }, {}), xe = (e2) => {
-      const t3 = { place: (e3) => {
-        var t4;
-        re(null !== (t4 = e3) && void 0 !== t4 ? t4 : v);
-      }, content: (e3) => {
-        ee(null != e3 ? e3 : i2);
-      }, html: (e3) => {
-        oe(null != e3 ? e3 : c2);
-      }, variant: (e3) => {
-        var t4;
-        ie(null !== (t4 = e3) && void 0 !== t4 ? t4 : p);
-      }, offset: (e3) => {
-        se(null === e3 ? m : Number(e3));
-      }, wrapper: (e3) => {
-        var t4;
-        we(null !== (t4 = e3) && void 0 !== t4 ? t4 : f);
-      }, events: (e3) => {
-        const t4 = null == e3 ? void 0 : e3.split(" ");
-        Se(null != t4 ? t4 : w2);
-      }, "position-strategy": (e3) => {
-        var t4;
-        Ee(null !== (t4 = e3) && void 0 !== t4 ? t4 : S2);
-      }, "delay-show": (e3) => {
-        ue(null === e3 ? E2 : Number(e3));
-      }, "delay-hide": (e3) => {
-        pe(null === e3 ? _2 : Number(e3));
-      }, float: (e3) => {
-        me(null === e3 ? O2 : "true" === e3);
-      }, hidden: (e3) => {
-        ye(null === e3 ? k2 : "true" === e3);
-      }, "class-name": (e3) => {
-        _e(e3);
+      return t4;
+    }, {}), xe = (e3) => {
+      const t4 = { place: (e4) => {
+        var t5;
+        re(null !== (t5 = e4) && void 0 !== t5 ? t5 : v);
+      }, content: (e4) => {
+        ee(null != e4 ? e4 : i2);
+      }, html: (e4) => {
+        oe(null != e4 ? e4 : c2);
+      }, variant: (e4) => {
+        var t5;
+        ie(null !== (t5 = e4) && void 0 !== t5 ? t5 : p);
+      }, offset: (e4) => {
+        se(null === e4 ? m : Number(e4));
+      }, wrapper: (e4) => {
+        var t5;
+        we(null !== (t5 = e4) && void 0 !== t5 ? t5 : f);
+      }, events: (e4) => {
+        const t5 = null == e4 ? void 0 : e4.split(" ");
+        Se(null != t5 ? t5 : w2);
+      }, "position-strategy": (e4) => {
+        var t5;
+        Ee(null !== (t5 = e4) && void 0 !== t5 ? t5 : S2);
+      }, "delay-show": (e4) => {
+        ue(null === e4 ? E2 : Number(e4));
+      }, "delay-hide": (e4) => {
+        pe(null === e4 ? _2 : Number(e4));
+      }, float: (e4) => {
+        me(null === e4 ? O2 : "true" === e4);
+      }, hidden: (e4) => {
+        ye(null === e4 ? k2 : "true" === e4);
+      }, "class-name": (e4) => {
+        _e(e4);
       } };
-      Object.values(t3).forEach((e3) => e3(null)), Object.entries(e2).forEach(([e3, o2]) => {
+      Object.values(t4).forEach((e4) => e4(null)), Object.entries(e3).forEach(([e4, o2]) => {
         var l3;
-        null === (l3 = t3[e3]) || void 0 === l3 || l3.call(t3, o2);
+        null === (l3 = t4[e4]) || void 0 === l3 || l3.call(t4, o2);
       });
     };
-    (0, import_react16.useEffect)(() => {
+    (0, import_react24.useEffect)(() => {
       ee(i2);
-    }, [i2]), (0, import_react16.useEffect)(() => {
+    }, [i2]), (0, import_react24.useEffect)(() => {
       oe(c2);
-    }, [c2]), (0, import_react16.useEffect)(() => {
+    }, [c2]), (0, import_react24.useEffect)(() => {
       re(v);
-    }, [v]), (0, import_react16.useEffect)(() => {
+    }, [v]), (0, import_react24.useEffect)(() => {
       ie(p);
-    }, [p]), (0, import_react16.useEffect)(() => {
+    }, [p]), (0, import_react24.useEffect)(() => {
       se(m);
-    }, [m]), (0, import_react16.useEffect)(() => {
+    }, [m]), (0, import_react24.useEffect)(() => {
       ue(E2);
-    }, [E2]), (0, import_react16.useEffect)(() => {
+    }, [E2]), (0, import_react24.useEffect)(() => {
       pe(_2);
-    }, [_2]), (0, import_react16.useEffect)(() => {
+    }, [_2]), (0, import_react24.useEffect)(() => {
       me(O2);
-    }, [O2]), (0, import_react16.useEffect)(() => {
+    }, [O2]), (0, import_react24.useEffect)(() => {
       ye(k2);
-    }, [k2]), (0, import_react16.useEffect)(() => {
+    }, [k2]), (0, import_react24.useEffect)(() => {
       Ee(S2);
-    }, [S2]), (0, import_react16.useEffect)(() => {
+    }, [S2]), (0, import_react24.useEffect)(() => {
       Te.current !== P && console.warn("[react-tooltip] Do not change `disableStyleInjection` dynamically.");
-    }, [P]), (0, import_react16.useEffect)(() => {
+    }, [P]), (0, import_react24.useEffect)(() => {
       "undefined" != typeof window && window.dispatchEvent(new CustomEvent("react-tooltip-inject-styles", { detail: { disableCore: "core" === P, disableBase: P } }));
-    }, []), (0, import_react16.useEffect)(() => {
-      var e2;
+    }, []), (0, import_react24.useEffect)(() => {
+      var e3;
       const o2 = new Set(Le);
       let r2 = n2;
-      if (!r2 && t2 && (r2 = `[data-tooltip-id='${t2.replace(/'/g, "\\'")}']`), r2) try {
-        document.querySelectorAll(r2).forEach((e3) => {
-          o2.add({ current: e3 });
+      if (!r2 && t3 && (r2 = `[data-tooltip-id='${t3.replace(/'/g, "\\'")}']`), r2) try {
+        document.querySelectorAll(r2).forEach((e4) => {
+          o2.add({ current: e4 });
         });
-      } catch (e3) {
+      } catch (e4) {
         console.warn(`[react-tooltip] "${r2}" is not a valid CSS selector`);
       }
       const i3 = document.querySelector(`[id='${l2}']`);
       if (i3 && o2.add({ current: i3 }), !o2.size) return () => null;
-      const c3 = null !== (e2 = null != Oe ? Oe : i3) && void 0 !== e2 ? e2 : Ce.current, s2 = new MutationObserver((e3) => {
-        e3.forEach((e4) => {
-          var t3;
-          if (!c3 || "attributes" !== e4.type || !(null === (t3 = e4.attributeName) || void 0 === t3 ? void 0 : t3.startsWith("data-tooltip-"))) return;
+      const c3 = null !== (e3 = null != Oe ? Oe : i3) && void 0 !== e3 ? e3 : Ce.current, s2 = new MutationObserver((e4) => {
+        e4.forEach((e5) => {
+          var t4;
+          if (!c3 || "attributes" !== e5.type || !(null === (t4 = e5.attributeName) || void 0 === t4 ? void 0 : t4.startsWith("data-tooltip-"))) return;
           const o3 = Re(c3);
           xe(o3);
         });
       }), a3 = { attributes: true, childList: false, subtree: false };
       if (c3) {
-        const e3 = Re(c3);
-        xe(e3), s2.observe(c3, a3);
+        const e4 = Re(c3);
+        xe(e4), s2.observe(c3, a3);
       }
       return () => {
         s2.disconnect();
       };
-    }, [Le, Ce, Oe, l2, n2]), (0, import_react16.useEffect)(() => {
+    }, [Le, Ce, Oe, l2, n2]), (0, import_react24.useEffect)(() => {
       (null == z2 ? void 0 : z2.border) && console.warn("[react-tooltip] Do not set `style.border`. Use `border` prop instead."), V && !A("border", `${V}`) && console.warn(`[react-tooltip] "${V}" is not a valid \`border\`.`), (null == z2 ? void 0 : z2.opacity) && console.warn("[react-tooltip] Do not set `style.opacity`. Use `opacity` prop instead."), F && !A("opacity", `${F}`) && console.warn(`[react-tooltip] "${F}" is not a valid \`opacity\`.`);
     }, []);
     let Ne = h2;
-    const $e = (0, import_react16.useRef)(null);
+    const $e = (0, import_react24.useRef)(null);
     if (a2) {
-      const t3 = a2({ content: (null == Oe ? void 0 : Oe.getAttribute("data-tooltip-content")) || Q || null, activeAnchor: Oe });
-      Ne = t3 ? import_react16.default.createElement("div", { ref: $e, className: "react-tooltip-content-wrapper" }, t3) : null;
+      const t4 = a2({ content: (null == Oe ? void 0 : Oe.getAttribute("data-tooltip-content")) || Q || null, activeAnchor: Oe });
+      Ne = t4 ? import_react24.default.createElement("div", { ref: $e, className: "react-tooltip-content-wrapper" }, t4) : null;
     } else Q && (Ne = Q);
-    te && (Ne = import_react16.default.createElement(H, { content: te }));
-    const Ie = { forwardRef: J, id: t2, anchorId: l2, anchorSelect: n2, className: (0, import_classnames.default)(u, Ae), classNameArrow: d, content: Ne, contentWrapperRef: $e, place: le, variant: ne, offset: ce, wrapper: he, events: be, openOnClick: b2, positionStrategy: ge, middlewares: g, delayShow: ae, delayHide: de, float: ve, hidden: fe, noArrow: T2, clickable: L4, closeOnEsc: C2, closeOnScroll: R2, closeOnResize: x2, openEvents: N2, closeEvents: $2, globalCloseEvents: I, imperativeModeOnly: B, style: z2, position: D2, isOpen: M2, defaultIsOpen: W, border: V, opacity: F, arrowColor: K, setIsOpen: U, afterShow: X, afterHide: Y, disableTooltip: G, activeAnchor: Oe, setActiveAnchor: (e2) => ke(e2), role: Z };
-    return import_react16.default.createElement(q, { ...Ie });
+    te && (Ne = import_react24.default.createElement(H, { content: te }));
+    const Ie = { forwardRef: J, id: t3, anchorId: l2, anchorSelect: n2, className: (0, import_classnames.default)(u, Ae), classNameArrow: d, content: Ne, contentWrapperRef: $e, place: le, variant: ne, offset: ce, wrapper: he, events: be, openOnClick: b2, positionStrategy: ge, middlewares: g, delayShow: ae, delayHide: de, float: ve, hidden: fe, noArrow: T2, clickable: L5, closeOnEsc: C2, closeOnScroll: R2, closeOnResize: x2, openEvents: N2, closeEvents: $2, globalCloseEvents: I, imperativeModeOnly: B, style: z2, position: D2, isOpen: M2, defaultIsOpen: W, border: V, opacity: F, arrowColor: K, setIsOpen: U, afterShow: X, afterHide: Y, disableTooltip: G, activeAnchor: Oe, setActiveAnchor: (e3) => ke(e3), role: Z };
+    return import_react24.default.createElement(q, { ...Ie });
   });
-  "undefined" != typeof window && window.addEventListener("react-tooltip-inject-styles", (e2) => {
-    e2.detail.disableCore || S({ css: `:root{--rt-color-white:#fff;--rt-color-dark:#222;--rt-color-success:#8dc572;--rt-color-error:#be6464;--rt-color-warning:#f0ad4e;--rt-color-info:#337ab7;--rt-opacity:0.9;--rt-transition-show-delay:0.15s;--rt-transition-closing-delay:0.15s}.core-styles-module_tooltip__3vRRp{position:absolute;top:0;left:0;pointer-events:none;opacity:0;will-change:opacity}.core-styles-module_fixed__pcSol{position:fixed}.core-styles-module_arrow__cvMwQ{position:absolute;background:inherit}.core-styles-module_noArrow__xock6{display:none}.core-styles-module_clickable__ZuTTB{pointer-events:auto}.core-styles-module_show__Nt9eE{opacity:var(--rt-opacity);transition:opacity var(--rt-transition-show-delay)ease-out}.core-styles-module_closing__sGnxF{opacity:0;transition:opacity var(--rt-transition-closing-delay)ease-in}`, type: "core" }), e2.detail.disableBase || S({ css: `
+  "undefined" != typeof window && window.addEventListener("react-tooltip-inject-styles", (e3) => {
+    e3.detail.disableCore || S({ css: `:root{--rt-color-white:#fff;--rt-color-dark:#222;--rt-color-success:#8dc572;--rt-color-error:#be6464;--rt-color-warning:#f0ad4e;--rt-color-info:#337ab7;--rt-opacity:0.9;--rt-transition-show-delay:0.15s;--rt-transition-closing-delay:0.15s}.core-styles-module_tooltip__3vRRp{position:absolute;top:0;left:0;pointer-events:none;opacity:0;will-change:opacity}.core-styles-module_fixed__pcSol{position:fixed}.core-styles-module_arrow__cvMwQ{position:absolute;background:inherit}.core-styles-module_noArrow__xock6{display:none}.core-styles-module_clickable__ZuTTB{pointer-events:auto}.core-styles-module_show__Nt9eE{opacity:var(--rt-opacity);transition:opacity var(--rt-transition-show-delay)ease-out}.core-styles-module_closing__sGnxF{opacity:0;transition:opacity var(--rt-transition-closing-delay)ease-in}`, type: "core" }), e3.detail.disableBase || S({ css: `
 .styles-module_tooltip__mnnfp{padding:8px 16px;border-radius:3px;font-size:90%;width:max-content}.styles-module_arrow__K0L3T{width:8px;height:8px}[class*='react-tooltip__place-top']>.styles-module_arrow__K0L3T{transform:rotate(45deg)}[class*='react-tooltip__place-right']>.styles-module_arrow__K0L3T{transform:rotate(135deg)}[class*='react-tooltip__place-bottom']>.styles-module_arrow__K0L3T{transform:rotate(225deg)}[class*='react-tooltip__place-left']>.styles-module_arrow__K0L3T{transform:rotate(315deg)}.styles-module_dark__xNqje{background:var(--rt-color-dark);color:var(--rt-color-white)}.styles-module_light__Z6W-X{background-color:var(--rt-color-white);color:var(--rt-color-dark)}.styles-module_success__A2AKt{background-color:var(--rt-color-success);color:var(--rt-color-white)}.styles-module_warning__SCK0X{background-color:var(--rt-color-warning);color:var(--rt-color-white)}.styles-module_error__JvumD{background-color:var(--rt-color-error);color:var(--rt-color-white)}.styles-module_info__BWdHW{background-color:var(--rt-color-info);color:var(--rt-color-white)}`, type: "base" });
   });
 
   // src/components/form.tsx
   var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
   var Form = () => {
+    const { t: t3 } = useTranslation();
     const [roads, isPlaying, wrongGuesses, startGame, cancelGame, submitGuess] = useStore2(
       useShallow((state) => [
         state.roads,
@@ -40812,7 +41095,7 @@ out geom;`;
         state.submitGuess
       ])
     );
-    const score = (0, import_react17.useMemo)(
+    const score = (0, import_react25.useMemo)(
       () => ({
         correct: roads.filter((r2) => r2.state === "correct").length,
         wrong: wrongGuesses,
@@ -40820,10 +41103,10 @@ out geom;`;
       }),
       [roads, wrongGuesses]
     );
-    const tooltipRef = (0, import_react17.useRef)(null);
-    const [isCorrect, setIsCorrect] = (0, import_react17.useState)(false);
-    const [isWrong, setIsWrong] = (0, import_react17.useState)(false);
-    const onKeyDown = (0, import_react17.useCallback)(
+    const tooltipRef = (0, import_react25.useRef)(null);
+    const [isCorrect, setIsCorrect] = (0, import_react25.useState)(false);
+    const [isWrong, setIsWrong] = (0, import_react25.useState)(false);
+    const onKeyDown = (0, import_react25.useCallback)(
       (event) => {
         if (event.keyCode === 13) {
           const { result, road } = submitGuess(event.target.value);
@@ -40865,7 +41148,7 @@ out geom;`;
               "input",
               {
                 type: "text",
-                placeholder: "Enter street name",
+                placeholder: t3("controls.guess"),
                 onKeyDown,
                 autoFocus: true,
                 className: `input text-input ${isCorrect ? "correct" : ""} ${isWrong ? "wrong" : ""}`
@@ -40874,13 +41157,13 @@ out geom;`;
             /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: "button", onClick: cancelGame, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "icon is-small", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(CancelIcon, { color: "#fff" }) }) })
           ] }),
           /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(M, { ref: tooltipRef, className: "box" })
-        ] }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: "button is-fullwidth", onClick: startGame, children: "Start" })
+        ] }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: "button is-fullwidth", onClick: startGame, children: t3("controls.start") })
       }
     );
   };
 
   // src/components/roads.tsx
-  var import_react18 = __toESM(require_react(), 1);
+  var import_react26 = __toESM(require_react(), 1);
   var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
   var COLORS = {
     correct: "#0F0",
@@ -40889,14 +41172,14 @@ out geom;`;
   };
   var Roads = (props) => {
     let [roads] = useStore2(useShallow((state) => [state.roads]));
-    roads = (0, import_react18.useMemo)(
+    roads = (0, import_react26.useMemo)(
       () => roads.filter((road) => road.state === props.type),
       [roads]
     );
     const isCurrent = props.type === "current";
-    const ref = (0, import_react18.useRef)();
+    const ref = (0, import_react26.useRef)();
     const map = useMap();
-    (0, import_react18.useEffect)(() => {
+    (0, import_react26.useEffect)(() => {
       const feature = ref.current;
       if (isCurrent && feature) {
         map.setView(feature.getBounds().getCenter(), map.getZoom(), {
@@ -40919,18 +41202,2881 @@ out geom;`;
     ] }, road.name)) });
   };
 
-  // src/components/map.tsx
+  // node_modules/react-leaflet-custom-control/lib/Control.js
+  var import_leaflet11 = __toESM(require_leaflet_src(), 1);
+  var import_react27 = __toESM(require_react(), 1);
+  var __assign = function() {
+    __assign = Object.assign || function(t3) {
+      for (var s2, i2 = 1, n2 = arguments.length; i2 < n2; i2++) {
+        s2 = arguments[i2];
+        for (var p in s2) if (Object.prototype.hasOwnProperty.call(s2, p))
+          t3[p] = s2[p];
+      }
+      return t3;
+    };
+    return __assign.apply(this, arguments);
+  };
+  var POSITION_CLASSES = {
+    bottomleft: "leaflet-bottom leaflet-left",
+    bottomright: "leaflet-bottom leaflet-right",
+    topleft: "leaflet-top leaflet-left",
+    topright: "leaflet-top leaflet-right"
+  };
+  var Control = function(props) {
+    var _a, _b;
+    var _c = import_react27.default.useState(document.createElement("div")), portalRoot = _c[0], setPortalRoot = _c[1];
+    var positionClass = props.position && POSITION_CLASSES[props.position] || POSITION_CLASSES.topright;
+    var controlContainerRef = import_react27.default.createRef();
+    var map = useMap();
+    import_react27.default.useEffect(function() {
+      if (controlContainerRef.current !== null) {
+        import_leaflet11.default.DomEvent.disableClickPropagation(controlContainerRef.current);
+        import_leaflet11.default.DomEvent.disableScrollPropagation(controlContainerRef.current);
+      }
+    }, [controlContainerRef]);
+    import_react27.default.useEffect(function() {
+      var mapContainer = map.getContainer();
+      var targetDiv = mapContainer.getElementsByClassName(positionClass);
+      setPortalRoot(targetDiv[0]);
+    }, [positionClass]);
+    import_react27.default.useEffect(function() {
+      if (portalRoot !== null) {
+        if (props.prepend !== void 0 && props.prepend === true) {
+          portalRoot.prepend(controlContainerRef.current);
+        } else {
+          portalRoot.append(controlContainerRef.current);
+        }
+      }
+    }, [portalRoot, props.prepend, controlContainerRef]);
+    var className = (((_b = (_a = props.container) === null || _a === void 0 ? void 0 : _a.className) === null || _b === void 0 ? void 0 : _b.concat(" ")) || "") + "leaflet-control";
+    return import_react27.default.createElement("div", __assign({}, props.container, { ref: controlContainerRef, className }), props.children);
+  };
+  var Control_default = Control;
+
+  // src/components/language-picker.tsx
+  var import_react28 = __toESM(require_react(), 1);
+
+  // src/icons/language.tsx
   var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
+  var LanguageIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+    "svg",
+    {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      width: 24,
+      height: 24,
+      color: "#ffffff",
+      fill: "none",
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          "path",
+          {
+            d: "M2 12C2 13.0519 2.18046 14.0616 2.51212 15M13.0137 8.99997H21.5015M11 15H2.51212M21.5015 8.99997C20.266 5.50439 16.9323 2.99997 13.0137 2.99997C14.6146 2.99997 15.9226 6.76197 16.0091 11.5M21.5015 8.99997C21.7803 9.78864 21.9522 10.6278 22 11.5M2.51212 15C3.74763 18.4956 7.08134 21 11 21C9.45582 21 8.18412 17.4999 8.01831 13",
+            stroke: "currentColor",
+            strokeWidth: "1.5",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          "path",
+          {
+            d: "M2 5.29734C2 4.19897 2 3.64979 2.18738 3.22389C2.3861 2.77223 2.72861 2.40921 3.15476 2.1986C3.55661 2 4.07478 2 5.11111 2H6C7.88562 2 8.82843 2 9.41421 2.62085C10 3.2417 10 4.24095 10 6.23944V8.49851C10 9.37026 10 9.80613 9.73593 9.95592C9.47186 10.1057 9.12967 9.86392 8.4453 9.38036L8.34103 9.30669C7.84086 8.95329 7.59078 8.77658 7.30735 8.68563C7.02392 8.59468 6.72336 8.59468 6.12223 8.59468H5.11111C4.07478 8.59468 3.55661 8.59468 3.15476 8.39608C2.72861 8.18547 2.3861 7.82245 2.18738 7.37079C2 6.94489 2 6.39571 2 5.29734Z",
+            stroke: "currentColor",
+            strokeWidth: "1.5"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+          "path",
+          {
+            d: "M22 17.2973C22 16.199 22 15.6498 21.8126 15.2239C21.6139 14.7722 21.2714 14.4092 20.8452 14.1986C20.4434 14 19.9252 14 18.8889 14H18C16.1144 14 15.1716 14 14.5858 14.6209C14 15.2417 14 16.2409 14 18.2394V20.4985C14 21.3703 14 21.8061 14.2641 21.9559C14.5281 22.1057 14.8703 21.8639 15.5547 21.3804L15.659 21.3067C16.1591 20.9533 16.4092 20.7766 16.6926 20.6856C16.9761 20.5947 17.2766 20.5947 17.8778 20.5947H18.8889C19.9252 20.5947 20.4434 20.5947 20.8452 20.3961C21.2714 20.1855 21.6139 19.8225 21.8126 19.3708C22 18.9449 22 18.3957 22 17.2973Z",
+            stroke: "currentColor",
+            strokeWidth: "1.5"
+          }
+        )
+      ]
+    }
+  );
+
+  // node_modules/i18next/dist/esm/i18next.js
+  var isString2 = (obj) => typeof obj === "string";
+  var defer = () => {
+    let res;
+    let rej;
+    const promise = new Promise((resolve, reject) => {
+      res = resolve;
+      rej = reject;
+    });
+    promise.resolve = res;
+    promise.reject = rej;
+    return promise;
+  };
+  var makeString = (object) => {
+    if (object == null) return "";
+    return "" + object;
+  };
+  var copy = (a2, s2, t3) => {
+    a2.forEach((m) => {
+      if (s2[m]) t3[m] = s2[m];
+    });
+  };
+  var lastOfPathSeparatorRegExp = /###/g;
+  var cleanKey = (key) => key && key.indexOf("###") > -1 ? key.replace(lastOfPathSeparatorRegExp, ".") : key;
+  var canNotTraverseDeeper = (object) => !object || isString2(object);
+  var getLastOfPath = (object, path2, Empty) => {
+    const stack = !isString2(path2) ? path2 : path2.split(".");
+    let stackIndex = 0;
+    while (stackIndex < stack.length - 1) {
+      if (canNotTraverseDeeper(object)) return {};
+      const key = cleanKey(stack[stackIndex]);
+      if (!object[key] && Empty) object[key] = new Empty();
+      if (Object.prototype.hasOwnProperty.call(object, key)) {
+        object = object[key];
+      } else {
+        object = {};
+      }
+      ++stackIndex;
+    }
+    if (canNotTraverseDeeper(object)) return {};
+    return {
+      obj: object,
+      k: cleanKey(stack[stackIndex])
+    };
+  };
+  var setPath = (object, path2, newValue) => {
+    const {
+      obj,
+      k: k2
+    } = getLastOfPath(object, path2, Object);
+    if (obj !== void 0 || path2.length === 1) {
+      obj[k2] = newValue;
+      return;
+    }
+    let e3 = path2[path2.length - 1];
+    let p = path2.slice(0, path2.length - 1);
+    let last = getLastOfPath(object, p, Object);
+    while (last.obj === void 0 && p.length) {
+      e3 = `${p[p.length - 1]}.${e3}`;
+      p = p.slice(0, p.length - 1);
+      last = getLastOfPath(object, p, Object);
+      if (last?.obj && typeof last.obj[`${last.k}.${e3}`] !== "undefined") {
+        last.obj = void 0;
+      }
+    }
+    last.obj[`${last.k}.${e3}`] = newValue;
+  };
+  var pushPath = (object, path2, newValue, concat) => {
+    const {
+      obj,
+      k: k2
+    } = getLastOfPath(object, path2, Object);
+    obj[k2] = obj[k2] || [];
+    obj[k2].push(newValue);
+  };
+  var getPath = (object, path2) => {
+    const {
+      obj,
+      k: k2
+    } = getLastOfPath(object, path2);
+    if (!obj) return void 0;
+    return obj[k2];
+  };
+  var getPathWithDefaults = (data, defaultData, key) => {
+    const value = getPath(data, key);
+    if (value !== void 0) {
+      return value;
+    }
+    return getPath(defaultData, key);
+  };
+  var deepExtend = (target, source, overwrite) => {
+    for (const prop in source) {
+      if (prop !== "__proto__" && prop !== "constructor") {
+        if (prop in target) {
+          if (isString2(target[prop]) || target[prop] instanceof String || isString2(source[prop]) || source[prop] instanceof String) {
+            if (overwrite) target[prop] = source[prop];
+          } else {
+            deepExtend(target[prop], source[prop], overwrite);
+          }
+        } else {
+          target[prop] = source[prop];
+        }
+      }
+    }
+    return target;
+  };
+  var regexEscape = (str) => str.replace(/[\-\[\]\/\{\}\(\)\*\+\?\.\\\^\$\|]/g, "\\$&");
+  var _entityMap = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#39;",
+    "/": "&#x2F;"
+  };
+  var escape = (data) => {
+    if (isString2(data)) {
+      return data.replace(/[&<>"'\/]/g, (s2) => _entityMap[s2]);
+    }
+    return data;
+  };
+  var RegExpCache = class {
+    constructor(capacity) {
+      this.capacity = capacity;
+      this.regExpMap = /* @__PURE__ */ new Map();
+      this.regExpQueue = [];
+    }
+    getRegExp(pattern) {
+      const regExpFromCache = this.regExpMap.get(pattern);
+      if (regExpFromCache !== void 0) {
+        return regExpFromCache;
+      }
+      const regExpNew = new RegExp(pattern);
+      if (this.regExpQueue.length === this.capacity) {
+        this.regExpMap.delete(this.regExpQueue.shift());
+      }
+      this.regExpMap.set(pattern, regExpNew);
+      this.regExpQueue.push(pattern);
+      return regExpNew;
+    }
+  };
+  var chars = [" ", ",", "?", "!", ";"];
+  var looksLikeObjectPathRegExpCache = new RegExpCache(20);
+  var looksLikeObjectPath = (key, nsSeparator, keySeparator) => {
+    nsSeparator = nsSeparator || "";
+    keySeparator = keySeparator || "";
+    const possibleChars = chars.filter((c2) => nsSeparator.indexOf(c2) < 0 && keySeparator.indexOf(c2) < 0);
+    if (possibleChars.length === 0) return true;
+    const r2 = looksLikeObjectPathRegExpCache.getRegExp(`(${possibleChars.map((c2) => c2 === "?" ? "\\?" : c2).join("|")})`);
+    let matched = !r2.test(key);
+    if (!matched) {
+      const ki = key.indexOf(keySeparator);
+      if (ki > 0 && !r2.test(key.substring(0, ki))) {
+        matched = true;
+      }
+    }
+    return matched;
+  };
+  var deepFind = function(obj, path2) {
+    let keySeparator = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : ".";
+    if (!obj) return void 0;
+    if (obj[path2]) return obj[path2];
+    const tokens = path2.split(keySeparator);
+    let current = obj;
+    for (let i2 = 0; i2 < tokens.length; ) {
+      if (!current || typeof current !== "object") {
+        return void 0;
+      }
+      let next;
+      let nextPath = "";
+      for (let j2 = i2; j2 < tokens.length; ++j2) {
+        if (j2 !== i2) {
+          nextPath += keySeparator;
+        }
+        nextPath += tokens[j2];
+        next = current[nextPath];
+        if (next !== void 0) {
+          if (["string", "number", "boolean"].indexOf(typeof next) > -1 && j2 < tokens.length - 1) {
+            continue;
+          }
+          i2 += j2 - i2 + 1;
+          break;
+        }
+      }
+      current = next;
+    }
+    return current;
+  };
+  var getCleanedCode = (code) => code?.replace("_", "-");
+  var consoleLogger = {
+    type: "logger",
+    log(args) {
+      this.output("log", args);
+    },
+    warn(args) {
+      this.output("warn", args);
+    },
+    error(args) {
+      this.output("error", args);
+    },
+    output(type, args) {
+      console?.[type]?.apply?.(console, args);
+    }
+  };
+  var Logger = class _Logger {
+    constructor(concreteLogger) {
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+      this.init(concreteLogger, options);
+    }
+    init(concreteLogger) {
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+      this.prefix = options.prefix || "i18next:";
+      this.logger = concreteLogger || consoleLogger;
+      this.options = options;
+      this.debug = options.debug;
+    }
+    log() {
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+      return this.forward(args, "log", "", true);
+    }
+    warn() {
+      for (var _len2 = arguments.length, args = new Array(_len2), _key2 = 0; _key2 < _len2; _key2++) {
+        args[_key2] = arguments[_key2];
+      }
+      return this.forward(args, "warn", "", true);
+    }
+    error() {
+      for (var _len3 = arguments.length, args = new Array(_len3), _key3 = 0; _key3 < _len3; _key3++) {
+        args[_key3] = arguments[_key3];
+      }
+      return this.forward(args, "error", "");
+    }
+    deprecate() {
+      for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+        args[_key4] = arguments[_key4];
+      }
+      return this.forward(args, "warn", "WARNING DEPRECATED: ", true);
+    }
+    forward(args, lvl, prefix, debugOnly) {
+      if (debugOnly && !this.debug) return null;
+      if (isString2(args[0])) args[0] = `${prefix}${this.prefix} ${args[0]}`;
+      return this.logger[lvl](args);
+    }
+    create(moduleName) {
+      return new _Logger(this.logger, {
+        ...{
+          prefix: `${this.prefix}:${moduleName}:`
+        },
+        ...this.options
+      });
+    }
+    clone(options) {
+      options = options || this.options;
+      options.prefix = options.prefix || this.prefix;
+      return new _Logger(this.logger, options);
+    }
+  };
+  var baseLogger = new Logger();
+  var EventEmitter = class {
+    constructor() {
+      this.observers = {};
+    }
+    on(events, listener) {
+      events.split(" ").forEach((event) => {
+        if (!this.observers[event]) this.observers[event] = /* @__PURE__ */ new Map();
+        const numListeners = this.observers[event].get(listener) || 0;
+        this.observers[event].set(listener, numListeners + 1);
+      });
+      return this;
+    }
+    off(event, listener) {
+      if (!this.observers[event]) return;
+      if (!listener) {
+        delete this.observers[event];
+        return;
+      }
+      this.observers[event].delete(listener);
+    }
+    emit(event) {
+      for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+        args[_key - 1] = arguments[_key];
+      }
+      if (this.observers[event]) {
+        const cloned = Array.from(this.observers[event].entries());
+        cloned.forEach((_ref) => {
+          let [observer, numTimesAdded] = _ref;
+          for (let i2 = 0; i2 < numTimesAdded; i2++) {
+            observer(...args);
+          }
+        });
+      }
+      if (this.observers["*"]) {
+        const cloned = Array.from(this.observers["*"].entries());
+        cloned.forEach((_ref2) => {
+          let [observer, numTimesAdded] = _ref2;
+          for (let i2 = 0; i2 < numTimesAdded; i2++) {
+            observer.apply(observer, [event, ...args]);
+          }
+        });
+      }
+    }
+  };
+  var ResourceStore = class extends EventEmitter {
+    constructor(data) {
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
+        ns: ["translation"],
+        defaultNS: "translation"
+      };
+      super();
+      this.data = data || {};
+      this.options = options;
+      if (this.options.keySeparator === void 0) {
+        this.options.keySeparator = ".";
+      }
+      if (this.options.ignoreJSONStructure === void 0) {
+        this.options.ignoreJSONStructure = true;
+      }
+    }
+    addNamespaces(ns) {
+      if (this.options.ns.indexOf(ns) < 0) {
+        this.options.ns.push(ns);
+      }
+    }
+    removeNamespaces(ns) {
+      const index = this.options.ns.indexOf(ns);
+      if (index > -1) {
+        this.options.ns.splice(index, 1);
+      }
+    }
+    getResource(lng, ns, key) {
+      let options = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
+      const keySeparator = options.keySeparator !== void 0 ? options.keySeparator : this.options.keySeparator;
+      const ignoreJSONStructure = options.ignoreJSONStructure !== void 0 ? options.ignoreJSONStructure : this.options.ignoreJSONStructure;
+      let path2;
+      if (lng.indexOf(".") > -1) {
+        path2 = lng.split(".");
+      } else {
+        path2 = [lng, ns];
+        if (key) {
+          if (Array.isArray(key)) {
+            path2.push(...key);
+          } else if (isString2(key) && keySeparator) {
+            path2.push(...key.split(keySeparator));
+          } else {
+            path2.push(key);
+          }
+        }
+      }
+      const result = getPath(this.data, path2);
+      if (!result && !ns && !key && lng.indexOf(".") > -1) {
+        lng = path2[0];
+        ns = path2[1];
+        key = path2.slice(2).join(".");
+      }
+      if (result || !ignoreJSONStructure || !isString2(key)) return result;
+      return deepFind(this.data?.[lng]?.[ns], key, keySeparator);
+    }
+    addResource(lng, ns, key, value) {
+      let options = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : {
+        silent: false
+      };
+      const keySeparator = options.keySeparator !== void 0 ? options.keySeparator : this.options.keySeparator;
+      let path2 = [lng, ns];
+      if (key) path2 = path2.concat(keySeparator ? key.split(keySeparator) : key);
+      if (lng.indexOf(".") > -1) {
+        path2 = lng.split(".");
+        value = ns;
+        ns = path2[1];
+      }
+      this.addNamespaces(ns);
+      setPath(this.data, path2, value);
+      if (!options.silent) this.emit("added", lng, ns, key, value);
+    }
+    addResources(lng, ns, resources2) {
+      let options = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {
+        silent: false
+      };
+      for (const m in resources2) {
+        if (isString2(resources2[m]) || Array.isArray(resources2[m])) this.addResource(lng, ns, m, resources2[m], {
+          silent: true
+        });
+      }
+      if (!options.silent) this.emit("added", lng, ns, resources2);
+    }
+    addResourceBundle(lng, ns, resources2, deep, overwrite) {
+      let options = arguments.length > 5 && arguments[5] !== void 0 ? arguments[5] : {
+        silent: false,
+        skipCopy: false
+      };
+      let path2 = [lng, ns];
+      if (lng.indexOf(".") > -1) {
+        path2 = lng.split(".");
+        deep = resources2;
+        resources2 = ns;
+        ns = path2[1];
+      }
+      this.addNamespaces(ns);
+      let pack = getPath(this.data, path2) || {};
+      if (!options.skipCopy) resources2 = JSON.parse(JSON.stringify(resources2));
+      if (deep) {
+        deepExtend(pack, resources2, overwrite);
+      } else {
+        pack = {
+          ...pack,
+          ...resources2
+        };
+      }
+      setPath(this.data, path2, pack);
+      if (!options.silent) this.emit("added", lng, ns, resources2);
+    }
+    removeResourceBundle(lng, ns) {
+      if (this.hasResourceBundle(lng, ns)) {
+        delete this.data[lng][ns];
+      }
+      this.removeNamespaces(ns);
+      this.emit("removed", lng, ns);
+    }
+    hasResourceBundle(lng, ns) {
+      return this.getResource(lng, ns) !== void 0;
+    }
+    getResourceBundle(lng, ns) {
+      if (!ns) ns = this.options.defaultNS;
+      return this.getResource(lng, ns);
+    }
+    getDataByLanguage(lng) {
+      return this.data[lng];
+    }
+    hasLanguageSomeTranslations(lng) {
+      const data = this.getDataByLanguage(lng);
+      const n2 = data && Object.keys(data) || [];
+      return !!n2.find((v) => data[v] && Object.keys(data[v]).length > 0);
+    }
+    toJSON() {
+      return this.data;
+    }
+  };
+  var postProcessor = {
+    processors: {},
+    addPostProcessor(module) {
+      this.processors[module.name] = module;
+    },
+    handle(processors, value, key, options, translator) {
+      processors.forEach((processor) => {
+        value = this.processors[processor]?.process(value, key, options, translator) ?? value;
+      });
+      return value;
+    }
+  };
+  var checkedLoadedFor = {};
+  var Translator = class _Translator extends EventEmitter {
+    constructor(services) {
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+      super();
+      copy(["resourceStore", "languageUtils", "pluralResolver", "interpolator", "backendConnector", "i18nFormat", "utils"], services, this);
+      this.options = options;
+      if (this.options.keySeparator === void 0) {
+        this.options.keySeparator = ".";
+      }
+      this.logger = baseLogger.create("translator");
+    }
+    changeLanguage(lng) {
+      if (lng) this.language = lng;
+    }
+    exists(key) {
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
+        interpolation: {}
+      };
+      if (key === void 0 || key === null) {
+        return false;
+      }
+      const resolved = this.resolve(key, options);
+      return resolved?.res !== void 0;
+    }
+    extractFromKey(key, options) {
+      let nsSeparator = options.nsSeparator !== void 0 ? options.nsSeparator : this.options.nsSeparator;
+      if (nsSeparator === void 0) nsSeparator = ":";
+      const keySeparator = options.keySeparator !== void 0 ? options.keySeparator : this.options.keySeparator;
+      let namespaces = options.ns || this.options.defaultNS || [];
+      const wouldCheckForNsInKey = nsSeparator && key.indexOf(nsSeparator) > -1;
+      const seemsNaturalLanguage = !this.options.userDefinedKeySeparator && !options.keySeparator && !this.options.userDefinedNsSeparator && !options.nsSeparator && !looksLikeObjectPath(key, nsSeparator, keySeparator);
+      if (wouldCheckForNsInKey && !seemsNaturalLanguage) {
+        const m = key.match(this.interpolator.nestingRegexp);
+        if (m && m.length > 0) {
+          return {
+            key,
+            namespaces: isString2(namespaces) ? [namespaces] : namespaces
+          };
+        }
+        const parts = key.split(nsSeparator);
+        if (nsSeparator !== keySeparator || nsSeparator === keySeparator && this.options.ns.indexOf(parts[0]) > -1) namespaces = parts.shift();
+        key = parts.join(keySeparator);
+      }
+      return {
+        key,
+        namespaces: isString2(namespaces) ? [namespaces] : namespaces
+      };
+    }
+    translate(keys, options, lastKey) {
+      if (typeof options !== "object" && this.options.overloadTranslationOptionHandler) {
+        options = this.options.overloadTranslationOptionHandler(arguments);
+      }
+      if (typeof options === "object") options = {
+        ...options
+      };
+      if (!options) options = {};
+      if (keys === void 0 || keys === null) return "";
+      if (!Array.isArray(keys)) keys = [String(keys)];
+      const returnDetails = options.returnDetails !== void 0 ? options.returnDetails : this.options.returnDetails;
+      const keySeparator = options.keySeparator !== void 0 ? options.keySeparator : this.options.keySeparator;
+      const {
+        key,
+        namespaces
+      } = this.extractFromKey(keys[keys.length - 1], options);
+      const namespace = namespaces[namespaces.length - 1];
+      const lng = options.lng || this.language;
+      const appendNamespaceToCIMode = options.appendNamespaceToCIMode || this.options.appendNamespaceToCIMode;
+      if (lng?.toLowerCase() === "cimode") {
+        if (appendNamespaceToCIMode) {
+          const nsSeparator = options.nsSeparator || this.options.nsSeparator;
+          if (returnDetails) {
+            return {
+              res: `${namespace}${nsSeparator}${key}`,
+              usedKey: key,
+              exactUsedKey: key,
+              usedLng: lng,
+              usedNS: namespace,
+              usedParams: this.getUsedParamsDetails(options)
+            };
+          }
+          return `${namespace}${nsSeparator}${key}`;
+        }
+        if (returnDetails) {
+          return {
+            res: key,
+            usedKey: key,
+            exactUsedKey: key,
+            usedLng: lng,
+            usedNS: namespace,
+            usedParams: this.getUsedParamsDetails(options)
+          };
+        }
+        return key;
+      }
+      const resolved = this.resolve(keys, options);
+      let res = resolved?.res;
+      const resUsedKey = resolved?.usedKey || key;
+      const resExactUsedKey = resolved?.exactUsedKey || key;
+      const resType = Object.prototype.toString.apply(res);
+      const noObject = ["[object Number]", "[object Function]", "[object RegExp]"];
+      const joinArrays = options.joinArrays !== void 0 ? options.joinArrays : this.options.joinArrays;
+      const handleAsObjectInI18nFormat = !this.i18nFormat || this.i18nFormat.handleAsObject;
+      const handleAsObject = !isString2(res) && typeof res !== "boolean" && typeof res !== "number";
+      if (handleAsObjectInI18nFormat && res && handleAsObject && noObject.indexOf(resType) < 0 && !(isString2(joinArrays) && Array.isArray(res))) {
+        if (!options.returnObjects && !this.options.returnObjects) {
+          if (!this.options.returnedObjectHandler) {
+            this.logger.warn("accessing an object - but returnObjects options is not enabled!");
+          }
+          const r2 = this.options.returnedObjectHandler ? this.options.returnedObjectHandler(resUsedKey, res, {
+            ...options,
+            ns: namespaces
+          }) : `key '${key} (${this.language})' returned an object instead of string.`;
+          if (returnDetails) {
+            resolved.res = r2;
+            resolved.usedParams = this.getUsedParamsDetails(options);
+            return resolved;
+          }
+          return r2;
+        }
+        if (keySeparator) {
+          const resTypeIsArray = Array.isArray(res);
+          const copy2 = resTypeIsArray ? [] : {};
+          const newKeyToUse = resTypeIsArray ? resExactUsedKey : resUsedKey;
+          for (const m in res) {
+            if (Object.prototype.hasOwnProperty.call(res, m)) {
+              const deepKey = `${newKeyToUse}${keySeparator}${m}`;
+              copy2[m] = this.translate(deepKey, {
+                ...options,
+                ...{
+                  joinArrays: false,
+                  ns: namespaces
+                }
+              });
+              if (copy2[m] === deepKey) copy2[m] = res[m];
+            }
+          }
+          res = copy2;
+        }
+      } else if (handleAsObjectInI18nFormat && isString2(joinArrays) && Array.isArray(res)) {
+        res = res.join(joinArrays);
+        if (res) res = this.extendTranslation(res, keys, options, lastKey);
+      } else {
+        let usedDefault = false;
+        let usedKey = false;
+        const needsPluralHandling = options.count !== void 0 && !isString2(options.count);
+        const hasDefaultValue = _Translator.hasDefaultValue(options);
+        const defaultValueSuffix = needsPluralHandling ? this.pluralResolver.getSuffix(lng, options.count, options) : "";
+        const defaultValueSuffixOrdinalFallback = options.ordinal && needsPluralHandling ? this.pluralResolver.getSuffix(lng, options.count, {
+          ordinal: false
+        }) : "";
+        const needsZeroSuffixLookup = needsPluralHandling && !options.ordinal && options.count === 0;
+        const defaultValue = needsZeroSuffixLookup && options[`defaultValue${this.options.pluralSeparator}zero`] || options[`defaultValue${defaultValueSuffix}`] || options[`defaultValue${defaultValueSuffixOrdinalFallback}`] || options.defaultValue;
+        if (!this.isValidLookup(res) && hasDefaultValue) {
+          usedDefault = true;
+          res = defaultValue;
+        }
+        if (!this.isValidLookup(res)) {
+          usedKey = true;
+          res = key;
+        }
+        const missingKeyNoValueFallbackToKey = options.missingKeyNoValueFallbackToKey || this.options.missingKeyNoValueFallbackToKey;
+        const resForMissing = missingKeyNoValueFallbackToKey && usedKey ? void 0 : res;
+        const updateMissing = hasDefaultValue && defaultValue !== res && this.options.updateMissing;
+        if (usedKey || usedDefault || updateMissing) {
+          this.logger.log(updateMissing ? "updateKey" : "missingKey", lng, namespace, key, updateMissing ? defaultValue : res);
+          if (keySeparator) {
+            const fk = this.resolve(key, {
+              ...options,
+              keySeparator: false
+            });
+            if (fk && fk.res) this.logger.warn("Seems the loaded translations were in flat JSON format instead of nested. Either set keySeparator: false on init or make sure your translations are published in nested format.");
+          }
+          let lngs = [];
+          const fallbackLngs = this.languageUtils.getFallbackCodes(this.options.fallbackLng, options.lng || this.language);
+          if (this.options.saveMissingTo === "fallback" && fallbackLngs && fallbackLngs[0]) {
+            for (let i2 = 0; i2 < fallbackLngs.length; i2++) {
+              lngs.push(fallbackLngs[i2]);
+            }
+          } else if (this.options.saveMissingTo === "all") {
+            lngs = this.languageUtils.toResolveHierarchy(options.lng || this.language);
+          } else {
+            lngs.push(options.lng || this.language);
+          }
+          const send = (l2, k2, specificDefaultValue) => {
+            const defaultForMissing = hasDefaultValue && specificDefaultValue !== res ? specificDefaultValue : resForMissing;
+            if (this.options.missingKeyHandler) {
+              this.options.missingKeyHandler(l2, namespace, k2, defaultForMissing, updateMissing, options);
+            } else if (this.backendConnector?.saveMissing) {
+              this.backendConnector.saveMissing(l2, namespace, k2, defaultForMissing, updateMissing, options);
+            }
+            this.emit("missingKey", l2, namespace, k2, res);
+          };
+          if (this.options.saveMissing) {
+            if (this.options.saveMissingPlurals && needsPluralHandling) {
+              lngs.forEach((language) => {
+                const suffixes = this.pluralResolver.getSuffixes(language, options);
+                if (needsZeroSuffixLookup && options[`defaultValue${this.options.pluralSeparator}zero`] && suffixes.indexOf(`${this.options.pluralSeparator}zero`) < 0) {
+                  suffixes.push(`${this.options.pluralSeparator}zero`);
+                }
+                suffixes.forEach((suffix) => {
+                  send([language], key + suffix, options[`defaultValue${suffix}`] || defaultValue);
+                });
+              });
+            } else {
+              send(lngs, key, defaultValue);
+            }
+          }
+        }
+        res = this.extendTranslation(res, keys, options, resolved, lastKey);
+        if (usedKey && res === key && this.options.appendNamespaceToMissingKey) res = `${namespace}:${key}`;
+        if ((usedKey || usedDefault) && this.options.parseMissingKeyHandler) {
+          res = this.options.parseMissingKeyHandler(this.options.appendNamespaceToMissingKey ? `${namespace}:${key}` : key, usedDefault ? res : void 0);
+        }
+      }
+      if (returnDetails) {
+        resolved.res = res;
+        resolved.usedParams = this.getUsedParamsDetails(options);
+        return resolved;
+      }
+      return res;
+    }
+    extendTranslation(res, key, options, resolved, lastKey) {
+      var _this = this;
+      if (this.i18nFormat?.parse) {
+        res = this.i18nFormat.parse(res, {
+          ...this.options.interpolation.defaultVariables,
+          ...options
+        }, options.lng || this.language || resolved.usedLng, resolved.usedNS, resolved.usedKey, {
+          resolved
+        });
+      } else if (!options.skipInterpolation) {
+        if (options.interpolation) this.interpolator.init({
+          ...options,
+          ...{
+            interpolation: {
+              ...this.options.interpolation,
+              ...options.interpolation
+            }
+          }
+        });
+        const skipOnVariables = isString2(res) && (options?.interpolation?.skipOnVariables !== void 0 ? options.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables);
+        let nestBef;
+        if (skipOnVariables) {
+          const nb = res.match(this.interpolator.nestingRegexp);
+          nestBef = nb && nb.length;
+        }
+        let data = options.replace && !isString2(options.replace) ? options.replace : options;
+        if (this.options.interpolation.defaultVariables) data = {
+          ...this.options.interpolation.defaultVariables,
+          ...data
+        };
+        res = this.interpolator.interpolate(res, data, options.lng || this.language || resolved.usedLng, options);
+        if (skipOnVariables) {
+          const na = res.match(this.interpolator.nestingRegexp);
+          const nestAft = na && na.length;
+          if (nestBef < nestAft) options.nest = false;
+        }
+        if (!options.lng && resolved && resolved.res) options.lng = this.language || resolved.usedLng;
+        if (options.nest !== false) res = this.interpolator.nest(res, function() {
+          for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+            args[_key] = arguments[_key];
+          }
+          if (lastKey?.[0] === args[0] && !options.context) {
+            _this.logger.warn(`It seems you are nesting recursively key: ${args[0]} in key: ${key[0]}`);
+            return null;
+          }
+          return _this.translate(...args, key);
+        }, options);
+        if (options.interpolation) this.interpolator.reset();
+      }
+      const postProcess = options.postProcess || this.options.postProcess;
+      const postProcessorNames = isString2(postProcess) ? [postProcess] : postProcess;
+      if (res !== void 0 && res !== null && postProcessorNames?.length && options.applyPostProcessor !== false) {
+        res = postProcessor.handle(postProcessorNames, res, key, this.options && this.options.postProcessPassResolved ? {
+          i18nResolved: {
+            ...resolved,
+            usedParams: this.getUsedParamsDetails(options)
+          },
+          ...options
+        } : options, this);
+      }
+      return res;
+    }
+    resolve(keys) {
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+      let found;
+      let usedKey;
+      let exactUsedKey;
+      let usedLng;
+      let usedNS;
+      if (isString2(keys)) keys = [keys];
+      keys.forEach((k2) => {
+        if (this.isValidLookup(found)) return;
+        const extracted = this.extractFromKey(k2, options);
+        const key = extracted.key;
+        usedKey = key;
+        let namespaces = extracted.namespaces;
+        if (this.options.fallbackNS) namespaces = namespaces.concat(this.options.fallbackNS);
+        const needsPluralHandling = options.count !== void 0 && !isString2(options.count);
+        const needsZeroSuffixLookup = needsPluralHandling && !options.ordinal && options.count === 0;
+        const needsContextHandling = options.context !== void 0 && (isString2(options.context) || typeof options.context === "number") && options.context !== "";
+        const codes = options.lngs ? options.lngs : this.languageUtils.toResolveHierarchy(options.lng || this.language, options.fallbackLng);
+        namespaces.forEach((ns) => {
+          if (this.isValidLookup(found)) return;
+          usedNS = ns;
+          if (!checkedLoadedFor[`${codes[0]}-${ns}`] && this.utils?.hasLoadedNamespace && !this.utils?.hasLoadedNamespace(usedNS)) {
+            checkedLoadedFor[`${codes[0]}-${ns}`] = true;
+            this.logger.warn(`key "${usedKey}" for languages "${codes.join(", ")}" won't get resolved as namespace "${usedNS}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!");
+          }
+          codes.forEach((code) => {
+            if (this.isValidLookup(found)) return;
+            usedLng = code;
+            const finalKeys = [key];
+            if (this.i18nFormat?.addLookupKeys) {
+              this.i18nFormat.addLookupKeys(finalKeys, key, code, ns, options);
+            } else {
+              let pluralSuffix;
+              if (needsPluralHandling) pluralSuffix = this.pluralResolver.getSuffix(code, options.count, options);
+              const zeroSuffix = `${this.options.pluralSeparator}zero`;
+              const ordinalPrefix = `${this.options.pluralSeparator}ordinal${this.options.pluralSeparator}`;
+              if (needsPluralHandling) {
+                finalKeys.push(key + pluralSuffix);
+                if (options.ordinal && pluralSuffix.indexOf(ordinalPrefix) === 0) {
+                  finalKeys.push(key + pluralSuffix.replace(ordinalPrefix, this.options.pluralSeparator));
+                }
+                if (needsZeroSuffixLookup) {
+                  finalKeys.push(key + zeroSuffix);
+                }
+              }
+              if (needsContextHandling) {
+                const contextKey = `${key}${this.options.contextSeparator}${options.context}`;
+                finalKeys.push(contextKey);
+                if (needsPluralHandling) {
+                  finalKeys.push(contextKey + pluralSuffix);
+                  if (options.ordinal && pluralSuffix.indexOf(ordinalPrefix) === 0) {
+                    finalKeys.push(contextKey + pluralSuffix.replace(ordinalPrefix, this.options.pluralSeparator));
+                  }
+                  if (needsZeroSuffixLookup) {
+                    finalKeys.push(contextKey + zeroSuffix);
+                  }
+                }
+              }
+            }
+            let possibleKey;
+            while (possibleKey = finalKeys.pop()) {
+              if (!this.isValidLookup(found)) {
+                exactUsedKey = possibleKey;
+                found = this.getResource(code, ns, possibleKey, options);
+              }
+            }
+          });
+        });
+      });
+      return {
+        res: found,
+        usedKey,
+        exactUsedKey,
+        usedLng,
+        usedNS
+      };
+    }
+    isValidLookup(res) {
+      return res !== void 0 && !(!this.options.returnNull && res === null) && !(!this.options.returnEmptyString && res === "");
+    }
+    getResource(code, ns, key) {
+      let options = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
+      if (this.i18nFormat?.getResource) return this.i18nFormat.getResource(code, ns, key, options);
+      return this.resourceStore.getResource(code, ns, key, options);
+    }
+    getUsedParamsDetails() {
+      let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+      const optionsKeys = ["defaultValue", "ordinal", "context", "replace", "lng", "lngs", "fallbackLng", "ns", "keySeparator", "nsSeparator", "returnObjects", "returnDetails", "joinArrays", "postProcess", "interpolation"];
+      const useOptionsReplaceForData = options.replace && !isString2(options.replace);
+      let data = useOptionsReplaceForData ? options.replace : options;
+      if (useOptionsReplaceForData && typeof options.count !== "undefined") {
+        data.count = options.count;
+      }
+      if (this.options.interpolation.defaultVariables) {
+        data = {
+          ...this.options.interpolation.defaultVariables,
+          ...data
+        };
+      }
+      if (!useOptionsReplaceForData) {
+        data = {
+          ...data
+        };
+        for (const key of optionsKeys) {
+          delete data[key];
+        }
+      }
+      return data;
+    }
+    static hasDefaultValue(options) {
+      const prefix = "defaultValue";
+      for (const option in options) {
+        if (Object.prototype.hasOwnProperty.call(options, option) && prefix === option.substring(0, prefix.length) && void 0 !== options[option]) {
+          return true;
+        }
+      }
+      return false;
+    }
+  };
+  var LanguageUtil = class {
+    constructor(options) {
+      this.options = options;
+      this.supportedLngs = this.options.supportedLngs || false;
+      this.logger = baseLogger.create("languageUtils");
+    }
+    getScriptPartFromCode(code) {
+      code = getCleanedCode(code);
+      if (!code || code.indexOf("-") < 0) return null;
+      const p = code.split("-");
+      if (p.length === 2) return null;
+      p.pop();
+      if (p[p.length - 1].toLowerCase() === "x") return null;
+      return this.formatLanguageCode(p.join("-"));
+    }
+    getLanguagePartFromCode(code) {
+      code = getCleanedCode(code);
+      if (!code || code.indexOf("-") < 0) return code;
+      const p = code.split("-");
+      return this.formatLanguageCode(p[0]);
+    }
+    formatLanguageCode(code) {
+      if (isString2(code) && code.indexOf("-") > -1) {
+        let formattedCode;
+        try {
+          formattedCode = Intl.getCanonicalLocales(code)[0];
+        } catch (e3) {
+        }
+        if (formattedCode && this.options.lowerCaseLng) {
+          formattedCode = formattedCode.toLowerCase();
+        }
+        if (formattedCode) return formattedCode;
+        if (this.options.lowerCaseLng) {
+          return code.toLowerCase();
+        }
+        return code;
+      }
+      return this.options.cleanCode || this.options.lowerCaseLng ? code.toLowerCase() : code;
+    }
+    isSupportedCode(code) {
+      if (this.options.load === "languageOnly" || this.options.nonExplicitSupportedLngs) {
+        code = this.getLanguagePartFromCode(code);
+      }
+      return !this.supportedLngs || !this.supportedLngs.length || this.supportedLngs.indexOf(code) > -1;
+    }
+    getBestMatchFromCodes(codes) {
+      if (!codes) return null;
+      let found;
+      codes.forEach((code) => {
+        if (found) return;
+        const cleanedLng = this.formatLanguageCode(code);
+        if (!this.options.supportedLngs || this.isSupportedCode(cleanedLng)) found = cleanedLng;
+      });
+      if (!found && this.options.supportedLngs) {
+        codes.forEach((code) => {
+          if (found) return;
+          const lngOnly = this.getLanguagePartFromCode(code);
+          if (this.isSupportedCode(lngOnly)) return found = lngOnly;
+          found = this.options.supportedLngs.find((supportedLng) => {
+            if (supportedLng === lngOnly) return supportedLng;
+            if (supportedLng.indexOf("-") < 0 && lngOnly.indexOf("-") < 0) return;
+            if (supportedLng.indexOf("-") > 0 && lngOnly.indexOf("-") < 0 && supportedLng.substring(0, supportedLng.indexOf("-")) === lngOnly) return supportedLng;
+            if (supportedLng.indexOf(lngOnly) === 0 && lngOnly.length > 1) return supportedLng;
+          });
+        });
+      }
+      if (!found) found = this.getFallbackCodes(this.options.fallbackLng)[0];
+      return found;
+    }
+    getFallbackCodes(fallbacks, code) {
+      if (!fallbacks) return [];
+      if (typeof fallbacks === "function") fallbacks = fallbacks(code);
+      if (isString2(fallbacks)) fallbacks = [fallbacks];
+      if (Array.isArray(fallbacks)) return fallbacks;
+      if (!code) return fallbacks.default || [];
+      let found = fallbacks[code];
+      if (!found) found = fallbacks[this.getScriptPartFromCode(code)];
+      if (!found) found = fallbacks[this.formatLanguageCode(code)];
+      if (!found) found = fallbacks[this.getLanguagePartFromCode(code)];
+      if (!found) found = fallbacks.default;
+      return found || [];
+    }
+    toResolveHierarchy(code, fallbackCode) {
+      const fallbackCodes = this.getFallbackCodes(fallbackCode || this.options.fallbackLng || [], code);
+      const codes = [];
+      const addCode = (c2) => {
+        if (!c2) return;
+        if (this.isSupportedCode(c2)) {
+          codes.push(c2);
+        } else {
+          this.logger.warn(`rejecting language code not found in supportedLngs: ${c2}`);
+        }
+      };
+      if (isString2(code) && (code.indexOf("-") > -1 || code.indexOf("_") > -1)) {
+        if (this.options.load !== "languageOnly") addCode(this.formatLanguageCode(code));
+        if (this.options.load !== "languageOnly" && this.options.load !== "currentOnly") addCode(this.getScriptPartFromCode(code));
+        if (this.options.load !== "currentOnly") addCode(this.getLanguagePartFromCode(code));
+      } else if (isString2(code)) {
+        addCode(this.formatLanguageCode(code));
+      }
+      fallbackCodes.forEach((fc) => {
+        if (codes.indexOf(fc) < 0) addCode(this.formatLanguageCode(fc));
+      });
+      return codes;
+    }
+  };
+  var suffixesOrder = {
+    zero: 0,
+    one: 1,
+    two: 2,
+    few: 3,
+    many: 4,
+    other: 5
+  };
+  var dummyRule = {
+    select: (count) => count === 1 ? "one" : "other",
+    resolvedOptions: () => ({
+      pluralCategories: ["one", "other"]
+    })
+  };
+  var PluralResolver = class {
+    constructor(languageUtils) {
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+      this.languageUtils = languageUtils;
+      this.options = options;
+      this.logger = baseLogger.create("pluralResolver");
+      this.pluralRulesCache = {};
+    }
+    addRule(lng, obj) {
+      this.rules[lng] = obj;
+    }
+    clearCache() {
+      this.pluralRulesCache = {};
+    }
+    getRule(code) {
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+      const cleanedCode = getCleanedCode(code === "dev" ? "en" : code);
+      const type = options.ordinal ? "ordinal" : "cardinal";
+      const cacheKey = JSON.stringify({
+        cleanedCode,
+        type
+      });
+      if (cacheKey in this.pluralRulesCache) {
+        return this.pluralRulesCache[cacheKey];
+      }
+      let rule;
+      try {
+        rule = new Intl.PluralRules(cleanedCode, {
+          type
+        });
+      } catch (err) {
+        if (!Intl) {
+          this.logger.error("No Intl support, please use an Intl polyfill!");
+          return dummyRule;
+        }
+        if (!code.match(/-|_/)) return dummyRule;
+        const lngPart = this.languageUtils.getLanguagePartFromCode(code);
+        rule = this.getRule(lngPart, options);
+      }
+      this.pluralRulesCache[cacheKey] = rule;
+      return rule;
+    }
+    needsPlural(code) {
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+      let rule = this.getRule(code, options);
+      if (!rule) rule = this.getRule("dev", options);
+      return rule?.resolvedOptions().pluralCategories.length > 1;
+    }
+    getPluralFormsOfKey(code, key) {
+      let options = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
+      return this.getSuffixes(code, options).map((suffix) => `${key}${suffix}`);
+    }
+    getSuffixes(code) {
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+      let rule = this.getRule(code, options);
+      if (!rule) rule = this.getRule("dev", options);
+      if (!rule) return [];
+      return rule.resolvedOptions().pluralCategories.sort((pluralCategory1, pluralCategory2) => suffixesOrder[pluralCategory1] - suffixesOrder[pluralCategory2]).map((pluralCategory) => `${this.options.prepend}${options.ordinal ? `ordinal${this.options.prepend}` : ""}${pluralCategory}`);
+    }
+    getSuffix(code, count) {
+      let options = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
+      const rule = this.getRule(code, options);
+      if (rule) {
+        return `${this.options.prepend}${options.ordinal ? `ordinal${this.options.prepend}` : ""}${rule.select(count)}`;
+      }
+      this.logger.warn(`no plural rule found for: ${code}`);
+      return this.getSuffix("dev", count, options);
+    }
+  };
+  var deepFindWithDefaults = function(data, defaultData, key) {
+    let keySeparator = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : ".";
+    let ignoreJSONStructure = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : true;
+    let path2 = getPathWithDefaults(data, defaultData, key);
+    if (!path2 && ignoreJSONStructure && isString2(key)) {
+      path2 = deepFind(data, key, keySeparator);
+      if (path2 === void 0) path2 = deepFind(defaultData, key, keySeparator);
+    }
+    return path2;
+  };
+  var regexSafe = (val) => val.replace(/\$/g, "$$$$");
+  var Interpolator = class {
+    constructor() {
+      let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+      this.logger = baseLogger.create("interpolator");
+      this.options = options;
+      this.format = options?.interpolation?.format || ((value) => value);
+      this.init(options);
+    }
+    init() {
+      let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+      if (!options.interpolation) options.interpolation = {
+        escapeValue: true
+      };
+      const {
+        escape: escape$1,
+        escapeValue,
+        useRawValueToEscape,
+        prefix,
+        prefixEscaped,
+        suffix,
+        suffixEscaped,
+        formatSeparator,
+        unescapeSuffix,
+        unescapePrefix,
+        nestingPrefix,
+        nestingPrefixEscaped,
+        nestingSuffix,
+        nestingSuffixEscaped,
+        nestingOptionsSeparator,
+        maxReplaces,
+        alwaysFormat
+      } = options.interpolation;
+      this.escape = escape$1 !== void 0 ? escape$1 : escape;
+      this.escapeValue = escapeValue !== void 0 ? escapeValue : true;
+      this.useRawValueToEscape = useRawValueToEscape !== void 0 ? useRawValueToEscape : false;
+      this.prefix = prefix ? regexEscape(prefix) : prefixEscaped || "{{";
+      this.suffix = suffix ? regexEscape(suffix) : suffixEscaped || "}}";
+      this.formatSeparator = formatSeparator || ",";
+      this.unescapePrefix = unescapeSuffix ? "" : unescapePrefix || "-";
+      this.unescapeSuffix = this.unescapePrefix ? "" : unescapeSuffix || "";
+      this.nestingPrefix = nestingPrefix ? regexEscape(nestingPrefix) : nestingPrefixEscaped || regexEscape("$t(");
+      this.nestingSuffix = nestingSuffix ? regexEscape(nestingSuffix) : nestingSuffixEscaped || regexEscape(")");
+      this.nestingOptionsSeparator = nestingOptionsSeparator || ",";
+      this.maxReplaces = maxReplaces || 1e3;
+      this.alwaysFormat = alwaysFormat !== void 0 ? alwaysFormat : false;
+      this.resetRegExp();
+    }
+    reset() {
+      if (this.options) this.init(this.options);
+    }
+    resetRegExp() {
+      const getOrResetRegExp = (existingRegExp, pattern) => {
+        if (existingRegExp?.source === pattern) {
+          existingRegExp.lastIndex = 0;
+          return existingRegExp;
+        }
+        return new RegExp(pattern, "g");
+      };
+      this.regexp = getOrResetRegExp(this.regexp, `${this.prefix}(.+?)${this.suffix}`);
+      this.regexpUnescape = getOrResetRegExp(this.regexpUnescape, `${this.prefix}${this.unescapePrefix}(.+?)${this.unescapeSuffix}${this.suffix}`);
+      this.nestingRegexp = getOrResetRegExp(this.nestingRegexp, `${this.nestingPrefix}(.+?)${this.nestingSuffix}`);
+    }
+    interpolate(str, data, lng, options) {
+      let match;
+      let value;
+      let replaces;
+      const defaultData = this.options && this.options.interpolation && this.options.interpolation.defaultVariables || {};
+      const handleFormat = (key) => {
+        if (key.indexOf(this.formatSeparator) < 0) {
+          const path2 = deepFindWithDefaults(data, defaultData, key, this.options.keySeparator, this.options.ignoreJSONStructure);
+          return this.alwaysFormat ? this.format(path2, void 0, lng, {
+            ...options,
+            ...data,
+            interpolationkey: key
+          }) : path2;
+        }
+        const p = key.split(this.formatSeparator);
+        const k2 = p.shift().trim();
+        const f = p.join(this.formatSeparator).trim();
+        return this.format(deepFindWithDefaults(data, defaultData, k2, this.options.keySeparator, this.options.ignoreJSONStructure), f, lng, {
+          ...options,
+          ...data,
+          interpolationkey: k2
+        });
+      };
+      this.resetRegExp();
+      const missingInterpolationHandler = options?.missingInterpolationHandler || this.options.missingInterpolationHandler;
+      const skipOnVariables = options?.interpolation?.skipOnVariables !== void 0 ? options.interpolation.skipOnVariables : this.options.interpolation.skipOnVariables;
+      const todos = [{
+        regex: this.regexpUnescape,
+        safeValue: (val) => regexSafe(val)
+      }, {
+        regex: this.regexp,
+        safeValue: (val) => this.escapeValue ? regexSafe(this.escape(val)) : regexSafe(val)
+      }];
+      todos.forEach((todo) => {
+        replaces = 0;
+        while (match = todo.regex.exec(str)) {
+          const matchedVar = match[1].trim();
+          value = handleFormat(matchedVar);
+          if (value === void 0) {
+            if (typeof missingInterpolationHandler === "function") {
+              const temp = missingInterpolationHandler(str, match, options);
+              value = isString2(temp) ? temp : "";
+            } else if (options && Object.prototype.hasOwnProperty.call(options, matchedVar)) {
+              value = "";
+            } else if (skipOnVariables) {
+              value = match[0];
+              continue;
+            } else {
+              this.logger.warn(`missed to pass in variable ${matchedVar} for interpolating ${str}`);
+              value = "";
+            }
+          } else if (!isString2(value) && !this.useRawValueToEscape) {
+            value = makeString(value);
+          }
+          const safeValue = todo.safeValue(value);
+          str = str.replace(match[0], safeValue);
+          if (skipOnVariables) {
+            todo.regex.lastIndex += value.length;
+            todo.regex.lastIndex -= match[0].length;
+          } else {
+            todo.regex.lastIndex = 0;
+          }
+          replaces++;
+          if (replaces >= this.maxReplaces) {
+            break;
+          }
+        }
+      });
+      return str;
+    }
+    nest(str, fc) {
+      let options = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
+      let match;
+      let value;
+      let clonedOptions;
+      const handleHasOptions = (key, inheritedOptions) => {
+        const sep = this.nestingOptionsSeparator;
+        if (key.indexOf(sep) < 0) return key;
+        const c2 = key.split(new RegExp(`${sep}[ ]*{`));
+        let optionsString = `{${c2[1]}`;
+        key = c2[0];
+        optionsString = this.interpolate(optionsString, clonedOptions);
+        const matchedSingleQuotes = optionsString.match(/'/g);
+        const matchedDoubleQuotes = optionsString.match(/"/g);
+        if ((matchedSingleQuotes?.length ?? 0) % 2 === 0 && !matchedDoubleQuotes || matchedDoubleQuotes.length % 2 !== 0) {
+          optionsString = optionsString.replace(/'/g, '"');
+        }
+        try {
+          clonedOptions = JSON.parse(optionsString);
+          if (inheritedOptions) clonedOptions = {
+            ...inheritedOptions,
+            ...clonedOptions
+          };
+        } catch (e3) {
+          this.logger.warn(`failed parsing options string in nesting for key ${key}`, e3);
+          return `${key}${sep}${optionsString}`;
+        }
+        if (clonedOptions.defaultValue && clonedOptions.defaultValue.indexOf(this.prefix) > -1) delete clonedOptions.defaultValue;
+        return key;
+      };
+      while (match = this.nestingRegexp.exec(str)) {
+        let formatters = [];
+        clonedOptions = {
+          ...options
+        };
+        clonedOptions = clonedOptions.replace && !isString2(clonedOptions.replace) ? clonedOptions.replace : clonedOptions;
+        clonedOptions.applyPostProcessor = false;
+        delete clonedOptions.defaultValue;
+        let doReduce = false;
+        if (match[0].indexOf(this.formatSeparator) !== -1 && !/{.*}/.test(match[1])) {
+          const r2 = match[1].split(this.formatSeparator).map((elem) => elem.trim());
+          match[1] = r2.shift();
+          formatters = r2;
+          doReduce = true;
+        }
+        value = fc(handleHasOptions.call(this, match[1].trim(), clonedOptions), clonedOptions);
+        if (value && match[0] === str && !isString2(value)) return value;
+        if (!isString2(value)) value = makeString(value);
+        if (!value) {
+          this.logger.warn(`missed to resolve ${match[1]} for nesting ${str}`);
+          value = "";
+        }
+        if (doReduce) {
+          value = formatters.reduce((v, f) => this.format(v, f, options.lng, {
+            ...options,
+            interpolationkey: match[1].trim()
+          }), value.trim());
+        }
+        str = str.replace(match[0], value);
+        this.regexp.lastIndex = 0;
+      }
+      return str;
+    }
+  };
+  var parseFormatStr = (formatStr) => {
+    let formatName = formatStr.toLowerCase().trim();
+    const formatOptions = {};
+    if (formatStr.indexOf("(") > -1) {
+      const p = formatStr.split("(");
+      formatName = p[0].toLowerCase().trim();
+      const optStr = p[1].substring(0, p[1].length - 1);
+      if (formatName === "currency" && optStr.indexOf(":") < 0) {
+        if (!formatOptions.currency) formatOptions.currency = optStr.trim();
+      } else if (formatName === "relativetime" && optStr.indexOf(":") < 0) {
+        if (!formatOptions.range) formatOptions.range = optStr.trim();
+      } else {
+        const opts = optStr.split(";");
+        opts.forEach((opt) => {
+          if (opt) {
+            const [key, ...rest] = opt.split(":");
+            const val = rest.join(":").trim().replace(/^'+|'+$/g, "");
+            const trimmedKey = key.trim();
+            if (!formatOptions[trimmedKey]) formatOptions[trimmedKey] = val;
+            if (val === "false") formatOptions[trimmedKey] = false;
+            if (val === "true") formatOptions[trimmedKey] = true;
+            if (!isNaN(val)) formatOptions[trimmedKey] = parseInt(val, 10);
+          }
+        });
+      }
+    }
+    return {
+      formatName,
+      formatOptions
+    };
+  };
+  var createCachedFormatter = (fn) => {
+    const cache = {};
+    return (val, lng, options) => {
+      let optForCache = options;
+      if (options && options.interpolationkey && options.formatParams && options.formatParams[options.interpolationkey] && options[options.interpolationkey]) {
+        optForCache = {
+          ...optForCache,
+          [options.interpolationkey]: void 0
+        };
+      }
+      const key = lng + JSON.stringify(optForCache);
+      let formatter = cache[key];
+      if (!formatter) {
+        formatter = fn(getCleanedCode(lng), options);
+        cache[key] = formatter;
+      }
+      return formatter(val);
+    };
+  };
+  var Formatter = class {
+    constructor() {
+      let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+      this.logger = baseLogger.create("formatter");
+      this.options = options;
+      this.formats = {
+        number: createCachedFormatter((lng, opt) => {
+          const formatter = new Intl.NumberFormat(lng, {
+            ...opt
+          });
+          return (val) => formatter.format(val);
+        }),
+        currency: createCachedFormatter((lng, opt) => {
+          const formatter = new Intl.NumberFormat(lng, {
+            ...opt,
+            style: "currency"
+          });
+          return (val) => formatter.format(val);
+        }),
+        datetime: createCachedFormatter((lng, opt) => {
+          const formatter = new Intl.DateTimeFormat(lng, {
+            ...opt
+          });
+          return (val) => formatter.format(val);
+        }),
+        relativetime: createCachedFormatter((lng, opt) => {
+          const formatter = new Intl.RelativeTimeFormat(lng, {
+            ...opt
+          });
+          return (val) => formatter.format(val, opt.range || "day");
+        }),
+        list: createCachedFormatter((lng, opt) => {
+          const formatter = new Intl.ListFormat(lng, {
+            ...opt
+          });
+          return (val) => formatter.format(val);
+        })
+      };
+      this.init(options);
+    }
+    init(services) {
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {
+        interpolation: {}
+      };
+      this.formatSeparator = options.interpolation.formatSeparator || ",";
+    }
+    add(name, fc) {
+      this.formats[name.toLowerCase().trim()] = fc;
+    }
+    addCached(name, fc) {
+      this.formats[name.toLowerCase().trim()] = createCachedFormatter(fc);
+    }
+    format(value, format, lng) {
+      let options = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
+      const formats = format.split(this.formatSeparator);
+      if (formats.length > 1 && formats[0].indexOf("(") > 1 && formats[0].indexOf(")") < 0 && formats.find((f) => f.indexOf(")") > -1)) {
+        const lastIndex = formats.findIndex((f) => f.indexOf(")") > -1);
+        formats[0] = [formats[0], ...formats.splice(1, lastIndex)].join(this.formatSeparator);
+      }
+      const result = formats.reduce((mem, f) => {
+        const {
+          formatName,
+          formatOptions
+        } = parseFormatStr(f);
+        if (this.formats[formatName]) {
+          let formatted = mem;
+          try {
+            const valOptions = options?.formatParams?.[options.interpolationkey] || {};
+            const l2 = valOptions.locale || valOptions.lng || options.locale || options.lng || lng;
+            formatted = this.formats[formatName](mem, l2, {
+              ...formatOptions,
+              ...options,
+              ...valOptions
+            });
+          } catch (error) {
+            this.logger.warn(error);
+          }
+          return formatted;
+        } else {
+          this.logger.warn(`there was no format function for ${formatName}`);
+        }
+        return mem;
+      }, value);
+      return result;
+    }
+  };
+  var removePending = (q2, name) => {
+    if (q2.pending[name] !== void 0) {
+      delete q2.pending[name];
+      q2.pendingCount--;
+    }
+  };
+  var Connector = class extends EventEmitter {
+    constructor(backend, store, services) {
+      let options = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : {};
+      super();
+      this.backend = backend;
+      this.store = store;
+      this.services = services;
+      this.languageUtils = services.languageUtils;
+      this.options = options;
+      this.logger = baseLogger.create("backendConnector");
+      this.waitingReads = [];
+      this.maxParallelReads = options.maxParallelReads || 10;
+      this.readingCalls = 0;
+      this.maxRetries = options.maxRetries >= 0 ? options.maxRetries : 5;
+      this.retryTimeout = options.retryTimeout >= 1 ? options.retryTimeout : 350;
+      this.state = {};
+      this.queue = [];
+      this.backend?.init?.(services, options.backend, options);
+    }
+    queueLoad(languages, namespaces, options, callback) {
+      const toLoad = {};
+      const pending = {};
+      const toLoadLanguages = {};
+      const toLoadNamespaces = {};
+      languages.forEach((lng) => {
+        let hasAllNamespaces = true;
+        namespaces.forEach((ns) => {
+          const name = `${lng}|${ns}`;
+          if (!options.reload && this.store.hasResourceBundle(lng, ns)) {
+            this.state[name] = 2;
+          } else if (this.state[name] < 0) ;
+          else if (this.state[name] === 1) {
+            if (pending[name] === void 0) pending[name] = true;
+          } else {
+            this.state[name] = 1;
+            hasAllNamespaces = false;
+            if (pending[name] === void 0) pending[name] = true;
+            if (toLoad[name] === void 0) toLoad[name] = true;
+            if (toLoadNamespaces[ns] === void 0) toLoadNamespaces[ns] = true;
+          }
+        });
+        if (!hasAllNamespaces) toLoadLanguages[lng] = true;
+      });
+      if (Object.keys(toLoad).length || Object.keys(pending).length) {
+        this.queue.push({
+          pending,
+          pendingCount: Object.keys(pending).length,
+          loaded: {},
+          errors: [],
+          callback
+        });
+      }
+      return {
+        toLoad: Object.keys(toLoad),
+        pending: Object.keys(pending),
+        toLoadLanguages: Object.keys(toLoadLanguages),
+        toLoadNamespaces: Object.keys(toLoadNamespaces)
+      };
+    }
+    loaded(name, err, data) {
+      const s2 = name.split("|");
+      const lng = s2[0];
+      const ns = s2[1];
+      if (err) this.emit("failedLoading", lng, ns, err);
+      if (!err && data) {
+        this.store.addResourceBundle(lng, ns, data, void 0, void 0, {
+          skipCopy: true
+        });
+      }
+      this.state[name] = err ? -1 : 2;
+      if (err && data) this.state[name] = 0;
+      const loaded = {};
+      this.queue.forEach((q2) => {
+        pushPath(q2.loaded, [lng], ns);
+        removePending(q2, name);
+        if (err) q2.errors.push(err);
+        if (q2.pendingCount === 0 && !q2.done) {
+          Object.keys(q2.loaded).forEach((l2) => {
+            if (!loaded[l2]) loaded[l2] = {};
+            const loadedKeys = q2.loaded[l2];
+            if (loadedKeys.length) {
+              loadedKeys.forEach((n2) => {
+                if (loaded[l2][n2] === void 0) loaded[l2][n2] = true;
+              });
+            }
+          });
+          q2.done = true;
+          if (q2.errors.length) {
+            q2.callback(q2.errors);
+          } else {
+            q2.callback();
+          }
+        }
+      });
+      this.emit("loaded", loaded);
+      this.queue = this.queue.filter((q2) => !q2.done);
+    }
+    read(lng, ns, fcName) {
+      let tried = arguments.length > 3 && arguments[3] !== void 0 ? arguments[3] : 0;
+      let wait = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : this.retryTimeout;
+      let callback = arguments.length > 5 ? arguments[5] : void 0;
+      if (!lng.length) return callback(null, {});
+      if (this.readingCalls >= this.maxParallelReads) {
+        this.waitingReads.push({
+          lng,
+          ns,
+          fcName,
+          tried,
+          wait,
+          callback
+        });
+        return;
+      }
+      this.readingCalls++;
+      const resolver = (err, data) => {
+        this.readingCalls--;
+        if (this.waitingReads.length > 0) {
+          const next = this.waitingReads.shift();
+          this.read(next.lng, next.ns, next.fcName, next.tried, next.wait, next.callback);
+        }
+        if (err && data && tried < this.maxRetries) {
+          setTimeout(() => {
+            this.read.call(this, lng, ns, fcName, tried + 1, wait * 2, callback);
+          }, wait);
+          return;
+        }
+        callback(err, data);
+      };
+      const fc = this.backend[fcName].bind(this.backend);
+      if (fc.length === 2) {
+        try {
+          const r2 = fc(lng, ns);
+          if (r2 && typeof r2.then === "function") {
+            r2.then((data) => resolver(null, data)).catch(resolver);
+          } else {
+            resolver(null, r2);
+          }
+        } catch (err) {
+          resolver(err);
+        }
+        return;
+      }
+      return fc(lng, ns, resolver);
+    }
+    prepareLoading(languages, namespaces) {
+      let options = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
+      let callback = arguments.length > 3 ? arguments[3] : void 0;
+      if (!this.backend) {
+        this.logger.warn("No backend was added via i18next.use. Will not load resources.");
+        return callback && callback();
+      }
+      if (isString2(languages)) languages = this.languageUtils.toResolveHierarchy(languages);
+      if (isString2(namespaces)) namespaces = [namespaces];
+      const toLoad = this.queueLoad(languages, namespaces, options, callback);
+      if (!toLoad.toLoad.length) {
+        if (!toLoad.pending.length) callback();
+        return null;
+      }
+      toLoad.toLoad.forEach((name) => {
+        this.loadOne(name);
+      });
+    }
+    load(languages, namespaces, callback) {
+      this.prepareLoading(languages, namespaces, {}, callback);
+    }
+    reload(languages, namespaces, callback) {
+      this.prepareLoading(languages, namespaces, {
+        reload: true
+      }, callback);
+    }
+    loadOne(name) {
+      let prefix = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : "";
+      const s2 = name.split("|");
+      const lng = s2[0];
+      const ns = s2[1];
+      this.read(lng, ns, "read", void 0, void 0, (err, data) => {
+        if (err) this.logger.warn(`${prefix}loading namespace ${ns} for language ${lng} failed`, err);
+        if (!err && data) this.logger.log(`${prefix}loaded namespace ${ns} for language ${lng}`, data);
+        this.loaded(name, err, data);
+      });
+    }
+    saveMissing(languages, namespace, key, fallbackValue, isUpdate) {
+      let options = arguments.length > 5 && arguments[5] !== void 0 ? arguments[5] : {};
+      let clb = arguments.length > 6 && arguments[6] !== void 0 ? arguments[6] : () => {
+      };
+      if (this.services?.utils?.hasLoadedNamespace && !this.services?.utils?.hasLoadedNamespace(namespace)) {
+        this.logger.warn(`did not save key "${key}" as the namespace "${namespace}" was not yet loaded`, "This means something IS WRONG in your setup. You access the t function before i18next.init / i18next.loadNamespace / i18next.changeLanguage was done. Wait for the callback or Promise to resolve before accessing it!!!");
+        return;
+      }
+      if (key === void 0 || key === null || key === "") return;
+      if (this.backend?.create) {
+        const opts = {
+          ...options,
+          isUpdate
+        };
+        const fc = this.backend.create.bind(this.backend);
+        if (fc.length < 6) {
+          try {
+            let r2;
+            if (fc.length === 5) {
+              r2 = fc(languages, namespace, key, fallbackValue, opts);
+            } else {
+              r2 = fc(languages, namespace, key, fallbackValue);
+            }
+            if (r2 && typeof r2.then === "function") {
+              r2.then((data) => clb(null, data)).catch(clb);
+            } else {
+              clb(null, r2);
+            }
+          } catch (err) {
+            clb(err);
+          }
+        } else {
+          fc(languages, namespace, key, fallbackValue, clb, opts);
+        }
+      }
+      if (!languages || !languages[0]) return;
+      this.store.addResource(languages[0], namespace, key, fallbackValue);
+    }
+  };
+  var get = () => ({
+    debug: false,
+    initAsync: true,
+    ns: ["translation"],
+    defaultNS: ["translation"],
+    fallbackLng: ["dev"],
+    fallbackNS: false,
+    supportedLngs: false,
+    nonExplicitSupportedLngs: false,
+    load: "all",
+    preload: false,
+    simplifyPluralSuffix: true,
+    keySeparator: ".",
+    nsSeparator: ":",
+    pluralSeparator: "_",
+    contextSeparator: "_",
+    partialBundledLanguages: false,
+    saveMissing: false,
+    updateMissing: false,
+    saveMissingTo: "fallback",
+    saveMissingPlurals: true,
+    missingKeyHandler: false,
+    missingInterpolationHandler: false,
+    postProcess: false,
+    postProcessPassResolved: false,
+    returnNull: false,
+    returnEmptyString: true,
+    returnObjects: false,
+    joinArrays: false,
+    returnedObjectHandler: false,
+    parseMissingKeyHandler: false,
+    appendNamespaceToMissingKey: false,
+    appendNamespaceToCIMode: false,
+    overloadTranslationOptionHandler: (args) => {
+      let ret = {};
+      if (typeof args[1] === "object") ret = args[1];
+      if (isString2(args[1])) ret.defaultValue = args[1];
+      if (isString2(args[2])) ret.tDescription = args[2];
+      if (typeof args[2] === "object" || typeof args[3] === "object") {
+        const options = args[3] || args[2];
+        Object.keys(options).forEach((key) => {
+          ret[key] = options[key];
+        });
+      }
+      return ret;
+    },
+    interpolation: {
+      escapeValue: true,
+      format: (value) => value,
+      prefix: "{{",
+      suffix: "}}",
+      formatSeparator: ",",
+      unescapePrefix: "-",
+      nestingPrefix: "$t(",
+      nestingSuffix: ")",
+      nestingOptionsSeparator: ",",
+      maxReplaces: 1e3,
+      skipOnVariables: true
+    }
+  });
+  var transformOptions = (options) => {
+    if (isString2(options.ns)) options.ns = [options.ns];
+    if (isString2(options.fallbackLng)) options.fallbackLng = [options.fallbackLng];
+    if (isString2(options.fallbackNS)) options.fallbackNS = [options.fallbackNS];
+    if (options.supportedLngs?.indexOf?.("cimode") < 0) {
+      options.supportedLngs = options.supportedLngs.concat(["cimode"]);
+    }
+    if (typeof options.initImmediate === "boolean") options.initAsync = options.initImmediate;
+    return options;
+  };
+  var noop = () => {
+  };
+  var bindMemberFunctions = (inst) => {
+    const mems = Object.getOwnPropertyNames(Object.getPrototypeOf(inst));
+    mems.forEach((mem) => {
+      if (typeof inst[mem] === "function") {
+        inst[mem] = inst[mem].bind(inst);
+      }
+    });
+  };
+  var I18n = class _I18n extends EventEmitter {
+    constructor() {
+      let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+      let callback = arguments.length > 1 ? arguments[1] : void 0;
+      super();
+      this.options = transformOptions(options);
+      this.services = {};
+      this.logger = baseLogger;
+      this.modules = {
+        external: []
+      };
+      bindMemberFunctions(this);
+      if (callback && !this.isInitialized && !options.isClone) {
+        if (!this.options.initAsync) {
+          this.init(options, callback);
+          return this;
+        }
+        setTimeout(() => {
+          this.init(options, callback);
+        }, 0);
+      }
+    }
+    init() {
+      var _this = this;
+      let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+      let callback = arguments.length > 1 ? arguments[1] : void 0;
+      this.isInitializing = true;
+      if (typeof options === "function") {
+        callback = options;
+        options = {};
+      }
+      if (!options.defaultNS && options.defaultNS !== false && options.ns) {
+        if (isString2(options.ns)) {
+          options.defaultNS = options.ns;
+        } else if (options.ns.indexOf("translation") < 0) {
+          options.defaultNS = options.ns[0];
+        }
+      }
+      const defOpts = get();
+      this.options = {
+        ...defOpts,
+        ...this.options,
+        ...transformOptions(options)
+      };
+      this.options.interpolation = {
+        ...defOpts.interpolation,
+        ...this.options.interpolation
+      };
+      if (options.keySeparator !== void 0) {
+        this.options.userDefinedKeySeparator = options.keySeparator;
+      }
+      if (options.nsSeparator !== void 0) {
+        this.options.userDefinedNsSeparator = options.nsSeparator;
+      }
+      const createClassOnDemand = (ClassOrObject) => {
+        if (!ClassOrObject) return null;
+        if (typeof ClassOrObject === "function") return new ClassOrObject();
+        return ClassOrObject;
+      };
+      if (!this.options.isClone) {
+        if (this.modules.logger) {
+          baseLogger.init(createClassOnDemand(this.modules.logger), this.options);
+        } else {
+          baseLogger.init(null, this.options);
+        }
+        let formatter;
+        if (this.modules.formatter) {
+          formatter = this.modules.formatter;
+        } else {
+          formatter = Formatter;
+        }
+        const lu = new LanguageUtil(this.options);
+        this.store = new ResourceStore(this.options.resources, this.options);
+        const s2 = this.services;
+        s2.logger = baseLogger;
+        s2.resourceStore = this.store;
+        s2.languageUtils = lu;
+        s2.pluralResolver = new PluralResolver(lu, {
+          prepend: this.options.pluralSeparator,
+          simplifyPluralSuffix: this.options.simplifyPluralSuffix
+        });
+        if (formatter && (!this.options.interpolation.format || this.options.interpolation.format === defOpts.interpolation.format)) {
+          s2.formatter = createClassOnDemand(formatter);
+          s2.formatter.init(s2, this.options);
+          this.options.interpolation.format = s2.formatter.format.bind(s2.formatter);
+        }
+        s2.interpolator = new Interpolator(this.options);
+        s2.utils = {
+          hasLoadedNamespace: this.hasLoadedNamespace.bind(this)
+        };
+        s2.backendConnector = new Connector(createClassOnDemand(this.modules.backend), s2.resourceStore, s2, this.options);
+        s2.backendConnector.on("*", function(event) {
+          for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+            args[_key - 1] = arguments[_key];
+          }
+          _this.emit(event, ...args);
+        });
+        if (this.modules.languageDetector) {
+          s2.languageDetector = createClassOnDemand(this.modules.languageDetector);
+          if (s2.languageDetector.init) s2.languageDetector.init(s2, this.options.detection, this.options);
+        }
+        if (this.modules.i18nFormat) {
+          s2.i18nFormat = createClassOnDemand(this.modules.i18nFormat);
+          if (s2.i18nFormat.init) s2.i18nFormat.init(this);
+        }
+        this.translator = new Translator(this.services, this.options);
+        this.translator.on("*", function(event) {
+          for (var _len2 = arguments.length, args = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+            args[_key2 - 1] = arguments[_key2];
+          }
+          _this.emit(event, ...args);
+        });
+        this.modules.external.forEach((m) => {
+          if (m.init) m.init(this);
+        });
+      }
+      this.format = this.options.interpolation.format;
+      if (!callback) callback = noop;
+      if (this.options.fallbackLng && !this.services.languageDetector && !this.options.lng) {
+        const codes = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
+        if (codes.length > 0 && codes[0] !== "dev") this.options.lng = codes[0];
+      }
+      if (!this.services.languageDetector && !this.options.lng) {
+        this.logger.warn("init: no languageDetector is used and no lng is defined");
+      }
+      const storeApi = ["getResource", "hasResourceBundle", "getResourceBundle", "getDataByLanguage"];
+      storeApi.forEach((fcName) => {
+        this[fcName] = function() {
+          return _this.store[fcName](...arguments);
+        };
+      });
+      const storeApiChained = ["addResource", "addResources", "addResourceBundle", "removeResourceBundle"];
+      storeApiChained.forEach((fcName) => {
+        this[fcName] = function() {
+          _this.store[fcName](...arguments);
+          return _this;
+        };
+      });
+      const deferred = defer();
+      const load = () => {
+        const finish = (err, t3) => {
+          this.isInitializing = false;
+          if (this.isInitialized && !this.initializedStoreOnce) this.logger.warn("init: i18next is already initialized. You should call init just once!");
+          this.isInitialized = true;
+          if (!this.options.isClone) this.logger.log("initialized", this.options);
+          this.emit("initialized", this.options);
+          deferred.resolve(t3);
+          callback(err, t3);
+        };
+        if (this.languages && !this.isInitialized) return finish(null, this.t.bind(this));
+        this.changeLanguage(this.options.lng, finish);
+      };
+      if (this.options.resources || !this.options.initAsync) {
+        load();
+      } else {
+        setTimeout(load, 0);
+      }
+      return deferred;
+    }
+    loadResources(language) {
+      let callback = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : noop;
+      let usedCallback = callback;
+      const usedLng = isString2(language) ? language : this.language;
+      if (typeof language === "function") usedCallback = language;
+      if (!this.options.resources || this.options.partialBundledLanguages) {
+        if (usedLng?.toLowerCase() === "cimode" && (!this.options.preload || this.options.preload.length === 0)) return usedCallback();
+        const toLoad = [];
+        const append = (lng) => {
+          if (!lng) return;
+          if (lng === "cimode") return;
+          const lngs = this.services.languageUtils.toResolveHierarchy(lng);
+          lngs.forEach((l2) => {
+            if (l2 === "cimode") return;
+            if (toLoad.indexOf(l2) < 0) toLoad.push(l2);
+          });
+        };
+        if (!usedLng) {
+          const fallbacks = this.services.languageUtils.getFallbackCodes(this.options.fallbackLng);
+          fallbacks.forEach((l2) => append(l2));
+        } else {
+          append(usedLng);
+        }
+        this.options.preload?.forEach?.((l2) => append(l2));
+        this.services.backendConnector.load(toLoad, this.options.ns, (e3) => {
+          if (!e3 && !this.resolvedLanguage && this.language) this.setResolvedLanguage(this.language);
+          usedCallback(e3);
+        });
+      } else {
+        usedCallback(null);
+      }
+    }
+    reloadResources(lngs, ns, callback) {
+      const deferred = defer();
+      if (typeof lngs === "function") {
+        callback = lngs;
+        lngs = void 0;
+      }
+      if (typeof ns === "function") {
+        callback = ns;
+        ns = void 0;
+      }
+      if (!lngs) lngs = this.languages;
+      if (!ns) ns = this.options.ns;
+      if (!callback) callback = noop;
+      this.services.backendConnector.reload(lngs, ns, (err) => {
+        deferred.resolve();
+        callback(err);
+      });
+      return deferred;
+    }
+    use(module) {
+      if (!module) throw new Error("You are passing an undefined module! Please check the object you are passing to i18next.use()");
+      if (!module.type) throw new Error("You are passing a wrong module! Please check the object you are passing to i18next.use()");
+      if (module.type === "backend") {
+        this.modules.backend = module;
+      }
+      if (module.type === "logger" || module.log && module.warn && module.error) {
+        this.modules.logger = module;
+      }
+      if (module.type === "languageDetector") {
+        this.modules.languageDetector = module;
+      }
+      if (module.type === "i18nFormat") {
+        this.modules.i18nFormat = module;
+      }
+      if (module.type === "postProcessor") {
+        postProcessor.addPostProcessor(module);
+      }
+      if (module.type === "formatter") {
+        this.modules.formatter = module;
+      }
+      if (module.type === "3rdParty") {
+        this.modules.external.push(module);
+      }
+      return this;
+    }
+    setResolvedLanguage(l2) {
+      if (!l2 || !this.languages) return;
+      if (["cimode", "dev"].indexOf(l2) > -1) return;
+      for (let li = 0; li < this.languages.length; li++) {
+        const lngInLngs = this.languages[li];
+        if (["cimode", "dev"].indexOf(lngInLngs) > -1) continue;
+        if (this.store.hasLanguageSomeTranslations(lngInLngs)) {
+          this.resolvedLanguage = lngInLngs;
+          break;
+        }
+      }
+    }
+    changeLanguage(lng, callback) {
+      var _this2 = this;
+      this.isLanguageChangingTo = lng;
+      const deferred = defer();
+      this.emit("languageChanging", lng);
+      const setLngProps = (l2) => {
+        this.language = l2;
+        this.languages = this.services.languageUtils.toResolveHierarchy(l2);
+        this.resolvedLanguage = void 0;
+        this.setResolvedLanguage(l2);
+      };
+      const done = (err, l2) => {
+        if (l2) {
+          setLngProps(l2);
+          this.translator.changeLanguage(l2);
+          this.isLanguageChangingTo = void 0;
+          this.emit("languageChanged", l2);
+          this.logger.log("languageChanged", l2);
+        } else {
+          this.isLanguageChangingTo = void 0;
+        }
+        deferred.resolve(function() {
+          return _this2.t(...arguments);
+        });
+        if (callback) callback(err, function() {
+          return _this2.t(...arguments);
+        });
+      };
+      const setLng = (lngs) => {
+        if (!lng && !lngs && this.services.languageDetector) lngs = [];
+        const l2 = isString2(lngs) ? lngs : this.services.languageUtils.getBestMatchFromCodes(lngs);
+        if (l2) {
+          if (!this.language) {
+            setLngProps(l2);
+          }
+          if (!this.translator.language) this.translator.changeLanguage(l2);
+          this.services.languageDetector?.cacheUserLanguage?.(l2);
+        }
+        this.loadResources(l2, (err) => {
+          done(err, l2);
+        });
+      };
+      if (!lng && this.services.languageDetector && !this.services.languageDetector.async) {
+        setLng(this.services.languageDetector.detect());
+      } else if (!lng && this.services.languageDetector && this.services.languageDetector.async) {
+        if (this.services.languageDetector.detect.length === 0) {
+          this.services.languageDetector.detect().then(setLng);
+        } else {
+          this.services.languageDetector.detect(setLng);
+        }
+      } else {
+        setLng(lng);
+      }
+      return deferred;
+    }
+    getFixedT(lng, ns, keyPrefix) {
+      var _this3 = this;
+      const fixedT = function(key, opts) {
+        let options;
+        if (typeof opts !== "object") {
+          for (var _len3 = arguments.length, rest = new Array(_len3 > 2 ? _len3 - 2 : 0), _key3 = 2; _key3 < _len3; _key3++) {
+            rest[_key3 - 2] = arguments[_key3];
+          }
+          options = _this3.options.overloadTranslationOptionHandler([key, opts].concat(rest));
+        } else {
+          options = {
+            ...opts
+          };
+        }
+        options.lng = options.lng || fixedT.lng;
+        options.lngs = options.lngs || fixedT.lngs;
+        options.ns = options.ns || fixedT.ns;
+        if (options.keyPrefix !== "") options.keyPrefix = options.keyPrefix || keyPrefix || fixedT.keyPrefix;
+        const keySeparator = _this3.options.keySeparator || ".";
+        let resultKey;
+        if (options.keyPrefix && Array.isArray(key)) {
+          resultKey = key.map((k2) => `${options.keyPrefix}${keySeparator}${k2}`);
+        } else {
+          resultKey = options.keyPrefix ? `${options.keyPrefix}${keySeparator}${key}` : key;
+        }
+        return _this3.t(resultKey, options);
+      };
+      if (isString2(lng)) {
+        fixedT.lng = lng;
+      } else {
+        fixedT.lngs = lng;
+      }
+      fixedT.ns = ns;
+      fixedT.keyPrefix = keyPrefix;
+      return fixedT;
+    }
+    t() {
+      for (var _len4 = arguments.length, args = new Array(_len4), _key4 = 0; _key4 < _len4; _key4++) {
+        args[_key4] = arguments[_key4];
+      }
+      return this.translator?.translate(...args);
+    }
+    exists() {
+      for (var _len5 = arguments.length, args = new Array(_len5), _key5 = 0; _key5 < _len5; _key5++) {
+        args[_key5] = arguments[_key5];
+      }
+      return this.translator?.exists(...args);
+    }
+    setDefaultNamespace(ns) {
+      this.options.defaultNS = ns;
+    }
+    hasLoadedNamespace(ns) {
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+      if (!this.isInitialized) {
+        this.logger.warn("hasLoadedNamespace: i18next was not initialized", this.languages);
+        return false;
+      }
+      if (!this.languages || !this.languages.length) {
+        this.logger.warn("hasLoadedNamespace: i18n.languages were undefined or empty", this.languages);
+        return false;
+      }
+      const lng = options.lng || this.resolvedLanguage || this.languages[0];
+      const fallbackLng = this.options ? this.options.fallbackLng : false;
+      const lastLng = this.languages[this.languages.length - 1];
+      if (lng.toLowerCase() === "cimode") return true;
+      const loadNotPending = (l2, n2) => {
+        const loadState = this.services.backendConnector.state[`${l2}|${n2}`];
+        return loadState === -1 || loadState === 0 || loadState === 2;
+      };
+      if (options.precheck) {
+        const preResult = options.precheck(this, loadNotPending);
+        if (preResult !== void 0) return preResult;
+      }
+      if (this.hasResourceBundle(lng, ns)) return true;
+      if (!this.services.backendConnector.backend || this.options.resources && !this.options.partialBundledLanguages) return true;
+      if (loadNotPending(lng, ns) && (!fallbackLng || loadNotPending(lastLng, ns))) return true;
+      return false;
+    }
+    loadNamespaces(ns, callback) {
+      const deferred = defer();
+      if (!this.options.ns) {
+        if (callback) callback();
+        return Promise.resolve();
+      }
+      if (isString2(ns)) ns = [ns];
+      ns.forEach((n2) => {
+        if (this.options.ns.indexOf(n2) < 0) this.options.ns.push(n2);
+      });
+      this.loadResources((err) => {
+        deferred.resolve();
+        if (callback) callback(err);
+      });
+      return deferred;
+    }
+    loadLanguages(lngs, callback) {
+      const deferred = defer();
+      if (isString2(lngs)) lngs = [lngs];
+      const preloaded = this.options.preload || [];
+      const newLngs = lngs.filter((lng) => preloaded.indexOf(lng) < 0 && this.services.languageUtils.isSupportedCode(lng));
+      if (!newLngs.length) {
+        if (callback) callback();
+        return Promise.resolve();
+      }
+      this.options.preload = preloaded.concat(newLngs);
+      this.loadResources((err) => {
+        deferred.resolve();
+        if (callback) callback(err);
+      });
+      return deferred;
+    }
+    dir(lng) {
+      if (!lng) lng = this.resolvedLanguage || (this.languages?.length > 0 ? this.languages[0] : this.language);
+      if (!lng) return "rtl";
+      const rtlLngs = ["ar", "shu", "sqr", "ssh", "xaa", "yhd", "yud", "aao", "abh", "abv", "acm", "acq", "acw", "acx", "acy", "adf", "ads", "aeb", "aec", "afb", "ajp", "apc", "apd", "arb", "arq", "ars", "ary", "arz", "auz", "avl", "ayh", "ayl", "ayn", "ayp", "bbz", "pga", "he", "iw", "ps", "pbt", "pbu", "pst", "prp", "prd", "ug", "ur", "ydd", "yds", "yih", "ji", "yi", "hbo", "men", "xmn", "fa", "jpr", "peo", "pes", "prs", "dv", "sam", "ckb"];
+      const languageUtils = this.services?.languageUtils || new LanguageUtil(get());
+      return rtlLngs.indexOf(languageUtils.getLanguagePartFromCode(lng)) > -1 || lng.toLowerCase().indexOf("-arab") > 1 ? "rtl" : "ltr";
+    }
+    static createInstance() {
+      let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+      let callback = arguments.length > 1 ? arguments[1] : void 0;
+      return new _I18n(options, callback);
+    }
+    cloneInstance() {
+      let options = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {};
+      let callback = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : noop;
+      const forkResourceStore = options.forkResourceStore;
+      if (forkResourceStore) delete options.forkResourceStore;
+      const mergedOptions = {
+        ...this.options,
+        ...options,
+        ...{
+          isClone: true
+        }
+      };
+      const clone = new _I18n(mergedOptions);
+      if (options.debug !== void 0 || options.prefix !== void 0) {
+        clone.logger = clone.logger.clone(options);
+      }
+      const membersToCopy = ["store", "services", "language"];
+      membersToCopy.forEach((m) => {
+        clone[m] = this[m];
+      });
+      clone.services = {
+        ...this.services
+      };
+      clone.services.utils = {
+        hasLoadedNamespace: clone.hasLoadedNamespace.bind(clone)
+      };
+      if (forkResourceStore) {
+        clone.store = new ResourceStore(this.store.data, mergedOptions);
+        clone.services.resourceStore = clone.store;
+      }
+      clone.translator = new Translator(clone.services, mergedOptions);
+      clone.translator.on("*", function(event) {
+        for (var _len6 = arguments.length, args = new Array(_len6 > 1 ? _len6 - 1 : 0), _key6 = 1; _key6 < _len6; _key6++) {
+          args[_key6 - 1] = arguments[_key6];
+        }
+        clone.emit(event, ...args);
+      });
+      clone.init(mergedOptions, callback);
+      clone.translator.options = mergedOptions;
+      clone.translator.backendConnector.services.utils = {
+        hasLoadedNamespace: clone.hasLoadedNamespace.bind(clone)
+      };
+      return clone;
+    }
+    toJSON() {
+      return {
+        options: this.options,
+        store: this.store,
+        language: this.language,
+        languages: this.languages,
+        resolvedLanguage: this.resolvedLanguage
+      };
+    }
+  };
+  var instance = I18n.createInstance();
+  instance.createInstance = I18n.createInstance;
+  var createInstance = instance.createInstance;
+  var dir = instance.dir;
+  var init = instance.init;
+  var loadResources = instance.loadResources;
+  var reloadResources = instance.reloadResources;
+  var use = instance.use;
+  var changeLanguage = instance.changeLanguage;
+  var getFixedT = instance.getFixedT;
+  var t2 = instance.t;
+  var exists = instance.exists;
+  var setDefaultNamespace = instance.setDefaultNamespace;
+  var hasLoadedNamespace2 = instance.hasLoadedNamespace;
+  var loadNamespaces2 = instance.loadNamespaces;
+  var loadLanguages2 = instance.loadLanguages;
+
+  // src/locales/locales.en.json
+  var locales_en_default = {
+    language: "English",
+    title: "Hometown Atlas by Kieran",
+    controls: {
+      start: "Start",
+      search: "Search...",
+      guess: "What is the name of this street?"
+    },
+    score: {
+      wrong: "wrong"
+    }
+  };
+
+  // src/locales/locales.de.json
+  var locales_de_default = {
+    language: "Deutsch",
+    title: "Hometown Atlas von Kieran",
+    controls: {
+      start: "Start",
+      search: "Suchen...",
+      guess: "Was ist der Name dieser Stra\xDFe?"
+    },
+    score: {
+      wrong: "falsch"
+    }
+  };
+
+  // src/locales/locales.de-AT.json
+  var locales_de_AT_default = {
+    language: "Burgnl\xE4nderisch",
+    title: "Heimatatlas vom Kieran",
+    controls: {
+      start: "Geht scho",
+      search: "Suach'n...",
+      guess: "Wie hoast de Stro\xDF'n?"
+    },
+    score: {
+      wrong: "foisch"
+    }
+  };
+
+  // src/locales/locales.de-CH.json
+  var locales_de_CH_default = {
+    language: "Schwiizerd\xFCtsch",
+    title: "Heimatatlas vo Kieran",
+    controls: {
+      start: "Aafange",
+      search: "Sueche...",
+      guess: "Was isch d\xE4 Name vo dere Strass?"
+    },
+    score: {
+      wrong: "falsch"
+    }
+  };
+
+  // node_modules/i18next-browser-languagedetector/dist/esm/i18nextBrowserLanguageDetector.js
+  var {
+    slice,
+    forEach
+  } = [];
+  function defaults(obj) {
+    forEach.call(slice.call(arguments, 1), (source) => {
+      if (source) {
+        for (const prop in source) {
+          if (obj[prop] === void 0) obj[prop] = source[prop];
+        }
+      }
+    });
+    return obj;
+  }
+  var fieldContentRegExp = /^[\u0009\u0020-\u007e\u0080-\u00ff]+$/;
+  var serializeCookie = function(name, val) {
+    let options = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {
+      path: "/"
+    };
+    const opt = options;
+    const value = encodeURIComponent(val);
+    let str = `${name}=${value}`;
+    if (opt.maxAge > 0) {
+      const maxAge = opt.maxAge - 0;
+      if (Number.isNaN(maxAge)) throw new Error("maxAge should be a Number");
+      str += `; Max-Age=${Math.floor(maxAge)}`;
+    }
+    if (opt.domain) {
+      if (!fieldContentRegExp.test(opt.domain)) {
+        throw new TypeError("option domain is invalid");
+      }
+      str += `; Domain=${opt.domain}`;
+    }
+    if (opt.path) {
+      if (!fieldContentRegExp.test(opt.path)) {
+        throw new TypeError("option path is invalid");
+      }
+      str += `; Path=${opt.path}`;
+    }
+    if (opt.expires) {
+      if (typeof opt.expires.toUTCString !== "function") {
+        throw new TypeError("option expires is invalid");
+      }
+      str += `; Expires=${opt.expires.toUTCString()}`;
+    }
+    if (opt.httpOnly) str += "; HttpOnly";
+    if (opt.secure) str += "; Secure";
+    if (opt.sameSite) {
+      const sameSite = typeof opt.sameSite === "string" ? opt.sameSite.toLowerCase() : opt.sameSite;
+      switch (sameSite) {
+        case true:
+          str += "; SameSite=Strict";
+          break;
+        case "lax":
+          str += "; SameSite=Lax";
+          break;
+        case "strict":
+          str += "; SameSite=Strict";
+          break;
+        case "none":
+          str += "; SameSite=None";
+          break;
+        default:
+          throw new TypeError("option sameSite is invalid");
+      }
+    }
+    return str;
+  };
+  var cookie = {
+    create(name, value, minutes, domain) {
+      let cookieOptions = arguments.length > 4 && arguments[4] !== void 0 ? arguments[4] : {
+        path: "/",
+        sameSite: "strict"
+      };
+      if (minutes) {
+        cookieOptions.expires = /* @__PURE__ */ new Date();
+        cookieOptions.expires.setTime(cookieOptions.expires.getTime() + minutes * 60 * 1e3);
+      }
+      if (domain) cookieOptions.domain = domain;
+      document.cookie = serializeCookie(name, encodeURIComponent(value), cookieOptions);
+    },
+    read(name) {
+      const nameEQ = `${name}=`;
+      const ca = document.cookie.split(";");
+      for (let i2 = 0; i2 < ca.length; i2++) {
+        let c2 = ca[i2];
+        while (c2.charAt(0) === " ") c2 = c2.substring(1, c2.length);
+        if (c2.indexOf(nameEQ) === 0) return c2.substring(nameEQ.length, c2.length);
+      }
+      return null;
+    },
+    remove(name) {
+      this.create(name, "", -1);
+    }
+  };
+  var cookie$1 = {
+    name: "cookie",
+    // Deconstruct the options object and extract the lookupCookie property
+    lookup(_ref) {
+      let {
+        lookupCookie
+      } = _ref;
+      if (lookupCookie && typeof document !== "undefined") {
+        return cookie.read(lookupCookie) || void 0;
+      }
+      return void 0;
+    },
+    // Deconstruct the options object and extract the lookupCookie, cookieMinutes, cookieDomain, and cookieOptions properties
+    cacheUserLanguage(lng, _ref2) {
+      let {
+        lookupCookie,
+        cookieMinutes,
+        cookieDomain,
+        cookieOptions
+      } = _ref2;
+      if (lookupCookie && typeof document !== "undefined") {
+        cookie.create(lookupCookie, lng, cookieMinutes, cookieDomain, cookieOptions);
+      }
+    }
+  };
+  var querystring = {
+    name: "querystring",
+    // Deconstruct the options object and extract the lookupQuerystring property
+    lookup(_ref) {
+      let {
+        lookupQuerystring
+      } = _ref;
+      let found;
+      if (typeof window !== "undefined") {
+        let {
+          search
+        } = window.location;
+        if (!window.location.search && window.location.hash?.indexOf("?") > -1) {
+          search = window.location.hash.substring(window.location.hash.indexOf("?"));
+        }
+        const query = search.substring(1);
+        const params = query.split("&");
+        for (let i2 = 0; i2 < params.length; i2++) {
+          const pos = params[i2].indexOf("=");
+          if (pos > 0) {
+            const key = params[i2].substring(0, pos);
+            if (key === lookupQuerystring) {
+              found = params[i2].substring(pos + 1);
+            }
+          }
+        }
+      }
+      return found;
+    }
+  };
+  var hasLocalStorageSupport = null;
+  var localStorageAvailable = () => {
+    if (hasLocalStorageSupport !== null) return hasLocalStorageSupport;
+    try {
+      hasLocalStorageSupport = window !== "undefined" && window.localStorage !== null;
+      const testKey = "i18next.translate.boo";
+      window.localStorage.setItem(testKey, "foo");
+      window.localStorage.removeItem(testKey);
+    } catch (e3) {
+      hasLocalStorageSupport = false;
+    }
+    return hasLocalStorageSupport;
+  };
+  var localStorage = {
+    name: "localStorage",
+    // Deconstruct the options object and extract the lookupLocalStorage property
+    lookup(_ref) {
+      let {
+        lookupLocalStorage
+      } = _ref;
+      if (lookupLocalStorage && localStorageAvailable()) {
+        return window.localStorage.getItem(lookupLocalStorage) || void 0;
+      }
+      return void 0;
+    },
+    // Deconstruct the options object and extract the lookupLocalStorage property
+    cacheUserLanguage(lng, _ref2) {
+      let {
+        lookupLocalStorage
+      } = _ref2;
+      if (lookupLocalStorage && localStorageAvailable()) {
+        window.localStorage.setItem(lookupLocalStorage, lng);
+      }
+    }
+  };
+  var hasSessionStorageSupport = null;
+  var sessionStorageAvailable = () => {
+    if (hasSessionStorageSupport !== null) return hasSessionStorageSupport;
+    try {
+      hasSessionStorageSupport = window !== "undefined" && window.sessionStorage !== null;
+      const testKey = "i18next.translate.boo";
+      window.sessionStorage.setItem(testKey, "foo");
+      window.sessionStorage.removeItem(testKey);
+    } catch (e3) {
+      hasSessionStorageSupport = false;
+    }
+    return hasSessionStorageSupport;
+  };
+  var sessionStorage = {
+    name: "sessionStorage",
+    lookup(_ref) {
+      let {
+        lookupSessionStorage
+      } = _ref;
+      if (lookupSessionStorage && sessionStorageAvailable()) {
+        return window.sessionStorage.getItem(lookupSessionStorage) || void 0;
+      }
+      return void 0;
+    },
+    cacheUserLanguage(lng, _ref2) {
+      let {
+        lookupSessionStorage
+      } = _ref2;
+      if (lookupSessionStorage && sessionStorageAvailable()) {
+        window.sessionStorage.setItem(lookupSessionStorage, lng);
+      }
+    }
+  };
+  var navigator$1 = {
+    name: "navigator",
+    lookup(options) {
+      const found = [];
+      if (typeof navigator !== "undefined") {
+        const {
+          languages,
+          userLanguage,
+          language
+        } = navigator;
+        if (languages) {
+          for (let i2 = 0; i2 < languages.length; i2++) {
+            found.push(languages[i2]);
+          }
+        }
+        if (userLanguage) {
+          found.push(userLanguage);
+        }
+        if (language) {
+          found.push(language);
+        }
+      }
+      return found.length > 0 ? found : void 0;
+    }
+  };
+  var htmlTag = {
+    name: "htmlTag",
+    // Deconstruct the options object and extract the htmlTag property
+    lookup(_ref) {
+      let {
+        htmlTag: htmlTag2
+      } = _ref;
+      let found;
+      const internalHtmlTag = htmlTag2 || (typeof document !== "undefined" ? document.documentElement : null);
+      if (internalHtmlTag && typeof internalHtmlTag.getAttribute === "function") {
+        found = internalHtmlTag.getAttribute("lang");
+      }
+      return found;
+    }
+  };
+  var path = {
+    name: "path",
+    // Deconstruct the options object and extract the lookupFromPathIndex property
+    lookup(_ref) {
+      let {
+        lookupFromPathIndex
+      } = _ref;
+      if (typeof window === "undefined") return void 0;
+      const language = window.location.pathname.match(/\/([a-zA-Z-]*)/g);
+      if (!Array.isArray(language)) return void 0;
+      const index = typeof lookupFromPathIndex === "number" ? lookupFromPathIndex : 0;
+      return language[index]?.replace("/", "");
+    }
+  };
+  var subdomain = {
+    name: "subdomain",
+    lookup(_ref) {
+      let {
+        lookupFromSubdomainIndex
+      } = _ref;
+      const internalLookupFromSubdomainIndex = typeof lookupFromSubdomainIndex === "number" ? lookupFromSubdomainIndex + 1 : 1;
+      const language = typeof window !== "undefined" && window.location?.hostname?.match(/^(\w{2,5})\.(([a-z0-9-]{1,63}\.[a-z]{2,6})|localhost)/i);
+      if (!language) return void 0;
+      return language[internalLookupFromSubdomainIndex];
+    }
+  };
+  var canCookies = false;
+  try {
+    document.cookie;
+    canCookies = true;
+  } catch (e3) {
+  }
+  var order = ["querystring", "cookie", "localStorage", "sessionStorage", "navigator", "htmlTag"];
+  if (!canCookies) order.splice(1, 1);
+  var getDefaults2 = () => ({
+    order,
+    lookupQuerystring: "lng",
+    lookupCookie: "i18next",
+    lookupLocalStorage: "i18nextLng",
+    lookupSessionStorage: "i18nextLng",
+    // cache user language
+    caches: ["localStorage"],
+    excludeCacheFor: ["cimode"],
+    // cookieMinutes: 10,
+    // cookieDomain: 'myDomain'
+    convertDetectedLanguage: (l2) => l2
+  });
+  var Browser = class {
+    constructor(services) {
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+      this.type = "languageDetector";
+      this.detectors = {};
+      this.init(services, options);
+    }
+    init() {
+      let services = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : {
+        languageUtils: {}
+      };
+      let options = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : {};
+      let i18nOptions = arguments.length > 2 && arguments[2] !== void 0 ? arguments[2] : {};
+      this.services = services;
+      this.options = defaults(options, this.options || {}, getDefaults2());
+      if (typeof this.options.convertDetectedLanguage === "string" && this.options.convertDetectedLanguage.indexOf("15897") > -1) {
+        this.options.convertDetectedLanguage = (l2) => l2.replace("-", "_");
+      }
+      if (this.options.lookupFromUrlIndex) this.options.lookupFromPathIndex = this.options.lookupFromUrlIndex;
+      this.i18nOptions = i18nOptions;
+      this.addDetector(cookie$1);
+      this.addDetector(querystring);
+      this.addDetector(localStorage);
+      this.addDetector(sessionStorage);
+      this.addDetector(navigator$1);
+      this.addDetector(htmlTag);
+      this.addDetector(path);
+      this.addDetector(subdomain);
+    }
+    addDetector(detector) {
+      this.detectors[detector.name] = detector;
+      return this;
+    }
+    detect() {
+      let detectionOrder = arguments.length > 0 && arguments[0] !== void 0 ? arguments[0] : this.options.order;
+      let detected = [];
+      detectionOrder.forEach((detectorName) => {
+        if (this.detectors[detectorName]) {
+          let lookup = this.detectors[detectorName].lookup(this.options);
+          if (lookup && typeof lookup === "string") lookup = [lookup];
+          if (lookup) detected = detected.concat(lookup);
+        }
+      });
+      detected = detected.map((d) => this.options.convertDetectedLanguage(d));
+      if (this.services.languageUtils.getBestMatchFromCodes) return detected;
+      return detected.length > 0 ? detected[0] : null;
+    }
+    cacheUserLanguage(lng) {
+      let caches = arguments.length > 1 && arguments[1] !== void 0 ? arguments[1] : this.options.caches;
+      if (!caches) return;
+      if (this.options.excludeCacheFor && this.options.excludeCacheFor.indexOf(lng) > -1) return;
+      caches.forEach((cacheName) => {
+        if (this.detectors[cacheName]) this.detectors[cacheName].cacheUserLanguage(lng, this.options);
+      });
+    }
+  };
+  Browser.type = "languageDetector";
+
+  // src/locales/i18n.ts
+  var resources = {
+    "de-CH": {
+      translation: locales_de_CH_default
+    },
+    "de-AT": {
+      translation: locales_de_AT_default
+    },
+    de: {
+      translation: locales_de_default
+    },
+    en: {
+      translation: locales_en_default
+    }
+  };
+  instance.use(Browser).use(initReactI18next).init({
+    supportedLngs: ["de", "de-AT", "de-CH", "en"],
+    debug: true,
+    resources,
+    defaultNS: "translation"
+    // if you see an error like: "Argument of type 'DefaultTFuncReturn' is not assignable to parameter of type xyz"
+    // set returnNull to false (and also in the i18next.d.ts options)
+    // returnNull: false,
+  });
+
+  // src/icons/united-kingdom.tsx
+  var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
+  var UnitedKingdomIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)(
+    "svg",
+    {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 60 30",
+      width: "1200",
+      height: "600",
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("clipPath", { id: "s", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("path", { d: "M0,0 v30 h60 v-30 z" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("clipPath", { id: "t", children: /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("path", { d: "M30,15 h30 v15 z v15 h-30 z h-30 v-15 z v-15 h30 z" }) }),
+        /* @__PURE__ */ (0, import_jsx_runtime6.jsxs)("g", { "clip-path": "url(#s)", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("path", { d: "M0,0 v30 h60 v-30 z", fill: "#012169" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("path", { d: "M0,0 L60,30 M60,0 L0,30", stroke: "#fff", "stroke-width": "6" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)(
+            "path",
+            {
+              d: "M0,0 L60,30 M60,0 L0,30",
+              "clip-path": "url(#t)",
+              stroke: "#C8102E",
+              "stroke-width": "4"
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("path", { d: "M30,0 v30 M0,15 h60", stroke: "#fff", "stroke-width": "10" }),
+          /* @__PURE__ */ (0, import_jsx_runtime6.jsx)("path", { d: "M30,0 v30 M0,15 h60", stroke: "#C8102E", "stroke-width": "6" })
+        ] })
+      ]
+    }
+  );
+
+  // src/icons/burgenland.tsx
+  var import_jsx_runtime7 = __toESM(require_jsx_runtime(), 1);
+  var BurgenlandIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime7.jsxs)(
+    "svg",
+    {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "900",
+      height: "600",
+      viewBox: "0 0 900 600",
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("rect", { fill: "#c8102e", width: "900", height: "600" }),
+        /* @__PURE__ */ (0, import_jsx_runtime7.jsx)("rect", { fill: "#fff", y: "200", width: "900", height: "200" })
+      ]
+    }
+  );
+
+  // src/icons/switzerland.tsx
+  var import_jsx_runtime8 = __toESM(require_jsx_runtime(), 1);
+  var SwitzerlandIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime8.jsxs)(
+    "svg",
+    {
+      width: "512",
+      height: "512",
+      viewBox: "0 0 32 32",
+      xmlns: "http://www.w3.org/2000/svg",
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("path", { d: "m0 0h32v32h-32z", fill: "#f00" }),
+        /* @__PURE__ */ (0, import_jsx_runtime8.jsx)("path", { d: "m13 6h6v7h7v6h-7v7h-6v-7h-7v-6h7z", fill: "#fff" })
+      ]
+    }
+  );
+
+  // src/icons/germany.tsx
+  var import_jsx_runtime9 = __toESM(require_jsx_runtime(), 1);
+  var GermanyIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime9.jsxs)(
+    "svg",
+    {
+      xmlns: "http://www.w3.org/2000/svg",
+      width: "1000",
+      height: "600",
+      viewBox: "0 0 5 3",
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("desc", { children: "Flag of Germany" }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("rect", { id: "black_stripe", width: "5", height: "3", y: "0", x: "0", fill: "#000" }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("rect", { id: "red_stripe", width: "5", height: "2", y: "1", x: "0", fill: "#D00" }),
+        /* @__PURE__ */ (0, import_jsx_runtime9.jsx)("rect", { id: "gold_stripe", width: "5", height: "1", y: "2", x: "0", fill: "#FFCE00" })
+      ]
+    }
+  );
+
+  // src/components/language-picker.tsx
+  var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
+  var ICONS = {
+    en: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(UnitedKingdomIcon, { style: { borderRadius: "4px" }, height: 20, width: 30 }),
+    "de-AT": /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(BurgenlandIcon, { style: { borderRadius: "4px" }, height: 20, width: 30 }),
+    "de-CH": /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(SwitzerlandIcon, { style: { borderRadius: "4px" }, height: 20, width: 20 }),
+    de: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(GermanyIcon, { style: { borderRadius: "4px" }, height: 20, width: 30 })
+  };
+  var LanguagePicker = () => {
+    const { i18n } = useTranslation();
+    const [showMenu, setShowMenu] = (0, import_react28.useState)(true);
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "language-picker", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+        "button",
+        {
+          className: "language-button button",
+          onClick: () => setShowMenu((prev) => !prev),
+          children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LanguageIcon, { height: "auto", width: "auto" })
+        }
+      ),
+      showMenu && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "box language-box mt-2 p-4", children: Object.keys(resources).map((language) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
+        "div",
+        {
+          onClick: () => {
+            i18n.changeLanguage(language);
+            setShowMenu(false);
+          },
+          className: `language-item`,
+          children: [
+            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+              "div",
+              {
+                style: {
+                  width: "30px",
+                  display: "flex",
+                  justifyContent: "center",
+                  marginRight: "4px"
+                },
+                children: ICONS[language]
+              }
+            ),
+            i18n.t("language", { lng: language })
+          ]
+        },
+        language
+      )) })
+    ] });
+  };
+
+  // src/components/map.tsx
+  var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
   var Map2 = () => {
     const [isPlaying, setSelection] = useStore2(
       useShallow((state) => [state.isPlaying, state.setSelection])
     );
-    const selectionRef = (0, import_react19.useRef)(null);
-    (0, import_react19.useEffect)(() => selectionRef.current?.enableEdit(), [selectionRef]);
-    const onSearch = (0, import_react19.useCallback)(
+    const selectionRef = (0, import_react29.useRef)(null);
+    (0, import_react29.useEffect)(() => selectionRef.current?.enableEdit(), [selectionRef]);
+    const onSearch = (0, import_react29.useCallback)(
       async (osmType, osmId) => {
         const boundaries = await fetchCityBoundaries(osmType, osmId);
-        console.log(boundaries);
         const geo = { type: "Feature", geometry: (0, import_osm2geojson_lite2.default)(boundaries) };
         const positions = [];
         if (geo.geometry.type === "FeatureCollection") {
@@ -40950,14 +44096,13 @@ out geom;`;
             ...simplified.geometry.coordinates[0].map(([lon, lat]) => [lat, lon])
           );
         }
-        console.log(positions, selectionRef);
         setSelection(positions);
       },
       [selectionRef]
     );
-    return /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(import_jsx_runtime5.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Form, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Form, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
         MapContainer,
         {
           style: {
@@ -40972,34 +44117,33 @@ out geom;`;
           scrollWheelZoom: true,
           editable: true,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
               TileLayer,
               {
                 attribution: '\xA9 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors \xA9 <a href="https://carto.com/attributions">CARTO</a>',
                 url: `https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png`,
-                subdomains: "abcd",
                 maxZoom: 20,
                 edgeBufferTiles: 5,
                 opacity: isPlaying ? 1 : 0
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
               TileLayer,
               {
                 attribution: '\xA9 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors \xA9 <a href="https://carto.com/attributions">CARTO</a>',
                 url: `https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png`,
-                subdomains: "abcd",
                 maxZoom: 20,
                 edgeBufferTiles: 5,
                 opacity: isPlaying ? 0 : 1
               }
             ),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(LeafletControlGeocoder, { onSearch }),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Selection, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime5.jsxs)(Pane, { name: "roads", style: { opacity: 0.5 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Roads, { type: "current" }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Roads, { type: "correct" }),
-              /* @__PURE__ */ (0, import_jsx_runtime5.jsx)(Roads, { type: "wrong" })
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(LeafletControlGeocoder, { onSearch }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Control_default, { position: "topleft", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(LanguagePicker, {}) }),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Selection, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(Pane, { name: "roads", style: { opacity: 0.5 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Roads, { type: "current" }),
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Roads, { type: "correct" }),
+              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Roads, { type: "wrong" })
             ] })
           ]
         }
@@ -41008,9 +44152,9 @@ out geom;`;
   };
 
   // src/index.tsx
-  var import_jsx_runtime6 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
   var root = (0, import_client.createRoot)(document.getElementById("root"));
-  root.render(/* @__PURE__ */ (0, import_jsx_runtime6.jsx)(Map2, {}));
+  root.render(/* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Map2, {}));
 })();
 /*! Bundled license information:
 
