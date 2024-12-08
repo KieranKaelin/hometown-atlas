@@ -297,8 +297,8 @@
             return refObject;
           }
           var isArrayImpl = Array.isArray;
-          function isArray(a) {
-            return isArrayImpl(a);
+          function isArray(a2) {
+            return isArrayImpl(a2);
           }
           function typeName(value) {
             {
@@ -312,7 +312,7 @@
               try {
                 testStringCoercion(value);
                 return false;
-              } catch (e) {
+              } catch (e2) {
                 return true;
               }
             }
@@ -390,7 +390,7 @@
                   var init = lazyComponent._init;
                   try {
                     return getComponentNameFromType(init(payload));
-                  } catch (x) {
+                  } catch (x2) {
                     return null;
                   }
                 }
@@ -544,8 +544,8 @@
               props.children = children;
             } else if (childrenLength > 1) {
               var childArray = Array(childrenLength);
-              for (var i = 0; i < childrenLength; i++) {
-                childArray[i] = arguments[i + 2];
+              for (var i2 = 0; i2 < childrenLength; i2++) {
+                childArray[i2] = arguments[i2 + 2];
               }
               {
                 if (Object.freeze) {
@@ -620,8 +620,8 @@
               props.children = children;
             } else if (childrenLength > 1) {
               var childArray = Array(childrenLength);
-              for (var i = 0; i < childrenLength; i++) {
-                childArray[i] = arguments[i + 2];
+              for (var i2 = 0; i2 < childrenLength; i2++) {
+                childArray[i2] = arguments[i2 + 2];
               }
               props.children = childArray;
             }
@@ -688,8 +688,8 @@
                 if (childKey != null) {
                   escapedChildKey = escapeUserProvidedKey(childKey) + "/";
                 }
-                mapIntoArray(mappedChild, array, escapedChildKey, "", function(c) {
-                  return c;
+                mapIntoArray(mappedChild, array, escapedChildKey, "", function(c2) {
+                  return c2;
                 });
               } else if (mappedChild != null) {
                 if (isValidElement(mappedChild)) {
@@ -719,9 +719,9 @@
             var subtreeCount = 0;
             var nextNamePrefix = nameSoFar === "" ? SEPARATOR : nameSoFar + SUBSEPARATOR;
             if (isArray(children)) {
-              for (var i = 0; i < children.length; i++) {
-                child = children[i];
-                nextName = nextNamePrefix + getElementKey(child, i);
+              for (var i2 = 0; i2 < children.length; i2++) {
+                child = children[i2];
+                nextName = nextNamePrefix + getElementKey(child, i2);
                 subtreeCount += mapIntoArray(child, array, escapedPrefix, nextName, callback);
               }
             } else {
@@ -763,11 +763,11 @@
             return result;
           }
           function countChildren(children) {
-            var n = 0;
+            var n2 = 0;
             mapChildren(children, function() {
-              n++;
+              n2++;
             });
-            return n;
+            return n2;
           }
           function forEachChildren(children, forEachFunc, forEachContext) {
             mapChildren(children, function() {
@@ -1093,7 +1093,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useReducer(reducer, initialArg, init);
           }
-          function useRef8(initialValue) {
+          function useRef9(initialValue) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useRef(initialValue);
           }
@@ -1228,8 +1228,8 @@
               if (prefix === void 0) {
                 try {
                   throw Error();
-                } catch (x) {
-                  var match = x.stack.trim().match(/\n( *(at )?)/);
+                } catch (x2) {
+                  var match = x2.stack.trim().match(/\n( *(at )?)/);
                   prefix = match && match[1] || "";
                 }
               }
@@ -1275,23 +1275,23 @@
                 if (typeof Reflect === "object" && Reflect.construct) {
                   try {
                     Reflect.construct(Fake, []);
-                  } catch (x) {
-                    control = x;
+                  } catch (x2) {
+                    control = x2;
                   }
                   Reflect.construct(fn, [], Fake);
                 } else {
                   try {
                     Fake.call();
-                  } catch (x) {
-                    control = x;
+                  } catch (x2) {
+                    control = x2;
                   }
                   fn.call(Fake.prototype);
                 }
               } else {
                 try {
                   throw Error();
-                } catch (x) {
-                  control = x;
+                } catch (x2) {
+                  control = x2;
                 }
                 fn();
               }
@@ -1299,19 +1299,19 @@
               if (sample && control && typeof sample.stack === "string") {
                 var sampleLines = sample.stack.split("\n");
                 var controlLines = control.stack.split("\n");
-                var s = sampleLines.length - 1;
-                var c = controlLines.length - 1;
-                while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
-                  c--;
+                var s2 = sampleLines.length - 1;
+                var c2 = controlLines.length - 1;
+                while (s2 >= 1 && c2 >= 0 && sampleLines[s2] !== controlLines[c2]) {
+                  c2--;
                 }
-                for (; s >= 1 && c >= 0; s--, c--) {
-                  if (sampleLines[s] !== controlLines[c]) {
-                    if (s !== 1 || c !== 1) {
+                for (; s2 >= 1 && c2 >= 0; s2--, c2--) {
+                  if (sampleLines[s2] !== controlLines[c2]) {
+                    if (s2 !== 1 || c2 !== 1) {
                       do {
-                        s--;
-                        c--;
-                        if (c < 0 || sampleLines[s] !== controlLines[c]) {
-                          var _frame = "\n" + sampleLines[s].replace(" at new ", " at ");
+                        s2--;
+                        c2--;
+                        if (c2 < 0 || sampleLines[s2] !== controlLines[c2]) {
+                          var _frame = "\n" + sampleLines[s2].replace(" at new ", " at ");
                           if (fn.displayName && _frame.includes("<anonymous>")) {
                             _frame = _frame.replace("<anonymous>", fn.displayName);
                           }
@@ -1322,7 +1322,7 @@
                           }
                           return _frame;
                         }
-                      } while (s >= 1 && c >= 0);
+                      } while (s2 >= 1 && c2 >= 0);
                     }
                     break;
                   }
@@ -1384,7 +1384,7 @@
                   var init = lazyComponent._init;
                   try {
                     return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
-                  } catch (x) {
+                  } catch (x2) {
                   }
                 }
               }
@@ -1509,8 +1509,8 @@
               return;
             }
             if (isArray(node)) {
-              for (var i = 0; i < node.length; i++) {
-                var child = node[i];
+              for (var i2 = 0; i2 < node.length; i2++) {
+                var child = node[i2];
                 if (isValidElement(child)) {
                   validateExplicitKey(child, parentType);
                 }
@@ -1566,8 +1566,8 @@
           function validateFragmentProps(fragment) {
             {
               var keys = Object.keys(fragment.props);
-              for (var i = 0; i < keys.length; i++) {
-                var key = keys[i];
+              for (var i2 = 0; i2 < keys.length; i2++) {
+                var key = keys[i2];
                 if (key !== "children" && key !== "key") {
                   setCurrentlyValidatingElement$1(fragment);
                   error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key);
@@ -1615,8 +1615,8 @@
               return element;
             }
             if (validType) {
-              for (var i = 2; i < arguments.length; i++) {
-                validateChildKeys(arguments[i], type);
+              for (var i2 = 2; i2 < arguments.length; i2++) {
+                validateChildKeys(arguments[i2], type);
               }
             }
             if (type === REACT_FRAGMENT_TYPE) {
@@ -1650,8 +1650,8 @@
           }
           function cloneElementWithValidation(element, props, children) {
             var newElement = cloneElement.apply(this, arguments);
-            for (var i = 2; i < arguments.length; i++) {
-              validateChildKeys(arguments[i], newElement.type);
+            for (var i2 = 2; i2 < arguments.length; i2++) {
+              validateChildKeys(arguments[i2], newElement.type);
             }
             validatePropTypes(newElement);
             return newElement;
@@ -1828,17 +1828,17 @@
             {
               if (!isFlushing) {
                 isFlushing = true;
-                var i = 0;
+                var i2 = 0;
                 try {
-                  for (; i < queue.length; i++) {
-                    var callback = queue[i];
+                  for (; i2 < queue.length; i2++) {
+                    var callback = queue[i2];
                     do {
                       callback = callback(true);
                     } while (callback !== null);
                   }
                   queue.length = 0;
                 } catch (error2) {
-                  queue = queue.slice(i + 1);
+                  queue = queue.slice(i2 + 1);
                   throw error2;
                 } finally {
                   isFlushing = false;
@@ -1887,7 +1887,7 @@
           exports.useLayoutEffect = useLayoutEffect;
           exports.useMemo = useMemo5;
           exports.useReducer = useReducer;
-          exports.useRef = useRef8;
+          exports.useRef = useRef9;
           exports.useState = useState5;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
@@ -1945,8 +1945,8 @@
             }
             return first;
           }
-          function siftUp(heap, node, i) {
-            var index = i;
+          function siftUp(heap, node, i2) {
+            var index = i2;
             while (index > 0) {
               var parentIndex = index - 1 >>> 1;
               var parent = heap[parentIndex];
@@ -1959,8 +1959,8 @@
               }
             }
           }
-          function siftDown(heap, node, i) {
-            var index = i;
+          function siftDown(heap, node, i2) {
+            var index = i2;
             var length = heap.length;
             var halfLength = length >>> 1;
             while (index < halfLength) {
@@ -1987,9 +1987,9 @@
               }
             }
           }
-          function compare(a, b) {
-            var diff = a.sortIndex - b.sortIndex;
-            return diff !== 0 ? diff : a.id - b.id;
+          function compare(a2, b2) {
+            var diff = a2.sortIndex - b2.sortIndex;
+            return diff !== 0 ? diff : a2.id - b2.id;
           }
           var ImmediatePriority = 1;
           var UserBlockingPriority = 2;
@@ -2485,8 +2485,8 @@
                 possibleRegistrationNames.ondblclick = registrationName;
               }
             }
-            for (var i = 0; i < dependencies.length; i++) {
-              allNativeEvents.add(dependencies[i]);
+            for (var i2 = 0; i2 < dependencies.length; i2++) {
+              allNativeEvents.add(dependencies[i2]);
             }
           }
           var canUseDOM = !!(typeof window !== "undefined" && typeof window.document !== "undefined" && typeof window.document.createElement !== "undefined");
@@ -2503,7 +2503,7 @@
               try {
                 testStringCoercion(value);
                 return false;
-              } catch (e) {
+              } catch (e2) {
                 return true;
               }
             }
@@ -3295,8 +3295,8 @@
               if (prefix === void 0) {
                 try {
                   throw Error();
-                } catch (x) {
-                  var match = x.stack.trim().match(/\n( *(at )?)/);
+                } catch (x2) {
+                  var match = x2.stack.trim().match(/\n( *(at )?)/);
                   prefix = match && match[1] || "";
                 }
               }
@@ -3342,23 +3342,23 @@
                 if (typeof Reflect === "object" && Reflect.construct) {
                   try {
                     Reflect.construct(Fake, []);
-                  } catch (x) {
-                    control = x;
+                  } catch (x2) {
+                    control = x2;
                   }
                   Reflect.construct(fn, [], Fake);
                 } else {
                   try {
                     Fake.call();
-                  } catch (x) {
-                    control = x;
+                  } catch (x2) {
+                    control = x2;
                   }
                   fn.call(Fake.prototype);
                 }
               } else {
                 try {
                   throw Error();
-                } catch (x) {
-                  control = x;
+                } catch (x2) {
+                  control = x2;
                 }
                 fn();
               }
@@ -3366,19 +3366,19 @@
               if (sample && control && typeof sample.stack === "string") {
                 var sampleLines = sample.stack.split("\n");
                 var controlLines = control.stack.split("\n");
-                var s = sampleLines.length - 1;
-                var c = controlLines.length - 1;
-                while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
-                  c--;
+                var s2 = sampleLines.length - 1;
+                var c2 = controlLines.length - 1;
+                while (s2 >= 1 && c2 >= 0 && sampleLines[s2] !== controlLines[c2]) {
+                  c2--;
                 }
-                for (; s >= 1 && c >= 0; s--, c--) {
-                  if (sampleLines[s] !== controlLines[c]) {
-                    if (s !== 1 || c !== 1) {
+                for (; s2 >= 1 && c2 >= 0; s2--, c2--) {
+                  if (sampleLines[s2] !== controlLines[c2]) {
+                    if (s2 !== 1 || c2 !== 1) {
                       do {
-                        s--;
-                        c--;
-                        if (c < 0 || sampleLines[s] !== controlLines[c]) {
-                          var _frame = "\n" + sampleLines[s].replace(" at new ", " at ");
+                        s2--;
+                        c2--;
+                        if (c2 < 0 || sampleLines[s2] !== controlLines[c2]) {
+                          var _frame = "\n" + sampleLines[s2].replace(" at new ", " at ");
                           if (fn.displayName && _frame.includes("<anonymous>")) {
                             _frame = _frame.replace("<anonymous>", fn.displayName);
                           }
@@ -3389,7 +3389,7 @@
                           }
                           return _frame;
                         }
-                      } while (s >= 1 && c >= 0);
+                      } while (s2 >= 1 && c2 >= 0);
                     }
                     break;
                   }
@@ -3456,7 +3456,7 @@
                   var init = lazyComponent._init;
                   try {
                     return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
-                  } catch (x) {
+                  } catch (x2) {
                   }
                 }
               }
@@ -3496,8 +3496,8 @@
                 node = node.return;
               } while (node);
               return info;
-            } catch (x) {
-              return "\nError generating stack: " + x.message + "\n" + x.stack;
+            } catch (x2) {
+              return "\nError generating stack: " + x2.message + "\n" + x2.stack;
             }
           }
           function getWrappedName(outerType, innerType, wrapperName) {
@@ -3562,7 +3562,7 @@
                   var init = lazyComponent._init;
                   try {
                     return getComponentNameFromType(init(payload));
-                  } catch (x) {
+                  } catch (x2) {
                     return null;
                   }
                 }
@@ -3819,7 +3819,7 @@
             }
             try {
               return doc.activeElement || doc.body;
-            } catch (e) {
+            } catch (e2) {
               return doc.body;
             }
           }
@@ -3960,8 +3960,8 @@
                 checkAttributeStringCoercion(name, "name");
               }
               var group = queryRoot.querySelectorAll("input[name=" + JSON.stringify("" + name) + '][type="radio"]');
-              for (var i = 0; i < group.length; i++) {
-                var otherNode = group[i];
+              for (var i2 = 0; i2 < group.length; i2++) {
+                var otherNode = group[i2];
                 if (otherNode === rootNode || otherNode.form !== rootNode.form) {
                   continue;
                 }
@@ -4024,8 +4024,8 @@
             }
           }
           var isArrayImpl = Array.isArray;
-          function isArray(a) {
-            return isArrayImpl(a);
+          function isArray(a2) {
+            return isArrayImpl(a2);
           }
           var didWarnValueDefaultValue$1;
           {
@@ -4042,8 +4042,8 @@
           function checkSelectPropTypes(props) {
             {
               checkControlledValueProps("select", props);
-              for (var i = 0; i < valuePropNames.length; i++) {
-                var propName = valuePropNames[i];
+              for (var i2 = 0; i2 < valuePropNames.length; i2++) {
+                var propName = valuePropNames[i2];
                 if (props[propName] == null) {
                   continue;
                 }
@@ -4061,8 +4061,8 @@
             if (multiple) {
               var selectedValues = propValue;
               var selectedValue = {};
-              for (var i = 0; i < selectedValues.length; i++) {
-                selectedValue["$" + selectedValues[i]] = true;
+              for (var i2 = 0; i2 < selectedValues.length; i2++) {
+                selectedValue["$" + selectedValues[i2]] = true;
               }
               for (var _i = 0; _i < options2.length; _i++) {
                 var selected = selectedValue.hasOwnProperty("$" + options2[_i].value);
@@ -4425,7 +4425,7 @@
             var warnedForNaNValue = false;
             var warnedForInfinityValue = false;
             var camelize = function(string) {
-              return string.replace(hyphenPattern, function(_, character) {
+              return string.replace(hyphenPattern, function(_2, character) {
                 return character.toUpperCase();
               });
             };
@@ -4538,8 +4538,8 @@
             var expanded = {};
             for (var key in styles) {
               var longhands = shorthandToLonghand[key] || [key];
-              for (var i = 0; i < longhands.length; i++) {
-                expanded[longhands[i]] = key;
+              for (var i2 = 0; i2 < longhands.length; i2++) {
+                expanded[longhands[i2]] = key;
               }
             }
             return expanded;
@@ -5465,8 +5465,8 @@
             restoreQueue = null;
             restoreStateOfTarget(target);
             if (queuedTargets) {
-              for (var i = 0; i < queuedTargets.length; i++) {
-                restoreStateOfTarget(queuedTargets[i]);
+              for (var i2 = 0; i2 < queuedTargets.length; i2++) {
+                restoreStateOfTarget(queuedTargets[i2]);
               }
             }
           }
@@ -5483,13 +5483,13 @@
               restoreStateIfNeeded();
             }
           }
-          function batchedUpdates(fn, a, b) {
+          function batchedUpdates(fn, a2, b2) {
             if (isInsideEventHandler) {
-              return fn(a, b);
+              return fn(a2, b2);
             }
             isInsideEventHandler = true;
             try {
-              return batchedUpdatesImpl(fn, a, b);
+              return batchedUpdatesImpl(fn, a2, b2);
             } finally {
               isInsideEventHandler = false;
               finishEventHandler();
@@ -5549,11 +5549,11 @@
               });
               window.addEventListener("test", options, options);
               window.removeEventListener("test", options, options);
-            } catch (e) {
+            } catch (e2) {
               passiveBrowserEventsSupported = false;
             }
           }
-          function invokeGuardedCallbackProd(name, func, context, a, b, c, d, e, f) {
+          function invokeGuardedCallbackProd(name, func, context, a2, b2, c2, d, e2, f) {
             var funcArgs = Array.prototype.slice.call(arguments, 3);
             try {
               func.apply(context, funcArgs);
@@ -5565,7 +5565,7 @@
           {
             if (typeof window !== "undefined" && typeof window.dispatchEvent === "function" && typeof document !== "undefined" && typeof document.createEvent === "function") {
               var fakeNode = document.createElement("react");
-              invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func, context, a, b, c, d, e, f) {
+              invokeGuardedCallbackImpl = function invokeGuardedCallbackDev(name, func, context, a2, b2, c2, d, e2, f) {
                 if (typeof document === "undefined" || document === null) {
                   throw new Error("The `document` global was defined when React was initialized, but is not defined anymore. This can happen in a test environment if a component schedules an update from an asynchronous callback, but the test has already finished running. To solve this, you can either unmount the component at the end of your test (and ensure that any asynchronous operations get canceled in `componentWillUnmount`), or you can change the test itself to be asynchronous.");
                 }
@@ -5640,12 +5640,12 @@
               caughtError = error2;
             }
           };
-          function invokeGuardedCallback(name, func, context, a, b, c, d, e, f) {
+          function invokeGuardedCallback(name, func, context, a2, b2, c2, d, e2, f) {
             hasError = false;
             caughtError = null;
             invokeGuardedCallbackImpl$1.apply(reporter, arguments);
           }
-          function invokeGuardedCallbackAndCatchFirstError(name, func, context, a, b, c, d, e, f) {
+          function invokeGuardedCallbackAndCatchFirstError(name, func, context, a2, b2, c2, d, e2, f) {
             invokeGuardedCallback.apply(this, arguments);
             if (hasError) {
               var error2 = clearCaughtError();
@@ -5874,10 +5874,10 @@
               }
               return fiber;
             }
-            var a = fiber;
-            var b = alternate;
+            var a2 = fiber;
+            var b2 = alternate;
             while (true) {
-              var parentA = a.return;
+              var parentA = a2.return;
               if (parentA === null) {
                 break;
               }
@@ -5885,7 +5885,7 @@
               if (parentB === null) {
                 var nextParent = parentA.return;
                 if (nextParent !== null) {
-                  a = b = nextParent;
+                  a2 = b2 = nextParent;
                   continue;
                 }
                 break;
@@ -5893,11 +5893,11 @@
               if (parentA.child === parentB.child) {
                 var child = parentA.child;
                 while (child) {
-                  if (child === a) {
+                  if (child === a2) {
                     assertIsMounted(parentA);
                     return fiber;
                   }
-                  if (child === b) {
+                  if (child === b2) {
                     assertIsMounted(parentA);
                     return alternate;
                   }
@@ -5905,23 +5905,23 @@
                 }
                 throw new Error("Unable to find node on an unmounted component.");
               }
-              if (a.return !== b.return) {
-                a = parentA;
-                b = parentB;
+              if (a2.return !== b2.return) {
+                a2 = parentA;
+                b2 = parentB;
               } else {
                 var didFindChild = false;
                 var _child = parentA.child;
                 while (_child) {
-                  if (_child === a) {
+                  if (_child === a2) {
                     didFindChild = true;
-                    a = parentA;
-                    b = parentB;
+                    a2 = parentA;
+                    b2 = parentB;
                     break;
                   }
-                  if (_child === b) {
+                  if (_child === b2) {
                     didFindChild = true;
-                    b = parentA;
-                    a = parentB;
+                    b2 = parentA;
+                    a2 = parentB;
                     break;
                   }
                   _child = _child.sibling;
@@ -5929,16 +5929,16 @@
                 if (!didFindChild) {
                   _child = parentB.child;
                   while (_child) {
-                    if (_child === a) {
+                    if (_child === a2) {
                       didFindChild = true;
-                      a = parentB;
-                      b = parentA;
+                      a2 = parentB;
+                      b2 = parentA;
                       break;
                     }
-                    if (_child === b) {
+                    if (_child === b2) {
                       didFindChild = true;
-                      b = parentB;
-                      a = parentA;
+                      b2 = parentB;
+                      a2 = parentA;
                       break;
                     }
                     _child = _child.sibling;
@@ -5948,14 +5948,14 @@
                   }
                 }
               }
-              if (a.alternate !== b) {
+              if (a2.alternate !== b2) {
                 throw new Error("Return fibers should always be each others' alternates. This error is likely caused by a bug in React. Please file an issue.");
               }
             }
-            if (a.tag !== HostRoot) {
+            if (a2.tag !== HostRoot) {
               throw new Error("Unable to find node on an unmounted component.");
             }
-            if (a.stateNode.current === a) {
+            if (a2.stateNode.current === a2) {
               return fiber;
             }
             return alternate;
@@ -6355,8 +6355,8 @@
           var clz32 = Math.clz32 ? Math.clz32 : clz32Fallback;
           var log = Math.log;
           var LN2 = Math.LN2;
-          function clz32Fallback(x) {
-            var asUint = x >>> 0;
+          function clz32Fallback(x2) {
+            var asUint = x2 >>> 0;
             if (asUint === 0) {
               return 32;
             }
@@ -6812,30 +6812,30 @@
           function laneToIndex(lane) {
             return pickArbitraryLaneIndex(lane);
           }
-          function includesSomeLane(a, b) {
-            return (a & b) !== NoLanes;
+          function includesSomeLane(a2, b2) {
+            return (a2 & b2) !== NoLanes;
           }
           function isSubsetOfLanes(set2, subset) {
             return (set2 & subset) === subset;
           }
-          function mergeLanes(a, b) {
-            return a | b;
+          function mergeLanes(a2, b2) {
+            return a2 | b2;
           }
           function removeLanes(set2, subset) {
             return set2 & ~subset;
           }
-          function intersectLanes(a, b) {
-            return a & b;
+          function intersectLanes(a2, b2) {
+            return a2 & b2;
           }
           function laneToLanes(lane) {
             return lane;
           }
-          function higherPriorityLane(a, b) {
-            return a !== NoLane && a < b ? a : b;
+          function higherPriorityLane(a2, b2) {
+            return a2 !== NoLane && a2 < b2 ? a2 : b2;
           }
           function createLaneMap(initial) {
             var laneMap = [];
-            for (var i = 0; i < TotalLanes; i++) {
+            for (var i2 = 0; i2 < TotalLanes; i2++) {
               laneMap.push(initial);
             }
             return laneMap;
@@ -7008,14 +7008,14 @@
               currentUpdatePriority = previousPriority;
             }
           }
-          function higherEventPriority(a, b) {
-            return a !== 0 && a < b ? a : b;
+          function higherEventPriority(a2, b2) {
+            return a2 !== 0 && a2 < b2 ? a2 : b2;
           }
-          function lowerEventPriority(a, b) {
-            return a === 0 || a > b ? a : b;
+          function lowerEventPriority(a2, b2) {
+            return a2 === 0 || a2 > b2 ? a2 : b2;
           }
-          function isHigherEventPriority(a, b) {
-            return a !== 0 && a < b;
+          function isHigherEventPriority(a2, b2) {
+            return a2 !== 0 && a2 < b2;
           }
           function lanesToEventPriority(lanes) {
             var lane = getHighestPriorityLane(lanes);
@@ -7219,14 +7219,14 @@
               target,
               priority: updatePriority
             };
-            var i = 0;
-            for (; i < queuedExplicitHydrationTargets.length; i++) {
-              if (!isHigherEventPriority(updatePriority, queuedExplicitHydrationTargets[i].priority)) {
+            var i2 = 0;
+            for (; i2 < queuedExplicitHydrationTargets.length; i2++) {
+              if (!isHigherEventPriority(updatePriority, queuedExplicitHydrationTargets[i2].priority)) {
                 break;
               }
             }
-            queuedExplicitHydrationTargets.splice(i, 0, queuedTarget);
-            if (i === 0) {
+            queuedExplicitHydrationTargets.splice(i2, 0, queuedTarget);
+            if (i2 === 0) {
               attemptExplicitHydrationTarget(queuedTarget);
             }
           }
@@ -7289,8 +7289,8 @@
           function retryIfBlockedOn(unblocked) {
             if (queuedDiscreteEvents.length > 0) {
               scheduleCallbackIfUnblocked(queuedDiscreteEvents[0], unblocked);
-              for (var i = 1; i < queuedDiscreteEvents.length; i++) {
-                var queuedEvent = queuedDiscreteEvents[i];
+              for (var i2 = 1; i2 < queuedDiscreteEvents.length; i2++) {
+                var queuedEvent = queuedDiscreteEvents[i2];
                 if (queuedEvent.blockedOn === unblocked) {
                   queuedEvent.blockedOn = null;
                 }
@@ -8395,8 +8395,8 @@
             }
             accumulateEnterLeaveTwoPhaseListeners(dispatchQueue, leave, enter, from, to);
           }
-          function is(x, y) {
-            return x === y && (x !== 0 || 1 / x === 1 / y) || x !== x && y !== y;
+          function is(x2, y2) {
+            return x2 === y2 && (x2 !== 0 || 1 / x2 === 1 / y2) || x2 !== x2 && y2 !== y2;
           }
           var objectIs = typeof Object.is === "function" ? Object.is : is;
           function shallowEqual(objA, objB) {
@@ -8411,8 +8411,8 @@
             if (keysA.length !== keysB.length) {
               return false;
             }
-            for (var i = 0; i < keysA.length; i++) {
-              var currentKey = keysA[i];
+            for (var i2 = 0; i2 < keysA.length; i2++) {
+              var currentKey = keysA[i2];
               if (!hasOwnProperty.call(objB, currentKey) || !objectIs(objA[currentKey], objB[currentKey])) {
                 return false;
               }
@@ -8433,17 +8433,17 @@
               node = node.parentNode;
             }
           }
-          function getNodeForCharacterOffset(root3, offset) {
+          function getNodeForCharacterOffset(root3, offset3) {
             var node = getLeafNode(root3);
             var nodeStart = 0;
             var nodeEnd = 0;
             while (node) {
               if (node.nodeType === TEXT_NODE) {
                 nodeEnd = nodeStart + node.textContent.length;
-                if (nodeStart <= offset && nodeEnd >= offset) {
+                if (nodeStart <= offset3 && nodeEnd >= offset3) {
                   return {
                     node,
-                    offset: offset - nodeStart
+                    offset: offset3 - nodeStart
                   };
                 }
                 nodeStart = nodeEnd;
@@ -8462,7 +8462,7 @@
             try {
               anchorNode.nodeType;
               focusNode.nodeType;
-            } catch (e) {
+            } catch (e2) {
               return null;
             }
             return getModernOffsetsFromPoints(outerNode, anchorNode, anchorOffset, focusNode, focusOffset);
@@ -8628,8 +8628,8 @@
               if (typeof priorFocusedElem.focus === "function") {
                 priorFocusedElem.focus();
               }
-              for (var i = 0; i < ancestors.length; i++) {
-                var info = ancestors[i];
+              for (var i2 = 0; i2 < ancestors.length; i2++) {
+                var info = ancestors[i2];
                 info.element.scrollLeft = info.left;
                 info.element.scrollTop = info.top;
               }
@@ -8807,8 +8807,8 @@
             registerTwoPhaseEvent(reactName, [domEventName]);
           }
           function registerSimpleEvents() {
-            for (var i = 0; i < simpleEventPluginEvents.length; i++) {
-              var eventName = simpleEventPluginEvents[i];
+            for (var i2 = 0; i2 < simpleEventPluginEvents.length; i2++) {
+              var eventName = simpleEventPluginEvents[i2];
               var domEventName = eventName.toLowerCase();
               var capitalizedEvent = eventName[0].toUpperCase() + eventName.slice(1);
               registerSimpleEvent(domEventName, "on" + capitalizedEvent);
@@ -8956,8 +8956,8 @@
           function processDispatchQueueItemsInOrder(event, dispatchListeners, inCapturePhase) {
             var previousInstance;
             if (inCapturePhase) {
-              for (var i = dispatchListeners.length - 1; i >= 0; i--) {
-                var _dispatchListeners$i = dispatchListeners[i], instance = _dispatchListeners$i.instance, currentTarget = _dispatchListeners$i.currentTarget, listener = _dispatchListeners$i.listener;
+              for (var i2 = dispatchListeners.length - 1; i2 >= 0; i2--) {
+                var _dispatchListeners$i = dispatchListeners[i2], instance = _dispatchListeners$i.instance, currentTarget = _dispatchListeners$i.currentTarget, listener = _dispatchListeners$i.listener;
                 if (instance !== previousInstance && event.isPropagationStopped()) {
                   return;
                 }
@@ -8977,8 +8977,8 @@
           }
           function processDispatchQueue(dispatchQueue, eventSystemFlags) {
             var inCapturePhase = (eventSystemFlags & IS_CAPTURE_PHASE) !== 0;
-            for (var i = 0; i < dispatchQueue.length; i++) {
-              var _dispatchQueue$i = dispatchQueue[i], event = _dispatchQueue$i.event, listeners = _dispatchQueue$i.listeners;
+            for (var i2 = 0; i2 < dispatchQueue.length; i2++) {
+              var _dispatchQueue$i = dispatchQueue[i2], event = _dispatchQueue$i.event, listeners = _dispatchQueue$i.listeners;
               processDispatchQueueItemsInOrder(event, listeners, inCapturePhase);
             }
             rethrowCaughtError();
@@ -9403,9 +9403,9 @@
             }
           }
           function updateDOMProperties(domElement, updatePayload, wasCustomComponentTag, isCustomComponentTag) {
-            for (var i = 0; i < updatePayload.length; i += 2) {
-              var propKey = updatePayload[i];
-              var propValue = updatePayload[i + 1];
+            for (var i2 = 0; i2 < updatePayload.length; i2 += 2) {
+              var propKey = updatePayload[i2];
+              var propValue = updatePayload[i2 + 1];
               if (propKey === STYLE) {
                 setValueForStyles(domElement, propValue);
               } else if (propKey === DANGEROUSLY_SET_INNER_HTML) {
@@ -9488,8 +9488,8 @@
                 break;
               case "video":
               case "audio":
-                for (var i = 0; i < mediaEventTypes.length; i++) {
-                  listenToNonDelegatedEvent(mediaEventTypes[i], domElement);
+                for (var i2 = 0; i2 < mediaEventTypes.length; i2++) {
+                  listenToNonDelegatedEvent(mediaEventTypes[i2], domElement);
                 }
                 props = rawProps;
                 break;
@@ -9736,8 +9736,8 @@
                 break;
               case "video":
               case "audio":
-                for (var i = 0; i < mediaEventTypes.length; i++) {
-                  listenToNonDelegatedEvent(mediaEventTypes[i], domElement);
+                for (var i2 = 0; i2 < mediaEventTypes.length; i2++) {
+                  listenToNonDelegatedEvent(mediaEventTypes[i2], domElement);
                 }
                 break;
               case "source":
@@ -11061,14 +11061,14 @@
           function flushSyncCallbacks() {
             if (!isFlushingSyncQueue && syncQueue !== null) {
               isFlushingSyncQueue = true;
-              var i = 0;
+              var i2 = 0;
               var previousUpdatePriority = getCurrentUpdatePriority();
               try {
                 var isSync = true;
                 var queue = syncQueue;
                 setCurrentUpdatePriority(DiscreteEventPriority);
-                for (; i < queue.length; i++) {
-                  var callback = queue[i];
+                for (; i2 < queue.length; i2++) {
+                  var callback = queue[i2];
                   do {
                     callback = callback(isSync);
                   } while (callback !== null);
@@ -11077,7 +11077,7 @@
                 includesLegacySyncCallbacks = false;
               } catch (error2) {
                 if (syncQueue !== null) {
-                  syncQueue = syncQueue.slice(i + 1);
+                  syncQueue = syncQueue.slice(i2 + 1);
                 }
                 scheduleCallback(ImmediatePriority, flushSyncCallbacks);
                 throw error2;
@@ -12184,8 +12184,8 @@
             function reconcileChildrenArray(returnFiber, currentFirstChild, newChildren, lanes) {
               {
                 var knownKeys = null;
-                for (var i = 0; i < newChildren.length; i++) {
-                  var child = newChildren[i];
+                for (var i2 = 0; i2 < newChildren.length; i2++) {
+                  var child = newChildren[i2];
                   knownKeys = warnOnInvalidKey(child, knownKeys, returnFiber);
                 }
               }
@@ -12768,8 +12768,8 @@
           }
           function finishQueueingConcurrentUpdates() {
             if (concurrentQueues !== null) {
-              for (var i = 0; i < concurrentQueues.length; i++) {
-                var queue = concurrentQueues[i];
+              for (var i2 = 0; i2 < concurrentQueues.length; i2++) {
+                var queue = concurrentQueues[i2];
                 var lastInterleavedUpdate = queue.interleaved;
                 if (lastInterleavedUpdate !== null) {
                   queue.interleaved = null;
@@ -13212,8 +13212,8 @@
             var effects = finishedQueue.effects;
             finishedQueue.effects = null;
             if (effects !== null) {
-              for (var i = 0; i < effects.length; i++) {
-                var effect = effects[i];
+              for (var i2 = 0; i2 < effects.length; i2++) {
+                var effect = effects[i2];
                 var callback = effect.callback;
                 if (callback !== null) {
                   effect.callback = null;
@@ -13226,11 +13226,11 @@
           var contextStackCursor$1 = createCursor(NO_CONTEXT);
           var contextFiberStackCursor = createCursor(NO_CONTEXT);
           var rootInstanceStackCursor = createCursor(NO_CONTEXT);
-          function requiredContext(c) {
-            if (c === NO_CONTEXT) {
+          function requiredContext(c2) {
+            if (c2 === NO_CONTEXT) {
               throw new Error("Expected host context to exist. This error is likely caused by a bug in React. Please file an issue.");
             }
-            return c;
+            return c2;
           }
           function getRootHostContainer() {
             var rootInstance = requiredContext(rootInstanceStackCursor.current);
@@ -13365,8 +13365,8 @@
           );
           var workInProgressSources = [];
           function resetWorkInProgressVersions() {
-            for (var i = 0; i < workInProgressSources.length; i++) {
-              var mutableSource = workInProgressSources[i];
+            for (var i2 = 0; i2 < workInProgressSources.length; i2++) {
+              var mutableSource = workInProgressSources[i2];
               {
                 mutableSource._workInProgressVersionPrimary = null;
               }
@@ -13437,10 +13437,10 @@
                 if (hookTypesDev !== null) {
                   var table = "";
                   var secondColumnStart = 30;
-                  for (var i = 0; i <= hookTypesUpdateIndexDev; i++) {
-                    var oldHookName = hookTypesDev[i];
-                    var newHookName = i === hookTypesUpdateIndexDev ? currentHookName : oldHookName;
-                    var row = i + 1 + ". " + oldHookName;
+                  for (var i2 = 0; i2 <= hookTypesUpdateIndexDev; i2++) {
+                    var oldHookName = hookTypesDev[i2];
+                    var newHookName = i2 === hookTypesUpdateIndexDev ? currentHookName : oldHookName;
+                    var row = i2 + 1 + ". " + oldHookName;
                     while (row.length < secondColumnStart) {
                       row += " ";
                     }
@@ -13472,8 +13472,8 @@
                 error("The final argument passed to %s changed size between renders. The order and size of this array must remain constant.\n\nPrevious: %s\nIncoming: %s", currentHookNameInDev, "[" + prevDeps.join(", ") + "]", "[" + nextDeps.join(", ") + "]");
               }
             }
-            for (var i = 0; i < prevDeps.length && i < nextDeps.length; i++) {
-              if (objectIs(nextDeps[i], prevDeps[i])) {
+            for (var i2 = 0; i2 < prevDeps.length && i2 < nextDeps.length; i2++) {
+              if (objectIs(nextDeps[i2], prevDeps[i2])) {
                 continue;
               }
               return false;
@@ -15988,9 +15988,9 @@
               } else {
                 console["error"](error2);
               }
-            } catch (e) {
+            } catch (e2) {
               setTimeout(function() {
-                throw e;
+                throw e2;
               });
             }
           }
@@ -16385,7 +16385,7 @@
                   var init = lazyComponent._init;
                   try {
                     outerMemoType = init(payload);
-                  } catch (x) {
+                  } catch (x2) {
                     outerMemoType = null;
                   }
                   var outerPropTypes = outerMemoType && outerMemoType.propTypes;
@@ -17436,8 +17436,8 @@
             {
               if ((revealOrder === "forwards" || revealOrder === "backwards") && children !== void 0 && children !== null && children !== false) {
                 if (isArray(children)) {
-                  for (var i = 0; i < children.length; i++) {
-                    if (!validateSuspenseListNestedChild(children[i], i)) {
+                  for (var i2 = 0; i2 < children.length; i2++) {
+                    if (!validateSuspenseListNestedChild(children[i2], i2)) {
                       return;
                     }
                   }
@@ -19625,8 +19625,8 @@
           function recursivelyTraverseMutationEffects(root3, parentFiber, lanes) {
             var deletions = parentFiber.deletions;
             if (deletions !== null) {
-              for (var i = 0; i < deletions.length; i++) {
-                var childToDelete = deletions[i];
+              for (var i2 = 0; i2 < deletions.length; i2++) {
+                var childToDelete = deletions[i2];
                 try {
                   commitDeletionEffects(root3, parentFiber, childToDelete);
                 } catch (error2) {
@@ -20132,8 +20132,8 @@
               if ((nextEffect.flags & ChildDeletion) !== NoFlags) {
                 var deletions = fiber.deletions;
                 if (deletions !== null) {
-                  for (var i = 0; i < deletions.length; i++) {
-                    var fiberToDelete = deletions[i];
+                  for (var i2 = 0; i2 < deletions.length; i2++) {
+                    var fiberToDelete = deletions[i2];
                     nextEffect = fiberToDelete;
                     commitPassiveUnmountEffectsInsideOfDeletedTree_begin(fiberToDelete, fiber);
                   }
@@ -20778,8 +20778,8 @@
                 if (updateQueue !== null) {
                   var checks = updateQueue.stores;
                   if (checks !== null) {
-                    for (var i = 0; i < checks.length; i++) {
-                      var check = checks[i];
+                    for (var i2 = 0; i2 < checks.length; i2++) {
+                      var check = checks[i2];
                       var getSnapshot = check.getSnapshot;
                       var renderedValue = check.value;
                       try {
@@ -20866,11 +20866,11 @@
               }
             }
           }
-          function batchedUpdates$1(fn, a) {
+          function batchedUpdates$1(fn, a2) {
             var prevExecutionContext = executionContext;
             executionContext |= BatchedContext;
             try {
-              return fn(a);
+              return fn(a2);
             } finally {
               executionContext = prevExecutionContext;
               if (executionContext === NoContext && // Treat `act` as if it's inside `batchedUpdates`, even in legacy mode.
@@ -20880,13 +20880,13 @@
               }
             }
           }
-          function discreteUpdates(fn, a, b, c, d) {
+          function discreteUpdates(fn, a2, b2, c2, d) {
             var previousPriority = getCurrentUpdatePriority();
             var prevTransition = ReactCurrentBatchConfig$3.transition;
             try {
               ReactCurrentBatchConfig$3.transition = null;
               setCurrentUpdatePriority(DiscreteEventPriority);
-              return fn(a, b, c, d);
+              return fn(a2, b2, c2, d);
             } finally {
               setCurrentUpdatePriority(previousPriority);
               ReactCurrentBatchConfig$3.transition = prevTransition;
@@ -21356,8 +21356,8 @@
             ensureRootIsScheduled(root3, now());
             if (recoverableErrors !== null) {
               var onRecoverableError = root3.onRecoverableError;
-              for (var i = 0; i < recoverableErrors.length; i++) {
-                var recoverableError = recoverableErrors[i];
+              for (var i2 = 0; i2 < recoverableErrors.length; i2++) {
+                var recoverableError = recoverableErrors[i2];
                 var componentStack = recoverableError.stack;
                 var digest = recoverableError.digest;
                 onRecoverableError(recoverableError.value, {
@@ -21451,8 +21451,8 @@
             {
               var profilerEffects = pendingPassiveProfilerEffects;
               pendingPassiveProfilerEffects = [];
-              for (var i = 0; i < profilerEffects.length; i++) {
-                var _fiber = profilerEffects[i];
+              for (var i2 = 0; i2 < profilerEffects.length; i2++) {
+                var _fiber = profilerEffects[i2];
                 commitPassiveEffectDurations(root3, _fiber);
               }
             }
@@ -22135,7 +22135,7 @@
               var nonExtensibleObject = Object.preventExtensions({});
               /* @__PURE__ */ new Map([[nonExtensibleObject, null]]);
               /* @__PURE__ */ new Set([nonExtensibleObject]);
-            } catch (e) {
+            } catch (e2) {
               hasBadMapPolyfill = true;
             }
           }
@@ -22889,8 +22889,8 @@
                 warn("copyWithRename() expects paths of the same length");
                 return;
               } else {
-                for (var i = 0; i < newPath.length - 1; i++) {
-                  if (oldPath[i] !== newPath[i]) {
+                for (var i2 = 0; i2 < newPath.length - 1; i2++) {
+                  if (oldPath[i2] !== newPath[i2]) {
                     warn("copyWithRename() expects paths to be the same except for the deepest key");
                     return;
                   }
@@ -23180,8 +23180,8 @@
             markContainerAsRoot(root3.current, container);
             listenToAllSupportedEvents(container);
             if (mutableSources) {
-              for (var i = 0; i < mutableSources.length; i++) {
-                var mutableSource = mutableSources[i];
+              for (var i2 = 0; i2 < mutableSources.length; i2++) {
+                var mutableSource = mutableSources[i2];
                 registerMutableSourceForHydration(root3, mutableSource);
               }
             }
@@ -23560,25 +23560,25 @@
         exports.createRoot = m.createRoot;
         exports.hydrateRoot = m.hydrateRoot;
       } else {
-        i = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
-        exports.createRoot = function(c, o) {
-          i.usingClientEntryPoint = true;
+        i2 = m.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+        exports.createRoot = function(c2, o2) {
+          i2.usingClientEntryPoint = true;
           try {
-            return m.createRoot(c, o);
+            return m.createRoot(c2, o2);
           } finally {
-            i.usingClientEntryPoint = false;
+            i2.usingClientEntryPoint = false;
           }
         };
-        exports.hydrateRoot = function(c, h, o) {
-          i.usingClientEntryPoint = true;
+        exports.hydrateRoot = function(c2, h2, o2) {
+          i2.usingClientEntryPoint = true;
           try {
-            return m.hydrateRoot(c, h, o);
+            return m.hydrateRoot(c2, h2, o2);
           } finally {
-            i.usingClientEntryPoint = false;
+            i2.usingClientEntryPoint = false;
           }
         };
       }
-      var i;
+      var i2;
     }
   });
 
@@ -23591,11 +23591,11 @@
         "use strict";
         var version = "1.9.4";
         function extend(dest) {
-          var i, j, len, src;
-          for (j = 1, len = arguments.length; j < len; j++) {
-            src = arguments[j];
-            for (i in src) {
-              dest[i] = src[i];
+          var i2, j2, len, src;
+          for (j2 = 1, len = arguments.length; j2 < len; j2++) {
+            src = arguments[j2];
+            for (i2 in src) {
+              dest[i2] = src[i2];
             }
           }
           return dest;
@@ -23645,9 +23645,9 @@
           };
           return wrapperFn;
         }
-        function wrapNum(x, range, includeMax) {
-          var max = range[1], min = range[0], d = max - min;
-          return x === max && includeMax ? x : ((x - min) % d + d) % d + min;
+        function wrapNum(x2, range, includeMax) {
+          var max2 = range[1], min2 = range[0], d = max2 - min2;
+          return x2 === max2 && includeMax ? x2 : ((x2 - min2) % d + d) % d + min2;
         }
         function falseFn() {
           return false;
@@ -23669,15 +23669,15 @@
           if (!Object.prototype.hasOwnProperty.call(obj, "options")) {
             obj.options = obj.options ? create$2(obj.options) : {};
           }
-          for (var i in options) {
-            obj.options[i] = options[i];
+          for (var i2 in options) {
+            obj.options[i2] = options[i2];
           }
           return obj.options;
         }
         function getParamString(obj, existingUrl, uppercase) {
           var params = [];
-          for (var i in obj) {
-            params.push(encodeURIComponent(uppercase ? i.toUpperCase() : i) + "=" + encodeURIComponent(obj[i]));
+          for (var i2 in obj) {
+            params.push(encodeURIComponent(uppercase ? i2.toUpperCase() : i2) + "=" + encodeURIComponent(obj[i2]));
           }
           return (!existingUrl || existingUrl.indexOf("?") === -1 ? "?" : "&") + params.join("&");
         }
@@ -23697,9 +23697,9 @@
           return Object.prototype.toString.call(obj) === "[object Array]";
         };
         function indexOf(array, el) {
-          for (var i = 0; i < array.length; i++) {
-            if (array[i] === el) {
-              return i;
+          for (var i2 = 0; i2 < array.length; i2++) {
+            if (array[i2] === el) {
+              return i2;
             }
           }
           return -1;
@@ -23770,9 +23770,9 @@
           var proto = create$2(parentProto);
           proto.constructor = NewClass;
           NewClass.prototype = proto;
-          for (var i in this) {
-            if (Object.prototype.hasOwnProperty.call(this, i) && i !== "prototype" && i !== "__super__") {
-              NewClass[i] = this[i];
+          for (var i2 in this) {
+            if (Object.prototype.hasOwnProperty.call(this, i2) && i2 !== "prototype" && i2 !== "__super__") {
+              NewClass[i2] = this[i2];
             }
           }
           if (props.statics) {
@@ -23798,8 +23798,8 @@
               parentProto.callInitHooks.call(this);
             }
             this._initHooksCalled = true;
-            for (var i2 = 0, len = proto._initHooks.length; i2 < len; i2++) {
-              proto._initHooks[i2].call(this);
+            for (var i3 = 0, len = proto._initHooks.length; i3 < len; i3++) {
+              proto._initHooks[i3].call(this);
             }
           };
           return NewClass;
@@ -23831,8 +23831,8 @@
             return;
           }
           includes = isArray(includes) ? includes : [includes];
-          for (var i = 0; i < includes.length; i++) {
-            if (includes[i] === L.Mixin.Events) {
+          for (var i2 = 0; i2 < includes.length; i2++) {
+            if (includes[i2] === L.Mixin.Events) {
               console.warn("Deprecated include of L.Mixin.Events: this property will be removed in future releases, please inherit from L.Evented instead.", new Error().stack);
             }
           }
@@ -23852,8 +23852,8 @@
               }
             } else {
               types = splitWords(types);
-              for (var i = 0, len = types.length; i < len; i++) {
-                this._on(types[i], fn, context);
+              for (var i2 = 0, len = types.length; i2 < len; i2++) {
+                this._on(types[i2], fn, context);
               }
             }
             return this;
@@ -23879,11 +23879,11 @@
             } else {
               types = splitWords(types);
               var removeAll = arguments.length === 1;
-              for (var i = 0, len = types.length; i < len; i++) {
+              for (var i2 = 0, len = types.length; i2 < len; i2++) {
                 if (removeAll) {
-                  this._off(types[i]);
+                  this._off(types[i2]);
                 } else {
-                  this._off(types[i], fn, context);
+                  this._off(types[i2], fn, context);
                 }
               }
             }
@@ -23910,7 +23910,7 @@
             this._events[type].push(newListener);
           },
           _off: function(type, fn, context) {
-            var listeners, i, len;
+            var listeners, i2, len;
             if (!this._events) {
               return;
             }
@@ -23920,8 +23920,8 @@
             }
             if (arguments.length === 1) {
               if (this._firingCount) {
-                for (i = 0, len = listeners.length; i < len; i++) {
-                  listeners[i].fn = falseFn;
+                for (i2 = 0, len = listeners.length; i2 < len; i2++) {
+                  listeners[i2].fn = falseFn;
                 }
               }
               delete this._events[type];
@@ -23958,13 +23958,13 @@
               var listeners = this._events[type];
               if (listeners) {
                 this._firingCount = this._firingCount + 1 || 1;
-                for (var i = 0, len = listeners.length; i < len; i++) {
-                  var l = listeners[i];
-                  var fn = l.fn;
-                  if (l.once) {
-                    this.off(type, fn, l.ctx);
+                for (var i2 = 0, len = listeners.length; i2 < len; i2++) {
+                  var l2 = listeners[i2];
+                  var fn = l2.fn;
+                  if (l2.once) {
+                    this.off(type, fn, l2.ctx);
                   }
-                  fn.call(l.ctx || this, event);
+                  fn.call(l2.ctx || this, event);
                 }
                 this._firingCount--;
               }
@@ -24015,9 +24015,9 @@
             if (context === this) {
               context = void 0;
             }
-            for (var i = 0, len = listeners.length; i < len; i++) {
-              if (listeners[i].fn === fn && listeners[i].ctx === context) {
-                return i;
+            for (var i2 = 0, len = listeners.length; i2 < len; i2++) {
+              if (listeners[i2].fn === fn && listeners[i2].ctx === context) {
+                return i2;
               }
             }
             return false;
@@ -24031,8 +24031,8 @@
               }
             } else {
               types = splitWords(types);
-              for (var i = 0, len = types.length; i < len; i++) {
-                this._on(types[i], fn, context, true);
+              for (var i2 = 0, len = types.length; i2 < len; i2++) {
+                this._on(types[i2], fn, context, true);
               }
             }
             return this;
@@ -24052,12 +24052,12 @@
             }
             return this;
           },
-          _propagateEvent: function(e) {
+          _propagateEvent: function(e2) {
             for (var id in this._eventParents) {
-              this._eventParents[id].fire(e.type, extend({
-                layer: e.target,
-                propagatedFrom: e.target
-              }, e), true);
+              this._eventParents[id].fire(e2.type, extend({
+                layer: e2.target,
+                propagatedFrom: e2.target
+              }, e2), true);
             }
           }
         };
@@ -24067,9 +24067,9 @@
         Events.fireEvent = Events.fire;
         Events.hasEventListeners = Events.listens;
         var Evented = Class.extend(Events);
-        function Point(x, y, round) {
-          this.x = round ? Math.round(x) : x;
-          this.y = round ? Math.round(y) : y;
+        function Point(x2, y2, round2) {
+          this.x = round2 ? Math.round(x2) : x2;
+          this.y = round2 ? Math.round(y2) : y2;
         }
         var trunc = Math.trunc || function(v) {
           return v > 0 ? Math.floor(v) : Math.ceil(v);
@@ -24178,8 +24178,8 @@
           // Returns the cartesian distance between the current and the given points.
           distanceTo: function(point) {
             point = toPoint(point);
-            var x = point.x - this.x, y = point.y - this.y;
-            return Math.sqrt(x * x + y * y);
+            var x2 = point.x - this.x, y2 = point.y - this.y;
+            return Math.sqrt(x2 * x2 + y2 * y2);
           },
           // @method equals(otherPoint: Point): Boolean
           // Returns `true` if the given point has the same coordinates.
@@ -24199,28 +24199,28 @@
             return "Point(" + formatNum(this.x) + ", " + formatNum(this.y) + ")";
           }
         };
-        function toPoint(x, y, round) {
-          if (x instanceof Point) {
-            return x;
+        function toPoint(x2, y2, round2) {
+          if (x2 instanceof Point) {
+            return x2;
           }
-          if (isArray(x)) {
-            return new Point(x[0], x[1]);
+          if (isArray(x2)) {
+            return new Point(x2[0], x2[1]);
           }
-          if (x === void 0 || x === null) {
-            return x;
+          if (x2 === void 0 || x2 === null) {
+            return x2;
           }
-          if (typeof x === "object" && "x" in x && "y" in x) {
-            return new Point(x.x, x.y);
+          if (typeof x2 === "object" && "x" in x2 && "y" in x2) {
+            return new Point(x2.x, x2.y);
           }
-          return new Point(x, y, round);
+          return new Point(x2, y2, round2);
         }
-        function Bounds(a, b) {
-          if (!a) {
+        function Bounds(a2, b2) {
+          if (!a2) {
             return;
           }
-          var points = b ? [a, b] : a;
-          for (var i = 0, len = points.length; i < len; i++) {
-            this.extend(points[i]);
+          var points = b2 ? [a2, b2] : a2;
+          for (var i2 = 0, len = points.length; i2 < len; i2++) {
+            this.extend(points[i2]);
           }
         }
         Bounds.prototype = {
@@ -24257,11 +24257,11 @@
           },
           // @method getCenter(round?: Boolean): Point
           // Returns the center point of the bounds.
-          getCenter: function(round) {
+          getCenter: function(round2) {
             return toPoint(
               (this.min.x + this.max.x) / 2,
               (this.min.y + this.max.y) / 2,
-              round
+              round2
             );
           },
           // @method getBottomLeft(): Point
@@ -24295,26 +24295,26 @@
           // @method contains(point: Point): Boolean
           // Returns `true` if the rectangle contains the given point.
           contains: function(obj) {
-            var min, max;
+            var min2, max2;
             if (typeof obj[0] === "number" || obj instanceof Point) {
               obj = toPoint(obj);
             } else {
               obj = toBounds(obj);
             }
             if (obj instanceof Bounds) {
-              min = obj.min;
-              max = obj.max;
+              min2 = obj.min;
+              max2 = obj.max;
             } else {
-              min = max = obj;
+              min2 = max2 = obj;
             }
-            return min.x >= this.min.x && max.x <= this.max.x && min.y >= this.min.y && max.y <= this.max.y;
+            return min2.x >= this.min.x && max2.x <= this.max.x && min2.y >= this.min.y && max2.y <= this.max.y;
           },
           // @method intersects(otherBounds: Bounds): Boolean
           // Returns `true` if the rectangle intersects the given bounds. Two bounds
           // intersect if they have at least one point in common.
           intersects: function(bounds) {
             bounds = toBounds(bounds);
-            var min = this.min, max = this.max, min2 = bounds.min, max2 = bounds.max, xIntersects = max2.x >= min.x && min2.x <= max.x, yIntersects = max2.y >= min.y && min2.y <= max.y;
+            var min2 = this.min, max2 = this.max, min22 = bounds.min, max22 = bounds.max, xIntersects = max22.x >= min2.x && min22.x <= max2.x, yIntersects = max22.y >= min2.y && min22.y <= max2.y;
             return xIntersects && yIntersects;
           },
           // @method overlaps(otherBounds: Bounds): Boolean
@@ -24322,7 +24322,7 @@
           // overlap if their intersection is an area.
           overlaps: function(bounds) {
             bounds = toBounds(bounds);
-            var min = this.min, max = this.max, min2 = bounds.min, max2 = bounds.max, xOverlaps = max2.x > min.x && min2.x < max.x, yOverlaps = max2.y > min.y && min2.y < max.y;
+            var min2 = this.min, max2 = this.max, min22 = bounds.min, max22 = bounds.max, xOverlaps = max22.x > min2.x && min22.x < max2.x, yOverlaps = max22.y > min2.y && min22.y < max2.y;
             return xOverlaps && yOverlaps;
           },
           // @method isValid(): Boolean
@@ -24335,10 +24335,10 @@
           // For example, a ratio of 0.5 extends the bounds by 50% in each direction.
           // Negative values will retract the bounds.
           pad: function(bufferRatio) {
-            var min = this.min, max = this.max, heightBuffer = Math.abs(min.x - max.x) * bufferRatio, widthBuffer = Math.abs(min.y - max.y) * bufferRatio;
+            var min2 = this.min, max2 = this.max, heightBuffer = Math.abs(min2.x - max2.x) * bufferRatio, widthBuffer = Math.abs(min2.y - max2.y) * bufferRatio;
             return toBounds(
-              toPoint(min.x - heightBuffer, min.y - widthBuffer),
-              toPoint(max.x + heightBuffer, max.y + widthBuffer)
+              toPoint(min2.x - heightBuffer, min2.y - widthBuffer),
+              toPoint(max2.x + heightBuffer, max2.y + widthBuffer)
             );
           },
           // @method equals(otherBounds: Bounds): Boolean
@@ -24351,19 +24351,19 @@
             return this.min.equals(bounds.getTopLeft()) && this.max.equals(bounds.getBottomRight());
           }
         };
-        function toBounds(a, b) {
-          if (!a || a instanceof Bounds) {
-            return a;
+        function toBounds(a2, b2) {
+          if (!a2 || a2 instanceof Bounds) {
+            return a2;
           }
-          return new Bounds(a, b);
+          return new Bounds(a2, b2);
         }
         function LatLngBounds(corner1, corner2) {
           if (!corner1) {
             return;
           }
           var latlngs = corner2 ? [corner1, corner2] : corner1;
-          for (var i = 0, len = latlngs.length; i < len; i++) {
-            this.extend(latlngs[i]);
+          for (var i2 = 0, len = latlngs.length; i2 < len; i2++) {
+            this.extend(latlngs[i2]);
           }
         }
         LatLngBounds.prototype = {
@@ -24510,11 +24510,11 @@
             return !!(this._southWest && this._northEast);
           }
         };
-        function toLatLngBounds(a, b) {
-          if (a instanceof LatLngBounds) {
-            return a;
+        function toLatLngBounds(a2, b2) {
+          if (a2 instanceof LatLngBounds) {
+            return a2;
           }
-          return new LatLngBounds(a, b);
+          return new LatLngBounds(a2, b2);
         }
         function LatLng2(lat, lng, alt) {
           if (isNaN(lat) || isNaN(lng)) {
@@ -24568,29 +24568,29 @@
             return new LatLng2(this.lat, this.lng, this.alt);
           }
         };
-        function toLatLng(a, b, c) {
-          if (a instanceof LatLng2) {
-            return a;
+        function toLatLng(a2, b2, c2) {
+          if (a2 instanceof LatLng2) {
+            return a2;
           }
-          if (isArray(a) && typeof a[0] !== "object") {
-            if (a.length === 3) {
-              return new LatLng2(a[0], a[1], a[2]);
+          if (isArray(a2) && typeof a2[0] !== "object") {
+            if (a2.length === 3) {
+              return new LatLng2(a2[0], a2[1], a2[2]);
             }
-            if (a.length === 2) {
-              return new LatLng2(a[0], a[1]);
+            if (a2.length === 2) {
+              return new LatLng2(a2[0], a2[1]);
             }
             return null;
           }
-          if (a === void 0 || a === null) {
-            return a;
+          if (a2 === void 0 || a2 === null) {
+            return a2;
           }
-          if (typeof a === "object" && "lat" in a) {
-            return new LatLng2(a.lat, "lng" in a ? a.lng : a.lon, a.alt);
+          if (typeof a2 === "object" && "lat" in a2) {
+            return new LatLng2(a2.lat, "lng" in a2 ? a2.lng : a2.lon, a2.alt);
           }
-          if (b === void 0) {
+          if (b2 === void 0) {
             return null;
           }
-          return new LatLng2(a, b, c);
+          return new LatLng2(a2, b2, c2);
         }
         var CRS = {
           // @method latLngToPoint(latlng: LatLng, zoom: Number): Point
@@ -24637,8 +24637,8 @@
             if (this.infinite) {
               return null;
             }
-            var b = this.projection.bounds, s = this.scale(zoom2), min = this.transformation.transform(b.min, s), max = this.transformation.transform(b.max, s);
-            return new Bounds(min, max);
+            var b2 = this.projection.bounds, s2 = this.scale(zoom2), min2 = this.transformation.transform(b2.min, s2), max2 = this.transformation.transform(b2.max, s2);
+            return new Bounds(min2, max2);
           },
           // @method distance(latlng1: LatLng, latlng2: LatLng): Number
           // Returns the distance between two geographical coordinates.
@@ -24685,8 +24685,8 @@
           R: 6371e3,
           // distance between two geographical points using spherical law of cosines approximation
           distance: function(latlng1, latlng2) {
-            var rad = Math.PI / 180, lat1 = latlng1.lat * rad, lat2 = latlng2.lat * rad, sinDLat = Math.sin((latlng2.lat - latlng1.lat) * rad / 2), sinDLon = Math.sin((latlng2.lng - latlng1.lng) * rad / 2), a = sinDLat * sinDLat + Math.cos(lat1) * Math.cos(lat2) * sinDLon * sinDLon, c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-            return this.R * c;
+            var rad = Math.PI / 180, lat1 = latlng1.lat * rad, lat2 = latlng2.lat * rad, sinDLat = Math.sin((latlng2.lat - latlng1.lat) * rad / 2), sinDLon = Math.sin((latlng2.lng - latlng1.lng) * rad / 2), a2 = sinDLat * sinDLat + Math.cos(lat1) * Math.cos(lat2) * sinDLon * sinDLon, c2 = 2 * Math.atan2(Math.sqrt(a2), Math.sqrt(1 - a2));
+            return this.R * c2;
           }
         });
         var earthRadius = 6378137;
@@ -24694,7 +24694,7 @@
           R: earthRadius,
           MAX_LATITUDE: 85.0511287798,
           project: function(latlng) {
-            var d = Math.PI / 180, max = this.MAX_LATITUDE, lat = Math.max(Math.min(max, latlng.lat), -max), sin = Math.sin(lat * d);
+            var d = Math.PI / 180, max2 = this.MAX_LATITUDE, lat = Math.max(Math.min(max2, latlng.lat), -max2), sin = Math.sin(lat * d);
             return new Point(
               this.R * latlng.lng * d,
               this.R * Math.log((1 + sin) / (1 - sin)) / 2
@@ -24712,17 +24712,17 @@
             return new Bounds([-d, -d], [d, d]);
           }()
         };
-        function Transformation(a, b, c, d) {
-          if (isArray(a)) {
-            this._a = a[0];
-            this._b = a[1];
-            this._c = a[2];
-            this._d = a[3];
+        function Transformation(a2, b2, c2, d) {
+          if (isArray(a2)) {
+            this._a = a2[0];
+            this._b = a2[1];
+            this._c = a2[2];
+            this._d = a2[3];
             return;
           }
-          this._a = a;
-          this._b = b;
-          this._c = c;
+          this._a = a2;
+          this._b = b2;
+          this._c = c2;
           this._d = d;
         }
         Transformation.prototype = {
@@ -24750,8 +24750,8 @@
             );
           }
         };
-        function toTransformation(a, b, c, d) {
-          return new Transformation(a, b, c, d);
+        function toTransformation(a2, b2, c2, d) {
+          return new Transformation(a2, b2, c2, d);
         }
         var EPSG3857 = extend({}, Earth, {
           code: "EPSG:3857",
@@ -24768,12 +24768,12 @@
           return document.createElementNS("http://www.w3.org/2000/svg", name);
         }
         function pointsToPath(rings, closed) {
-          var str = "", i, j, len, len2, points, p;
-          for (i = 0, len = rings.length; i < len; i++) {
-            points = rings[i];
-            for (j = 0, len2 = points.length; j < len2; j++) {
-              p = points[j];
-              str += (j ? "L" : "M") + p.x + " " + p.y;
+          var str = "", i2, j2, len, len2, points, p;
+          for (i2 = 0, len = rings.length; i2 < len; i2++) {
+            points = rings[i2];
+            for (j2 = 0, len2 = points.length; j2 < len2; j2++) {
+              p = points[j2];
+              str += (j2 ? "L" : "M") + p.x + " " + p.y;
             }
             str += closed ? Browser.svg ? "z" : "x" : "";
           }
@@ -24819,7 +24819,7 @@
             });
             window.addEventListener("testPassiveEventSupport", falseFn, opts);
             window.removeEventListener("testPassiveEventSupport", falseFn, opts);
-          } catch (e) {
+          } catch (e2) {
           }
           return supportsPassiveOption;
         }();
@@ -24839,7 +24839,7 @@
             var shape = div.firstChild;
             shape.style.behavior = "url(#default#VML)";
             return shape && typeof shape.adj === "object";
-          } catch (e) {
+          } catch (e2) {
             return false;
           }
         }();
@@ -24922,16 +24922,16 @@
           }
           obj.removeEventListener(pEvent[type], handler, false);
         }
-        function _globalPointerDown(e) {
-          _pointers[e.pointerId] = e;
+        function _globalPointerDown(e2) {
+          _pointers[e2.pointerId] = e2;
         }
-        function _globalPointerMove(e) {
-          if (_pointers[e.pointerId]) {
-            _pointers[e.pointerId] = e;
+        function _globalPointerMove(e2) {
+          if (_pointers[e2.pointerId]) {
+            _pointers[e2.pointerId] = e2;
           }
         }
-        function _globalPointerUp(e) {
-          delete _pointers[e.pointerId];
+        function _globalPointerUp(e2) {
+          delete _pointers[e2.pointerId];
         }
         function _addPointerDocListener() {
           if (!_pointerDocListener) {
@@ -24942,28 +24942,28 @@
             _pointerDocListener = true;
           }
         }
-        function _handlePointer(handler, e) {
-          if (e.pointerType === (e.MSPOINTER_TYPE_MOUSE || "mouse")) {
+        function _handlePointer(handler, e2) {
+          if (e2.pointerType === (e2.MSPOINTER_TYPE_MOUSE || "mouse")) {
             return;
           }
-          e.touches = [];
-          for (var i in _pointers) {
-            e.touches.push(_pointers[i]);
+          e2.touches = [];
+          for (var i2 in _pointers) {
+            e2.touches.push(_pointers[i2]);
           }
-          e.changedTouches = [e];
-          handler(e);
+          e2.changedTouches = [e2];
+          handler(e2);
         }
-        function _onPointerStart(handler, e) {
-          if (e.MSPOINTER_TYPE_TOUCH && e.pointerType === e.MSPOINTER_TYPE_TOUCH) {
-            preventDefault(e);
+        function _onPointerStart(handler, e2) {
+          if (e2.MSPOINTER_TYPE_TOUCH && e2.pointerType === e2.MSPOINTER_TYPE_TOUCH) {
+            preventDefault(e2);
           }
-          _handlePointer(handler, e);
+          _handlePointer(handler, e2);
         }
         function makeDblclick(event) {
-          var newEvent = {}, prop, i;
-          for (i in event) {
-            prop = event[i];
-            newEvent[i] = prop && prop.bind ? prop.bind(event) : prop;
+          var newEvent = {}, prop, i2;
+          for (i2 in event) {
+            prop = event[i2];
+            newEvent[i2] = prop && prop.bind ? prop.bind(event) : prop;
           }
           event = newEvent;
           newEvent.type = "dblclick";
@@ -24976,15 +24976,15 @@
         function addDoubleTapListener(obj, handler) {
           obj.addEventListener("dblclick", handler);
           var last = 0, detail;
-          function simDblclick(e) {
-            if (e.detail !== 1) {
-              detail = e.detail;
+          function simDblclick(e2) {
+            if (e2.detail !== 1) {
+              detail = e2.detail;
               return;
             }
-            if (e.pointerType === "mouse" || e.sourceCapabilities && !e.sourceCapabilities.firesTouchEvents) {
+            if (e2.pointerType === "mouse" || e2.sourceCapabilities && !e2.sourceCapabilities.firesTouchEvents) {
               return;
             }
-            var path = getPropagationPath(e);
+            var path = getPropagationPath(e2);
             if (path.some(function(el) {
               return el instanceof HTMLLabelElement && el.attributes.for;
             }) && !path.some(function(el) {
@@ -24996,7 +24996,7 @@
             if (now - last <= delay) {
               detail++;
               if (detail === 2) {
-                handler(makeDblclick(e));
+                handler(makeDblclick(e2));
               }
             } else {
               detail = 1;
@@ -25072,8 +25072,8 @@
         function addClass(el, name) {
           if (el.classList !== void 0) {
             var classes = splitWords(name);
-            for (var i = 0, len = classes.length; i < len; i++) {
-              el.classList.add(classes[i]);
+            for (var i2 = 0, len = classes.length; i2 < len; i2++) {
+              el.classList.add(classes[i2]);
             }
           } else if (!hasClass(el, name)) {
             var className = getClass(el);
@@ -25111,7 +25111,7 @@
           var filter = false, filterName = "DXImageTransform.Microsoft.Alpha";
           try {
             filter = el.filters.item(filterName);
-          } catch (e) {
+          } catch (e2) {
             if (value === 1) {
               return;
             }
@@ -25126,15 +25126,15 @@
         }
         function testProp(props) {
           var style2 = document.documentElement.style;
-          for (var i = 0; i < props.length; i++) {
-            if (props[i] in style2) {
-              return props[i];
+          for (var i2 = 0; i2 < props.length; i2++) {
+            if (props[i2] in style2) {
+              return props[i2];
             }
           }
           return false;
         }
-        function setTransform(el, offset, scale2) {
-          var pos = offset || new Point(0, 0);
+        function setTransform(el, offset3, scale2) {
+          var pos = offset3 || new Point(0, 0);
           el.style[TRANSFORM] = (Browser.ie3d ? "translate(" + pos.x + "px," + pos.y + "px)" : "translate3d(" + pos.x + "px," + pos.y + "px,0)") + (scale2 ? " scale(" + scale2 + ")" : "");
         }
         function setPosition(el, point) {
@@ -25212,7 +25212,7 @@
           } while ((!element.offsetWidth || !element.offsetHeight) && element !== document.body);
           return element;
         }
-        function getScale(element) {
+        function getScale2(element) {
           var rect = element.getBoundingClientRect();
           return {
             x: rect.width / element.offsetWidth || 1,
@@ -25253,7 +25253,7 @@
           preventOutline,
           restoreOutline,
           getSizedParentNode,
-          getScale
+          getScale: getScale2
         };
         function on(obj, types, fn, context) {
           if (types && typeof types === "object") {
@@ -25262,8 +25262,8 @@
             }
           } else {
             types = splitWords(types);
-            for (var i = 0, len = types.length; i < len; i++) {
-              addOne(obj, types[i], fn, context);
+            for (var i2 = 0, len = types.length; i2 < len; i2++) {
+              addOne(obj, types[i2], fn, context);
             }
           }
           return this;
@@ -25284,8 +25284,8 @@
                 return indexOf(types, type2) !== -1;
               });
             } else {
-              for (var i = 0, len = types.length; i < len; i++) {
-                removeOne(obj, types[i], fn, context);
+              for (var i2 = 0, len = types.length; i2 < len; i2++) {
+                removeOne(obj, types[i2], fn, context);
               }
             }
           }
@@ -25309,8 +25309,8 @@
           if (obj[eventsKey] && obj[eventsKey][id]) {
             return this;
           }
-          var handler = function(e) {
-            return fn.call(context || obj, e || window.event);
+          var handler = function(e2) {
+            return fn.call(context || obj, e2 || window.event);
           };
           var originalHandler = handler;
           if (!Browser.touchNative && Browser.pointer && type.indexOf("touch") === 0) {
@@ -25321,10 +25321,10 @@
             if (type === "touchstart" || type === "touchmove" || type === "wheel" || type === "mousewheel") {
               obj.addEventListener(mouseSubst[type] || type, handler, Browser.passiveEvents ? { passive: false } : false);
             } else if (type === "mouseenter" || type === "mouseleave") {
-              handler = function(e) {
-                e = e || window.event;
-                if (isExternalTarget(obj, e)) {
-                  originalHandler(e);
+              handler = function(e2) {
+                e2 = e2 || window.event;
+                if (isExternalTarget(obj, e2)) {
+                  originalHandler(e2);
                 }
               };
               obj.addEventListener(mouseSubst[type], handler, false);
@@ -25354,13 +25354,13 @@
           }
           obj[eventsKey][id] = null;
         }
-        function stopPropagation(e) {
-          if (e.stopPropagation) {
-            e.stopPropagation();
-          } else if (e.originalEvent) {
-            e.originalEvent._stopped = true;
+        function stopPropagation(e2) {
+          if (e2.stopPropagation) {
+            e2.stopPropagation();
+          } else if (e2.originalEvent) {
+            e2.originalEvent._stopped = true;
           } else {
-            e.cancelBubble = true;
+            e2.cancelBubble = true;
           }
           return this;
         }
@@ -25373,17 +25373,17 @@
           el["_leaflet_disable_click"] = true;
           return this;
         }
-        function preventDefault(e) {
-          if (e.preventDefault) {
-            e.preventDefault();
+        function preventDefault(e2) {
+          if (e2.preventDefault) {
+            e2.preventDefault();
           } else {
-            e.returnValue = false;
+            e2.returnValue = false;
           }
           return this;
         }
-        function stop(e) {
-          preventDefault(e);
-          stopPropagation(e);
+        function stop(e2) {
+          preventDefault(e2);
+          stopPropagation(e2);
           return this;
         }
         function getPropagationPath(ev) {
@@ -25398,35 +25398,35 @@
           }
           return path;
         }
-        function getMousePosition(e, container) {
+        function getMousePosition(e2, container) {
           if (!container) {
-            return new Point(e.clientX, e.clientY);
+            return new Point(e2.clientX, e2.clientY);
           }
-          var scale2 = getScale(container), offset = scale2.boundingClientRect;
+          var scale2 = getScale2(container), offset3 = scale2.boundingClientRect;
           return new Point(
             // offset.left/top values are in page scale (like clientX/Y),
             // whereas clientLeft/Top (border width) values are the original values (before CSS scale applies).
-            (e.clientX - offset.left) / scale2.x - container.clientLeft,
-            (e.clientY - offset.top) / scale2.y - container.clientTop
+            (e2.clientX - offset3.left) / scale2.x - container.clientLeft,
+            (e2.clientY - offset3.top) / scale2.y - container.clientTop
           );
         }
         var wheelPxFactor = Browser.linux && Browser.chrome ? window.devicePixelRatio : Browser.mac ? window.devicePixelRatio * 3 : window.devicePixelRatio > 0 ? 2 * window.devicePixelRatio : 1;
-        function getWheelDelta(e) {
-          return Browser.edge ? e.wheelDeltaY / 2 : (
+        function getWheelDelta(e2) {
+          return Browser.edge ? e2.wheelDeltaY / 2 : (
             // Don't trust window-geometry-based delta
-            e.deltaY && e.deltaMode === 0 ? -e.deltaY / wheelPxFactor : (
+            e2.deltaY && e2.deltaMode === 0 ? -e2.deltaY / wheelPxFactor : (
               // Pixels
-              e.deltaY && e.deltaMode === 1 ? -e.deltaY * 20 : (
+              e2.deltaY && e2.deltaMode === 1 ? -e2.deltaY * 20 : (
                 // Lines
-                e.deltaY && e.deltaMode === 2 ? -e.deltaY * 60 : (
+                e2.deltaY && e2.deltaMode === 2 ? -e2.deltaY * 60 : (
                   // Pages
-                  e.deltaX || e.deltaZ ? 0 : (
+                  e2.deltaX || e2.deltaZ ? 0 : (
                     // Skip horizontal/depth wheel events
-                    e.wheelDelta ? (e.wheelDeltaY || e.wheelDelta) / 2 : (
+                    e2.wheelDelta ? (e2.wheelDeltaY || e2.wheelDelta) / 2 : (
                       // Legacy IE pixels
-                      e.detail && Math.abs(e.detail) < 32765 ? -e.detail * 20 : (
+                      e2.detail && Math.abs(e2.detail) < 32765 ? -e2.detail * 20 : (
                         // Legacy Moz lines
-                        e.detail ? e.detail / -32765 * 60 : (
+                        e2.detail ? e2.detail / -32765 * 60 : (
                           // Legacy Moz pages
                           0
                         )
@@ -25438,8 +25438,8 @@
             )
           );
         }
-        function isExternalTarget(el, e) {
-          var related = e.relatedTarget;
+        function isExternalTarget(el, e2) {
+          var related = e2.relatedTarget;
           if (!related) {
             return true;
           }
@@ -25499,18 +25499,18 @@
             this._animId = requestAnimFrame(this._animate, this);
             this._step();
           },
-          _step: function(round) {
+          _step: function(round2) {
             var elapsed = +/* @__PURE__ */ new Date() - this._startTime, duration = this._duration * 1e3;
             if (elapsed < duration) {
-              this._runFrame(this._easeOut(elapsed / duration), round);
+              this._runFrame(this._easeOut(elapsed / duration), round2);
             } else {
               this._runFrame(1);
               this._complete();
             }
           },
-          _runFrame: function(progress, round) {
+          _runFrame: function(progress, round2) {
             var pos = this._startPos.add(this._offset.multiplyBy(progress));
-            if (round) {
+            if (round2) {
               pos._round();
             }
             setPosition(this._el, pos);
@@ -25521,8 +25521,8 @@
             this._inProgress = false;
             this.fire("end");
           },
-          _easeOut: function(t) {
-            return 1 - Math.pow(1 - t, this._easeOutPower);
+          _easeOut: function(t2) {
+            return 1 - Math.pow(1 - t2, this._easeOutPower);
           }
         });
         var Map3 = Evented.extend({
@@ -25724,14 +25724,14 @@
           },
           // @method panBy(offset: Point, options?: Pan options): this
           // Pans the map by a given number of pixels (animated).
-          panBy: function(offset, options) {
-            offset = toPoint(offset).round();
+          panBy: function(offset3, options) {
+            offset3 = toPoint(offset3).round();
             options = options || {};
-            if (!offset.x && !offset.y) {
+            if (!offset3.x && !offset3.y) {
               return this.fire("moveend");
             }
-            if (options.animate !== true && !this.getSize().contains(offset)) {
-              this._resetView(this.unproject(this.project(this.getCenter()).add(offset)), this.getZoom());
+            if (options.animate !== true && !this.getSize().contains(offset3)) {
+              this._resetView(this.unproject(this.project(this.getCenter()).add(offset3)), this.getZoom());
               return this;
             }
             if (!this._panAnim) {
@@ -25746,10 +25746,10 @@
             }
             if (options.animate !== false) {
               addClass(this._mapPane, "leaflet-pan-anim");
-              var newPos = this._getMapPanePos().subtract(offset).round();
+              var newPos = this._getMapPanePos().subtract(offset3).round();
               this._panAnim.run(this._mapPane, newPos, options.duration || 0.25, options.easeLinearity);
             } else {
-              this._rawPanBy(offset);
+              this._rawPanBy(offset3);
               this.fire("move").fire("moveend");
             }
             return this;
@@ -25763,42 +25763,42 @@
               return this.setView(targetCenter, targetZoom, options);
             }
             this._stop();
-            var from = this.project(this.getCenter()), to = this.project(targetCenter), size = this.getSize(), startZoom = this._zoom;
+            var from = this.project(this.getCenter()), to = this.project(targetCenter), size2 = this.getSize(), startZoom = this._zoom;
             targetCenter = toLatLng(targetCenter);
             targetZoom = targetZoom === void 0 ? startZoom : targetZoom;
-            var w0 = Math.max(size.x, size.y), w1 = w0 * this.getZoomScale(startZoom, targetZoom), u1 = to.distanceTo(from) || 1, rho = 1.42, rho2 = rho * rho;
-            function r(i) {
-              var s1 = i ? -1 : 1, s2 = i ? w1 : w0, t1 = w1 * w1 - w0 * w0 + s1 * rho2 * rho2 * u1 * u1, b1 = 2 * s2 * rho2 * u1, b = t1 / b1, sq = Math.sqrt(b * b + 1) - b;
+            var w0 = Math.max(size2.x, size2.y), w1 = w0 * this.getZoomScale(startZoom, targetZoom), u1 = to.distanceTo(from) || 1, rho = 1.42, rho2 = rho * rho;
+            function r2(i2) {
+              var s1 = i2 ? -1 : 1, s2 = i2 ? w1 : w0, t1 = w1 * w1 - w0 * w0 + s1 * rho2 * rho2 * u1 * u1, b1 = 2 * s2 * rho2 * u1, b2 = t1 / b1, sq = Math.sqrt(b2 * b2 + 1) - b2;
               var log = sq < 1e-9 ? -18 : Math.log(sq);
               return log;
             }
-            function sinh(n) {
-              return (Math.exp(n) - Math.exp(-n)) / 2;
+            function sinh(n2) {
+              return (Math.exp(n2) - Math.exp(-n2)) / 2;
             }
-            function cosh(n) {
-              return (Math.exp(n) + Math.exp(-n)) / 2;
+            function cosh(n2) {
+              return (Math.exp(n2) + Math.exp(-n2)) / 2;
             }
-            function tanh(n) {
-              return sinh(n) / cosh(n);
+            function tanh(n2) {
+              return sinh(n2) / cosh(n2);
             }
-            var r0 = r(0);
-            function w(s) {
-              return w0 * (cosh(r0) / cosh(r0 + rho * s));
+            var r0 = r2(0);
+            function w2(s2) {
+              return w0 * (cosh(r0) / cosh(r0 + rho * s2));
             }
-            function u(s) {
-              return w0 * (cosh(r0) * tanh(r0 + rho * s) - sinh(r0)) / rho2;
+            function u(s2) {
+              return w0 * (cosh(r0) * tanh(r0 + rho * s2) - sinh(r0)) / rho2;
             }
-            function easeOut(t) {
-              return 1 - Math.pow(1 - t, 1.5);
+            function easeOut(t2) {
+              return 1 - Math.pow(1 - t2, 1.5);
             }
-            var start = Date.now(), S = (r(1) - r0) / rho, duration = options.duration ? 1e3 * options.duration : 1e3 * S * 0.8;
+            var start = Date.now(), S2 = (r2(1) - r0) / rho, duration = options.duration ? 1e3 * options.duration : 1e3 * S2 * 0.8;
             function frame() {
-              var t = (Date.now() - start) / duration, s = easeOut(t) * S;
-              if (t <= 1) {
+              var t2 = (Date.now() - start) / duration, s2 = easeOut(t2) * S2;
+              if (t2 <= 1) {
                 this._flyToFrame = requestAnimFrame(frame, this);
                 this._move(
-                  this.unproject(from.add(to.subtract(from).multiplyBy(u(s) / u1)), startZoom),
-                  this.getScaleZoom(w0 / w(s), startZoom),
+                  this.unproject(from.add(to.subtract(from).multiplyBy(u(s2) / u1)), startZoom),
+                  this.getScaleZoom(w0 / w2(s2), startZoom),
                   { flyTo: true }
                 );
               } else {
@@ -25881,9 +25881,9 @@
             if (!paddedBounds.contains(pixelPoint)) {
               this._enforcingBounds = true;
               var centerOffset = pixelPoint.subtract(paddedBounds.getCenter());
-              var offset = paddedBounds.extend(pixelPoint).getSize().subtract(paddedSize);
-              pixelCenter.x += centerOffset.x < 0 ? -offset.x : offset.x;
-              pixelCenter.y += centerOffset.y < 0 ? -offset.y : offset.y;
+              var offset3 = paddedBounds.extend(pixelPoint).getSize().subtract(paddedSize);
+              pixelCenter.x += centerOffset.x < 0 ? -offset3.x : offset3.x;
+              pixelCenter.y += centerOffset.y < 0 ? -offset3.y : offset3.y;
               this.panTo(this.unproject(pixelCenter), options);
               this._enforcingBounds = false;
             }
@@ -25912,15 +25912,15 @@
             var oldSize = this.getSize();
             this._sizeChanged = true;
             this._lastCenter = null;
-            var newSize = this.getSize(), oldCenter = oldSize.divideBy(2).round(), newCenter = newSize.divideBy(2).round(), offset = oldCenter.subtract(newCenter);
-            if (!offset.x && !offset.y) {
+            var newSize = this.getSize(), oldCenter = oldSize.divideBy(2).round(), newCenter = newSize.divideBy(2).round(), offset3 = oldCenter.subtract(newCenter);
+            if (!offset3.x && !offset3.y) {
               return this;
             }
             if (options.animate && options.pan) {
-              this.panBy(offset);
+              this.panBy(offset3);
             } else {
               if (options.pan) {
-                this._rawPanBy(offset);
+                this._rawPanBy(offset3);
               }
               this.fire("move");
               if (options.debounceMoveend) {
@@ -25995,12 +25995,12 @@
             if (!this._container._leaflet_id) {
               return;
             }
-            var c = error.code, message = error.message || (c === 1 ? "permission denied" : c === 2 ? "position unavailable" : "timeout");
+            var c2 = error.code, message = error.message || (c2 === 1 ? "permission denied" : c2 === 2 ? "position unavailable" : "timeout");
             if (this._locateOptions.setView && !this._loaded) {
               this.fitWorld();
             }
             this.fire("locationerror", {
-              code: c,
+              code: c2,
               message: "Geolocation error: " + message + "."
             });
           },
@@ -26018,9 +26018,9 @@
               bounds,
               timestamp: pos.timestamp
             };
-            for (var i in pos.coords) {
-              if (typeof pos.coords[i] === "number") {
-                data[i] = pos.coords[i];
+            for (var i2 in pos.coords) {
+              if (typeof pos.coords[i2] === "number") {
+                data[i2] = pos.coords[i2];
               }
             }
             this.fire("locationfound", data);
@@ -26053,7 +26053,7 @@
             try {
               delete this._container._leaflet_id;
               delete this._containerId;
-            } catch (e) {
+            } catch (e2) {
               this._container._leaflet_id = void 0;
               this._containerId = void 0;
             }
@@ -26073,12 +26073,12 @@
             if (this._loaded) {
               this.fire("unload");
             }
-            var i;
-            for (i in this._layers) {
-              this._layers[i].remove();
+            var i2;
+            for (i2 in this._layers) {
+              this._layers[i2].remove();
             }
-            for (i in this._panes) {
-              remove(this._panes[i]);
+            for (i2 in this._panes) {
+              remove(this._panes[i2]);
             }
             this._layers = [];
             this._panes = [];
@@ -26137,13 +26137,13 @@
           getBoundsZoom: function(bounds, inside, padding) {
             bounds = toLatLngBounds(bounds);
             padding = toPoint(padding || [0, 0]);
-            var zoom2 = this.getZoom() || 0, min = this.getMinZoom(), max = this.getMaxZoom(), nw = bounds.getNorthWest(), se = bounds.getSouthEast(), size = this.getSize().subtract(padding), boundsSize = toBounds(this.project(se, zoom2), this.project(nw, zoom2)).getSize(), snap = Browser.any3d ? this.options.zoomSnap : 1, scalex = size.x / boundsSize.x, scaley = size.y / boundsSize.y, scale2 = inside ? Math.max(scalex, scaley) : Math.min(scalex, scaley);
+            var zoom2 = this.getZoom() || 0, min2 = this.getMinZoom(), max2 = this.getMaxZoom(), nw = bounds.getNorthWest(), se = bounds.getSouthEast(), size2 = this.getSize().subtract(padding), boundsSize = toBounds(this.project(se, zoom2), this.project(nw, zoom2)).getSize(), snap = Browser.any3d ? this.options.zoomSnap : 1, scalex = size2.x / boundsSize.x, scaley = size2.y / boundsSize.y, scale2 = inside ? Math.max(scalex, scaley) : Math.min(scalex, scaley);
             zoom2 = this.getScaleZoom(scale2, zoom2);
             if (snap) {
               zoom2 = Math.round(zoom2 / (snap / 100)) * (snap / 100);
               zoom2 = inside ? Math.ceil(zoom2 / snap) * snap : Math.floor(zoom2 / snap) * snap;
             }
-            return Math.max(min, Math.min(max, zoom2));
+            return Math.max(min2, Math.min(max2, zoom2));
           },
           // @method getSize(): Point
           // Returns the current size of the map container (in pixels).
@@ -26297,20 +26297,20 @@
           // @method mouseEventToContainerPoint(ev: MouseEvent): Point
           // Given a MouseEvent object, returns the pixel coordinate relative to the
           // map container where the event took place.
-          mouseEventToContainerPoint: function(e) {
-            return getMousePosition(e, this._container);
+          mouseEventToContainerPoint: function(e2) {
+            return getMousePosition(e2, this._container);
           },
           // @method mouseEventToLayerPoint(ev: MouseEvent): Point
           // Given a MouseEvent object, returns the pixel coordinate relative to
           // the [origin pixel](#map-getpixelorigin) where the event took place.
-          mouseEventToLayerPoint: function(e) {
-            return this.containerPointToLayerPoint(this.mouseEventToContainerPoint(e));
+          mouseEventToLayerPoint: function(e2) {
+            return this.containerPointToLayerPoint(this.mouseEventToContainerPoint(e2));
           },
           // @method mouseEventToLatLng(ev: MouseEvent): LatLng
           // Given a MouseEvent object, returns geographical coordinate where the
           // event took place.
-          mouseEventToLatLng: function(e) {
-            return this.layerPointToLatLng(this.mouseEventToLayerPoint(e));
+          mouseEventToLatLng: function(e2) {
+            return this.layerPointToLatLng(this.mouseEventToLayerPoint(e2));
           },
           // map initialization methods
           _initContainer: function(id) {
@@ -26407,8 +26407,8 @@
             }
             return this;
           },
-          _rawPanBy: function(offset) {
-            setPosition(this._mapPane, this._getMapPanePos().subtract(offset));
+          _rawPanBy: function(offset3) {
+            setPosition(this._mapPane, this._getMapPanePos().subtract(offset3));
           },
           _getZoomSpan: function() {
             return this.getMaxZoom() - this.getMinZoom();
@@ -26456,8 +26456,8 @@
               this._resetView(this.getCenter(), this.getZoom());
             }
           },
-          _findEventTargets: function(e, type) {
-            var targets = [], target, isHover = type === "mouseout" || type === "mouseover", src = e.target || e.srcElement, dragging = false;
+          _findEventTargets: function(e2, type) {
+            var targets = [], target, isHover = type === "mouseout" || type === "mouseover", src = e2.target || e2.srcElement, dragging = false;
             while (src) {
               target = this._targets[stamp(src)];
               if (target && (type === "click" || type === "preclick") && this._draggableMoved(target)) {
@@ -26465,7 +26465,7 @@
                 break;
               }
               if (target && target.listens(type, true)) {
-                if (isHover && !isExternalTarget(src, e)) {
+                if (isHover && !isExternalTarget(src, e2)) {
                   break;
                 }
                 targets.push(target);
@@ -26491,30 +26491,30 @@
               el = el.parentNode;
             }
           },
-          _handleDOMEvent: function(e) {
-            var el = e.target || e.srcElement;
-            if (!this._loaded || el["_leaflet_disable_events"] || e.type === "click" && this._isClickDisabled(el)) {
+          _handleDOMEvent: function(e2) {
+            var el = e2.target || e2.srcElement;
+            if (!this._loaded || el["_leaflet_disable_events"] || e2.type === "click" && this._isClickDisabled(el)) {
               return;
             }
-            var type = e.type;
+            var type = e2.type;
             if (type === "mousedown") {
               preventOutline(el);
             }
-            this._fireDOMEvent(e, type);
+            this._fireDOMEvent(e2, type);
           },
           _mouseEvents: ["click", "dblclick", "mouseover", "mouseout", "contextmenu"],
-          _fireDOMEvent: function(e, type, canvasTargets) {
-            if (e.type === "click") {
-              var synth = extend({}, e);
+          _fireDOMEvent: function(e2, type, canvasTargets) {
+            if (e2.type === "click") {
+              var synth = extend({}, e2);
               synth.type = "preclick";
               this._fireDOMEvent(synth, synth.type, canvasTargets);
             }
-            var targets = this._findEventTargets(e, type);
+            var targets = this._findEventTargets(e2, type);
             if (canvasTargets) {
               var filtered = [];
-              for (var i = 0; i < canvasTargets.length; i++) {
-                if (canvasTargets[i].listens(type, true)) {
-                  filtered.push(canvasTargets[i]);
+              for (var i2 = 0; i2 < canvasTargets.length; i2++) {
+                if (canvasTargets[i2].listens(type, true)) {
+                  filtered.push(canvasTargets[i2]);
                 }
               }
               targets = filtered.concat(targets);
@@ -26523,21 +26523,21 @@
               return;
             }
             if (type === "contextmenu") {
-              preventDefault(e);
+              preventDefault(e2);
             }
             var target = targets[0];
             var data = {
-              originalEvent: e
+              originalEvent: e2
             };
-            if (e.type !== "keypress" && e.type !== "keydown" && e.type !== "keyup") {
+            if (e2.type !== "keypress" && e2.type !== "keydown" && e2.type !== "keyup") {
               var isMarker = target.getLatLng && (!target._radius || target._radius <= 10);
-              data.containerPoint = isMarker ? this.latLngToContainerPoint(target.getLatLng()) : this.mouseEventToContainerPoint(e);
+              data.containerPoint = isMarker ? this.latLngToContainerPoint(target.getLatLng()) : this.mouseEventToContainerPoint(e2);
               data.layerPoint = this.containerPointToLayerPoint(data.containerPoint);
               data.latlng = isMarker ? target.getLatLng() : this.layerPointToLatLng(data.layerPoint);
             }
-            for (i = 0; i < targets.length; i++) {
-              targets[i].fire(type, data, true);
-              if (data.originalEvent._stopped || targets[i].options.bubblingMouseEvents === false && indexOf(this._mouseEvents, type) !== -1) {
+            for (i2 = 0; i2 < targets.length; i2++) {
+              targets[i2].fire(type, data, true);
+              if (data.originalEvent._stopped || targets[i2].options.bubblingMouseEvents === false && indexOf(this._mouseEvents, type) !== -1) {
                 return;
               }
             }
@@ -26547,8 +26547,8 @@
             return obj.dragging && obj.dragging.moved() || this.boxZoom && this.boxZoom.moved();
           },
           _clearHandlers: function() {
-            for (var i = 0, len = this._handlers.length; i < len; i++) {
-              this._handlers[i].disable();
+            for (var i2 = 0, len = this._handlers.length; i2 < len; i2++) {
+              this._handlers[i2].disable();
             }
           },
           // @section Other Methods
@@ -26606,19 +26606,19 @@
             if (!bounds) {
               return center;
             }
-            var centerPoint = this.project(center, zoom2), viewHalf = this.getSize().divideBy(2), viewBounds = new Bounds(centerPoint.subtract(viewHalf), centerPoint.add(viewHalf)), offset = this._getBoundsOffset(viewBounds, bounds, zoom2);
-            if (Math.abs(offset.x) <= 1 && Math.abs(offset.y) <= 1) {
+            var centerPoint = this.project(center, zoom2), viewHalf = this.getSize().divideBy(2), viewBounds = new Bounds(centerPoint.subtract(viewHalf), centerPoint.add(viewHalf)), offset3 = this._getBoundsOffset(viewBounds, bounds, zoom2);
+            if (Math.abs(offset3.x) <= 1 && Math.abs(offset3.y) <= 1) {
               return center;
             }
-            return this.unproject(centerPoint.add(offset), zoom2);
+            return this.unproject(centerPoint.add(offset3), zoom2);
           },
           // adjust offset for view to get inside bounds
-          _limitOffset: function(offset, bounds) {
+          _limitOffset: function(offset3, bounds) {
             if (!bounds) {
-              return offset;
+              return offset3;
             }
-            var viewBounds = this.getPixelBounds(), newBounds = new Bounds(viewBounds.min.add(offset), viewBounds.max.add(offset));
-            return offset.add(this._getBoundsOffset(newBounds, bounds));
+            var viewBounds = this.getPixelBounds(), newBounds = new Bounds(viewBounds.min.add(offset3), viewBounds.max.add(offset3));
+            return offset3.add(this._getBoundsOffset(newBounds, bounds));
           },
           // returns offset needed for pxBounds to get inside maxBounds at a specified zoom
           _getBoundsOffset: function(pxBounds, maxBounds, zoom2) {
@@ -26632,11 +26632,11 @@
             return left + right > 0 ? Math.round(left - right) / 2 : Math.max(0, Math.ceil(left)) - Math.max(0, Math.floor(right));
           },
           _limitZoom: function(zoom2) {
-            var min = this.getMinZoom(), max = this.getMaxZoom(), snap = Browser.any3d ? this.options.zoomSnap : 1;
+            var min2 = this.getMinZoom(), max2 = this.getMaxZoom(), snap = Browser.any3d ? this.options.zoomSnap : 1;
             if (snap) {
               zoom2 = Math.round(zoom2 / snap) * snap;
             }
-            return Math.max(min, Math.min(max, zoom2));
+            return Math.max(min2, Math.min(max2, zoom2));
           },
           _onPanTransitionStep: function() {
             this.fire("move");
@@ -26646,19 +26646,19 @@
             this.fire("moveend");
           },
           _tryAnimatedPan: function(center, options) {
-            var offset = this._getCenterOffset(center)._trunc();
-            if ((options && options.animate) !== true && !this.getSize().contains(offset)) {
+            var offset3 = this._getCenterOffset(center)._trunc();
+            if ((options && options.animate) !== true && !this.getSize().contains(offset3)) {
               return false;
             }
-            this.panBy(offset, options);
+            this.panBy(offset3, options);
             return true;
           },
           _createAnimProxy: function() {
             var proxy = this._proxy = create$1("div", "leaflet-proxy leaflet-zoom-animated");
             this._panes.mapPane.appendChild(proxy);
-            this.on("zoomanim", function(e) {
+            this.on("zoomanim", function(e2) {
               var prop = TRANSFORM, transform = this._proxy.style[prop];
-              setTransform(this._proxy, this.project(e.center, e.zoom), this.getZoomScale(e.zoom, 1));
+              setTransform(this._proxy, this.project(e2.center, e2.zoom), this.getZoomScale(e2.zoom, 1));
               if (transform === this._proxy.style[prop] && this._animatingZoom) {
                 this._onZoomTransitionEnd();
               }
@@ -26672,11 +26672,11 @@
             delete this._proxy;
           },
           _animMoveEnd: function() {
-            var c = this.getCenter(), z = this.getZoom();
-            setTransform(this._proxy, this.project(c, z), this.getZoomScale(z, 1));
+            var c2 = this.getCenter(), z2 = this.getZoom();
+            setTransform(this._proxy, this.project(c2, z2), this.getZoomScale(z2, 1));
           },
-          _catchTransitionEnd: function(e) {
-            if (this._animatingZoom && e.propertyName.indexOf("transform") >= 0) {
+          _catchTransitionEnd: function(e2) {
+            if (this._animatingZoom && e2.propertyName.indexOf("transform") >= 0) {
               this._onZoomTransitionEnd();
             }
           },
@@ -26691,8 +26691,8 @@
             if (!this._zoomAnimated || options.animate === false || this._nothingToAnimate() || Math.abs(zoom2 - this._zoom) > this.options.zoomAnimationThreshold) {
               return false;
             }
-            var scale2 = this.getZoomScale(zoom2), offset = this._getCenterOffset(center)._divideBy(1 - 1 / scale2);
-            if (options.animate !== true && !this.getSize().contains(offset)) {
+            var scale2 = this.getZoomScale(zoom2), offset3 = this._getCenterOffset(center)._divideBy(1 - 1 / scale2);
+            if (options.animate !== true && !this.getSize().contains(offset3)) {
               return false;
             }
             requestAnimFrame(function() {
@@ -26809,8 +26809,8 @@
             this._map = null;
             return this;
           },
-          _refocusOnMap: function(e) {
-            if (this._map && e && e.screenX > 0 && e.screenY > 0) {
+          _refocusOnMap: function(e2) {
+            if (this._map && e2 && e2.screenX > 0 && e2.screenY > 0) {
               this._map.getContainer().focus();
             }
           }
@@ -26832,9 +26832,9 @@
             return this;
           },
           _initControlPos: function() {
-            var corners = this._controlCorners = {}, l = "leaflet-", container = this._controlContainer = create$1("div", l + "control-container", this._container);
+            var corners = this._controlCorners = {}, l2 = "leaflet-", container = this._controlContainer = create$1("div", l2 + "control-container", this._container);
             function createCorner(vSide, hSide) {
-              var className = l + vSide + " " + l + hSide;
+              var className = l2 + vSide + " " + l2 + hSide;
               corners[vSide + hSide] = create$1("div", className, container);
             }
             createCorner("top", "left");
@@ -26843,8 +26843,8 @@
             createCorner("bottom", "right");
           },
           _clearControlPos: function() {
-            for (var i in this._controlCorners) {
-              remove(this._controlCorners[i]);
+            for (var i2 in this._controlCorners) {
+              remove(this._controlCorners[i2]);
             }
             remove(this._controlContainer);
             delete this._controlCorners;
@@ -26886,11 +26886,11 @@
             this._lastZIndex = 0;
             this._handlingClick = false;
             this._preventClick = false;
-            for (var i in baseLayers) {
-              this._addLayer(baseLayers[i], i);
+            for (var i2 in baseLayers) {
+              this._addLayer(baseLayers[i2], i2);
             }
-            for (i in overlays) {
-              this._addLayer(overlays[i], i, true);
+            for (i2 in overlays) {
+              this._addLayer(overlays[i2], i2, true);
             }
           },
           onAdd: function(map) {
@@ -26898,8 +26898,8 @@
             this._update();
             this._map = map;
             map.on("zoomend", this._checkDisabledLayers, this);
-            for (var i = 0; i < this._layers.length; i++) {
-              this._layers[i].layer.on("add remove", this._onLayerChange, this);
+            for (var i2 = 0; i2 < this._layers.length; i2++) {
+              this._layers[i2].layer.on("add remove", this._onLayerChange, this);
             }
             return this._container;
           },
@@ -26909,8 +26909,8 @@
           },
           onRemove: function() {
             this._map.off("zoomend", this._checkDisabledLayers, this);
-            for (var i = 0; i < this._layers.length; i++) {
-              this._layers[i].layer.off("add remove", this._onLayerChange, this);
+            for (var i2 = 0; i2 < this._layers.length; i2++) {
+              this._layers[i2].layer.off("add remove", this._onLayerChange, this);
             }
           },
           // @method addBaseLayer(layer: Layer, name: String): this
@@ -26974,14 +26974,14 @@
             link.title = "Layers";
             link.setAttribute("role", "button");
             on(link, {
-              keydown: function(e) {
-                if (e.keyCode === 13) {
+              keydown: function(e2) {
+                if (e2.keyCode === 13) {
                   this._expandSafely();
                 }
               },
               // Certain screen readers intercept the key event and instead send a click event
-              click: function(e) {
-                preventDefault(e);
+              click: function(e2) {
+                preventDefault(e2);
                 this._expandSafely();
               }
             }, this);
@@ -26994,9 +26994,9 @@
             container.appendChild(section);
           },
           _getLayer: function(id) {
-            for (var i = 0; i < this._layers.length; i++) {
-              if (this._layers[i] && stamp(this._layers[i].layer) === id) {
-                return this._layers[i];
+            for (var i2 = 0; i2 < this._layers.length; i2++) {
+              if (this._layers[i2] && stamp(this._layers[i2].layer) === id) {
+                return this._layers[i2];
               }
             }
           },
@@ -27010,8 +27010,8 @@
               overlay
             });
             if (this.options.sortLayers) {
-              this._layers.sort(bind(function(a, b) {
-                return this.options.sortFunction(a.layer, b.layer, a.name, b.name);
+              this._layers.sort(bind(function(a2, b2) {
+                return this.options.sortFunction(a2.layer, b2.layer, a2.name, b2.name);
               }, this));
             }
             if (this.options.autoZIndex && layer.setZIndex) {
@@ -27027,9 +27027,9 @@
             empty(this._baseLayersList);
             empty(this._overlaysList);
             this._layerControlInputs = [];
-            var baseLayersPresent, overlaysPresent, i, obj, baseLayersCount = 0;
-            for (i = 0; i < this._layers.length; i++) {
-              obj = this._layers[i];
+            var baseLayersPresent, overlaysPresent, i2, obj, baseLayersCount = 0;
+            for (i2 = 0; i2 < this._layers.length; i2++) {
+              obj = this._layers[i2];
               this._addItem(obj);
               overlaysPresent = overlaysPresent || obj.overlay;
               baseLayersPresent = baseLayersPresent || !obj.overlay;
@@ -27042,12 +27042,12 @@
             this._separator.style.display = overlaysPresent && baseLayersPresent ? "" : "none";
             return this;
           },
-          _onLayerChange: function(e) {
+          _onLayerChange: function(e2) {
             if (!this._handlingClick) {
               this._update();
             }
-            var obj = this._getLayer(stamp(e.target));
-            var type = obj.overlay ? e.type === "add" ? "overlayadd" : "overlayremove" : e.type === "add" ? "baselayerchange" : null;
+            var obj = this._getLayer(stamp(e2.target));
+            var type = obj.overlay ? e2.type === "add" ? "overlayadd" : "overlayremove" : e2.type === "add" ? "baselayerchange" : null;
             if (type) {
               this._map.fire(type, obj);
             }
@@ -27090,8 +27090,8 @@
             var inputs = this._layerControlInputs, input, layer;
             var addedLayers = [], removedLayers = [];
             this._handlingClick = true;
-            for (var i = inputs.length - 1; i >= 0; i--) {
-              input = inputs[i];
+            for (var i2 = inputs.length - 1; i2 >= 0; i2--) {
+              input = inputs[i2];
               layer = this._getLayer(input.layerId).layer;
               if (input.checked) {
                 addedLayers.push(layer);
@@ -27099,14 +27099,14 @@
                 removedLayers.push(layer);
               }
             }
-            for (i = 0; i < removedLayers.length; i++) {
-              if (this._map.hasLayer(removedLayers[i])) {
-                this._map.removeLayer(removedLayers[i]);
+            for (i2 = 0; i2 < removedLayers.length; i2++) {
+              if (this._map.hasLayer(removedLayers[i2])) {
+                this._map.removeLayer(removedLayers[i2]);
               }
             }
-            for (i = 0; i < addedLayers.length; i++) {
-              if (!this._map.hasLayer(addedLayers[i])) {
-                this._map.addLayer(addedLayers[i]);
+            for (i2 = 0; i2 < addedLayers.length; i2++) {
+              if (!this._map.hasLayer(addedLayers[i2])) {
+                this._map.addLayer(addedLayers[i2]);
               }
             }
             this._handlingClick = false;
@@ -27114,8 +27114,8 @@
           },
           _checkDisabledLayers: function() {
             var inputs = this._layerControlInputs, input, layer, zoom2 = this._map.getZoom();
-            for (var i = inputs.length - 1; i >= 0; i--) {
-              input = inputs[i];
+            for (var i2 = inputs.length - 1; i2 >= 0; i2--) {
+              input = inputs[i2];
               layer = this._getLayer(input.layerId).layer;
               input.disabled = layer.options.minZoom !== void 0 && zoom2 < layer.options.minZoom || layer.options.maxZoom !== void 0 && zoom2 > layer.options.maxZoom;
             }
@@ -27192,14 +27192,14 @@
             this._updateDisabled();
             return this;
           },
-          _zoomIn: function(e) {
+          _zoomIn: function(e2) {
             if (!this._disabled && this._map._zoom < this._map.getMaxZoom()) {
-              this._map.zoomIn(this._map.options.zoomDelta * (e.shiftKey ? 3 : 1));
+              this._map.zoomIn(this._map.options.zoomDelta * (e2.shiftKey ? 3 : 1));
             }
           },
-          _zoomOut: function(e) {
+          _zoomOut: function(e2) {
             if (!this._disabled && this._map._zoom > this._map.getMinZoom()) {
-              this._map.zoomOut(this._map.options.zoomDelta * (e.shiftKey ? 3 : 1));
+              this._map.zoomOut(this._map.options.zoomDelta * (e2.shiftKey ? 3 : 1));
             }
           },
           _createButton: function(html, title, className, container, fn) {
@@ -27279,10 +27279,10 @@
             }
           },
           _update: function() {
-            var map = this._map, y = map.getSize().y / 2;
+            var map = this._map, y2 = map.getSize().y / 2;
             var maxMeters = map.distance(
-              map.containerPointToLatLng([0, y]),
-              map.containerPointToLatLng([this.options.maxWidth, y])
+              map.containerPointToLatLng([0, y2]),
+              map.containerPointToLatLng([this.options.maxWidth, y2])
             );
             this._updateScales(maxMeters);
           },
@@ -27340,9 +27340,9 @@
             map.attributionControl = this;
             this._container = create$1("div", "leaflet-control-attribution");
             disableClickPropagation(this._container);
-            for (var i in map._layers) {
-              if (map._layers[i].getAttribution) {
-                this.addAttribution(map._layers[i].getAttribution());
+            for (var i2 in map._layers) {
+              if (map._layers[i2].getAttribution) {
+                this.addAttribution(map._layers[i2].getAttribution());
               }
             }
             this._update();
@@ -27397,9 +27397,9 @@
               return;
             }
             var attribs = [];
-            for (var i in this._attributions) {
-              if (this._attributions[i]) {
-                attribs.push(i);
+            for (var i2 in this._attributions) {
+              if (this._attributions[i2]) {
+                attribs.push(i2);
               }
             }
             var prefixAndAttribs = [];
@@ -27512,7 +27512,7 @@
             this._enabled = false;
             this._moved = false;
           },
-          _onDown: function(e) {
+          _onDown: function(e2) {
             if (!this._enabled) {
               return;
             }
@@ -27520,13 +27520,13 @@
             if (hasClass(this._element, "leaflet-zoom-anim")) {
               return;
             }
-            if (e.touches && e.touches.length !== 1) {
+            if (e2.touches && e2.touches.length !== 1) {
               if (Draggable._dragging === this) {
                 this.finishDrag();
               }
               return;
             }
-            if (Draggable._dragging || e.shiftKey || e.which !== 1 && e.button !== 1 && !e.touches) {
+            if (Draggable._dragging || e2.shiftKey || e2.which !== 1 && e2.button !== 1 && !e2.touches) {
               return;
             }
             Draggable._dragging = this;
@@ -27539,52 +27539,52 @@
               return;
             }
             this.fire("down");
-            var first = e.touches ? e.touches[0] : e, sizedParent = getSizedParentNode(this._element);
+            var first = e2.touches ? e2.touches[0] : e2, sizedParent = getSizedParentNode(this._element);
             this._startPoint = new Point(first.clientX, first.clientY);
             this._startPos = getPosition(this._element);
-            this._parentScale = getScale(sizedParent);
-            var mouseevent = e.type === "mousedown";
+            this._parentScale = getScale2(sizedParent);
+            var mouseevent = e2.type === "mousedown";
             on(document, mouseevent ? "mousemove" : "touchmove", this._onMove, this);
             on(document, mouseevent ? "mouseup" : "touchend touchcancel", this._onUp, this);
           },
-          _onMove: function(e) {
+          _onMove: function(e2) {
             if (!this._enabled) {
               return;
             }
-            if (e.touches && e.touches.length > 1) {
+            if (e2.touches && e2.touches.length > 1) {
               this._moved = true;
               return;
             }
-            var first = e.touches && e.touches.length === 1 ? e.touches[0] : e, offset = new Point(first.clientX, first.clientY)._subtract(this._startPoint);
-            if (!offset.x && !offset.y) {
+            var first = e2.touches && e2.touches.length === 1 ? e2.touches[0] : e2, offset3 = new Point(first.clientX, first.clientY)._subtract(this._startPoint);
+            if (!offset3.x && !offset3.y) {
               return;
             }
-            if (Math.abs(offset.x) + Math.abs(offset.y) < this.options.clickTolerance) {
+            if (Math.abs(offset3.x) + Math.abs(offset3.y) < this.options.clickTolerance) {
               return;
             }
-            offset.x /= this._parentScale.x;
-            offset.y /= this._parentScale.y;
-            preventDefault(e);
+            offset3.x /= this._parentScale.x;
+            offset3.y /= this._parentScale.y;
+            preventDefault(e2);
             if (!this._moved) {
               this.fire("dragstart");
               this._moved = true;
               addClass(document.body, "leaflet-dragging");
-              this._lastTarget = e.target || e.srcElement;
+              this._lastTarget = e2.target || e2.srcElement;
               if (window.SVGElementInstance && this._lastTarget instanceof window.SVGElementInstance) {
                 this._lastTarget = this._lastTarget.correspondingUseElement;
               }
               addClass(this._lastTarget, "leaflet-drag-target");
             }
-            this._newPos = this._startPos.add(offset);
+            this._newPos = this._startPos.add(offset3);
             this._moving = true;
-            this._lastEvent = e;
+            this._lastEvent = e2;
             this._updatePosition();
           },
           _updatePosition: function() {
-            var e = { originalEvent: this._lastEvent };
-            this.fire("predrag", e);
+            var e2 = { originalEvent: this._lastEvent };
+            this.fire("predrag", e2);
             setPosition(this._element, this._newPos);
-            this.fire("drag", e);
+            this.fire("drag", e2);
           },
           _onUp: function() {
             if (!this._enabled) {
@@ -27613,26 +27613,26 @@
             }
           }
         });
-        function clipPolygon(points, bounds, round) {
-          var clippedPoints, edges = [1, 4, 2, 8], i, j, k, a, b, len, edge2, p;
-          for (i = 0, len = points.length; i < len; i++) {
-            points[i]._code = _getBitCode(points[i], bounds);
+        function clipPolygon(points, bounds, round2) {
+          var clippedPoints, edges = [1, 4, 2, 8], i2, j2, k2, a2, b2, len, edge2, p;
+          for (i2 = 0, len = points.length; i2 < len; i2++) {
+            points[i2]._code = _getBitCode(points[i2], bounds);
           }
-          for (k = 0; k < 4; k++) {
-            edge2 = edges[k];
+          for (k2 = 0; k2 < 4; k2++) {
+            edge2 = edges[k2];
             clippedPoints = [];
-            for (i = 0, len = points.length, j = len - 1; i < len; j = i++) {
-              a = points[i];
-              b = points[j];
-              if (!(a._code & edge2)) {
-                if (b._code & edge2) {
-                  p = _getEdgeIntersection(b, a, edge2, bounds, round);
+            for (i2 = 0, len = points.length, j2 = len - 1; i2 < len; j2 = i2++) {
+              a2 = points[i2];
+              b2 = points[j2];
+              if (!(a2._code & edge2)) {
+                if (b2._code & edge2) {
+                  p = _getEdgeIntersection(b2, a2, edge2, bounds, round2);
                   p._code = _getBitCode(p, bounds);
                   clippedPoints.push(p);
                 }
-                clippedPoints.push(a);
-              } else if (!(b._code & edge2)) {
-                p = _getEdgeIntersection(b, a, edge2, bounds, round);
+                clippedPoints.push(a2);
+              } else if (!(b2._code & edge2)) {
+                p = _getEdgeIntersection(b2, a2, edge2, bounds, round2);
                 p._code = _getBitCode(p, bounds);
                 clippedPoints.push(p);
               }
@@ -27642,7 +27642,7 @@
           return points;
         }
         function polygonCenter(latlngs, crs) {
-          var i, j, p1, p2, f, area, x, y, center;
+          var i2, j2, p1, p2, f, area, x2, y2, center;
           if (!latlngs || latlngs.length === 0) {
             throw new Error("latlngs not passed");
           }
@@ -27658,23 +27658,23 @@
           }
           var len = latlngs.length;
           var points = [];
-          for (i = 0; i < len; i++) {
-            var latlng = toLatLng(latlngs[i]);
+          for (i2 = 0; i2 < len; i2++) {
+            var latlng = toLatLng(latlngs[i2]);
             points.push(crs.project(toLatLng([latlng.lat - centroidLatLng.lat, latlng.lng - centroidLatLng.lng])));
           }
-          area = x = y = 0;
-          for (i = 0, j = len - 1; i < len; j = i++) {
-            p1 = points[i];
-            p2 = points[j];
+          area = x2 = y2 = 0;
+          for (i2 = 0, j2 = len - 1; i2 < len; j2 = i2++) {
+            p1 = points[i2];
+            p2 = points[j2];
             f = p1.y * p2.x - p2.y * p1.x;
-            x += (p1.x + p2.x) * f;
-            y += (p1.y + p2.y) * f;
+            x2 += (p1.x + p2.x) * f;
+            y2 += (p1.y + p2.y) * f;
             area += f * 3;
           }
           if (area === 0) {
             center = points[0];
           } else {
-            center = [x / area, y / area];
+            center = [x2 / area, y2 / area];
           }
           var latlngCenter = crs.unproject(toPoint(center));
           return toLatLng([latlngCenter.lat + centroidLatLng.lat, latlngCenter.lng + centroidLatLng.lng]);
@@ -27683,8 +27683,8 @@
           var latSum = 0;
           var lngSum = 0;
           var len = 0;
-          for (var i = 0; i < coords.length; i++) {
-            var latlng = toLatLng(coords[i]);
+          for (var i2 = 0; i2 < coords.length; i2++) {
+            var latlng = toLatLng(coords[i2]);
             latSum += latlng.lat;
             lngSum += latlng.lng;
             len++;
@@ -27716,20 +27716,20 @@
           var len = points.length, ArrayConstructor = typeof Uint8Array !== "undefined" ? Uint8Array : Array, markers = new ArrayConstructor(len);
           markers[0] = markers[len - 1] = 1;
           _simplifyDPStep(points, markers, sqTolerance, 0, len - 1);
-          var i, newPoints = [];
-          for (i = 0; i < len; i++) {
-            if (markers[i]) {
-              newPoints.push(points[i]);
+          var i2, newPoints = [];
+          for (i2 = 0; i2 < len; i2++) {
+            if (markers[i2]) {
+              newPoints.push(points[i2]);
             }
           }
           return newPoints;
         }
         function _simplifyDPStep(points, markers, sqTolerance, first, last) {
-          var maxSqDist = 0, index2, i, sqDist;
-          for (i = first + 1; i <= last - 1; i++) {
-            sqDist = _sqClosestPointOnSegment(points[i], points[first], points[last], true);
+          var maxSqDist = 0, index2, i2, sqDist;
+          for (i2 = first + 1; i2 <= last - 1; i2++) {
+            sqDist = _sqClosestPointOnSegment(points[i2], points[first], points[last], true);
             if (sqDist > maxSqDist) {
-              index2 = i;
+              index2 = i2;
               maxSqDist = sqDist;
             }
           }
@@ -27741,10 +27741,10 @@
         }
         function _reducePoints(points, sqTolerance) {
           var reducedPoints = [points[0]];
-          for (var i = 1, prev = 0, len = points.length; i < len; i++) {
-            if (_sqDist(points[i], points[prev]) > sqTolerance) {
-              reducedPoints.push(points[i]);
-              prev = i;
+          for (var i2 = 1, prev = 0, len = points.length; i2 < len; i2++) {
+            if (_sqDist(points[i2], points[prev]) > sqTolerance) {
+              reducedPoints.push(points[i2]);
+              prev = i2;
             }
           }
           if (prev < len - 1) {
@@ -27753,44 +27753,44 @@
           return reducedPoints;
         }
         var _lastCode;
-        function clipSegment(a, b, bounds, useLastCode, round) {
-          var codeA = useLastCode ? _lastCode : _getBitCode(a, bounds), codeB = _getBitCode(b, bounds), codeOut, p, newCode;
+        function clipSegment(a2, b2, bounds, useLastCode, round2) {
+          var codeA = useLastCode ? _lastCode : _getBitCode(a2, bounds), codeB = _getBitCode(b2, bounds), codeOut, p, newCode;
           _lastCode = codeB;
           while (true) {
             if (!(codeA | codeB)) {
-              return [a, b];
+              return [a2, b2];
             }
             if (codeA & codeB) {
               return false;
             }
             codeOut = codeA || codeB;
-            p = _getEdgeIntersection(a, b, codeOut, bounds, round);
+            p = _getEdgeIntersection(a2, b2, codeOut, bounds, round2);
             newCode = _getBitCode(p, bounds);
             if (codeOut === codeA) {
-              a = p;
+              a2 = p;
               codeA = newCode;
             } else {
-              b = p;
+              b2 = p;
               codeB = newCode;
             }
           }
         }
-        function _getEdgeIntersection(a, b, code, bounds, round) {
-          var dx = b.x - a.x, dy = b.y - a.y, min = bounds.min, max = bounds.max, x, y;
+        function _getEdgeIntersection(a2, b2, code, bounds, round2) {
+          var dx = b2.x - a2.x, dy = b2.y - a2.y, min2 = bounds.min, max2 = bounds.max, x2, y2;
           if (code & 8) {
-            x = a.x + dx * (max.y - a.y) / dy;
-            y = max.y;
+            x2 = a2.x + dx * (max2.y - a2.y) / dy;
+            y2 = max2.y;
           } else if (code & 4) {
-            x = a.x + dx * (min.y - a.y) / dy;
-            y = min.y;
+            x2 = a2.x + dx * (min2.y - a2.y) / dy;
+            y2 = min2.y;
           } else if (code & 2) {
-            x = max.x;
-            y = a.y + dy * (max.x - a.x) / dx;
+            x2 = max2.x;
+            y2 = a2.y + dy * (max2.x - a2.x) / dx;
           } else if (code & 1) {
-            x = min.x;
-            y = a.y + dy * (min.x - a.x) / dx;
+            x2 = min2.x;
+            y2 = a2.y + dy * (min2.x - a2.x) / dx;
           }
-          return new Point(x, y, round);
+          return new Point(x2, y2, round2);
         }
         function _getBitCode(p, bounds) {
           var code = 0;
@@ -27811,20 +27811,20 @@
           return dx * dx + dy * dy;
         }
         function _sqClosestPointOnSegment(p, p1, p2, sqDist) {
-          var x = p1.x, y = p1.y, dx = p2.x - x, dy = p2.y - y, dot = dx * dx + dy * dy, t;
+          var x2 = p1.x, y2 = p1.y, dx = p2.x - x2, dy = p2.y - y2, dot = dx * dx + dy * dy, t2;
           if (dot > 0) {
-            t = ((p.x - x) * dx + (p.y - y) * dy) / dot;
-            if (t > 1) {
-              x = p2.x;
-              y = p2.y;
-            } else if (t > 0) {
-              x += dx * t;
-              y += dy * t;
+            t2 = ((p.x - x2) * dx + (p.y - y2) * dy) / dot;
+            if (t2 > 1) {
+              x2 = p2.x;
+              y2 = p2.y;
+            } else if (t2 > 0) {
+              x2 += dx * t2;
+              y2 += dy * t2;
             }
           }
-          dx = p.x - x;
-          dy = p.y - y;
-          return sqDist ? dx * dx + dy * dy : new Point(x, y);
+          dx = p.x - x2;
+          dy = p.y - y2;
+          return sqDist ? dx * dx + dy * dy : new Point(x2, y2);
         }
         function isFlat(latlngs) {
           return !isArray(latlngs[0]) || typeof latlngs[0][0] !== "object" && typeof latlngs[0][0] !== "undefined";
@@ -27834,7 +27834,7 @@
           return isFlat(latlngs);
         }
         function polylineCenter(latlngs, crs) {
-          var i, halfDist, segDist, dist, p1, p2, ratio, center;
+          var i2, halfDist, segDist, dist, p1, p2, ratio, center;
           if (!latlngs || latlngs.length === 0) {
             throw new Error("latlngs not passed");
           }
@@ -27850,19 +27850,19 @@
           }
           var len = latlngs.length;
           var points = [];
-          for (i = 0; i < len; i++) {
-            var latlng = toLatLng(latlngs[i]);
+          for (i2 = 0; i2 < len; i2++) {
+            var latlng = toLatLng(latlngs[i2]);
             points.push(crs.project(toLatLng([latlng.lat - centroidLatLng.lat, latlng.lng - centroidLatLng.lng])));
           }
-          for (i = 0, halfDist = 0; i < len - 1; i++) {
-            halfDist += points[i].distanceTo(points[i + 1]) / 2;
+          for (i2 = 0, halfDist = 0; i2 < len - 1; i2++) {
+            halfDist += points[i2].distanceTo(points[i2 + 1]) / 2;
           }
           if (halfDist === 0) {
             center = points[0];
           } else {
-            for (i = 0, dist = 0; i < len - 1; i++) {
-              p1 = points[i];
-              p2 = points[i + 1];
+            for (i2 = 0, dist = 0; i2 < len - 1; i2++) {
+              p1 = points[i2];
+              p2 = points[i2 + 1];
               segDist = p1.distanceTo(p2);
               dist += segDist;
               if (dist > halfDist) {
@@ -27905,20 +27905,20 @@
           R_MINOR: 6356752314245179e-9,
           bounds: new Bounds([-2003750834279e-5, -1549657073972e-5], [2003750834279e-5, 1876465623138e-5]),
           project: function(latlng) {
-            var d = Math.PI / 180, r = this.R, y = latlng.lat * d, tmp = this.R_MINOR / r, e = Math.sqrt(1 - tmp * tmp), con = e * Math.sin(y);
-            var ts = Math.tan(Math.PI / 4 - y / 2) / Math.pow((1 - con) / (1 + con), e / 2);
-            y = -r * Math.log(Math.max(ts, 1e-10));
-            return new Point(latlng.lng * d * r, y);
+            var d = Math.PI / 180, r2 = this.R, y2 = latlng.lat * d, tmp = this.R_MINOR / r2, e2 = Math.sqrt(1 - tmp * tmp), con = e2 * Math.sin(y2);
+            var ts = Math.tan(Math.PI / 4 - y2 / 2) / Math.pow((1 - con) / (1 + con), e2 / 2);
+            y2 = -r2 * Math.log(Math.max(ts, 1e-10));
+            return new Point(latlng.lng * d * r2, y2);
           },
           unproject: function(point) {
-            var d = 180 / Math.PI, r = this.R, tmp = this.R_MINOR / r, e = Math.sqrt(1 - tmp * tmp), ts = Math.exp(-point.y / r), phi = Math.PI / 2 - 2 * Math.atan(ts);
-            for (var i = 0, dphi = 0.1, con; i < 15 && Math.abs(dphi) > 1e-7; i++) {
-              con = e * Math.sin(phi);
-              con = Math.pow((1 - con) / (1 + con), e / 2);
+            var d = 180 / Math.PI, r2 = this.R, tmp = this.R_MINOR / r2, e2 = Math.sqrt(1 - tmp * tmp), ts = Math.exp(-point.y / r2), phi = Math.PI / 2 - 2 * Math.atan(ts);
+            for (var i2 = 0, dphi = 0.1, con; i2 < 15 && Math.abs(dphi) > 1e-7; i2++) {
+              con = e2 * Math.sin(phi);
+              con = Math.pow((1 - con) / (1 + con), e2 / 2);
               dphi = Math.PI / 2 - 2 * Math.atan(ts * con) - phi;
               phi += dphi;
             }
-            return new LatLng2(phi * d, point.x * d / r);
+            return new LatLng2(phi * d, point.x * d / r2);
           }
         };
         var index = {
@@ -28017,8 +28017,8 @@
           getAttribution: function() {
             return this.options.attribution;
           },
-          _layerAdd: function(e) {
-            var map = e.target;
+          _layerAdd: function(e2) {
+            var map = e2.target;
             if (!map.hasLayer(this)) {
               return;
             }
@@ -28087,15 +28087,15 @@
            * ```
            */
           eachLayer: function(method, context) {
-            for (var i in this._layers) {
-              method.call(context, this._layers[i]);
+            for (var i2 in this._layers) {
+              method.call(context, this._layers[i2]);
             }
             return this;
           },
           _addLayers: function(layers2) {
             layers2 = layers2 ? isArray(layers2) ? layers2 : [layers2] : [];
-            for (var i = 0, len = layers2.length; i < len; i++) {
-              this.addLayer(layers2[i]);
+            for (var i2 = 0, len = layers2.length; i2 < len; i2++) {
+              this.addLayer(layers2[i2]);
             }
           },
           _addZoomLimit: function(layer) {
@@ -28113,8 +28113,8 @@
           },
           _updateZoomLevels: function() {
             var minZoom = Infinity, maxZoom = -Infinity, oldZoomSpan = this._getZoomSpan();
-            for (var i in this._zoomBoundLayers) {
-              var options = this._zoomBoundLayers[i].options;
+            for (var i2 in this._zoomBoundLayers) {
+              var options = this._zoomBoundLayers[i2].options;
               minZoom = options.minZoom === void 0 ? minZoom : Math.min(minZoom, options.minZoom);
               maxZoom = options.maxZoom === void 0 ? maxZoom : Math.max(maxZoom, options.maxZoom);
             }
@@ -28135,10 +28135,10 @@
           initialize: function(layers2, options) {
             setOptions(this, options);
             this._layers = {};
-            var i, len;
+            var i2, len;
             if (layers2) {
-              for (i = 0, len = layers2.length; i < len; i++) {
-                this.addLayer(layers2[i]);
+              for (i2 = 0, len = layers2.length; i2 < len; i2++) {
+                this.addLayer(layers2[i2]);
               }
             }
           },
@@ -28184,9 +28184,9 @@
           // additional parameters. Has no effect if the layers contained do not
           // implement `methodName`.
           invoke: function(methodName) {
-            var args = Array.prototype.slice.call(arguments, 1), i, layer;
-            for (i in this._layers) {
-              layer = this._layers[i];
+            var args = Array.prototype.slice.call(arguments, 1), i2, layer;
+            for (i2 in this._layers) {
+              layer = this._layers[i2];
               if (layer[methodName]) {
                 layer[methodName].apply(layer, args);
               }
@@ -28207,8 +28207,8 @@
           // });
           // ```
           eachLayer: function(method, context) {
-            for (var i in this._layers) {
-              method.call(context, this._layers[i]);
+            for (var i2 in this._layers) {
+              method.call(context, this._layers[i2]);
             }
             return this;
           },
@@ -28371,15 +28371,15 @@
             if (typeof sizeOption === "number") {
               sizeOption = [sizeOption, sizeOption];
             }
-            var size = toPoint(sizeOption), anchor = toPoint(name === "shadow" && options.shadowAnchor || options.iconAnchor || size && size.divideBy(2, true));
+            var size2 = toPoint(sizeOption), anchor = toPoint(name === "shadow" && options.shadowAnchor || options.iconAnchor || size2 && size2.divideBy(2, true));
             img.className = "leaflet-marker-" + name + " " + (options.className || "");
             if (anchor) {
               img.style.marginLeft = -anchor.x + "px";
               img.style.marginTop = -anchor.y + "px";
             }
-            if (size) {
-              img.style.width = size.x + "px";
-              img.style.height = size.y + "px";
+            if (size2) {
+              img.style.width = size2.x + "px";
+              img.style.height = size2.y + "px";
             }
           },
           _createImg: function(src, el) {
@@ -28465,7 +28465,7 @@
           moved: function() {
             return this._draggable && this._draggable._moved;
           },
-          _adjustPan: function(e) {
+          _adjustPan: function(e2) {
             var marker2 = this._marker, map = marker2._map, speed = this._marker.options.autoPanSpeed, padding = this._marker.options.autoPanPadding, iconPos = getPosition(marker2._icon), bounds = map.getPixelBounds(), origin = map.getPixelOrigin();
             var panBounds = toBounds(
               bounds.min._subtract(origin).add(padding),
@@ -28480,8 +28480,8 @@
               this._draggable._newPos._add(movement);
               this._draggable._startPos._add(movement);
               setPosition(marker2._icon, this._draggable._newPos);
-              this._onDrag(e);
-              this._panRequest = requestAnimFrame(this._adjustPan.bind(this, e));
+              this._onDrag(e2);
+              this._panRequest = requestAnimFrame(this._adjustPan.bind(this, e2));
             }
           },
           _onDragStart: function() {
@@ -28489,26 +28489,26 @@
             this._marker.closePopup && this._marker.closePopup();
             this._marker.fire("movestart").fire("dragstart");
           },
-          _onPreDrag: function(e) {
+          _onPreDrag: function(e2) {
             if (this._marker.options.autoPan) {
               cancelAnimFrame(this._panRequest);
-              this._panRequest = requestAnimFrame(this._adjustPan.bind(this, e));
+              this._panRequest = requestAnimFrame(this._adjustPan.bind(this, e2));
             }
           },
-          _onDrag: function(e) {
+          _onDrag: function(e2) {
             var marker2 = this._marker, shadow = marker2._shadow, iconPos = getPosition(marker2._icon), latlng = marker2._map.layerPointToLatLng(iconPos);
             if (shadow) {
               setPosition(shadow, iconPos);
             }
             marker2._latlng = latlng;
-            e.latlng = latlng;
-            e.oldLatLng = this._oldLatLng;
-            marker2.fire("move", e).fire("drag", e);
+            e2.latlng = latlng;
+            e2.oldLatLng = this._oldLatLng;
+            marker2.fire("move", e2).fire("drag", e2);
           },
-          _onDragEnd: function(e) {
+          _onDragEnd: function(e2) {
             cancelAnimFrame(this._panRequest);
             delete this._oldLatLng;
-            this._marker.fire("moveend").fire("dragend", e);
+            this._marker.fire("moveend").fire("dragend", e2);
           }
         });
         var Marker = Layer.extend({
@@ -28624,8 +28624,8 @@
           },
           // @method setZIndexOffset(offset: Number): this
           // Changes the [zIndex offset](#marker-zindexoffset) of the marker.
-          setZIndexOffset: function(offset) {
-            this.options.zIndexOffset = offset;
+          setZIndexOffset: function(offset3) {
+            this.options.zIndexOffset = offset3;
             return this.update();
           },
           // @method getIcon: Icon
@@ -28737,9 +28737,9 @@
             this._zIndex = pos.y + this.options.zIndexOffset;
             this._resetZIndex();
           },
-          _updateZIndex: function(offset) {
+          _updateZIndex: function(offset3) {
             if (this._icon) {
-              this._icon.style.zIndex = this._zIndex + offset;
+              this._icon.style.zIndex = this._zIndex + offset3;
             }
           },
           _animateZoom: function(opt) {
@@ -28794,11 +28794,11 @@
               return;
             }
             var iconOpts = this.options.icon.options;
-            var size = iconOpts.iconSize ? toPoint(iconOpts.iconSize) : toPoint(0, 0);
+            var size2 = iconOpts.iconSize ? toPoint(iconOpts.iconSize) : toPoint(0, 0);
             var anchor = iconOpts.iconAnchor ? toPoint(iconOpts.iconAnchor) : toPoint(0, 0);
             map.panInside(this._latlng, {
               paddingTopLeft: anchor,
-              paddingBottomRight: size.subtract(anchor)
+              paddingBottomRight: size2.subtract(anchor)
             });
           },
           _getPopupAnchor: function() {
@@ -28966,7 +28966,7 @@
             this._updateBounds();
           },
           _updateBounds: function() {
-            var r = this._radius, r2 = this._radiusY || r, w = this._clickTolerance(), p = [r + w, r2 + w];
+            var r2 = this._radius, r22 = this._radiusY || r2, w2 = this._clickTolerance(), p = [r2 + w2, r22 + w2];
             this._pxBounds = new Bounds(this._point.subtract(p), this._point.add(p));
           },
           _update: function() {
@@ -29078,11 +29078,11 @@
           // Returns the point closest to `p` on the Polyline.
           closestLayerPoint: function(p) {
             var minDistance = Infinity, minPoint = null, closest = _sqClosestPointOnSegment, p1, p2;
-            for (var j = 0, jLen = this._parts.length; j < jLen; j++) {
-              var points = this._parts[j];
-              for (var i = 1, len = points.length; i < len; i++) {
-                p1 = points[i - 1];
-                p2 = points[i];
+            for (var j2 = 0, jLen = this._parts.length; j2 < jLen; j2++) {
+              var points = this._parts[j2];
+              for (var i2 = 1, len = points.length; i2 < len; i2++) {
+                p1 = points[i2 - 1];
+                p2 = points[i2];
                 var sqDist = closest(p, p1, p2, true);
                 if (sqDist < minDistance) {
                   minDistance = sqDist;
@@ -29129,12 +29129,12 @@
           // recursively convert latlngs input into actual LatLng instances; calculate bounds along the way
           _convertLatLngs: function(latlngs) {
             var result = [], flat = isFlat(latlngs);
-            for (var i = 0, len = latlngs.length; i < len; i++) {
+            for (var i2 = 0, len = latlngs.length; i2 < len; i2++) {
               if (flat) {
-                result[i] = toLatLng(latlngs[i]);
-                this._bounds.extend(result[i]);
+                result[i2] = toLatLng(latlngs[i2]);
+                this._bounds.extend(result[i2]);
               } else {
-                result[i] = this._convertLatLngs(latlngs[i]);
+                result[i2] = this._convertLatLngs(latlngs[i2]);
               }
             }
             return result;
@@ -29149,7 +29149,7 @@
             }
           },
           _updateBounds: function() {
-            var w = this._clickTolerance(), p = new Point(w, w);
+            var w2 = this._clickTolerance(), p = new Point(w2, w2);
             if (!this._rawPxBounds) {
               return;
             }
@@ -29160,17 +29160,17 @@
           },
           // recursively turns latlngs into a set of rings with projected coordinates
           _projectLatlngs: function(latlngs, result, projectedBounds) {
-            var flat = latlngs[0] instanceof LatLng2, len = latlngs.length, i, ring;
+            var flat = latlngs[0] instanceof LatLng2, len = latlngs.length, i2, ring;
             if (flat) {
               ring = [];
-              for (i = 0; i < len; i++) {
-                ring[i] = this._map.latLngToLayerPoint(latlngs[i]);
-                projectedBounds.extend(ring[i]);
+              for (i2 = 0; i2 < len; i2++) {
+                ring[i2] = this._map.latLngToLayerPoint(latlngs[i2]);
+                projectedBounds.extend(ring[i2]);
               }
               result.push(ring);
             } else {
-              for (i = 0; i < len; i++) {
-                this._projectLatlngs(latlngs[i], result, projectedBounds);
+              for (i2 = 0; i2 < len; i2++) {
+                this._projectLatlngs(latlngs[i2], result, projectedBounds);
               }
             }
           },
@@ -29185,19 +29185,19 @@
               this._parts = this._rings;
               return;
             }
-            var parts = this._parts, i, j, k, len, len2, segment, points;
-            for (i = 0, k = 0, len = this._rings.length; i < len; i++) {
-              points = this._rings[i];
-              for (j = 0, len2 = points.length; j < len2 - 1; j++) {
-                segment = clipSegment(points[j], points[j + 1], bounds, j, true);
+            var parts = this._parts, i2, j2, k2, len, len2, segment, points;
+            for (i2 = 0, k2 = 0, len = this._rings.length; i2 < len; i2++) {
+              points = this._rings[i2];
+              for (j2 = 0, len2 = points.length; j2 < len2 - 1; j2++) {
+                segment = clipSegment(points[j2], points[j2 + 1], bounds, j2, true);
                 if (!segment) {
                   continue;
                 }
-                parts[k] = parts[k] || [];
-                parts[k].push(segment[0]);
-                if (segment[1] !== points[j + 1] || j === len2 - 2) {
-                  parts[k].push(segment[1]);
-                  k++;
+                parts[k2] = parts[k2] || [];
+                parts[k2].push(segment[0]);
+                if (segment[1] !== points[j2 + 1] || j2 === len2 - 2) {
+                  parts[k2].push(segment[1]);
+                  k2++;
                 }
               }
             }
@@ -29205,8 +29205,8 @@
           // simplify each clipped part of the polyline for performance
           _simplifyPoints: function() {
             var parts = this._parts, tolerance = this.options.smoothFactor;
-            for (var i = 0, len = parts.length; i < len; i++) {
-              parts[i] = simplify2(parts[i], tolerance);
+            for (var i2 = 0, len = parts.length; i2 < len; i2++) {
+              parts[i2] = simplify2(parts[i2], tolerance);
             }
           },
           _update: function() {
@@ -29222,17 +29222,17 @@
           },
           // Needed by the `Canvas` renderer for interactivity
           _containsPoint: function(p, closed) {
-            var i, j, k, len, len2, part, w = this._clickTolerance();
+            var i2, j2, k2, len, len2, part, w2 = this._clickTolerance();
             if (!this._pxBounds || !this._pxBounds.contains(p)) {
               return false;
             }
-            for (i = 0, len = this._parts.length; i < len; i++) {
-              part = this._parts[i];
-              for (j = 0, len2 = part.length, k = len2 - 1; j < len2; k = j++) {
-                if (!closed && j === 0) {
+            for (i2 = 0, len = this._parts.length; i2 < len; i2++) {
+              part = this._parts[i2];
+              for (j2 = 0, len2 = part.length, k2 = len2 - 1; j2 < len2; k2 = j2++) {
+                if (!closed && j2 === 0) {
                   continue;
                 }
-                if (pointToSegmentDistance(p, part[k], part[j]) <= w) {
+                if (pointToSegmentDistance(p, part[k2], part[j2]) <= w2) {
                   return true;
                 }
               }
@@ -29276,7 +29276,7 @@
             return isFlat(this._latlngs[0]) ? this._latlngs[0] : this._latlngs[0][0];
           },
           _clipPoints: function() {
-            var bounds = this._renderer._bounds, w = this.options.weight, p = new Point(w, w);
+            var bounds = this._renderer._bounds, w2 = this.options.weight, p = new Point(w2, w2);
             bounds = new Bounds(bounds.min.subtract(p), bounds.max.add(p));
             this._parts = [];
             if (!this._pxBounds || !this._pxBounds.intersects(bounds)) {
@@ -29286,8 +29286,8 @@
               this._parts = this._rings;
               return;
             }
-            for (var i = 0, len = this._rings.length, clipped; i < len; i++) {
-              clipped = clipPolygon(this._rings[i], bounds, true);
+            for (var i2 = 0, len = this._rings.length, clipped; i2 < len; i2++) {
+              clipped = clipPolygon(this._rings[i2], bounds, true);
               if (clipped.length) {
                 this._parts.push(clipped);
               }
@@ -29298,15 +29298,15 @@
           },
           // Needed by the `Canvas` renderer for interactivity
           _containsPoint: function(p) {
-            var inside = false, part, p1, p2, i, j, k, len, len2;
+            var inside = false, part, p1, p2, i2, j2, k2, len, len2;
             if (!this._pxBounds || !this._pxBounds.contains(p)) {
               return false;
             }
-            for (i = 0, len = this._parts.length; i < len; i++) {
-              part = this._parts[i];
-              for (j = 0, len2 = part.length, k = len2 - 1; j < len2; k = j++) {
-                p1 = part[j];
-                p2 = part[k];
+            for (i2 = 0, len = this._parts.length; i2 < len; i2++) {
+              part = this._parts[i2];
+              for (j2 = 0, len2 = part.length, k2 = len2 - 1; j2 < len2; k2 = j2++) {
+                p1 = part[j2];
+                p2 = part[k2];
                 if (p1.y > p.y !== p2.y > p.y && p.x < (p2.x - p1.x) * (p.y - p1.y) / (p2.y - p1.y) + p1.x) {
                   inside = !inside;
                 }
@@ -29378,10 +29378,10 @@
           // @method addData( <GeoJSON> data ): this
           // Adds a GeoJSON object to the layer.
           addData: function(geojson) {
-            var features = isArray(geojson) ? geojson : geojson.features, i, len, feature;
+            var features = isArray(geojson) ? geojson : geojson.features, i2, len, feature;
             if (features) {
-              for (i = 0, len = features.length; i < len; i++) {
-                feature = features[i];
+              for (i2 = 0, len = features.length; i2 < len; i2++) {
+                feature = features[i2];
                 if (feature.geometries || feature.geometry || feature.features || feature.coordinates) {
                   this.addData(feature);
                 }
@@ -29432,7 +29432,7 @@
           }
         });
         function geometryToLayer(geojson, options) {
-          var geometry = geojson.type === "Feature" ? geojson.geometry : geojson, coords = geometry ? geometry.coordinates : null, layers2 = [], pointToLayer = options && options.pointToLayer, _coordsToLatLng = options && options.coordsToLatLng || coordsToLatLng, latlng, latlngs, i, len;
+          var geometry = geojson.type === "Feature" ? geojson.geometry : geojson, coords = geometry ? geometry.coordinates : null, layers2 = [], pointToLayer = options && options.pointToLayer, _coordsToLatLng = options && options.coordsToLatLng || coordsToLatLng, latlng, latlngs, i2, len;
           if (!coords && !geometry) {
             return null;
           }
@@ -29441,8 +29441,8 @@
               latlng = _coordsToLatLng(coords);
               return _pointToLayer(pointToLayer, geojson, latlng, options);
             case "MultiPoint":
-              for (i = 0, len = coords.length; i < len; i++) {
-                latlng = _coordsToLatLng(coords[i]);
+              for (i2 = 0, len = coords.length; i2 < len; i2++) {
+                latlng = _coordsToLatLng(coords[i2]);
                 layers2.push(_pointToLayer(pointToLayer, geojson, latlng, options));
               }
               return new FeatureGroup2(layers2);
@@ -29455,9 +29455,9 @@
               latlngs = coordsToLatLngs(coords, geometry.type === "Polygon" ? 1 : 2, _coordsToLatLng);
               return new Polygon2(latlngs, options);
             case "GeometryCollection":
-              for (i = 0, len = geometry.geometries.length; i < len; i++) {
+              for (i2 = 0, len = geometry.geometries.length; i2 < len; i2++) {
                 var geoLayer = geometryToLayer({
-                  geometry: geometry.geometries[i],
+                  geometry: geometry.geometries[i2],
                   type: "Feature",
                   properties: geojson.properties
                 }, options);
@@ -29467,8 +29467,8 @@
               }
               return new FeatureGroup2(layers2);
             case "FeatureCollection":
-              for (i = 0, len = geometry.features.length; i < len; i++) {
-                var featureLayer = geometryToLayer(geometry.features[i], options);
+              for (i2 = 0, len = geometry.features.length; i2 < len; i2++) {
+                var featureLayer = geometryToLayer(geometry.features[i2], options);
                 if (featureLayer) {
                   layers2.push(featureLayer);
                 }
@@ -29486,8 +29486,8 @@
         }
         function coordsToLatLngs(coords, levelsDeep, _coordsToLatLng) {
           var latlngs = [];
-          for (var i = 0, len = coords.length, latlng; i < len; i++) {
-            latlng = levelsDeep ? coordsToLatLngs(coords[i], levelsDeep - 1, _coordsToLatLng) : (_coordsToLatLng || coordsToLatLng)(coords[i]);
+          for (var i2 = 0, len = coords.length, latlng; i2 < len; i2++) {
+            latlng = levelsDeep ? coordsToLatLngs(coords[i2], levelsDeep - 1, _coordsToLatLng) : (_coordsToLatLng || coordsToLatLng)(coords[i2]);
             latlngs.push(latlng);
           }
           return latlngs;
@@ -29498,8 +29498,8 @@
         }
         function latLngsToCoords(latlngs, levelsDeep, closed, precision) {
           var coords = [];
-          for (var i = 0, len = latlngs.length; i < len; i++) {
-            coords.push(levelsDeep ? latLngsToCoords(latlngs[i], isFlat(latlngs[i]) ? 0 : levelsDeep - 1, closed, precision) : latLngToCoords(latlngs[i], precision));
+          for (var i2 = 0, len = latlngs.length; i2 < len; i2++) {
+            coords.push(levelsDeep ? latLngsToCoords(latlngs[i2], isFlat(latlngs[i2]) ? 0 : levelsDeep - 1, closed, precision) : latLngToCoords(latlngs[i2], precision));
           }
           if (!levelsDeep && closed && coords.length > 0) {
             coords.push(coords[0].slice());
@@ -29761,18 +29761,18 @@
             img.src = this._url;
             img.alt = this.options.alt;
           },
-          _animateZoom: function(e) {
-            var scale2 = this._map.getZoomScale(e.zoom), offset = this._map._latLngBoundsToNewLayerBounds(this._bounds, e.zoom, e.center).min;
-            setTransform(this._image, offset, scale2);
+          _animateZoom: function(e2) {
+            var scale2 = this._map.getZoomScale(e2.zoom), offset3 = this._map._latLngBoundsToNewLayerBounds(this._bounds, e2.zoom, e2.center).min;
+            setTransform(this._image, offset3, scale2);
           },
           _reset: function() {
             var image = this._image, bounds = new Bounds(
               this._map.latLngToLayerPoint(this._bounds.getNorthWest()),
               this._map.latLngToLayerPoint(this._bounds.getSouthEast())
-            ), size = bounds.getSize();
+            ), size2 = bounds.getSize();
             setPosition(image, bounds.min);
-            image.style.width = size.x + "px";
-            image.style.height = size.y + "px";
+            image.style.width = size2.x + "px";
+            image.style.height = size2.y + "px";
           },
           _updateOpacity: function() {
             setOpacity(this._image, this.options.opacity);
@@ -29837,8 +29837,8 @@
             if (wasElementSupplied) {
               var sourceElements = vid.getElementsByTagName("source");
               var sources = [];
-              for (var j = 0; j < sourceElements.length; j++) {
-                sources.push(sourceElements[j].src);
+              for (var j2 = 0; j2 < sourceElements.length; j2++) {
+                sources.push(sourceElements[j2].src);
               }
               this._url = sourceElements.length > 0 ? sources : [vid.src];
               return;
@@ -29853,9 +29853,9 @@
             vid.loop = !!this.options.loop;
             vid.muted = !!this.options.muted;
             vid.playsInline = !!this.options.playsInline;
-            for (var i = 0; i < this._url.length; i++) {
+            for (var i2 = 0; i2 < this._url.length; i2++) {
               var source = create$1("source");
-              source.src = this._url[i];
+              source.src = this._url[i2];
               vid.appendChild(source);
             }
           }
@@ -30124,13 +30124,13 @@
             if (!this._map) {
               return;
             }
-            var pos = this._map.latLngToLayerPoint(this._latlng), offset = toPoint(this.options.offset), anchor = this._getAnchor();
+            var pos = this._map.latLngToLayerPoint(this._latlng), offset3 = toPoint(this.options.offset), anchor = this._getAnchor();
             if (this._zoomAnimated) {
               setPosition(this._container, pos.add(anchor));
             } else {
-              offset = offset.add(pos).add(anchor);
+              offset3 = offset3.add(pos).add(anchor);
             }
-            var bottom = this._containerBottom = -offset.y, left = this._containerLeft = -Math.round(this._containerWidth / 2) + offset.x;
+            var bottom = this._containerBottom = -offset3.y, left = this._containerLeft = -Math.round(this._containerWidth / 2) + offset3.x;
             this._container.style.bottom = bottom + "px";
             this._container.style.left = left + "px";
           },
@@ -30307,8 +30307,8 @@
             }
             this._containerWidth = this._container.offsetWidth;
           },
-          _animateZoom: function(e) {
-            var pos = this._map._latLngToNewLayerPoint(this._latlng, e.zoom, e.center), anchor = this._getAnchor();
+          _animateZoom: function(e2) {
+            var pos = this._map._latLngToNewLayerPoint(this._latlng, e2.zoom, e2.center), anchor = this._getAnchor();
             setPosition(this._container, pos.add(anchor));
           },
           _adjustPan: function() {
@@ -30324,15 +30324,15 @@
             }
             var map = this._map, marginBottom = parseInt(getStyle(this._container, "marginBottom"), 10) || 0, containerHeight = this._container.offsetHeight + marginBottom, containerWidth = this._containerWidth, layerPos = new Point(this._containerLeft, -containerHeight - this._containerBottom);
             layerPos._add(getPosition(this._container));
-            var containerPos = map.layerPointToContainerPoint(layerPos), padding = toPoint(this.options.autoPanPadding), paddingTL = toPoint(this.options.autoPanPaddingTopLeft || padding), paddingBR = toPoint(this.options.autoPanPaddingBottomRight || padding), size = map.getSize(), dx = 0, dy = 0;
-            if (containerPos.x + containerWidth + paddingBR.x > size.x) {
-              dx = containerPos.x + containerWidth - size.x + paddingBR.x;
+            var containerPos = map.layerPointToContainerPoint(layerPos), padding = toPoint(this.options.autoPanPadding), paddingTL = toPoint(this.options.autoPanPaddingTopLeft || padding), paddingBR = toPoint(this.options.autoPanPaddingBottomRight || padding), size2 = map.getSize(), dx = 0, dy = 0;
+            if (containerPos.x + containerWidth + paddingBR.x > size2.x) {
+              dx = containerPos.x + containerWidth - size2.x + paddingBR.x;
             }
             if (containerPos.x - dx - paddingTL.x < 0) {
               dx = containerPos.x - paddingTL.x;
             }
-            if (containerPos.y + containerHeight + paddingBR.y > size.y) {
-              dy = containerPos.y + containerHeight - size.y + paddingBR.y;
+            if (containerPos.y + containerHeight + paddingBR.y > size2.y) {
+              dy = containerPos.y + containerHeight - size2.y + paddingBR.y;
             }
             if (containerPos.y - dy - paddingTL.y < 0) {
               dy = containerPos.y - paddingTL.y;
@@ -30454,29 +30454,29 @@
           getPopup: function() {
             return this._popup;
           },
-          _openPopup: function(e) {
+          _openPopup: function(e2) {
             if (!this._popup || !this._map) {
               return;
             }
-            stop(e);
-            var target = e.layer || e.target;
+            stop(e2);
+            var target = e2.layer || e2.target;
             if (this._popup._source === target && !(target instanceof Path)) {
               if (this._map.hasLayer(this._popup)) {
                 this.closePopup();
               } else {
-                this.openPopup(e.latlng);
+                this.openPopup(e2.latlng);
               }
               return;
             }
             this._popup._source = target;
-            this.openPopup(e.latlng);
+            this.openPopup(e2.latlng);
           },
-          _movePopup: function(e) {
-            this._popup.setLatLng(e.latlng);
+          _movePopup: function(e2) {
+            this._popup.setLatLng(e2.latlng);
           },
-          _onKeyPress: function(e) {
-            if (e.originalEvent.keyCode === 13) {
-              this._openPopup(e);
+          _onKeyPress: function(e2) {
+            if (e2.originalEvent.keyCode === 13) {
+              this._openPopup(e2);
             }
           }
         });
@@ -30541,7 +30541,7 @@
           _adjustPan: function() {
           },
           _setPosition: function(pos) {
-            var subX, subY, map = this._map, container = this._container, centerPoint = map.latLngToContainerPoint(map.getCenter()), tooltipPoint = map.layerPointToContainerPoint(pos), direction = this.options.direction, tooltipWidth = container.offsetWidth, tooltipHeight = container.offsetHeight, offset = toPoint(this.options.offset), anchor = this._getAnchor();
+            var subX, subY, map = this._map, container = this._container, centerPoint = map.latLngToContainerPoint(map.getCenter()), tooltipPoint = map.layerPointToContainerPoint(pos), direction = this.options.direction, tooltipWidth = container.offsetWidth, tooltipHeight = container.offsetHeight, offset3 = toPoint(this.options.offset), anchor = this._getAnchor();
             if (direction === "top") {
               subX = tooltipWidth / 2;
               subY = tooltipHeight;
@@ -30563,10 +30563,10 @@
               subY = tooltipHeight / 2;
             } else {
               direction = "left";
-              subX = tooltipWidth + (offset.x + anchor.x) * 2;
+              subX = tooltipWidth + (offset3.x + anchor.x) * 2;
               subY = tooltipHeight / 2;
             }
-            pos = pos.subtract(toPoint(subX, subY, true)).add(offset).add(anchor);
+            pos = pos.subtract(toPoint(subX, subY, true)).add(offset3).add(anchor);
             removeClass(container, "leaflet-tooltip-right");
             removeClass(container, "leaflet-tooltip-left");
             removeClass(container, "leaflet-tooltip-top");
@@ -30584,8 +30584,8 @@
               setOpacity(this._container, opacity);
             }
           },
-          _animateZoom: function(e) {
-            var pos = this._map._latLngToNewLayerPoint(this._latlng, e.zoom, e.center);
+          _animateZoom: function(e2) {
+            var pos = this._map._latLngToNewLayerPoint(this._latlng, e2.zoom, e2.center);
             this._setPosition(pos);
           },
           _getAnchor: function() {
@@ -30738,7 +30738,7 @@
               el.setAttribute("aria-describedby", this._tooltip._container.id);
             }
           },
-          _openTooltip: function(e) {
+          _openTooltip: function(e2) {
             if (!this._tooltip || !this._map) {
               return;
             }
@@ -30747,17 +30747,17 @@
               var that = this;
               this._map.once("moveend", function() {
                 that._openOnceFlag = false;
-                that._openTooltip(e);
+                that._openTooltip(e2);
               });
               return;
             }
-            this._tooltip._source = e.layer || e.target;
-            this.openTooltip(this._tooltip.options.sticky ? e.latlng : void 0);
+            this._tooltip._source = e2.layer || e2.target;
+            this.openTooltip(this._tooltip.options.sticky ? e2.latlng : void 0);
           },
-          _moveTooltip: function(e) {
-            var latlng = e.latlng, containerPoint, layerPoint;
-            if (this._tooltip.options.sticky && e.originalEvent) {
-              containerPoint = this._map.mouseEventToContainerPoint(e.originalEvent);
+          _moveTooltip: function(e2) {
+            var latlng = e2.latlng, containerPoint, layerPoint;
+            if (this._tooltip.options.sticky && e2.originalEvent) {
+              containerPoint = this._map.mouseEventToContainerPoint(e2.originalEvent);
               layerPoint = this._map.containerPointToLayerPoint(containerPoint);
               latlng = this._map.layerPointToLatLng(layerPoint);
             }
@@ -30971,8 +30971,8 @@
           // @method getTileSize: Point
           // Normalizes the [tileSize option](#gridlayer-tilesize) into a point. Used by the `createTile()` method.
           getTileSize: function() {
-            var s = this.options.tileSize;
-            return s instanceof Point ? s : new Point(s, s);
+            var s2 = this.options.tileSize;
+            return s2 instanceof Point ? s2 : new Point(s2, s2);
           },
           _updateZIndex: function() {
             if (this._container && this.options.zIndex !== void 0 && this.options.zIndex !== null) {
@@ -30981,9 +30981,9 @@
           },
           _setAutoZIndex: function(compare) {
             var layers2 = this.getPane().children, edgeZIndex = -compare(-Infinity, Infinity);
-            for (var i = 0, len = layers2.length, zIndex; i < len; i++) {
-              zIndex = layers2[i].style.zIndex;
-              if (layers2[i] !== this._container && zIndex) {
+            for (var i2 = 0, len = layers2.length, zIndex; i2 < len; i2++) {
+              zIndex = layers2[i2].style.zIndex;
+              if (layers2[i2] !== this._container && zIndex) {
                 edgeZIndex = compare(edgeZIndex, +zIndex);
               }
             }
@@ -31044,16 +31044,16 @@
             if (zoom2 === void 0) {
               return void 0;
             }
-            for (var z in this._levels) {
-              z = Number(z);
-              if (this._levels[z].el.children.length || z === zoom2) {
-                this._levels[z].el.style.zIndex = maxZoom - Math.abs(zoom2 - z);
-                this._onUpdateLevel(z);
+            for (var z2 in this._levels) {
+              z2 = Number(z2);
+              if (this._levels[z2].el.children.length || z2 === zoom2) {
+                this._levels[z2].el.style.zIndex = maxZoom - Math.abs(zoom2 - z2);
+                this._onUpdateLevel(z2);
               } else {
-                remove(this._levels[z].el);
-                this._removeTilesAtZoom(z);
-                this._onRemoveLevel(z);
-                delete this._levels[z];
+                remove(this._levels[z2].el);
+                this._removeTilesAtZoom(z2);
+                this._onRemoveLevel(z2);
+                delete this._levels[z2];
               }
             }
             var level = this._levels[zoom2], map = this._map;
@@ -31116,17 +31116,17 @@
             }
           },
           _invalidateAll: function() {
-            for (var z in this._levels) {
-              remove(this._levels[z].el);
-              this._onRemoveLevel(Number(z));
-              delete this._levels[z];
+            for (var z2 in this._levels) {
+              remove(this._levels[z2].el);
+              this._onRemoveLevel(Number(z2));
+              delete this._levels[z2];
             }
             this._removeAllTiles();
             this._tileZoom = void 0;
           },
-          _retainParent: function(x, y, z, minZoom) {
-            var x2 = Math.floor(x / 2), y2 = Math.floor(y / 2), z2 = z - 1, coords2 = new Point(+x2, +y2);
-            coords2.z = +z2;
+          _retainParent: function(x2, y2, z2, minZoom) {
+            var x22 = Math.floor(x2 / 2), y22 = Math.floor(y2 / 2), z22 = z2 - 1, coords2 = new Point(+x22, +y22);
+            coords2.z = +z22;
             var key = this._tileCoordsToKey(coords2), tile = this._tiles[key];
             if (tile && tile.active) {
               tile.retain = true;
@@ -31134,16 +31134,16 @@
             } else if (tile && tile.loaded) {
               tile.retain = true;
             }
-            if (z2 > minZoom) {
-              return this._retainParent(x2, y2, z2, minZoom);
+            if (z22 > minZoom) {
+              return this._retainParent(x22, y22, z22, minZoom);
             }
             return false;
           },
-          _retainChildren: function(x, y, z, maxZoom) {
-            for (var i = 2 * x; i < 2 * x + 2; i++) {
-              for (var j = 2 * y; j < 2 * y + 2; j++) {
-                var coords = new Point(i, j);
-                coords.z = z + 1;
+          _retainChildren: function(x2, y2, z2, maxZoom) {
+            for (var i2 = 2 * x2; i2 < 2 * x2 + 2; i2++) {
+              for (var j2 = 2 * y2; j2 < 2 * y2 + 2; j2++) {
+                var coords = new Point(i2, j2);
+                coords.z = z2 + 1;
                 var key = this._tileCoordsToKey(coords), tile = this._tiles[key];
                 if (tile && tile.active) {
                   tile.retain = true;
@@ -31151,18 +31151,18 @@
                 } else if (tile && tile.loaded) {
                   tile.retain = true;
                 }
-                if (z + 1 < maxZoom) {
-                  this._retainChildren(i, j, z + 1, maxZoom);
+                if (z2 + 1 < maxZoom) {
+                  this._retainChildren(i2, j2, z2 + 1, maxZoom);
                 }
               }
             }
           },
-          _resetView: function(e) {
-            var animating = e && (e.pinch || e.flyTo);
+          _resetView: function(e2) {
+            var animating = e2 && (e2.pinch || e2.flyTo);
             this._setView(this._map.getCenter(), this._map.getZoom(), animating, animating);
           },
-          _animateZoom: function(e) {
-            this._setView(e.center, e.zoom, true, e.noUpdate);
+          _animateZoom: function(e2) {
+            this._setView(e2.center, e2.zoom, true, e2.noUpdate);
           },
           _clampZoom: function(zoom2) {
             var options = this.options;
@@ -31200,8 +31200,8 @@
             this._setZoomTransforms(center, zoom2);
           },
           _setZoomTransforms: function(center, zoom2) {
-            for (var i in this._levels) {
-              this._setZoomTransform(this._levels[i], center, zoom2);
+            for (var i2 in this._levels) {
+              this._setZoomTransform(this._levels[i2], center, zoom2);
             }
           },
           _setZoomTransform: function(level, center, zoom2) {
@@ -31258,8 +31258,8 @@
               throw new Error("Attempted to load an infinite number of tiles");
             }
             for (var key in this._tiles) {
-              var c = this._tiles[key].coords;
-              if (c.z !== this._tileZoom || !noPruneRange.contains(new Point(c.x, c.y))) {
+              var c2 = this._tiles[key].coords;
+              if (c2.z !== this._tileZoom || !noPruneRange.contains(new Point(c2.x, c2.y))) {
                 this._tiles[key].current = false;
               }
             }
@@ -31267,9 +31267,9 @@
               this._setView(center, zoom2);
               return;
             }
-            for (var j = tileRange.min.y; j <= tileRange.max.y; j++) {
-              for (var i = tileRange.min.x; i <= tileRange.max.x; i++) {
-                var coords = new Point(i, j);
+            for (var j2 = tileRange.min.y; j2 <= tileRange.max.y; j2++) {
+              for (var i2 = tileRange.min.x; i2 <= tileRange.max.x; i2++) {
+                var coords = new Point(i2, j2);
                 coords.z = this._tileZoom;
                 if (!this._isValidTile(coords)) {
                   continue;
@@ -31282,8 +31282,8 @@
                 }
               }
             }
-            queue.sort(function(a, b) {
-              return a.distanceTo(tileCenter) - b.distanceTo(tileCenter);
+            queue.sort(function(a2, b2) {
+              return a2.distanceTo(tileCenter) - b2.distanceTo(tileCenter);
             });
             if (queue.length !== 0) {
               if (!this._loading) {
@@ -31291,8 +31291,8 @@
                 this.fire("loading");
               }
               var fragment = document.createDocumentFragment();
-              for (i = 0; i < queue.length; i++) {
-                this._addTile(queue[i], fragment);
+              for (i2 = 0; i2 < queue.length; i2++) {
+                this._addTile(queue[i2], fragment);
               }
               this._level.el.appendChild(fragment);
             }
@@ -31332,8 +31332,8 @@
           },
           // converts tile cache key to coordinates
           _keyToTileCoords: function(key) {
-            var k = key.split(":"), coords = new Point(+k[0], +k[1]);
-            coords.z = +k[2];
+            var k2 = key.split(":"), coords = new Point(+k2[0], +k2[1]);
+            coords.z = +k2[2];
             return coords;
           },
           _removeTile: function(key) {
@@ -31573,15 +31573,15 @@
               done(null, tile);
             }
           },
-          _tileOnError: function(done, tile, e) {
+          _tileOnError: function(done, tile, e2) {
             var errorUrl = this.options.errorTileUrl;
             if (errorUrl && tile.getAttribute("src") !== errorUrl) {
               tile.src = errorUrl;
             }
-            done(e, tile);
+            done(e2, tile);
           },
-          _onTileRemove: function(e) {
-            e.tile.onload = null;
+          _onTileRemove: function(e2) {
+            e2.tile.onload = null;
           },
           _getZoomForUrl: function() {
             var zoom2 = this._tileZoom, maxZoom = this.options.maxZoom, zoomReverse = this.options.zoomReverse, zoomOffset = this.options.zoomOffset;
@@ -31596,17 +31596,17 @@
           },
           // stops loading all tiles in the background layer
           _abortLoading: function() {
-            var i, tile;
-            for (i in this._tiles) {
-              if (this._tiles[i].coords.z !== this._tileZoom) {
-                tile = this._tiles[i].el;
+            var i2, tile;
+            for (i2 in this._tiles) {
+              if (this._tiles[i2].coords.z !== this._tileZoom) {
+                tile = this._tiles[i2].el;
                 tile.onload = falseFn;
                 tile.onerror = falseFn;
                 if (!tile.complete) {
                   tile.src = emptyImageUrl;
-                  var coords = this._tiles[i].coords;
+                  var coords = this._tiles[i2].coords;
                   remove(tile);
-                  delete this._tiles[i];
+                  delete this._tiles[i2];
                   this.fire("tileabort", {
                     tile,
                     coords
@@ -31670,9 +31670,9 @@
           initialize: function(url, options) {
             this._url = url;
             var wmsParams = extend({}, this.defaultWmsParams);
-            for (var i in options) {
-              if (!(i in this.options)) {
-                wmsParams[i] = options[i];
+            for (var i2 in options) {
+              if (!(i2 in this.options)) {
+                wmsParams[i2] = options[i2];
               }
             }
             options = setOptions(this, options);
@@ -31690,7 +31690,7 @@
             TileLayer2.prototype.onAdd.call(this, map);
           },
           getTileUrl: function(coords) {
-            var tileBounds = this._tileCoordsToNwSe(coords), crs = this._crs, bounds = toBounds(crs.project(tileBounds[0]), crs.project(tileBounds[1])), min = bounds.min, max = bounds.max, bbox = (this._wmsVersion >= 1.3 && this._crs === EPSG4326 ? [min.y, min.x, max.y, max.x] : [min.x, min.y, max.x, max.y]).join(","), url = TileLayer2.prototype.getTileUrl.call(this, coords);
+            var tileBounds = this._tileCoordsToNwSe(coords), crs = this._crs, bounds = toBounds(crs.project(tileBounds[0]), crs.project(tileBounds[1])), min2 = bounds.min, max2 = bounds.max, bbox = (this._wmsVersion >= 1.3 && this._crs === EPSG4326 ? [min2.y, min2.x, max2.y, max2.x] : [min2.x, min2.y, max2.x, max2.y]).join(","), url = TileLayer2.prototype.getTileUrl.call(this, coords);
             return url + getParamString(this.wmsParams, url, this.options.uppercase) + (this.options.uppercase ? "&BBOX=" : "&bbox=") + bbox;
           },
           // @method setParams(params: Object, noRedraw?: Boolean): this
@@ -31779,8 +31779,8 @@
             }
           },
           _update: function() {
-            var p = this.options.padding, size = this._map.getSize(), min = this._map.containerPointToLayerPoint(size.multiplyBy(-p)).round();
-            this._bounds = new Bounds(min, min.add(size.multiplyBy(1 + p * 2)).round());
+            var p = this.options.padding, size2 = this._map.getSize(), min2 = this._map.containerPointToLayerPoint(size2.multiplyBy(-p)).round();
+            this._bounds = new Bounds(min2, min2.add(size2.multiplyBy(1 + p * 2)).round());
             this._center = this._map.getCenter();
             this._zoom = this._map.getZoom();
           }
@@ -31837,16 +31837,16 @@
               return;
             }
             Renderer.prototype._update.call(this);
-            var b = this._bounds, container = this._container, size = b.getSize(), m = Browser.retina ? 2 : 1;
-            setPosition(container, b.min);
-            container.width = m * size.x;
-            container.height = m * size.y;
-            container.style.width = size.x + "px";
-            container.style.height = size.y + "px";
+            var b2 = this._bounds, container = this._container, size2 = b2.getSize(), m = Browser.retina ? 2 : 1;
+            setPosition(container, b2.min);
+            container.width = m * size2.x;
+            container.height = m * size2.y;
+            container.style.width = size2.x + "px";
+            container.style.height = size2.y + "px";
             if (Browser.retina) {
               this._ctx.scale(2, 2);
             }
-            this._ctx.translate(-b.min.x, -b.min.y);
+            this._ctx.translate(-b2.min.x, -b2.min.y);
             this.fire("update");
           },
           _reset: function() {
@@ -31903,9 +31903,9 @@
           },
           _updateDashArray: function(layer) {
             if (typeof layer.options.dashArray === "string") {
-              var parts = layer.options.dashArray.split(/[, ]+/), dashArray = [], dashValue, i;
-              for (i = 0; i < parts.length; i++) {
-                dashValue = Number(parts[i]);
+              var parts = layer.options.dashArray.split(/[, ]+/), dashArray = [], dashValue, i2;
+              for (i2 = 0; i2 < parts.length; i2++) {
+                dashValue = Number(parts[i2]);
                 if (isNaN(dashValue)) {
                   return;
                 }
@@ -31944,8 +31944,8 @@
           _clear: function() {
             var bounds = this._redrawBounds;
             if (bounds) {
-              var size = bounds.getSize();
-              this._ctx.clearRect(bounds.min.x, bounds.min.y, size.x, size.y);
+              var size2 = bounds.getSize();
+              this._ctx.clearRect(bounds.min.x, bounds.min.y, size2.x, size2.y);
             } else {
               this._ctx.save();
               this._ctx.setTransform(1, 0, 0, 1, 0, 0);
@@ -31957,9 +31957,9 @@
             var layer, bounds = this._redrawBounds;
             this._ctx.save();
             if (bounds) {
-              var size = bounds.getSize();
+              var size2 = bounds.getSize();
               this._ctx.beginPath();
-              this._ctx.rect(bounds.min.x, bounds.min.y, size.x, size.y);
+              this._ctx.rect(bounds.min.x, bounds.min.y, size2.x, size2.y);
               this._ctx.clip();
             }
             this._drawing = true;
@@ -31976,15 +31976,15 @@
             if (!this._drawing) {
               return;
             }
-            var i, j, len2, p, parts = layer._parts, len = parts.length, ctx = this._ctx;
+            var i2, j2, len2, p, parts = layer._parts, len = parts.length, ctx = this._ctx;
             if (!len) {
               return;
             }
             ctx.beginPath();
-            for (i = 0; i < len; i++) {
-              for (j = 0, len2 = parts[i].length; j < len2; j++) {
-                p = parts[i][j];
-                ctx[j ? "lineTo" : "moveTo"](p.x, p.y);
+            for (i2 = 0; i2 < len; i2++) {
+              for (j2 = 0, len2 = parts[i2].length; j2 < len2; j2++) {
+                p = parts[i2][j2];
+                ctx[j2 ? "lineTo" : "moveTo"](p.x, p.y);
               }
               if (closed) {
                 ctx.closePath();
@@ -31996,14 +31996,14 @@
             if (!this._drawing || layer._empty()) {
               return;
             }
-            var p = layer._point, ctx = this._ctx, r = Math.max(Math.round(layer._radius), 1), s = (Math.max(Math.round(layer._radiusY), 1) || r) / r;
-            if (s !== 1) {
+            var p = layer._point, ctx = this._ctx, r2 = Math.max(Math.round(layer._radius), 1), s2 = (Math.max(Math.round(layer._radiusY), 1) || r2) / r2;
+            if (s2 !== 1) {
               ctx.save();
-              ctx.scale(1, s);
+              ctx.scale(1, s2);
             }
             ctx.beginPath();
-            ctx.arc(p.x, p.y / s, r, 0, Math.PI * 2, false);
-            if (s !== 1) {
+            ctx.arc(p.x, p.y / s2, r2, 0, Math.PI * 2, false);
+            if (s2 !== 1) {
               ctx.restore();
             }
             this._fillStroke(ctx, layer);
@@ -32029,35 +32029,35 @@
           },
           // Canvas obviously doesn't have mouse events for individual drawn objects,
           // so we emulate that by calculating what's under the mouse on mousemove/click manually
-          _onClick: function(e) {
-            var point = this._map.mouseEventToLayerPoint(e), layer, clickedLayer;
+          _onClick: function(e2) {
+            var point = this._map.mouseEventToLayerPoint(e2), layer, clickedLayer;
             for (var order = this._drawFirst; order; order = order.next) {
               layer = order.layer;
               if (layer.options.interactive && layer._containsPoint(point)) {
-                if (!(e.type === "click" || e.type === "preclick") || !this._map._draggableMoved(layer)) {
+                if (!(e2.type === "click" || e2.type === "preclick") || !this._map._draggableMoved(layer)) {
                   clickedLayer = layer;
                 }
               }
             }
-            this._fireEvent(clickedLayer ? [clickedLayer] : false, e);
+            this._fireEvent(clickedLayer ? [clickedLayer] : false, e2);
           },
-          _onMouseMove: function(e) {
+          _onMouseMove: function(e2) {
             if (!this._map || this._map.dragging.moving() || this._map._animatingZoom) {
               return;
             }
-            var point = this._map.mouseEventToLayerPoint(e);
-            this._handleMouseHover(e, point);
+            var point = this._map.mouseEventToLayerPoint(e2);
+            this._handleMouseHover(e2, point);
           },
-          _handleMouseOut: function(e) {
+          _handleMouseOut: function(e2) {
             var layer = this._hoveredLayer;
             if (layer) {
               removeClass(this._container, "leaflet-interactive");
-              this._fireEvent([layer], e, "mouseout");
+              this._fireEvent([layer], e2, "mouseout");
               this._hoveredLayer = null;
               this._mouseHoverThrottled = false;
             }
           },
-          _handleMouseHover: function(e, point) {
+          _handleMouseHover: function(e2, point) {
             if (this._mouseHoverThrottled) {
               return;
             }
@@ -32069,21 +32069,21 @@
               }
             }
             if (candidateHoveredLayer !== this._hoveredLayer) {
-              this._handleMouseOut(e);
+              this._handleMouseOut(e2);
               if (candidateHoveredLayer) {
                 addClass(this._container, "leaflet-interactive");
-                this._fireEvent([candidateHoveredLayer], e, "mouseover");
+                this._fireEvent([candidateHoveredLayer], e2, "mouseover");
                 this._hoveredLayer = candidateHoveredLayer;
               }
             }
-            this._fireEvent(this._hoveredLayer ? [this._hoveredLayer] : false, e);
+            this._fireEvent(this._hoveredLayer ? [this._hoveredLayer] : false, e2);
             this._mouseHoverThrottled = true;
             setTimeout(bind(function() {
               this._mouseHoverThrottled = false;
             }, this), 32);
           },
-          _fireEvent: function(layers2, e, type) {
-            this._map._fireDOMEvent(e, type || e.type, layers2);
+          _fireEvent: function(layers2, e2, type) {
+            this._map._fireDOMEvent(e2, type || e2.type, layers2);
           },
           _bringToFront: function(layer) {
             var order = layer._order;
@@ -32141,7 +32141,7 @@
             return function(name) {
               return document.createElement("<lvml:" + name + ' class="lvml">');
             };
-          } catch (e) {
+          } catch (e2) {
           }
           return function(name) {
             return document.createElement("<" + name + ' xmlns="urn:schemas-microsoft.com:vml" class="lvml">');
@@ -32216,8 +32216,8 @@
             }
           },
           _updateCircle: function(layer) {
-            var p = layer._point.round(), r = Math.round(layer._radius), r2 = Math.round(layer._radiusY || r);
-            this._setPath(layer, layer._empty() ? "M0 0" : "AL " + p.x + "," + p.y + " " + r + "," + r2 + " 0," + 65535 * 360);
+            var p = layer._point.round(), r2 = Math.round(layer._radius), r22 = Math.round(layer._radiusY || r2);
+            this._setPath(layer, layer._empty() ? "M0 0" : "AL " + p.x + "," + p.y + " " + r2 + "," + r22 + " 0," + 65535 * 360);
           },
           _setPath: function(layer, path) {
             layer._path.v = path;
@@ -32249,14 +32249,14 @@
               return;
             }
             Renderer.prototype._update.call(this);
-            var b = this._bounds, size = b.getSize(), container = this._container;
-            if (!this._svgSize || !this._svgSize.equals(size)) {
-              this._svgSize = size;
-              container.setAttribute("width", size.x);
-              container.setAttribute("height", size.y);
+            var b2 = this._bounds, size2 = b2.getSize(), container = this._container;
+            if (!this._svgSize || !this._svgSize.equals(size2)) {
+              this._svgSize = size2;
+              container.setAttribute("width", size2.x);
+              container.setAttribute("height", size2.y);
             }
-            setPosition(container, b.min);
-            container.setAttribute("viewBox", [b.min.x, b.min.y, size.x, size.y].join(" "));
+            setPosition(container, b2.min);
+            container.setAttribute("viewBox", [b2.min.x, b2.min.y, size2.x, size2.y].join(" "));
             this.fire("update");
           },
           // methods below are called by vector layers implementations
@@ -32323,8 +32323,8 @@
             this._setPath(layer, pointsToPath(layer._parts, closed));
           },
           _updateCircle: function(layer) {
-            var p = layer._point, r = Math.max(Math.round(layer._radius), 1), r2 = Math.max(Math.round(layer._radiusY), 1) || r, arc = "a" + r + "," + r2 + " 0 1,0 ";
-            var d = layer._empty() ? "M0 0" : "M" + (p.x - r) + "," + p.y + arc + r * 2 + ",0 " + arc + -r * 2 + ",0 ";
+            var p = layer._point, r2 = Math.max(Math.round(layer._radius), 1), r22 = Math.max(Math.round(layer._radiusY), 1) || r2, arc = "a" + r2 + "," + r22 + " 0 1,0 ";
+            var d = layer._empty() ? "M0 0" : "M" + (p.x - r2) + "," + p.y + arc + r2 * 2 + ",0 " + arc + -r2 * 2 + ",0 ";
             this._setPath(layer, d);
           },
           _setPath: function(layer, path) {
@@ -32442,15 +32442,15 @@
               this._resetStateTimeout = 0;
             }
           },
-          _onMouseDown: function(e) {
-            if (!e.shiftKey || e.which !== 1 && e.button !== 1) {
+          _onMouseDown: function(e2) {
+            if (!e2.shiftKey || e2.which !== 1 && e2.button !== 1) {
               return false;
             }
             this._clearDeferredResetState();
             this._resetState();
             disableTextSelection();
             disableImageDrag();
-            this._startPoint = this._map.mouseEventToContainerPoint(e);
+            this._startPoint = this._map.mouseEventToContainerPoint(e2);
             on(document, {
               contextmenu: stop,
               mousemove: this._onMouseMove,
@@ -32458,18 +32458,18 @@
               keydown: this._onKeyDown
             }, this);
           },
-          _onMouseMove: function(e) {
+          _onMouseMove: function(e2) {
             if (!this._moved) {
               this._moved = true;
               this._box = create$1("div", "leaflet-zoom-box", this._container);
               addClass(this._container, "leaflet-crosshair");
               this._map.fire("boxzoomstart");
             }
-            this._point = this._map.mouseEventToContainerPoint(e);
-            var bounds = new Bounds(this._point, this._startPoint), size = bounds.getSize();
+            this._point = this._map.mouseEventToContainerPoint(e2);
+            var bounds = new Bounds(this._point, this._startPoint), size2 = bounds.getSize();
             setPosition(this._box, bounds.min);
-            this._box.style.width = size.x + "px";
-            this._box.style.height = size.y + "px";
+            this._box.style.width = size2.x + "px";
+            this._box.style.height = size2.y + "px";
           },
           _finish: function() {
             if (this._moved) {
@@ -32485,8 +32485,8 @@
               keydown: this._onKeyDown
             }, this);
           },
-          _onMouseUp: function(e) {
-            if (e.which !== 1 && e.button !== 1) {
+          _onMouseUp: function(e2) {
+            if (e2.which !== 1 && e2.button !== 1) {
               return;
             }
             this._finish();
@@ -32501,8 +32501,8 @@
             );
             this._map.fitBounds(bounds).fire("boxzoomend", { boxZoomBounds: bounds });
           },
-          _onKeyDown: function(e) {
-            if (e.keyCode === 27) {
+          _onKeyDown: function(e2) {
+            if (e2.keyCode === 27) {
               this._finish();
               this._clearDeferredResetState();
               this._resetState();
@@ -32525,12 +32525,12 @@
           removeHooks: function() {
             this._map.off("dblclick", this._onDoubleClick, this);
           },
-          _onDoubleClick: function(e) {
-            var map = this._map, oldZoom = map.getZoom(), delta = map.options.zoomDelta, zoom2 = e.originalEvent.shiftKey ? oldZoom - delta : oldZoom + delta;
+          _onDoubleClick: function(e2) {
+            var map = this._map, oldZoom = map.getZoom(), delta = map.options.zoomDelta, zoom2 = e2.originalEvent.shiftKey ? oldZoom - delta : oldZoom + delta;
             if (map.options.doubleClickZoom === "center") {
               map.setZoom(zoom2);
             } else {
-              map.setZoomAround(e.containerPoint, zoom2);
+              map.setZoomAround(e2.containerPoint, zoom2);
             }
           }
         });
@@ -32622,14 +32622,14 @@
               this._times = [];
             }
           },
-          _onDrag: function(e) {
+          _onDrag: function(e2) {
             if (this._map.options.inertia) {
               var time = this._lastTime = +/* @__PURE__ */ new Date(), pos = this._lastPos = this._draggable._absPos || this._draggable._newPos;
               this._positions.push(pos);
               this._times.push(time);
               this._prunePositions(time);
             }
-            this._map.fire("move", e).fire("drag", e);
+            this._map.fire("move", e2).fire("drag", e2);
           },
           _prunePositions: function(time) {
             while (this._positions.length > 1 && time - this._times[0] > 50) {
@@ -32649,41 +32649,41 @@
             if (!this._viscosity || !this._offsetLimit) {
               return;
             }
-            var offset = this._draggable._newPos.subtract(this._draggable._startPos);
+            var offset3 = this._draggable._newPos.subtract(this._draggable._startPos);
             var limit = this._offsetLimit;
-            if (offset.x < limit.min.x) {
-              offset.x = this._viscousLimit(offset.x, limit.min.x);
+            if (offset3.x < limit.min.x) {
+              offset3.x = this._viscousLimit(offset3.x, limit.min.x);
             }
-            if (offset.y < limit.min.y) {
-              offset.y = this._viscousLimit(offset.y, limit.min.y);
+            if (offset3.y < limit.min.y) {
+              offset3.y = this._viscousLimit(offset3.y, limit.min.y);
             }
-            if (offset.x > limit.max.x) {
-              offset.x = this._viscousLimit(offset.x, limit.max.x);
+            if (offset3.x > limit.max.x) {
+              offset3.x = this._viscousLimit(offset3.x, limit.max.x);
             }
-            if (offset.y > limit.max.y) {
-              offset.y = this._viscousLimit(offset.y, limit.max.y);
+            if (offset3.y > limit.max.y) {
+              offset3.y = this._viscousLimit(offset3.y, limit.max.y);
             }
-            this._draggable._newPos = this._draggable._startPos.add(offset);
+            this._draggable._newPos = this._draggable._startPos.add(offset3);
           },
           _onPreDragWrap: function() {
-            var worldWidth = this._worldWidth, halfWidth = Math.round(worldWidth / 2), dx = this._initialWorldOffset, x = this._draggable._newPos.x, newX1 = (x - halfWidth + dx) % worldWidth + halfWidth - dx, newX2 = (x + halfWidth + dx) % worldWidth - halfWidth - dx, newX = Math.abs(newX1 + dx) < Math.abs(newX2 + dx) ? newX1 : newX2;
+            var worldWidth = this._worldWidth, halfWidth = Math.round(worldWidth / 2), dx = this._initialWorldOffset, x2 = this._draggable._newPos.x, newX1 = (x2 - halfWidth + dx) % worldWidth + halfWidth - dx, newX2 = (x2 + halfWidth + dx) % worldWidth - halfWidth - dx, newX = Math.abs(newX1 + dx) < Math.abs(newX2 + dx) ? newX1 : newX2;
             this._draggable._absPos = this._draggable._newPos.clone();
             this._draggable._newPos.x = newX;
           },
-          _onDragEnd: function(e) {
-            var map = this._map, options = map.options, noInertia = !options.inertia || e.noInertia || this._times.length < 2;
-            map.fire("dragend", e);
+          _onDragEnd: function(e2) {
+            var map = this._map, options = map.options, noInertia = !options.inertia || e2.noInertia || this._times.length < 2;
+            map.fire("dragend", e2);
             if (noInertia) {
               map.fire("moveend");
             } else {
               this._prunePositions(+/* @__PURE__ */ new Date());
-              var direction = this._lastPos.subtract(this._positions[0]), duration = (this._lastTime - this._times[0]) / 1e3, ease = options.easeLinearity, speedVector = direction.multiplyBy(ease / duration), speed = speedVector.distanceTo([0, 0]), limitedSpeed = Math.min(options.inertiaMaxSpeed, speed), limitedSpeedVector = speedVector.multiplyBy(limitedSpeed / speed), decelerationDuration = limitedSpeed / (options.inertiaDeceleration * ease), offset = limitedSpeedVector.multiplyBy(-decelerationDuration / 2).round();
-              if (!offset.x && !offset.y) {
+              var direction = this._lastPos.subtract(this._positions[0]), duration = (this._lastTime - this._times[0]) / 1e3, ease = options.easeLinearity, speedVector = direction.multiplyBy(ease / duration), speed = speedVector.distanceTo([0, 0]), limitedSpeed = Math.min(options.inertiaMaxSpeed, speed), limitedSpeedVector = speedVector.multiplyBy(limitedSpeed / speed), decelerationDuration = limitedSpeed / (options.inertiaDeceleration * ease), offset3 = limitedSpeedVector.multiplyBy(-decelerationDuration / 2).round();
+              if (!offset3.x && !offset3.y) {
                 map.fire("moveend");
               } else {
-                offset = map._limitOffset(offset, map.options.maxBounds);
+                offset3 = map._limitOffset(offset3, map.options.maxBounds);
                 requestAnimFrame(function() {
-                  map.panBy(offset, {
+                  map.panBy(offset3, {
                     duration: decelerationDuration,
                     easeLinearity: ease,
                     noMoveStart: true,
@@ -32762,27 +32762,27 @@
             this._map.fire("blur");
           },
           _setPanDelta: function(panDelta) {
-            var keys = this._panKeys = {}, codes = this.keyCodes, i, len;
-            for (i = 0, len = codes.left.length; i < len; i++) {
-              keys[codes.left[i]] = [-1 * panDelta, 0];
+            var keys = this._panKeys = {}, codes = this.keyCodes, i2, len;
+            for (i2 = 0, len = codes.left.length; i2 < len; i2++) {
+              keys[codes.left[i2]] = [-1 * panDelta, 0];
             }
-            for (i = 0, len = codes.right.length; i < len; i++) {
-              keys[codes.right[i]] = [panDelta, 0];
+            for (i2 = 0, len = codes.right.length; i2 < len; i2++) {
+              keys[codes.right[i2]] = [panDelta, 0];
             }
-            for (i = 0, len = codes.down.length; i < len; i++) {
-              keys[codes.down[i]] = [0, panDelta];
+            for (i2 = 0, len = codes.down.length; i2 < len; i2++) {
+              keys[codes.down[i2]] = [0, panDelta];
             }
-            for (i = 0, len = codes.up.length; i < len; i++) {
-              keys[codes.up[i]] = [0, -1 * panDelta];
+            for (i2 = 0, len = codes.up.length; i2 < len; i2++) {
+              keys[codes.up[i2]] = [0, -1 * panDelta];
             }
           },
           _setZoomDelta: function(zoomDelta) {
-            var keys = this._zoomKeys = {}, codes = this.keyCodes, i, len;
-            for (i = 0, len = codes.zoomIn.length; i < len; i++) {
-              keys[codes.zoomIn[i]] = zoomDelta;
+            var keys = this._zoomKeys = {}, codes = this.keyCodes, i2, len;
+            for (i2 = 0, len = codes.zoomIn.length; i2 < len; i2++) {
+              keys[codes.zoomIn[i2]] = zoomDelta;
             }
-            for (i = 0, len = codes.zoomOut.length; i < len; i++) {
-              keys[codes.zoomOut[i]] = -zoomDelta;
+            for (i2 = 0, len = codes.zoomOut.length; i2 < len; i2++) {
+              keys[codes.zoomOut[i2]] = -zoomDelta;
             }
           },
           _addHooks: function() {
@@ -32791,35 +32791,35 @@
           _removeHooks: function() {
             off(document, "keydown", this._onKeyDown, this);
           },
-          _onKeyDown: function(e) {
-            if (e.altKey || e.ctrlKey || e.metaKey) {
+          _onKeyDown: function(e2) {
+            if (e2.altKey || e2.ctrlKey || e2.metaKey) {
               return;
             }
-            var key = e.keyCode, map = this._map, offset;
+            var key = e2.keyCode, map = this._map, offset3;
             if (key in this._panKeys) {
               if (!map._panAnim || !map._panAnim._inProgress) {
-                offset = this._panKeys[key];
-                if (e.shiftKey) {
-                  offset = toPoint(offset).multiplyBy(3);
+                offset3 = this._panKeys[key];
+                if (e2.shiftKey) {
+                  offset3 = toPoint(offset3).multiplyBy(3);
                 }
                 if (map.options.maxBounds) {
-                  offset = map._limitOffset(toPoint(offset), map.options.maxBounds);
+                  offset3 = map._limitOffset(toPoint(offset3), map.options.maxBounds);
                 }
                 if (map.options.worldCopyJump) {
-                  var newLatLng = map.wrapLatLng(map.unproject(map.project(map.getCenter()).add(offset)));
+                  var newLatLng = map.wrapLatLng(map.unproject(map.project(map.getCenter()).add(offset3)));
                   map.panTo(newLatLng);
                 } else {
-                  map.panBy(offset);
+                  map.panBy(offset3);
                 }
               }
             } else if (key in this._zoomKeys) {
-              map.setZoom(map.getZoom() + (e.shiftKey ? 3 : 1) * this._zoomKeys[key]);
+              map.setZoom(map.getZoom() + (e2.shiftKey ? 3 : 1) * this._zoomKeys[key]);
             } else if (key === 27 && map._popup && map._popup.options.closeOnEscapeKey) {
               map.closePopup();
             } else {
               return;
             }
-            stop(e);
+            stop(e2);
           }
         });
         Map3.addInitHook("addHandler", "keyboard", Keyboard);
@@ -32847,18 +32847,18 @@
           removeHooks: function() {
             off(this._map._container, "wheel", this._onWheelScroll, this);
           },
-          _onWheelScroll: function(e) {
-            var delta = getWheelDelta(e);
+          _onWheelScroll: function(e2) {
+            var delta = getWheelDelta(e2);
             var debounce = this._map.options.wheelDebounceTime;
             this._delta += delta;
-            this._lastMousePos = this._map.mouseEventToContainerPoint(e);
+            this._lastMousePos = this._map.mouseEventToContainerPoint(e2);
             if (!this._startTime) {
               this._startTime = +/* @__PURE__ */ new Date();
             }
             var left = Math.max(debounce - (+/* @__PURE__ */ new Date() - this._startTime), 0);
             clearTimeout(this._timer);
             this._timer = setTimeout(bind(this._performZoom, this), left);
-            stop(e);
+            stop(e2);
           },
           _performZoom: function() {
             var map = this._map, zoom2 = map.getZoom(), snap = this._map.options.zoomSnap || 0;
@@ -32895,12 +32895,12 @@
           removeHooks: function() {
             off(this._map._container, "touchstart", this._onDown, this);
           },
-          _onDown: function(e) {
+          _onDown: function(e2) {
             clearTimeout(this._holdTimeout);
-            if (e.touches.length !== 1) {
+            if (e2.touches.length !== 1) {
               return;
             }
-            var first = e.touches[0];
+            var first = e2.touches[0];
             this._startPos = this._newPos = new Point(first.clientX, first.clientY);
             this._holdTimeout = setTimeout(bind(function() {
               this._cancel();
@@ -32923,28 +32923,28 @@
             off(document, "touchend touchcancel contextmenu", this._cancel, this);
             off(document, "touchmove", this._onMove, this);
           },
-          _onMove: function(e) {
-            var first = e.touches[0];
+          _onMove: function(e2) {
+            var first = e2.touches[0];
             this._newPos = new Point(first.clientX, first.clientY);
           },
           _isTapValid: function() {
             return this._newPos.distanceTo(this._startPos) <= this._map.options.tapTolerance;
           },
-          _simulateEvent: function(type, e) {
+          _simulateEvent: function(type, e2) {
             var simulatedEvent = new MouseEvent(type, {
               bubbles: true,
               cancelable: true,
               view: window,
               // detail: 1,
-              screenX: e.screenX,
-              screenY: e.screenY,
-              clientX: e.clientX,
-              clientY: e.clientY
+              screenX: e2.screenX,
+              screenY: e2.screenY,
+              clientX: e2.clientX,
+              clientY: e2.clientY
               // button: 2,
               // buttons: 2
             });
             simulatedEvent._simulated = true;
-            e.target.dispatchEvent(simulatedEvent);
+            e2.target.dispatchEvent(simulatedEvent);
           }
         });
         Map3.addInitHook("addHandler", "tapHold", TapHold);
@@ -32970,12 +32970,12 @@
             removeClass(this._map._container, "leaflet-touch-zoom");
             off(this._map._container, "touchstart", this._onTouchStart, this);
           },
-          _onTouchStart: function(e) {
+          _onTouchStart: function(e2) {
             var map = this._map;
-            if (!e.touches || e.touches.length !== 2 || map._animatingZoom || this._zooming) {
+            if (!e2.touches || e2.touches.length !== 2 || map._animatingZoom || this._zooming) {
               return;
             }
-            var p1 = map.mouseEventToContainerPoint(e.touches[0]), p2 = map.mouseEventToContainerPoint(e.touches[1]);
+            var p1 = map.mouseEventToContainerPoint(e2.touches[0]), p2 = map.mouseEventToContainerPoint(e2.touches[1]);
             this._centerPoint = map.getSize()._divideBy(2);
             this._startLatLng = map.containerPointToLatLng(this._centerPoint);
             if (map.options.touchZoom !== "center") {
@@ -32988,13 +32988,13 @@
             map._stop();
             on(document, "touchmove", this._onTouchMove, this);
             on(document, "touchend touchcancel", this._onTouchEnd, this);
-            preventDefault(e);
+            preventDefault(e2);
           },
-          _onTouchMove: function(e) {
-            if (!e.touches || e.touches.length !== 2 || !this._zooming) {
+          _onTouchMove: function(e2) {
+            if (!e2.touches || e2.touches.length !== 2 || !this._zooming) {
               return;
             }
-            var map = this._map, p1 = map.mouseEventToContainerPoint(e.touches[0]), p2 = map.mouseEventToContainerPoint(e.touches[1]), scale2 = p1.distanceTo(p2) / this._startDist;
+            var map = this._map, p1 = map.mouseEventToContainerPoint(e2.touches[0]), p2 = map.mouseEventToContainerPoint(e2.touches[1]), scale2 = p1.distanceTo(p2) / this._startDist;
             this._zoom = map.getScaleZoom(scale2, this._startZoom);
             if (!map.options.bounceAtZoomLimits && (this._zoom < map.getMinZoom() && scale2 < 1 || this._zoom > map.getMaxZoom() && scale2 > 1)) {
               this._zoom = map._limitZoom(this._zoom);
@@ -33018,7 +33018,7 @@
             cancelAnimFrame(this._animRequest);
             var moveFn = bind(map._move, map, this._center, this._zoom, { pinch: true, round: false }, void 0);
             this._animRequest = requestAnimFrame(moveFn, this, true);
-            preventDefault(e);
+            preventDefault(e2);
           },
           _onTouchEnd: function() {
             if (!this._moved || !this._zooming) {
@@ -33144,8 +33144,8 @@
         if (typeof window2 !== "undefined" && window2.L) {
           factory(window2.L);
         }
-      })((L3) => {
-        L3.Editable = L3.Evented.extend({
+      })((L4) => {
+        L4.Editable = L4.Evented.extend({
           statics: {
             FORWARD: 1,
             BACKWARD: -1
@@ -33157,22 +33157,22 @@
             zIndex: 1e3,
             // 🍂option polygonClass: class = L.Polygon
             // Class to be used when creating a new Polygon.
-            polygonClass: L3.Polygon,
+            polygonClass: L4.Polygon,
             // 🍂option polylineClass: class = L.Polyline
             // Class to be used when creating a new Polyline.
-            polylineClass: L3.Polyline,
+            polylineClass: L4.Polyline,
             // 🍂option markerClass: class = L.Marker
             // Class to be used when creating a new Marker.
-            markerClass: L3.Marker,
+            markerClass: L4.Marker,
             // 🍂option circleMarkerClass: class = L.CircleMarker
             // Class to be used when creating a new CircleMarker.
-            circleMarkerClass: L3.CircleMarker,
+            circleMarkerClass: L4.CircleMarker,
             // 🍂option rectangleClass: class = L.Rectangle
             // Class to be used when creating a new Rectangle.
-            rectangleClass: L3.Rectangle,
+            rectangleClass: L4.Rectangle,
             // 🍂option circleClass: class = L.Circle
             // Class to be used when creating a new Circle.
-            circleClass: L3.Circle,
+            circleClass: L4.Circle,
             // 🍂option drawingCSSClass: string = 'leaflet-editable-drawing'
             // CSS class to be added to the map container while drawing.
             drawingCSSClass: "leaflet-editable-drawing",
@@ -33211,7 +33211,7 @@
             skipMiddleMarkers: false
           },
           initialize: function(map, options) {
-            L3.setOptions(this, options);
+            L4.setOptions(this, options);
             this._lastZIndex = this.options.zIndex;
             this.map = map;
             this.editLayer = this.createEditLayer();
@@ -33219,25 +33219,25 @@
             this.forwardLineGuide = this.createLineGuide();
             this.backwardLineGuide = this.createLineGuide();
           },
-          fireAndForward: function(type, e) {
-            e = e || {};
-            e.editTools = this;
-            this.fire(type, e);
-            this.map.fire(type, e);
+          fireAndForward: function(type, e2) {
+            e2 = e2 || {};
+            e2.editTools = this;
+            this.fire(type, e2);
+            this.map.fire(type, e2);
           },
           createLineGuide: function() {
-            const options = L3.extend(
+            const options = L4.extend(
               { dashArray: "5,10", weight: 1, interactive: false },
               this.options.lineGuideOptions
             );
-            return L3.polyline([], options);
+            return L4.polyline([], options);
           },
-          createVertexIcon: (options) => L3.Browser.mobile && L3.Browser.touch ? new L3.Editable.TouchVertexIcon(options) : new L3.Editable.VertexIcon(options),
+          createVertexIcon: (options) => L4.Browser.mobile && L4.Browser.touch ? new L4.Editable.TouchVertexIcon(options) : new L4.Editable.VertexIcon(options),
           createEditLayer: function() {
-            return this.options.editLayer || new L3.LayerGroup().addTo(this.map);
+            return this.options.editLayer || new L4.LayerGroup().addTo(this.map);
           },
           createFeaturesLayer: function() {
-            return this.options.featuresLayer || new L3.LayerGroup().addTo(this.map);
+            return this.options.featuresLayer || new L4.LayerGroup().addTo(this.map);
           },
           moveForwardLineGuide: function(latlng) {
             if (this.forwardLineGuide._latlngs.length) {
@@ -33285,7 +33285,7 @@
           },
           unblockEvents: function() {
             if (this._oldTargets) {
-              this.map._targets = L3.extend(this.map._targets, this._oldTargets);
+              this.map._targets = L4.extend(this.map._targets, this._oldTargets);
               delete this._oldTargets;
             }
           },
@@ -33297,13 +33297,13 @@
             this.map.on("mousemove touchmove", editor.onDrawingMouseMove, editor);
             this.map.on("mousedown", this.onMousedown, this);
             this.map.on("mouseup", this.onMouseup, this);
-            L3.DomUtil.addClass(this.map._container, this.options.drawingCSSClass);
+            L4.DomUtil.addClass(this.map._container, this.options.drawingCSSClass);
             this.defaultMapCursor = this.map._container.style.cursor;
             this.map._container.style.cursor = this.options.drawingCursor;
           },
           unregisterForDrawing: function(editor) {
             this.unblockEvents();
-            L3.DomUtil.removeClass(this.map._container, this.options.drawingCSSClass);
+            L4.DomUtil.removeClass(this.map._container, this.options.drawingCSSClass);
             this.map._container.style.cursor = this.defaultMapCursor;
             editor = editor || this._drawingEditor;
             if (!editor) return;
@@ -33314,28 +33314,28 @@
             delete this._drawingEditor;
             if (editor._drawing) editor.cancelDrawing();
           },
-          onMousedown: function(e) {
-            if (e.originalEvent.which != 1) return;
-            this._mouseDown = e;
-            this._drawingEditor.onDrawingMouseDown(e);
+          onMousedown: function(e2) {
+            if (e2.originalEvent.which != 1) return;
+            this._mouseDown = e2;
+            this._drawingEditor.onDrawingMouseDown(e2);
           },
-          onMouseup: function(e) {
+          onMouseup: function(e2) {
             if (this._mouseDown) {
               const editor = this._drawingEditor;
               const mouseDown = this._mouseDown;
               this._mouseDown = null;
-              editor.onDrawingMouseUp(e);
+              editor.onDrawingMouseUp(e2);
               if (this._drawingEditor !== editor) return;
-              const origin = L3.point(
+              const origin = L4.point(
                 mouseDown.originalEvent.clientX,
                 mouseDown.originalEvent.clientY
               );
-              const distance = L3.point(
-                e.originalEvent.clientX,
-                e.originalEvent.clientY
+              const distance = L4.point(
+                e2.originalEvent.clientX,
+                e2.originalEvent.clientY
               ).distanceTo(origin);
               if (Math.abs(distance) < 9 * (window.devicePixelRatio || 1))
-                this._drawingEditor.onDrawingClick(e);
+                this._drawingEditor.onDrawingClick(e2);
             }
           },
           // 🍂section Public methods
@@ -33355,9 +33355,9 @@
           },
           // 🍂method commitDrawing()
           // When you need to commit any ongoing drawing, without needing to know which editor is active.
-          commitDrawing: function(e) {
+          commitDrawing: function(e2) {
             if (!this._drawingEditor) return;
-            this._drawingEditor.commitDrawing(e);
+            this._drawingEditor.commitDrawing(e2);
           },
           connectCreatedToMap: function(layer) {
             return this.featuresLayer.addLayer(layer);
@@ -33402,8 +33402,8 @@
           // Start drawing a Rectangle. If `latlng` is given, the Rectangle anchor will be added. In any case, continuing on user drag.
           // If `options` is given, it will be passed to the Rectangle class constructor.
           startRectangle: function(latlng, options) {
-            const corner = latlng || L3.latLng([0, 0]);
-            const bounds = new L3.LatLngBounds(corner, corner);
+            const corner = latlng || L4.latLng([0, 0]);
+            const bounds = new L4.LatLngBounds(corner, corner);
             const rectangle = this.createRectangle(bounds, options);
             rectangle.enableEdit(this.map).startDrawing();
             return rectangle;
@@ -33421,7 +33421,7 @@
             editor.newHole(latlng);
           },
           createLayer: function(klass, latlngs, options) {
-            options = L3.Util.extend({ editOptions: { editTools: this } }, options);
+            options = L4.Util.extend({ editOptions: { editTools: this } }, options);
             const layer = new klass(latlngs, options);
             this.fireAndForward("editable:created", { layer });
             return layer;
@@ -33469,19 +33469,19 @@
             );
           }
         });
-        L3.extend(L3.Editable, {
-          makeCancellable: (e) => {
-            e.cancel = () => {
-              e._cancelled = true;
+        L4.extend(L4.Editable, {
+          makeCancellable: (e2) => {
+            e2.cancel = () => {
+              e2._cancelled = true;
             };
           }
         });
-        L3.Map.mergeOptions({
+        L4.Map.mergeOptions({
           // 🍂namespace Map
           // 🍂section Map Options
           // 🍂option editToolsClass: class = L.Editable
           // Class to be used as vertex, for path editing.
-          editToolsClass: L3.Editable,
+          editToolsClass: L4.Editable,
           // 🍂option editable: boolean = false
           // Whether to create a L.Editable instance at map init.
           editable: false,
@@ -33489,24 +33489,24 @@
           // Options to pass to L.Editable when instantiating.
           editOptions: {}
         });
-        L3.Map.addInitHook(function() {
+        L4.Map.addInitHook(function() {
           this.whenReady(function() {
             if (this.options.editable) {
               this.editTools = new this.options.editToolsClass(this, this.options.editOptions);
             }
           });
         });
-        L3.Editable.VertexIcon = L3.DivIcon.extend({
+        L4.Editable.VertexIcon = L4.DivIcon.extend({
           options: {
-            iconSize: new L3.Point(8, 8)
+            iconSize: new L4.Point(8, 8)
           }
         });
-        L3.Editable.TouchVertexIcon = L3.Editable.VertexIcon.extend({
+        L4.Editable.TouchVertexIcon = L4.Editable.VertexIcon.extend({
           options: {
-            iconSize: new L3.Point(20, 20)
+            iconSize: new L4.Point(20, 20)
           }
         });
-        L3.Editable.VertexMarker = L3.Marker.extend({
+        L4.Editable.VertexMarker = L4.Marker.extend({
           options: {
             draggable: true,
             className: "leaflet-div-icon leaflet-vertex-icon"
@@ -33518,7 +33518,7 @@
             this.latlng = latlng;
             this.latlngs = latlngs;
             this.editor = editor;
-            L3.Marker.prototype.initialize.call(this, latlng, options);
+            L4.Marker.prototype.initialize.call(this, latlng, options);
             this.options.icon = this.editor.tools.createVertexIcon({
               className: this.options.className
             });
@@ -33530,7 +33530,7 @@
             this.editor.editLayer.addLayer(this);
           },
           onAdd: function(map) {
-            L3.Marker.prototype.onAdd.call(this, map);
+            L4.Marker.prototype.onAdd.call(this, map);
             this.on("drag", this.onDrag);
             this.on("dragstart", this.onDragStart);
             this.on("dragend", this.onDragEnd);
@@ -33554,12 +33554,12 @@
             this.off("mousedown touchstart", this.onMouseDown);
             this.off("mouseover", this.onMouseOver);
             this.off("mouseout", this.onMouseOut);
-            L3.Marker.prototype.onRemove.call(this, map);
+            L4.Marker.prototype.onRemove.call(this, map);
           },
-          onDrag: function(e) {
-            e.vertex = this;
-            this.editor.onVertexMarkerDrag(e);
-            const iconPos = L3.DomUtil.getPosition(this._icon);
+          onDrag: function(e2) {
+            e2.vertex = this;
+            this.editor.onVertexMarkerDrag(e2);
+            const iconPos = L4.DomUtil.getPosition(this._icon);
             const latlng = this._map.layerPointToLatLng(iconPos);
             this.latlng.update(latlng);
             this._latlng = this.latlng;
@@ -33568,38 +33568,38 @@
             const next = this.getNext();
             if (next?.middleMarker) next.middleMarker.updateLatLng();
           },
-          onDragStart: function(e) {
-            e.vertex = this;
-            this.editor.onVertexMarkerDragStart(e);
+          onDragStart: function(e2) {
+            e2.vertex = this;
+            this.editor.onVertexMarkerDragStart(e2);
           },
-          onDragEnd: function(e) {
-            e.vertex = this;
-            this.editor.onVertexMarkerDragEnd(e);
+          onDragEnd: function(e2) {
+            e2.vertex = this;
+            this.editor.onVertexMarkerDragEnd(e2);
           },
-          onClick: function(e) {
-            e.vertex = this;
-            this.editor.onVertexMarkerClick(e);
+          onClick: function(e2) {
+            e2.vertex = this;
+            this.editor.onVertexMarkerClick(e2);
           },
-          onMouseup: function(e) {
-            L3.DomEvent.stop(e);
-            e.vertex = this;
-            this.editor.map.fire("mouseup", e);
+          onMouseup: function(e2) {
+            L4.DomEvent.stop(e2);
+            e2.vertex = this;
+            this.editor.map.fire("mouseup", e2);
           },
-          onContextMenu: function(e) {
-            e.vertex = this;
-            this.editor.onVertexMarkerContextMenu(e);
+          onContextMenu: function(e2) {
+            e2.vertex = this;
+            this.editor.onVertexMarkerContextMenu(e2);
           },
-          onMouseDown: function(e) {
-            e.vertex = this;
-            this.editor.onVertexMarkerMouseDown(e);
+          onMouseDown: function(e2) {
+            e2.vertex = this;
+            this.editor.onVertexMarkerMouseDown(e2);
           },
-          onMouseOver: function(e) {
-            e.vertex = this;
-            this.editor.onVertexMarkerMouseOver(e);
+          onMouseOver: function(e2) {
+            e2.vertex = this;
+            this.editor.onVertexMarkerMouseOver(e2);
           },
-          onMouseOut: function(e) {
-            e.vertex = this;
-            this.editor.onVertexMarkerMouseOut(e);
+          onMouseOut: function(e2) {
+            e2.vertex = this;
+            this.editor.onVertexMarkerMouseOut(e2);
           },
           // 🍂method delete()
           // Delete a vertex and the related LatLng.
@@ -33679,13 +33679,13 @@
             else if (index === this.getLastIndex()) this.editor.continueForward(this.latlngs);
           }
         });
-        L3.Editable.mergeOptions({
+        L4.Editable.mergeOptions({
           // 🍂namespace Editable
           // 🍂option vertexMarkerClass: class = VertexMarker
           // Class to be used as vertex, for path editing.
-          vertexMarkerClass: L3.Editable.VertexMarker
+          vertexMarkerClass: L4.Editable.VertexMarker
         });
-        L3.Editable.MiddleMarker = L3.Marker.extend({
+        L4.Editable.MiddleMarker = L4.Marker.extend({
           options: {
             opacity: 0.5,
             className: "leaflet-div-icon leaflet-middle-icon",
@@ -33696,7 +33696,7 @@
             this.right = right;
             this.editor = editor;
             this.latlngs = latlngs;
-            L3.Marker.prototype.initialize.call(this, this.computeLatLng(), options);
+            L4.Marker.prototype.initialize.call(this, this.computeLatLng(), options);
             this._opacity = this.options.opacity;
             this.options.icon = this.editor.tools.createVertexIcon({
               className: this.options.className
@@ -33707,8 +33707,8 @@
           setVisibility: function() {
             const leftPoint = this._map.latLngToContainerPoint(this.left.latlng);
             const rightPoint = this._map.latLngToContainerPoint(this.right.latlng);
-            const size = L3.point(this.options.icon.options.iconSize);
-            if (leftPoint.distanceTo(rightPoint) < size.x * 3) this.hide();
+            const size2 = L4.point(this.options.icon.options.iconSize);
+            if (leftPoint.distanceTo(rightPoint) < size2.x * 3) this.hide();
             else this.show();
           },
           show: function() {
@@ -33724,36 +33724,36 @@
           computeLatLng: function() {
             const leftPoint = this.editor.map.latLngToContainerPoint(this.left.latlng);
             const rightPoint = this.editor.map.latLngToContainerPoint(this.right.latlng);
-            const y = (leftPoint.y + rightPoint.y) / 2;
-            const x = (leftPoint.x + rightPoint.x) / 2;
-            return this.editor.map.containerPointToLatLng([x, y]);
+            const y2 = (leftPoint.y + rightPoint.y) / 2;
+            const x2 = (leftPoint.x + rightPoint.x) / 2;
+            return this.editor.map.containerPointToLatLng([x2, y2]);
           },
           onAdd: function(map) {
-            L3.Marker.prototype.onAdd.call(this, map);
-            L3.DomEvent.on(this._icon, "mousedown touchstart", this.onMouseDown, this);
+            L4.Marker.prototype.onAdd.call(this, map);
+            L4.DomEvent.on(this._icon, "mousedown touchstart", this.onMouseDown, this);
             map.on("zoomend", this.setVisibility, this);
           },
           onRemove: function(map) {
             delete this.right.middleMarker;
-            L3.DomEvent.off(this._icon, "mousedown touchstart", this.onMouseDown, this);
+            L4.DomEvent.off(this._icon, "mousedown touchstart", this.onMouseDown, this);
             map.off("zoomend", this.setVisibility, this);
-            L3.Marker.prototype.onRemove.call(this, map);
+            L4.Marker.prototype.onRemove.call(this, map);
           },
-          onMouseDown: function(e) {
-            const iconPos = L3.DomUtil.getPosition(this._icon);
+          onMouseDown: function(e2) {
+            const iconPos = L4.DomUtil.getPosition(this._icon);
             const latlng = this.editor.map.layerPointToLatLng(iconPos);
-            e = {
-              originalEvent: e,
+            e2 = {
+              originalEvent: e2,
               latlng
             };
             if (this.options.opacity === 0) return;
-            L3.Editable.makeCancellable(e);
-            this.editor.onMiddleMarkerMouseDown(e);
-            if (e._cancelled) return;
-            this.latlngs.splice(this.index(), 0, e.latlng);
+            L4.Editable.makeCancellable(e2);
+            this.editor.onMiddleMarkerMouseDown(e2);
+            if (e2._cancelled) return;
+            this.latlngs.splice(this.index(), 0, e2.latlng);
             this.editor.refresh();
             const icon = this._icon;
-            const marker = this.editor.addVertexMarker(e.latlng, this.latlngs);
+            const marker = this.editor.addVertexMarker(e2.latlng, this.latlngs);
             this.editor.onNewVertex(marker);
             const parent = marker._icon.parentNode;
             parent.removeChild(marker._icon);
@@ -33762,8 +33762,8 @@
             marker._initIcon();
             marker._initInteraction();
             marker.setOpacity(1);
-            L3.Draggable._dragging = false;
-            marker.dragging._draggable._onDown(e.originalEvent);
+            L4.Draggable._dragging = false;
+            marker.dragging._draggable._onDown(e2.originalEvent);
             this.delete();
           },
           delete: function() {
@@ -33773,19 +33773,19 @@
             return this.latlngs.indexOf(this.right.latlng);
           }
         });
-        L3.Editable.mergeOptions({
+        L4.Editable.mergeOptions({
           // 🍂namespace Editable
           // 🍂option middleMarkerClass: class = VertexMarker
           // Class to be used as middle vertex, pulled by the user to create a new point in the middle of a path.
-          middleMarkerClass: L3.Editable.MiddleMarker
+          middleMarkerClass: L4.Editable.MiddleMarker
         });
-        L3.Editable.BaseEditor = L3.Handler.extend({
+        L4.Editable.BaseEditor = L4.Handler.extend({
           initialize: function(map, feature, options) {
-            L3.setOptions(this, options);
+            L4.setOptions(this, options);
             this.map = map;
             this.feature = feature;
             this.feature.editor = this;
-            this.editLayer = new L3.LayerGroup();
+            this.editLayer = new L4.LayerGroup();
             this.tools = this.options.editTools || map.editTools;
           },
           // 🍂method enable(): this
@@ -33820,11 +33820,11 @@
           hasMiddleMarkers: function() {
             return !this.options.skipMiddleMarkers && !this.tools.options.skipMiddleMarkers;
           },
-          fireAndForward: function(type, e) {
-            e = e || {};
-            e.layer = this.feature;
-            this.feature.fire(type, e);
-            this.tools.fireAndForward(type, e);
+          fireAndForward: function(type, e2) {
+            e2 = e2 || {};
+            e2.layer = this.feature;
+            this.feature.fire(type, e2);
+            this.tools.fireAndForward(type, e2);
           },
           onEnable: function() {
             this.fireAndForward("editable:enable");
@@ -33847,27 +33847,27 @@
           onCancelDrawing: function() {
             this.fireAndForward("editable:drawing:cancel");
           },
-          onCommitDrawing: function(e) {
-            this.fireAndForward("editable:drawing:commit", e);
+          onCommitDrawing: function(e2) {
+            this.fireAndForward("editable:drawing:commit", e2);
             this.onEdited();
           },
-          onDrawingMouseDown: function(e) {
-            this.fireAndForward("editable:drawing:mousedown", e);
+          onDrawingMouseDown: function(e2) {
+            this.fireAndForward("editable:drawing:mousedown", e2);
           },
-          onDrawingMouseUp: function(e) {
-            this.fireAndForward("editable:drawing:mouseup", e);
+          onDrawingMouseUp: function(e2) {
+            this.fireAndForward("editable:drawing:mouseup", e2);
           },
           startDrawing: function() {
-            if (!this._drawing) this._drawing = L3.Editable.FORWARD;
+            if (!this._drawing) this._drawing = L4.Editable.FORWARD;
             this.tools.registerForDrawing(this);
             this.onStartDrawing();
           },
-          commitDrawing: function(e) {
-            this.onCommitDrawing(e);
+          commitDrawing: function(e2) {
+            this.onCommitDrawing(e2);
             this.endDrawing();
           },
           cancelDrawing: function() {
-            L3.Draggable._dragging = false;
+            L4.Draggable._dragging = false;
             this.onCancelDrawing();
             this.endDrawing();
           },
@@ -33876,13 +33876,13 @@
             this.tools.unregisterForDrawing(this);
             this.onEndDrawing();
           },
-          onDrawingClick: function(e) {
+          onDrawingClick: function(e2) {
             if (!this.drawing()) return;
-            L3.Editable.makeCancellable(e);
-            this.fireAndForward("editable:drawing:click", e);
-            if (e._cancelled) return;
-            if (!this.isConnected()) this.connect(e);
-            this.processDrawingClick(e);
+            L4.Editable.makeCancellable(e2);
+            this.fireAndForward("editable:drawing:click", e2);
+            if (e2._cancelled) return;
+            if (!this.isConnected()) this.connect(e2);
+            this.processDrawingClick(e2);
           },
           isConnected: function() {
             return this.map.hasLayer(this.feature);
@@ -33891,11 +33891,11 @@
             this.tools.connectCreatedToMap(this.feature);
             this.tools.editLayer.addLayer(this.editLayer);
           },
-          onMove: function(e) {
-            this.fireAndForward("editable:drawing:move", e);
+          onMove: function(e2) {
+            this.fireAndForward("editable:drawing:move", e2);
           },
-          onDrawingMouseMove: function(e) {
-            this.onMove(e);
+          onDrawingMouseMove: function(e2) {
+            this.onMove(e2);
           },
           _getEvents: function() {
             return {
@@ -33905,52 +33905,52 @@
               remove: this.disable
             };
           },
-          onDragStart: function(e) {
+          onDragStart: function(e2) {
             this.onEditing();
-            this.fireAndForward("editable:dragstart", e);
+            this.fireAndForward("editable:dragstart", e2);
           },
-          onDrag: function(e) {
-            this.onMove(e);
-            this.fireAndForward("editable:drag", e);
+          onDrag: function(e2) {
+            this.onMove(e2);
+            this.fireAndForward("editable:drag", e2);
           },
-          onDragEnd: function(e) {
-            this.fireAndForward("editable:dragend", e);
+          onDragEnd: function(e2) {
+            this.fireAndForward("editable:dragend", e2);
             this.onEdited();
           }
         });
-        L3.Editable.MarkerEditor = L3.Editable.BaseEditor.extend({
-          onDrawingMouseMove: function(e) {
-            L3.Editable.BaseEditor.prototype.onDrawingMouseMove.call(this, e);
-            if (this._drawing) this.feature.setLatLng(e.latlng);
+        L4.Editable.MarkerEditor = L4.Editable.BaseEditor.extend({
+          onDrawingMouseMove: function(e2) {
+            L4.Editable.BaseEditor.prototype.onDrawingMouseMove.call(this, e2);
+            if (this._drawing) this.feature.setLatLng(e2.latlng);
           },
-          processDrawingClick: function(e) {
-            this.fireAndForward("editable:drawing:clicked", e);
-            this.commitDrawing(e);
+          processDrawingClick: function(e2) {
+            this.fireAndForward("editable:drawing:clicked", e2);
+            this.commitDrawing(e2);
           },
-          connect: function(e) {
-            if (e) this.feature._latlng = e.latlng;
-            L3.Editable.BaseEditor.prototype.connect.call(this, e);
+          connect: function(e2) {
+            if (e2) this.feature._latlng = e2.latlng;
+            L4.Editable.BaseEditor.prototype.connect.call(this, e2);
           }
         });
-        L3.Editable.CircleMarkerEditor = L3.Editable.BaseEditor.extend({
-          onDrawingMouseMove: function(e) {
-            L3.Editable.BaseEditor.prototype.onDrawingMouseMove.call(this, e);
-            if (this._drawing) this.feature.setLatLng(e.latlng);
+        L4.Editable.CircleMarkerEditor = L4.Editable.BaseEditor.extend({
+          onDrawingMouseMove: function(e2) {
+            L4.Editable.BaseEditor.prototype.onDrawingMouseMove.call(this, e2);
+            if (this._drawing) this.feature.setLatLng(e2.latlng);
           },
-          processDrawingClick: function(e) {
-            this.fireAndForward("editable:drawing:clicked", e);
-            this.commitDrawing(e);
+          processDrawingClick: function(e2) {
+            this.fireAndForward("editable:drawing:clicked", e2);
+            this.commitDrawing(e2);
           },
-          connect: function(e) {
-            if (e) this.feature._latlng = e.latlng;
-            L3.Editable.BaseEditor.prototype.connect.call(this, e);
+          connect: function(e2) {
+            if (e2) this.feature._latlng = e2.latlng;
+            L4.Editable.BaseEditor.prototype.connect.call(this, e2);
           }
         });
-        L3.Editable.PathEditor = L3.Editable.BaseEditor.extend({
+        L4.Editable.PathEditor = L4.Editable.BaseEditor.extend({
           CLOSED: false,
           MIN_VERTEX: 2,
           addHooks: function() {
-            L3.Editable.BaseEditor.prototype.addHooks.call(this);
+            L4.Editable.BaseEditor.prototype.addHooks.call(this);
             if (this.feature) {
               this.initVertexMarkers();
               this.map.on("moveend", this.onMoveEnd, this);
@@ -33958,7 +33958,7 @@
             return this;
           },
           removeHooks: function() {
-            L3.Editable.BaseEditor.prototype.removeHooks.call(this);
+            L4.Editable.BaseEditor.prototype.removeHooks.call(this);
             if (this.feature) {
               this.map.off("moveend", this.onMoveEnd, this);
             }
@@ -34015,82 +34015,82 @@
           addMiddleMarker: function(left, right, latlngs) {
             return new this.tools.options.middleMarkerClass(left, right, latlngs, this);
           },
-          onVertexMarkerClick: function(e) {
-            L3.Editable.makeCancellable(e);
-            this.fireAndForward("editable:vertex:click", e);
-            if (e._cancelled) return;
+          onVertexMarkerClick: function(e2) {
+            L4.Editable.makeCancellable(e2);
+            this.fireAndForward("editable:vertex:click", e2);
+            if (e2._cancelled) return;
             if (this.tools.drawing() && this.tools._drawingEditor !== this) return;
-            const index = e.vertex.getIndex();
+            const index = e2.vertex.getIndex();
             let commit;
-            if (e.originalEvent.ctrlKey) {
-              this.onVertexMarkerCtrlClick(e);
-            } else if (e.originalEvent.altKey) {
-              this.onVertexMarkerAltClick(e);
-            } else if (e.originalEvent.shiftKey) {
-              this.onVertexMarkerShiftClick(e);
-            } else if (e.originalEvent.metaKey) {
-              this.onVertexMarkerMetaKeyClick(e);
-            } else if (index === e.vertex.getLastIndex() && this._drawing === L3.Editable.FORWARD) {
+            if (e2.originalEvent.ctrlKey) {
+              this.onVertexMarkerCtrlClick(e2);
+            } else if (e2.originalEvent.altKey) {
+              this.onVertexMarkerAltClick(e2);
+            } else if (e2.originalEvent.shiftKey) {
+              this.onVertexMarkerShiftClick(e2);
+            } else if (e2.originalEvent.metaKey) {
+              this.onVertexMarkerMetaKeyClick(e2);
+            } else if (index === e2.vertex.getLastIndex() && this._drawing === L4.Editable.FORWARD) {
               if (index >= this.MIN_VERTEX - 1) commit = true;
-            } else if (index === 0 && this._drawing === L3.Editable.BACKWARD && this._drawnLatLngs.length >= this.MIN_VERTEX) {
+            } else if (index === 0 && this._drawing === L4.Editable.BACKWARD && this._drawnLatLngs.length >= this.MIN_VERTEX) {
               commit = true;
-            } else if (index === 0 && this._drawing === L3.Editable.FORWARD && this._drawnLatLngs.length >= this.MIN_VERTEX && this.CLOSED) {
+            } else if (index === 0 && this._drawing === L4.Editable.FORWARD && this._drawnLatLngs.length >= this.MIN_VERTEX && this.CLOSED) {
               commit = true;
             } else {
-              this.onVertexRawMarkerClick(e);
+              this.onVertexRawMarkerClick(e2);
             }
-            this.fireAndForward("editable:vertex:clicked", e);
-            if (commit) this.commitDrawing(e);
+            this.fireAndForward("editable:vertex:clicked", e2);
+            if (commit) this.commitDrawing(e2);
           },
-          onVertexRawMarkerClick: function(e) {
-            this.fireAndForward("editable:vertex:rawclick", e);
-            if (e._cancelled) return;
-            if (!this.vertexCanBeDeleted(e.vertex)) return;
-            e.vertex.delete();
+          onVertexRawMarkerClick: function(e2) {
+            this.fireAndForward("editable:vertex:rawclick", e2);
+            if (e2._cancelled) return;
+            if (!this.vertexCanBeDeleted(e2.vertex)) return;
+            e2.vertex.delete();
           },
           vertexCanBeDeleted: function(vertex) {
             return vertex.latlngs.length > this.MIN_VERTEX;
           },
-          onVertexDeleted: function(e) {
-            this.fireAndForward("editable:vertex:deleted", e);
+          onVertexDeleted: function(e2) {
+            this.fireAndForward("editable:vertex:deleted", e2);
           },
-          onVertexMarkerCtrlClick: function(e) {
-            this.fireAndForward("editable:vertex:ctrlclick", e);
+          onVertexMarkerCtrlClick: function(e2) {
+            this.fireAndForward("editable:vertex:ctrlclick", e2);
           },
-          onVertexMarkerShiftClick: function(e) {
-            this.fireAndForward("editable:vertex:shiftclick", e);
+          onVertexMarkerShiftClick: function(e2) {
+            this.fireAndForward("editable:vertex:shiftclick", e2);
           },
-          onVertexMarkerMetaKeyClick: function(e) {
-            this.fireAndForward("editable:vertex:metakeyclick", e);
+          onVertexMarkerMetaKeyClick: function(e2) {
+            this.fireAndForward("editable:vertex:metakeyclick", e2);
           },
-          onVertexMarkerAltClick: function(e) {
-            this.fireAndForward("editable:vertex:altclick", e);
+          onVertexMarkerAltClick: function(e2) {
+            this.fireAndForward("editable:vertex:altclick", e2);
           },
-          onVertexMarkerContextMenu: function(e) {
-            this.fireAndForward("editable:vertex:contextmenu", e);
+          onVertexMarkerContextMenu: function(e2) {
+            this.fireAndForward("editable:vertex:contextmenu", e2);
           },
-          onVertexMarkerMouseDown: function(e) {
-            this.fireAndForward("editable:vertex:mousedown", e);
+          onVertexMarkerMouseDown: function(e2) {
+            this.fireAndForward("editable:vertex:mousedown", e2);
           },
-          onVertexMarkerMouseOver: function(e) {
-            this.fireAndForward("editable:vertex:mouseover", e);
+          onVertexMarkerMouseOver: function(e2) {
+            this.fireAndForward("editable:vertex:mouseover", e2);
           },
-          onVertexMarkerMouseOut: function(e) {
-            this.fireAndForward("editable:vertex:mouseout", e);
+          onVertexMarkerMouseOut: function(e2) {
+            this.fireAndForward("editable:vertex:mouseout", e2);
           },
-          onMiddleMarkerMouseDown: function(e) {
-            this.fireAndForward("editable:middlemarker:mousedown", e);
+          onMiddleMarkerMouseDown: function(e2) {
+            this.fireAndForward("editable:middlemarker:mousedown", e2);
           },
-          onVertexMarkerDrag: function(e) {
-            this.onMove(e);
-            if (this.feature._bounds) this.extendBounds(e);
-            this.fireAndForward("editable:vertex:drag", e);
+          onVertexMarkerDrag: function(e2) {
+            this.onMove(e2);
+            if (this.feature._bounds) this.extendBounds(e2);
+            this.fireAndForward("editable:vertex:drag", e2);
           },
-          onVertexMarkerDragStart: function(e) {
-            this.fireAndForward("editable:vertex:dragstart", e);
+          onVertexMarkerDragStart: function(e2) {
+            this.fireAndForward("editable:vertex:dragstart", e2);
           },
-          onVertexMarkerDragEnd: function(e) {
-            this.fireAndForward("editable:vertex:dragend", e);
+          onVertexMarkerDragEnd: function(e2) {
+            this.fireAndForward("editable:vertex:dragend", e2);
             this.onEdited();
           },
           setDrawnLatLngs: function(latlngs) {
@@ -34098,7 +34098,7 @@
           },
           startDrawing: function() {
             if (!this._drawnLatLngs) this.setDrawnLatLngs();
-            L3.Editable.BaseEditor.prototype.startDrawing.call(this);
+            L4.Editable.BaseEditor.prototype.startDrawing.call(this);
           },
           startDrawingForward: function() {
             this.startDrawing();
@@ -34108,11 +34108,11 @@
             this.tools.detachBackwardLineGuide();
             if (this._drawnLatLngs && this._drawnLatLngs.length < this.MIN_VERTEX)
               this.deleteShape(this._drawnLatLngs);
-            L3.Editable.BaseEditor.prototype.endDrawing.call(this);
+            L4.Editable.BaseEditor.prototype.endDrawing.call(this);
             delete this._drawnLatLngs;
           },
           addLatLng: function(latlng) {
-            if (this._drawing === L3.Editable.FORWARD) this._drawnLatLngs.push(latlng);
+            if (this._drawing === L4.Editable.FORWARD) this._drawnLatLngs.push(latlng);
             else this._drawnLatLngs.unshift(latlng);
             this.feature._bounds.extend(latlng);
             const vertex = this.addVertexMarker(latlng, this._drawnLatLngs);
@@ -34136,7 +34136,7 @@
               return console.error(
                 "L.Editable.PathEditor.push expect a valid latlng as parameter"
               );
-            if (this._drawing === L3.Editable.FORWARD) this.newPointForward(latlng);
+            if (this._drawing === L4.Editable.FORWARD) this.newPointForward(latlng);
             else this.newPointBackward(latlng);
           },
           removeLatLng: function(latlng) {
@@ -34148,13 +34148,13 @@
           pop: function() {
             if (this._drawnLatLngs.length <= 1) return;
             let latlng;
-            if (this._drawing === L3.Editable.FORWARD) {
+            if (this._drawing === L4.Editable.FORWARD) {
               latlng = this._drawnLatLngs[this._drawnLatLngs.length - 1];
             } else {
               latlng = this._drawnLatLngs[0];
             }
             this.removeLatLng(latlng);
-            if (this._drawing === L3.Editable.FORWARD) {
+            if (this._drawing === L4.Editable.FORWARD) {
               this.tools.anchorForwardLineGuide(
                 this._drawnLatLngs[this._drawnLatLngs.length - 1]
               );
@@ -34163,17 +34163,17 @@
             }
             return latlng;
           },
-          processDrawingClick: function(e) {
-            if (e.vertex && e.vertex.editor === this) return;
-            if (this._drawing === L3.Editable.FORWARD) this.newPointForward(e.latlng);
-            else this.newPointBackward(e.latlng);
-            this.fireAndForward("editable:drawing:clicked", e);
+          processDrawingClick: function(e2) {
+            if (e2.vertex && e2.vertex.editor === this) return;
+            if (this._drawing === L4.Editable.FORWARD) this.newPointForward(e2.latlng);
+            else this.newPointBackward(e2.latlng);
+            this.fireAndForward("editable:drawing:clicked", e2);
           },
-          onDrawingMouseMove: function(e) {
-            L3.Editable.BaseEditor.prototype.onDrawingMouseMove.call(this, e);
+          onDrawingMouseMove: function(e2) {
+            L4.Editable.BaseEditor.prototype.onDrawingMouseMove.call(this, e2);
             if (this._drawing) {
-              this.tools.moveForwardLineGuide(e.latlng);
-              this.tools.moveBackwardLineGuide(e.latlng);
+              this.tools.moveForwardLineGuide(e2.latlng);
+              this.tools.moveBackwardLineGuide(e2.latlng);
             }
           },
           refresh: function() {
@@ -34193,10 +34193,10 @@
             if (latlng) this.newPointForward(latlng);
           },
           deleteShape: function(shape, latlngs) {
-            const e = { shape };
-            L3.Editable.makeCancellable(e);
-            this.fireAndForward("editable:shape:delete", e);
-            if (e._cancelled) return;
+            const e2 = { shape };
+            L4.Editable.makeCancellable(e2);
+            this.fireAndForward("editable:shape:delete", e2);
+            if (e2._cancelled) return;
             shape = this._deleteShape(shape, latlngs);
             if (this.ensureNotFlat) this.ensureNotFlat();
             this.feature.setLatLngs(this.getLatLngs());
@@ -34250,21 +34250,21 @@
             this.feature.redraw();
             if (this._enabled) this.reset();
           },
-          extendBounds: function(e) {
-            this.feature._bounds.extend(e.vertex.latlng);
+          extendBounds: function(e2) {
+            this.feature._bounds.extend(e2.vertex.latlng);
           },
-          onDragStart: function(e) {
+          onDragStart: function(e2) {
             this.editLayer.clearLayers();
-            L3.Editable.BaseEditor.prototype.onDragStart.call(this, e);
+            L4.Editable.BaseEditor.prototype.onDragStart.call(this, e2);
           },
-          onDragEnd: function(e) {
+          onDragEnd: function(e2) {
             this.initVertexMarkers();
-            L3.Editable.BaseEditor.prototype.onDragEnd.call(this, e);
+            L4.Editable.BaseEditor.prototype.onDragEnd.call(this, e2);
           }
         });
-        L3.Editable.PolylineEditor = L3.Editable.PathEditor.extend({
+        L4.Editable.PolylineEditor = L4.Editable.PathEditor.extend({
           startDrawingBackward: function() {
-            this._drawing = L3.Editable.BACKWARD;
+            this._drawing = L4.Editable.BACKWARD;
             this.startDrawing();
           },
           // 🍂method continueBackward(latlngs?: Array)
@@ -34293,7 +34293,7 @@
           },
           getDefaultLatLngs: function(latlngs) {
             latlngs = latlngs || this.feature._latlngs;
-            if (!latlngs.length || latlngs[0] instanceof L3.LatLng) return latlngs;
+            if (!latlngs.length || latlngs[0] instanceof L4.LatLng) return latlngs;
             return this.getDefaultLatLngs(latlngs[0]);
           },
           ensureMulti: function() {
@@ -34322,18 +34322,18 @@
             if (shapeIndex === -1) return;
             const first = shape.slice(0, index + 1);
             const second = shape.slice(index);
-            second[0] = L3.latLng(second[0].lat, second[0].lng, second[0].alt);
+            second[0] = L4.latLng(second[0].lat, second[0].lng, second[0].alt);
             this.feature._latlngs.splice(shapeIndex, 1, first, second);
             this.refresh();
             this.reset();
             this.onEdited();
           }
         });
-        L3.Editable.PolygonEditor = L3.Editable.PathEditor.extend({
+        L4.Editable.PolygonEditor = L4.Editable.PathEditor.extend({
           CLOSED: true,
           MIN_VERTEX: 3,
           newPointForward: function(latlng) {
-            L3.Editable.PathEditor.prototype.newPointForward.call(this, latlng);
+            L4.Editable.PathEditor.prototype.newPointForward.call(this, latlng);
             if (!this.tools.backwardLineGuide._latlngs.length)
               this.tools.anchorBackwardLineGuide(latlng);
             if (this._drawnLatLngs.length === 2) this.tools.attachBackwardLineGuide();
@@ -34374,9 +34374,9 @@
           },
           vertexCanBeDeleted: function(vertex) {
             const parent = this.feature.parentShape(vertex.latlngs);
-            const idx = L3.Util.indexOf(parent, vertex.latlngs);
+            const idx = L4.Util.indexOf(parent, vertex.latlngs);
             if (idx > 0) return true;
-            return L3.Editable.PathEditor.prototype.vertexCanBeDeleted.call(this, vertex);
+            return L4.Editable.PathEditor.prototype.vertexCanBeDeleted.call(this, vertex);
           },
           getDefaultLatLngs: function() {
             if (!this.feature._latlngs.length) this.feature._latlngs.push([]);
@@ -34387,46 +34387,46 @@
             return shape;
           }
         });
-        L3.Editable.RectangleEditor = L3.Editable.PathEditor.extend({
+        L4.Editable.RectangleEditor = L4.Editable.PathEditor.extend({
           CLOSED: true,
           MIN_VERTEX: 4,
           options: {
             skipMiddleMarkers: true
           },
-          extendBounds: function(e) {
-            const index = e.vertex.getIndex();
-            const next = e.vertex.getNext();
-            const previous = e.vertex.getPrevious();
+          extendBounds: function(e2) {
+            const index = e2.vertex.getIndex();
+            const next = e2.vertex.getNext();
+            const previous = e2.vertex.getPrevious();
             const oppositeIndex = (index + 2) % 4;
-            const opposite = e.vertex.latlngs[oppositeIndex];
-            const bounds = new L3.LatLngBounds(e.latlng, opposite);
-            previous.latlng.update([e.latlng.lat, opposite.lng]);
-            next.latlng.update([opposite.lat, e.latlng.lng]);
+            const opposite = e2.vertex.latlngs[oppositeIndex];
+            const bounds = new L4.LatLngBounds(e2.latlng, opposite);
+            previous.latlng.update([e2.latlng.lat, opposite.lng]);
+            next.latlng.update([opposite.lat, e2.latlng.lng]);
             this.updateBounds(bounds);
             this.refreshVertexMarkers();
           },
-          onDrawingMouseDown: function(e) {
-            L3.Editable.PathEditor.prototype.onDrawingMouseDown.call(this, e);
+          onDrawingMouseDown: function(e2) {
+            L4.Editable.PathEditor.prototype.onDrawingMouseDown.call(this, e2);
             this.connect();
             const latlngs = this.getDefaultLatLngs();
-            if (latlngs.length === 3) latlngs.push(e.latlng);
-            const bounds = new L3.LatLngBounds(e.latlng, e.latlng);
+            if (latlngs.length === 3) latlngs.push(e2.latlng);
+            const bounds = new L4.LatLngBounds(e2.latlng, e2.latlng);
             this.updateBounds(bounds);
             this.updateLatLngs(bounds);
             this.refresh();
             this.reset();
-            e.originalEvent._simulated = false;
-            this.map.dragging._draggable._onUp(e.originalEvent);
-            latlngs[3].__vertex.dragging._draggable._onDown(e.originalEvent);
+            e2.originalEvent._simulated = false;
+            this.map.dragging._draggable._onUp(e2.originalEvent);
+            latlngs[3].__vertex.dragging._draggable._onDown(e2.originalEvent);
           },
-          onDrawingMouseUp: function(e) {
-            this.commitDrawing(e);
-            e.originalEvent._simulated = false;
-            L3.Editable.PathEditor.prototype.onDrawingMouseUp.call(this, e);
+          onDrawingMouseUp: function(e2) {
+            this.commitDrawing(e2);
+            e2.originalEvent._simulated = false;
+            L4.Editable.PathEditor.prototype.onDrawingMouseUp.call(this, e2);
           },
-          onDrawingMouseMove: function(e) {
-            e.originalEvent._simulated = false;
-            L3.Editable.PathEditor.prototype.onDrawingMouseMove.call(this, e);
+          onDrawingMouseMove: function(e2) {
+            e2.originalEvent._simulated = false;
+            L4.Editable.PathEditor.prototype.onDrawingMouseMove.call(this, e2);
           },
           getDefaultLatLngs: function(latlngs) {
             return latlngs || this.feature._latlngs[0];
@@ -34437,18 +34437,18 @@
           updateLatLngs: function(bounds) {
             const latlngs = this.getDefaultLatLngs();
             const newLatlngs = this.feature._boundsToLatLngs(bounds);
-            for (let i = 0; i < latlngs.length; i++) {
-              latlngs[i].update(newLatlngs[i]);
+            for (let i2 = 0; i2 < latlngs.length; i2++) {
+              latlngs[i2].update(newLatlngs[i2]);
             }
           }
         });
-        L3.Editable.CircleEditor = L3.Editable.PathEditor.extend({
+        L4.Editable.CircleEditor = L4.Editable.PathEditor.extend({
           MIN_VERTEX: 2,
           options: {
             skipMiddleMarkers: true
           },
           initialize: function(map, feature, options) {
-            L3.Editable.PathEditor.prototype.initialize.call(this, map, feature, options);
+            L4.Editable.PathEditor.prototype.initialize.call(this, map, feature, options);
             this._resizeLatLng = this.computeResizeLatLng();
           },
           computeResizeLatLng: function() {
@@ -34466,40 +34466,40 @@
           getDefaultLatLngs: function() {
             return this.getLatLngs();
           },
-          onVertexMarkerDrag: function(e) {
-            if (e.vertex.getIndex() === 1) this.resize(e);
-            else this.updateResizeLatLng(e);
-            L3.Editable.PathEditor.prototype.onVertexMarkerDrag.call(this, e);
+          onVertexMarkerDrag: function(e2) {
+            if (e2.vertex.getIndex() === 1) this.resize(e2);
+            else this.updateResizeLatLng(e2);
+            L4.Editable.PathEditor.prototype.onVertexMarkerDrag.call(this, e2);
           },
-          resize: function(e) {
+          resize: function(e2) {
             let radius;
             if (this.map.options.crs) {
-              radius = this.map.options.crs.distance(this.feature._latlng, e.latlng);
+              radius = this.map.options.crs.distance(this.feature._latlng, e2.latlng);
             } else {
-              radius = this.feature._latlng.distanceTo(e.latlng);
+              radius = this.feature._latlng.distanceTo(e2.latlng);
             }
             this.feature.setRadius(radius);
           },
-          onDrawingMouseDown: function(e) {
-            L3.Editable.PathEditor.prototype.onDrawingMouseDown.call(this, e);
-            this._resizeLatLng.update(e.latlng);
-            this.feature._latlng.update(e.latlng);
+          onDrawingMouseDown: function(e2) {
+            L4.Editable.PathEditor.prototype.onDrawingMouseDown.call(this, e2);
+            this._resizeLatLng.update(e2.latlng);
+            this.feature._latlng.update(e2.latlng);
             this.connect();
-            e.originalEvent._simulated = false;
-            this.map.dragging._draggable._onUp(e.originalEvent);
-            this._resizeLatLng.__vertex.dragging._draggable._onDown(e.originalEvent);
+            e2.originalEvent._simulated = false;
+            this.map.dragging._draggable._onUp(e2.originalEvent);
+            this._resizeLatLng.__vertex.dragging._draggable._onDown(e2.originalEvent);
           },
-          onDrawingMouseUp: function(e) {
-            this.commitDrawing(e);
-            e.originalEvent._simulated = false;
-            L3.Editable.PathEditor.prototype.onDrawingMouseUp.call(this, e);
+          onDrawingMouseUp: function(e2) {
+            this.commitDrawing(e2);
+            e2.originalEvent._simulated = false;
+            L4.Editable.PathEditor.prototype.onDrawingMouseUp.call(this, e2);
           },
-          onDrawingMouseMove: function(e) {
-            e.originalEvent._simulated = false;
-            L3.Editable.PathEditor.prototype.onDrawingMouseMove.call(this, e);
+          onDrawingMouseMove: function(e2) {
+            e2.originalEvent._simulated = false;
+            L4.Editable.PathEditor.prototype.onDrawingMouseMove.call(this, e2);
           },
-          onDrag: function(e) {
-            L3.Editable.PathEditor.prototype.onDrag.call(this, e);
+          onDrag: function(e2) {
+            L4.Editable.PathEditor.prototype.onDrag.call(this, e2);
             this.feature.dragging.updateLatLng(this._resizeLatLng);
           }
         });
@@ -34543,7 +34543,7 @@
         };
         const PolylineMixin = {
           getEditorClass: (tools) => {
-            return tools?.options?.polylineEditorClass || L3.Editable.PolylineEditor;
+            return tools?.options?.polylineEditorClass || L4.Editable.PolylineEditor;
           },
           shapeAt: function(latlng, latlngs) {
             let shape = null;
@@ -34557,22 +34557,22 @@
             }
             return shape;
           },
-          isInLatLngs: function(l, latlngs) {
+          isInLatLngs: function(l2, latlngs) {
             if (!latlngs) return false;
-            let i;
-            let k;
+            let i2;
+            let k2;
             let len;
             let part = [];
             let p;
-            const w = this._clickTolerance();
+            const w2 = this._clickTolerance();
             this._projectLatlngs(latlngs, part, this._pxBounds);
             part = part[0];
-            p = this._map.latLngToLayerPoint(l);
+            p = this._map.latLngToLayerPoint(l2);
             if (!this._pxBounds.contains(p)) {
               return false;
             }
-            for (i = 1, len = part.length, k = 0; i < len; k = i++) {
-              if (L3.LineUtil.pointToSegmentDistance(p, part[k], part[i]) <= w) {
+            for (i2 = 1, len = part.length, k2 = 0; i2 < len; k2 = i2++) {
+              if (L4.LineUtil.pointToSegmentDistance(p, part[k2], part[i2]) <= w2) {
                 return true;
               }
             }
@@ -34581,7 +34581,7 @@
         };
         const PolygonMixin = {
           getEditorClass: (tools) => {
-            return tools?.options?.polygonEditorClass || L3.Editable.PolygonEditor;
+            return tools?.options?.polygonEditorClass || L4.Editable.PolygonEditor;
           },
           shapeAt: function(latlng, latlngs) {
             let shape = null;
@@ -34597,17 +34597,17 @@
             }
             return shape;
           },
-          isInLatLngs: (l, latlngs) => {
+          isInLatLngs: (l2, latlngs) => {
             let inside = false;
             let l1;
-            let l2;
-            let j;
-            let k;
+            let l22;
+            let j2;
+            let k2;
             let len2;
-            for (j = 0, len2 = latlngs.length, k = len2 - 1; j < len2; k = j++) {
-              l1 = latlngs[j];
-              l2 = latlngs[k];
-              if (l1.lat > l.lat !== l2.lat > l.lat && l.lng < (l2.lng - l1.lng) * (l.lat - l1.lat) / (l2.lat - l1.lat) + l1.lng) {
+            for (j2 = 0, len2 = latlngs.length, k2 = len2 - 1; j2 < len2; k2 = j2++) {
+              l1 = latlngs[j2];
+              l22 = latlngs[k2];
+              if (l1.lat > l2.lat !== l22.lat > l2.lat && l2.lng < (l22.lng - l1.lng) * (l2.lat - l1.lat) / (l22.lat - l1.lat) + l1.lng) {
                 inside = !inside;
               }
             }
@@ -34616,67 +34616,67 @@
           parentShape: function(shape, latlngs) {
             latlngs = latlngs || this._latlngs;
             if (!latlngs) return;
-            let idx = L3.Util.indexOf(latlngs, shape);
+            let idx = L4.Util.indexOf(latlngs, shape);
             if (idx !== -1) return latlngs;
             for (const member of latlngs) {
-              idx = L3.Util.indexOf(member, shape);
+              idx = L4.Util.indexOf(member, shape);
               if (idx !== -1) return member;
             }
           }
         };
         const MarkerMixin = {
           getEditorClass: (tools) => {
-            return tools?.options?.markerEditorClass || L3.Editable.MarkerEditor;
+            return tools?.options?.markerEditorClass || L4.Editable.MarkerEditor;
           }
         };
         const CircleMarkerMixin = {
           getEditorClass: (tools) => {
-            return tools?.options?.circleMarkerEditorClass || L3.Editable.CircleMarkerEditor;
+            return tools?.options?.circleMarkerEditorClass || L4.Editable.CircleMarkerEditor;
           }
         };
         const RectangleMixin = {
           getEditorClass: (tools) => {
-            return tools?.options?.rectangleEditorClass || L3.Editable.RectangleEditor;
+            return tools?.options?.rectangleEditorClass || L4.Editable.RectangleEditor;
           }
         };
         const CircleMixin = {
           getEditorClass: (tools) => {
-            return tools?.options?.circleEditorClass || L3.Editable.CircleEditor;
+            return tools?.options?.circleEditorClass || L4.Editable.CircleEditor;
           }
         };
         const keepEditable = function() {
           this.on("add", this._onEditableAdd);
         };
-        const isFlat = L3.LineUtil.isFlat || L3.LineUtil._flat || L3.Polyline._flat;
-        if (L3.Polyline) {
-          L3.Polyline.include(EditableMixin);
-          L3.Polyline.include(PolylineMixin);
-          L3.Polyline.addInitHook(keepEditable);
+        const isFlat = L4.LineUtil.isFlat || L4.LineUtil._flat || L4.Polyline._flat;
+        if (L4.Polyline) {
+          L4.Polyline.include(EditableMixin);
+          L4.Polyline.include(PolylineMixin);
+          L4.Polyline.addInitHook(keepEditable);
         }
-        if (L3.Polygon) {
-          L3.Polygon.include(EditableMixin);
-          L3.Polygon.include(PolygonMixin);
+        if (L4.Polygon) {
+          L4.Polygon.include(EditableMixin);
+          L4.Polygon.include(PolygonMixin);
         }
-        if (L3.Marker) {
-          L3.Marker.include(EditableMixin);
-          L3.Marker.include(MarkerMixin);
-          L3.Marker.addInitHook(keepEditable);
+        if (L4.Marker) {
+          L4.Marker.include(EditableMixin);
+          L4.Marker.include(MarkerMixin);
+          L4.Marker.addInitHook(keepEditable);
         }
-        if (L3.CircleMarker) {
-          L3.CircleMarker.include(EditableMixin);
-          L3.CircleMarker.include(CircleMarkerMixin);
-          L3.CircleMarker.addInitHook(keepEditable);
+        if (L4.CircleMarker) {
+          L4.CircleMarker.include(EditableMixin);
+          L4.CircleMarker.include(CircleMarkerMixin);
+          L4.CircleMarker.addInitHook(keepEditable);
         }
-        if (L3.Rectangle) {
-          L3.Rectangle.include(EditableMixin);
-          L3.Rectangle.include(RectangleMixin);
+        if (L4.Rectangle) {
+          L4.Rectangle.include(EditableMixin);
+          L4.Rectangle.include(RectangleMixin);
         }
-        if (L3.Circle) {
-          L3.Circle.include(EditableMixin);
-          L3.Circle.include(CircleMixin);
+        if (L4.Circle) {
+          L4.Circle.include(EditableMixin);
+          L4.Circle.include(CircleMixin);
         }
-        L3.LatLng.prototype.update = function(latlng) {
-          latlng = L3.latLng(latlng);
+        L4.LatLng.prototype.update = function(latlng) {
+          latlng = L4.latLng(latlng);
           this.lat = latlng.lat;
           this.lng = latlng.lng;
         };
@@ -34740,10 +34740,10 @@
       var simplifyGeometry = function(points, tolerance) {
         var dmax = 0;
         var index = 0;
-        for (var i = 1; i <= points.length - 2; i++) {
-          var d = new Line(points[0], points[points.length - 1]).perpendicularDistance(points[i]);
+        for (var i2 = 1; i2 <= points.length - 2; i2++) {
+          var d = new Line(points[0], points[points.length - 1]).perpendicularDistance(points[i2]);
           if (d > dmax) {
-            index = i;
+            index = i2;
             dmax = d;
           }
         }
@@ -34781,21 +34781,21 @@
         if (type === "LineString") {
           geom.coordinates = module.exports.simplify(geom.coordinates, tolerance);
         } else if (type === "Polygon" || type === "MultiLineString") {
-          for (var j = 0; j < geom.coordinates.length; j++) {
-            geom.coordinates[j] = module.exports.simplify(geom.coordinates[j], tolerance);
+          for (var j2 = 0; j2 < geom.coordinates.length; j2++) {
+            geom.coordinates[j2] = module.exports.simplify(geom.coordinates[j2], tolerance);
           }
         } else if (type === "MultiPolygon") {
-          for (var k = 0; k < geom.coordinates.length; k++) {
-            for (var l = 0; l < geom.coordinates[k].length; l++) {
-              geom.coordinates[k][l] = module.exports.simplify(geom.coordinates[k][l], tolerance);
+          for (var k2 = 0; k2 < geom.coordinates.length; k2++) {
+            for (var l2 = 0; l2 < geom.coordinates[k2].length; l2++) {
+              geom.coordinates[k2][l2] = module.exports.simplify(geom.coordinates[k2][l2], tolerance);
             }
           }
         }
         return feat;
       }
       function simplifyFeatureCollection(fc, tolerance) {
-        for (var i = 0; i < fc.features.length; i++) {
-          fc.features[i] = simplifyFeature(fc.features[i], tolerance);
+        for (var i2 = 0; i2 < fc.features.length; i2++) {
+          fc.features[i2] = simplifyFeature(fc.features[i2], tolerance);
         }
         return fc;
       }
@@ -34824,56 +34824,56 @@
           obj2 = obj2 ? obj2 : {};
           return Object.assign(obj1, obj2);
         };
-        const addPropToFeature = (f, k, v) => {
-          if (f.properties && k && v) {
-            f.properties[k] = v;
+        const addPropToFeature = (f, k2, v) => {
+          if (f.properties && k2 && v) {
+            f.properties[k2] = v;
           }
         };
-        const addPropToFeatures = (fs, k, v) => {
+        const addPropToFeatures = (fs, k2, v) => {
           for (let f of fs) {
-            addPropToFeature(f, k, v);
+            addPropToFeature(f, k2, v);
           }
         };
-        const first = (a) => a[0];
-        const last = (a) => a[a.length - 1];
-        const coordsToKey = (a) => a.join(",");
-        const addToMap = (m, k, v) => {
-          let a = m[k];
-          if (a) {
-            a.push(v);
+        const first = (a2) => a2[0];
+        const last = (a2) => a2[a2.length - 1];
+        const coordsToKey = (a2) => a2.join(",");
+        const addToMap = (m, k2, v) => {
+          let a2 = m[k2];
+          if (a2) {
+            a2.push(v);
           } else {
-            m[k] = [v];
+            m[k2] = [v];
           }
         };
-        const removeFromMap = (m, k, v) => {
-          let a = m[k];
+        const removeFromMap = (m, k2, v) => {
+          let a2 = m[k2];
           let idx = null;
-          if (a && (idx = a.indexOf(v)) >= 0) {
-            a.splice(idx, 1);
+          if (a2 && (idx = a2.indexOf(v)) >= 0) {
+            a2.splice(idx, 1);
           }
         };
-        const getFirstFromMap = (m, k) => {
-          let a = m[k];
-          if (a && a.length > 0) {
-            return a[0];
+        const getFirstFromMap = (m, k2) => {
+          let a2 = m[k2];
+          if (a2 && a2.length > 0) {
+            return a2[0];
           }
           return null;
         };
-        const isRing = (a) => a.length > 3 && coordsToKey(first(a)) === coordsToKey(last(a));
-        const ringDirection = (a, xIdx, yIdx) => {
+        const isRing = (a2) => a2.length > 3 && coordsToKey(first(a2)) === coordsToKey(last(a2));
+        const ringDirection = (a2, xIdx, yIdx) => {
           xIdx = xIdx || 0, yIdx = yIdx || 1;
-          let m = a.reduce((maxxIdx, v, idx) => a[maxxIdx][xIdx] > v[xIdx] ? maxxIdx : idx, 0);
-          let l = m <= 0 ? a.length - 2 : m - 1, r = m >= a.length - 1 ? 1 : m + 1;
-          let xa = a[l][xIdx], xb = a[m][xIdx], xc = a[r][xIdx];
-          let ya = a[l][yIdx], yb = a[m][yIdx], yc = a[r][yIdx];
+          let m = a2.reduce((maxxIdx, v, idx) => a2[maxxIdx][xIdx] > v[xIdx] ? maxxIdx : idx, 0);
+          let l2 = m <= 0 ? a2.length - 2 : m - 1, r2 = m >= a2.length - 1 ? 1 : m + 1;
+          let xa = a2[l2][xIdx], xb = a2[m][xIdx], xc = a2[r2][xIdx];
+          let ya = a2[l2][yIdx], yb = a2[m][yIdx], yc = a2[r2][yIdx];
           let det = (xb - xa) * (yc - ya) - (xc - xa) * (yb - ya);
           return det < 0 ? "clockwise" : "counterclockwise";
         };
         const ptInsidePolygon = (pt, polygon, xIdx, yIdx) => {
           xIdx = xIdx || 0, yIdx = yIdx || 1;
           let result = false;
-          for (let i = 0, j = polygon.length - 1; i < polygon.length; j = i++) {
-            if ((polygon[i][xIdx] <= pt[xIdx] && pt[xIdx] < polygon[j][xIdx] || polygon[j][xIdx] <= pt[xIdx] && pt[xIdx] < polygon[i][xIdx]) && pt[yIdx] < (polygon[j][yIdx] - polygon[i][yIdx]) * (pt[xIdx] - polygon[i][xIdx]) / (polygon[j][xIdx] - polygon[i][xIdx]) + polygon[i][yIdx]) {
+          for (let i2 = 0, j2 = polygon.length - 1; i2 < polygon.length; j2 = i2++) {
+            if ((polygon[i2][xIdx] <= pt[xIdx] && pt[xIdx] < polygon[j2][xIdx] || polygon[j2][xIdx] <= pt[xIdx] && pt[xIdx] < polygon[i2][xIdx]) && pt[yIdx] < (polygon[j2][yIdx] - polygon[i2][yIdx]) * (pt[xIdx] - polygon[i2][xIdx]) / (polygon[j2][xIdx] - polygon[i2][xIdx]) + polygon[i2][yIdx]) {
               result = !result;
             }
           }
@@ -34885,9 +34885,9 @@
             super();
             this.binders = [];
           }
-          add(k, v) {
-            if (!this.has(k)) {
-              this.set(k, v);
+          add(k2, v) {
+            if (!this.has(k2)) {
+              this.set(k2, v);
             }
           }
           addBinder(binder) {
@@ -34916,12 +34916,12 @@
                 [].splice.apply(this.container, args);
               }
             } else if (typeof this.container === "object") {
-              let k = Object.keys(this.container).find((v2) => this.container[v2] === this);
-              if (k) {
+              let k2 = Object.keys(this.container).find((v2) => this.container[v2] === this);
+              if (k2) {
                 if (v) {
-                  this.container[k] = v;
+                  this.container[k2] = v;
                 } else {
-                  delete this.container[k];
+                  delete this.container[k2];
                 }
               }
             }
@@ -35132,12 +35132,12 @@
             this.tags = Object.assign(this.tags, tags);
             this.hasTag = tags ? true : false;
           }
-          addTag(k, v) {
-            this.tags[k] = v;
-            this.hasTag = k ? true : false;
+          addTag(k2, v) {
+            this.tags[k2] = v;
+            this.hasTag = k2 ? true : false;
           }
-          addProp(k, v) {
-            this.props[k] = v;
+          addProp(k2, v) {
+            this.props[k2] = v;
           }
           addProps(props) {
             this.props = Object.assign(this.props, props);
@@ -35152,7 +35152,7 @@
             return [];
           }
         }
-        class Node extends OsmObject {
+        class Node2 extends OsmObject {
           constructor(id, refElems) {
             super("node", id, refElems);
             this.latLng = null;
@@ -35201,26 +35201,26 @@
             this.latLngArray.push(binder);
             this.refElems.addBinder(binder);
           }
-          analyzeGeometryType(k, v) {
-            let o = polygonTags[k];
-            if (o) {
+          analyzeGeometryType(k2, v) {
+            let o2 = polygonTags[k2];
+            if (o2) {
               this.isPolygon = true;
-              if (o.whitelist) {
-                this.isPolygon = o.whitelist.indexOf(v) >= 0 ? true : false;
-              } else if (o.blacklist) {
-                this.isPolygon = o.blacklist.indexOf(v) >= 0 ? false : true;
+              if (o2.whitelist) {
+                this.isPolygon = o2.whitelist.indexOf(v) >= 0 ? true : false;
+              } else if (o2.blacklist) {
+                this.isPolygon = o2.blacklist.indexOf(v) >= 0 ? false : true;
               }
             }
           }
           addTags(tags) {
             super.addTags(tags);
-            for (let [k, v] of Object.entries(tags)) {
-              this.analyzeGeometryType(k, v);
+            for (let [k2, v] of Object.entries(tags)) {
+              this.analyzeGeometryType(k2, v);
             }
           }
-          addTag(k, v) {
-            super.addTag(k, v);
-            this.analyzeGeometryType(k, v);
+          addTag(k2, v) {
+            super.addTag(k2, v);
+            this.analyzeGeometryType(k2, v);
           }
           toCoordsArray() {
             return this.latLngArray.map((latLng) => [latLng.lon, latLng.lat]);
@@ -35312,14 +35312,14 @@
               case "node":
                 let node = null;
                 if (member.lat && member.lon) {
-                  node = new Node(member.ref, this.refElems);
+                  node = new Node2(member.ref, this.refElems);
                   node.setLatLng({ lon: member.lon, lat: member.lat });
                   if (member.tags) {
                     node.addTags(member.tags);
                   }
-                  for (let [k, v] of Object.entries(member)) {
-                    if (["id", "type", "lat", "lon"].indexOf(k) < 0) {
-                      node.addProp(k, v);
+                  for (let [k2, v] of Object.entries(member)) {
+                    if (["id", "type", "lat", "lon"].indexOf(k2) < 0) {
+                      node.addProp(k2, v);
                     }
                   }
                   node.refCount++;
@@ -35438,7 +35438,7 @@
             return polygonFeatures.concat(stringFeatures).concat(pointFeatures);
           }
         }
-        return { Node, Way, Relation };
+        return { Node: Node2, Way, Relation };
       })();
     }
   });
@@ -35588,7 +35588,7 @@
   // node_modules/osm2geojson-lite/lib/index.js
   var require_lib2 = __commonJS({
     "node_modules/osm2geojson-lite/lib/index.js"(exports, module) {
-      var { Node, Way, Relation } = require_osmobjs();
+      var { Node: Node2, Way, Relation } = require_osmobjs();
       var { purgeProps, RefElements } = require_utils();
       var XmlParser = require_xmlparser();
       module.exports = (osm, opts) => {
@@ -35622,7 +35622,7 @@
           for (let elem of osm2.elements) {
             switch (elem.type) {
               case "node":
-                let node = new Node(elem.id, refElements);
+                let node = new Node2(elem.id, refElements);
                 if (elem.tags) {
                   node.addTags(elem.tags);
                 }
@@ -35636,8 +35636,8 @@
                 }
                 way.addProps(purgeProps(elem, ["id", "type", "tags", "nodes", "geometry"]));
                 if (elem.nodes) {
-                  for (let n of elem.nodes) {
-                    way.addNodeRef(n);
+                  for (let n2 of elem.nodes) {
+                    way.addNodeRef(n2);
                   }
                 } else if (elem.geometry) {
                   way.setLatLngArray(elem.geometry);
@@ -35666,10 +35666,10 @@
         const analyzeFeaturesFromXml = (osm2) => {
           const xmlParser = new XmlParser({ progressive: true });
           xmlParser.on("</osm.node>", (node) => {
-            let nd = new Node(node.id, refElements);
-            for (let [k, v] of Object.entries(node))
-              if (!k.startsWith("$") && ["id", "lon", "lat"].indexOf(k) < 0) {
-                nd.addProp(k, v);
+            let nd = new Node2(node.id, refElements);
+            for (let [k2, v] of Object.entries(node))
+              if (!k2.startsWith("$") && ["id", "lon", "lat"].indexOf(k2) < 0) {
+                nd.addProp(k2, v);
               }
             nd.setLatLng(node);
             if (node.$innerNodes) {
@@ -35682,9 +35682,9 @@
           });
           xmlParser.on("</osm.way>", (node) => {
             let way = new Way(node.id, refElements);
-            for (let [k, v] of Object.entries(node)) {
-              if (!k.startsWith("$") && ["id"].indexOf(k) < 0) {
-                way.addProp(k, v);
+            for (let [k2, v] of Object.entries(node)) {
+              if (!k2.startsWith("$") && ["id"].indexOf(k2) < 0) {
+                way.addProp(k2, v);
               }
             }
             if (node.$innerNodes) {
@@ -35712,9 +35712,9 @@
             };
             if (node.lat && node.lon) {
               member.lat = node.lat, member.lon = node.lon, member.tags = {};
-              for (let [k, v] of Object.entries(node)) {
-                if (!k.startsWith("$") && ["type", "lat", "lon"].indexOf(k) < 0) {
-                  member[k] = v;
+              for (let [k2, v] of Object.entries(node)) {
+                if (!k2.startsWith("$") && ["type", "lat", "lon"].indexOf(k2) < 0) {
+                  member[k2] = v;
                 }
               }
             }
@@ -35920,7 +35920,7 @@
                   var init = lazyComponent._init;
                   try {
                     return getComponentNameFromType(init(payload));
-                  } catch (x) {
+                  } catch (x2) {
                     return null;
                   }
                 }
@@ -36014,8 +36014,8 @@
               if (prefix === void 0) {
                 try {
                   throw Error();
-                } catch (x) {
-                  var match = x.stack.trim().match(/\n( *(at )?)/);
+                } catch (x2) {
+                  var match = x2.stack.trim().match(/\n( *(at )?)/);
                   prefix = match && match[1] || "";
                 }
               }
@@ -36061,23 +36061,23 @@
                 if (typeof Reflect === "object" && Reflect.construct) {
                   try {
                     Reflect.construct(Fake, []);
-                  } catch (x) {
-                    control = x;
+                  } catch (x2) {
+                    control = x2;
                   }
                   Reflect.construct(fn, [], Fake);
                 } else {
                   try {
                     Fake.call();
-                  } catch (x) {
-                    control = x;
+                  } catch (x2) {
+                    control = x2;
                   }
                   fn.call(Fake.prototype);
                 }
               } else {
                 try {
                   throw Error();
-                } catch (x) {
-                  control = x;
+                } catch (x2) {
+                  control = x2;
                 }
                 fn();
               }
@@ -36085,19 +36085,19 @@
               if (sample && control && typeof sample.stack === "string") {
                 var sampleLines = sample.stack.split("\n");
                 var controlLines = control.stack.split("\n");
-                var s = sampleLines.length - 1;
-                var c = controlLines.length - 1;
-                while (s >= 1 && c >= 0 && sampleLines[s] !== controlLines[c]) {
-                  c--;
+                var s2 = sampleLines.length - 1;
+                var c2 = controlLines.length - 1;
+                while (s2 >= 1 && c2 >= 0 && sampleLines[s2] !== controlLines[c2]) {
+                  c2--;
                 }
-                for (; s >= 1 && c >= 0; s--, c--) {
-                  if (sampleLines[s] !== controlLines[c]) {
-                    if (s !== 1 || c !== 1) {
+                for (; s2 >= 1 && c2 >= 0; s2--, c2--) {
+                  if (sampleLines[s2] !== controlLines[c2]) {
+                    if (s2 !== 1 || c2 !== 1) {
                       do {
-                        s--;
-                        c--;
-                        if (c < 0 || sampleLines[s] !== controlLines[c]) {
-                          var _frame = "\n" + sampleLines[s].replace(" at new ", " at ");
+                        s2--;
+                        c2--;
+                        if (c2 < 0 || sampleLines[s2] !== controlLines[c2]) {
+                          var _frame = "\n" + sampleLines[s2].replace(" at new ", " at ");
                           if (fn.displayName && _frame.includes("<anonymous>")) {
                             _frame = _frame.replace("<anonymous>", fn.displayName);
                           }
@@ -36108,7 +36108,7 @@
                           }
                           return _frame;
                         }
-                      } while (s >= 1 && c >= 0);
+                      } while (s2 >= 1 && c2 >= 0);
                     }
                     break;
                   }
@@ -36170,7 +36170,7 @@
                   var init = lazyComponent._init;
                   try {
                     return describeUnknownElementTypeFrameInDEV(init(payload), source, ownerFn);
-                  } catch (x) {
+                  } catch (x2) {
                   }
                 }
               }
@@ -36223,8 +36223,8 @@
             }
           }
           var isArrayImpl = Array.isArray;
-          function isArray(a) {
-            return isArrayImpl(a);
+          function isArray(a2) {
+            return isArrayImpl(a2);
           }
           function typeName(value) {
             {
@@ -36238,7 +36238,7 @@
               try {
                 testStringCoercion(value);
                 return false;
-              } catch (e) {
+              } catch (e2) {
                 return true;
               }
             }
@@ -36498,8 +36498,8 @@
                 return;
               }
               if (isArray(node)) {
-                for (var i = 0; i < node.length; i++) {
-                  var child = node[i];
+                for (var i2 = 0; i2 < node.length; i2++) {
+                  var child = node[i2];
                   if (isValidElement(child)) {
                     validateExplicitKey(child, parentType);
                   }
@@ -36556,8 +36556,8 @@
           function validateFragmentProps(fragment) {
             {
               var keys = Object.keys(fragment.props);
-              for (var i = 0; i < keys.length; i++) {
-                var key = keys[i];
+              for (var i2 = 0; i2 < keys.length; i2++) {
+                var key = keys[i2];
                 if (key !== "children" && key !== "key") {
                   setCurrentlyValidatingElement$1(fragment);
                   error("Invalid prop `%s` supplied to `React.Fragment`. React.Fragment can only have `key` and `children` props.", key);
@@ -36609,8 +36609,8 @@
                 if (children !== void 0) {
                   if (isStaticChildren) {
                     if (isArray(children)) {
-                      for (var i = 0; i < children.length; i++) {
-                        validateChildKeys(children[i], type);
+                      for (var i2 = 0; i2 < children.length; i2++) {
+                        validateChildKeys(children[i2], type);
                       }
                       if (Object.freeze) {
                         Object.freeze(children);
@@ -36626,8 +36626,8 @@
               {
                 if (hasOwnProperty.call(props, "key")) {
                   var componentName = getComponentNameFromType(type);
-                  var keys = Object.keys(props).filter(function(k) {
-                    return k !== "key";
+                  var keys = Object.keys(props).filter(function(k2) {
+                    return k2 !== "key";
                   });
                   var beforeExample = keys.length > 0 ? "{key: someKey, " + keys.join(": ..., ") + ": ...}" : "{key: someKey}";
                   if (!didWarnAboutKeySpread[componentName + beforeExample]) {
@@ -36674,6 +36674,66 @@
       } else {
         module.exports = require_react_jsx_runtime_development();
       }
+    }
+  });
+
+  // node_modules/classnames/index.js
+  var require_classnames = __commonJS({
+    "node_modules/classnames/index.js"(exports, module) {
+      (function() {
+        "use strict";
+        var hasOwn = {}.hasOwnProperty;
+        function classNames() {
+          var classes = "";
+          for (var i2 = 0; i2 < arguments.length; i2++) {
+            var arg = arguments[i2];
+            if (arg) {
+              classes = appendClass(classes, parseValue(arg));
+            }
+          }
+          return classes;
+        }
+        function parseValue(arg) {
+          if (typeof arg === "string" || typeof arg === "number") {
+            return arg;
+          }
+          if (typeof arg !== "object") {
+            return "";
+          }
+          if (Array.isArray(arg)) {
+            return classNames.apply(null, arg);
+          }
+          if (arg.toString !== Object.prototype.toString && !arg.toString.toString().includes("[native code]")) {
+            return arg.toString();
+          }
+          var classes = "";
+          for (var key in arg) {
+            if (hasOwn.call(arg, key) && arg[key]) {
+              classes = appendClass(classes, key);
+            }
+          }
+          return classes;
+        }
+        function appendClass(value, newClass) {
+          if (!newClass) {
+            return value;
+          }
+          if (value) {
+            return value + " " + newClass;
+          }
+          return value + newClass;
+        }
+        if (typeof module !== "undefined" && module.exports) {
+          classNames.default = classNames;
+          module.exports = classNames;
+        } else if (typeof define === "function" && typeof define.amd === "object" && define.amd) {
+          define("classnames", [], function() {
+            return classNames;
+          });
+        } else {
+          window.classNames = classNames;
+        }
+      })();
     }
   });
 
@@ -36975,8 +37035,8 @@
   var import_react9 = __toESM(require_react(), 1);
   function _extends() {
     _extends = Object.assign || function(target) {
-      for (var i = 1; i < arguments.length; i++) {
-        var source = arguments[i];
+      for (var i2 = 1; i2 < arguments.length; i2++) {
+        var source = arguments[i2];
         for (var key in source) {
           if (Object.prototype.hasOwnProperty.call(source, key)) {
             target[key] = source[key];
@@ -37186,7 +37246,7 @@
   });
 
   // src/components/map.tsx
-  var import_react18 = __toESM(require_react(), 1);
+  var import_react19 = __toESM(require_react(), 1);
 
   // src/overpass.ts
   var fetchApi = async (query) => {
@@ -37223,27 +37283,27 @@ out geom;`;
   var import_react12 = __toESM(require_react(), 1);
 
   // node_modules/leaflet-control-geocoder/dist/Control.Geocoder.js
-  var leafletControlGeocoder = function(exports, L3) {
-    function _interopNamespace(e) {
-      if (e && e.__esModule) return e;
-      var n = /* @__PURE__ */ Object.create(null);
-      if (e) {
-        Object.keys(e).forEach(function(k) {
-          if (k !== "default") {
-            var d = Object.getOwnPropertyDescriptor(e, k);
-            Object.defineProperty(n, k, d.get ? d : {
+  var leafletControlGeocoder = function(exports, L4) {
+    function _interopNamespace(e2) {
+      if (e2 && e2.__esModule) return e2;
+      var n2 = /* @__PURE__ */ Object.create(null);
+      if (e2) {
+        Object.keys(e2).forEach(function(k2) {
+          if (k2 !== "default") {
+            var d = Object.getOwnPropertyDescriptor(e2, k2);
+            Object.defineProperty(n2, k2, d.get ? d : {
               enumerable: true,
               get: function() {
-                return e[k];
+                return e2[k2];
               }
             });
           }
         });
       }
-      n["default"] = e;
-      return n;
+      n2["default"] = e2;
+      return n2;
     }
-    var L__namespace = /* @__PURE__ */ _interopNamespace(L3);
+    var L__namespace = /* @__PURE__ */ _interopNamespace(L4);
     function _inheritsLoose(subClass, superClass) {
       subClass.prototype = Object.create(superClass.prototype);
       subClass.prototype.constructor = subClass;
@@ -37309,7 +37369,7 @@ out geom;`;
         } else if (typeof xmlHttp.response === "string") {
           try {
             message = JSON.parse(xmlHttp.response);
-          } catch (e) {
+          } catch (e2) {
             message = xmlHttp.response;
           }
         } else {
@@ -37335,14 +37395,14 @@ out geom;`;
     }
     function getParamString(obj, existingUrl, uppercase) {
       var params = [];
-      for (var i in obj) {
-        var key = encodeURIComponent(uppercase ? i.toUpperCase() : i);
-        var value = obj[i];
+      for (var i2 in obj) {
+        var key = encodeURIComponent(uppercase ? i2.toUpperCase() : i2);
+        var value = obj[i2];
         if (!Array.isArray(value)) {
           params.push(key + "=" + encodeURIComponent(String(value)));
         } else {
-          for (var j = 0; j < value.length; j++) {
-            params.push(key + "=" + encodeURIComponent(value[j]));
+          for (var j2 = 0; j2 < value.length; j2++) {
+            params.push(key + "=" + encodeURIComponent(value[j2]));
           }
         }
       }
@@ -37369,11 +37429,11 @@ out geom;`;
         getJSON(this.options.serviceUrl + "/findAddressCandidates", params, function(data) {
           var results = [];
           if (data.candidates && data.candidates.length) {
-            for (var i = 0; i <= data.candidates.length - 1; i++) {
-              var loc = data.candidates[i];
+            for (var i2 = 0; i2 <= data.candidates.length - 1; i2++) {
+              var loc = data.candidates[i2];
               var latLng2 = L__namespace.latLng(loc.location.y, loc.location.x);
               var latLngBounds = L__namespace.latLngBounds(L__namespace.latLng(loc.extent.ymax, loc.extent.xmax), L__namespace.latLng(loc.extent.ymin, loc.extent.xmin));
-              results[i] = {
+              results[i2] = {
                 name: loc.address,
                 bbox: latLngBounds,
                 center: latLng2
@@ -37427,9 +37487,9 @@ out geom;`;
         jsonp(this.options.apiKey, params, function(data) {
           var results = [];
           if (data.resourceSets.length > 0) {
-            for (var i = data.resourceSets[0].resources.length - 1; i >= 0; i--) {
-              var resource = data.resourceSets[0].resources[i], bbox = resource.bbox;
-              results[i] = {
+            for (var i2 = data.resourceSets[0].resources.length - 1; i2 >= 0; i2--) {
+              var resource = data.resourceSets[0].resources[i2], bbox = resource.bbox;
+              results[i2] = {
                 name: resource.name,
                 bbox: L__namespace.latLngBounds([bbox[0], bbox[1]], [bbox[2], bbox[3]]),
                 center: L__namespace.latLng(resource.point.coordinates)
@@ -37445,9 +37505,9 @@ out geom;`;
         });
         jsonp(this.options.serviceUrl + location2.lat + "," + location2.lng, params, function(data) {
           var results = [];
-          for (var i = data.resourceSets[0].resources.length - 1; i >= 0; i--) {
-            var resource = data.resourceSets[0].resources[i], bbox = resource.bbox;
-            results[i] = {
+          for (var i2 = data.resourceSets[0].resources.length - 1; i2 >= 0; i2--) {
+            var resource = data.resourceSets[0].resources[i2], bbox = resource.bbox;
+            results[i2] = {
               name: resource.name,
               bbox: L__namespace.latLngBounds([bbox[0], bbox[1]], [bbox[2], bbox[3]]),
               center: L__namespace.latLng(resource.point.coordinates)
@@ -37477,11 +37537,11 @@ out geom;`;
         getJSON(this.options.serviceUrl, params, function(data) {
           var results = [];
           if (data.results && data.results.length) {
-            for (var i = 0; i <= data.results.length - 1; i++) {
-              var loc = data.results[i];
+            for (var i2 = 0; i2 <= data.results.length - 1; i2++) {
+              var loc = data.results[i2];
               var latLng2 = L__namespace.latLng(loc.geometry.location);
               var latLngBounds = L__namespace.latLngBounds(L__namespace.latLng(loc.geometry.viewport.northeast), L__namespace.latLng(loc.geometry.viewport.southwest));
-              results[i] = {
+              results[i2] = {
                 name: loc.formatted_address,
                 bbox: latLngBounds,
                 center: latLng2,
@@ -37500,11 +37560,11 @@ out geom;`;
         getJSON(this.options.serviceUrl, params, function(data) {
           var results = [];
           if (data.results && data.results.length) {
-            for (var i = 0; i <= data.results.length - 1; i++) {
-              var loc = data.results[i];
+            for (var i2 = 0; i2 <= data.results.length - 1; i2++) {
+              var loc = data.results[i2];
               var center = L__namespace.latLng(loc.geometry.location);
               var bbox = L__namespace.latLngBounds(L__namespace.latLng(loc.geometry.viewport.northeast), L__namespace.latLng(loc.geometry.viewport.southwest));
-              results[i] = {
+              results[i2] = {
                 name: loc.formatted_address,
                 bbox,
                 center,
@@ -37564,11 +37624,11 @@ out geom;`;
         getJSON(url, params, function(data) {
           var results = [];
           if (data.response.view && data.response.view.length) {
-            for (var i = 0; i <= data.response.view[0].result.length - 1; i++) {
-              var loc = data.response.view[0].result[i].location;
+            for (var i2 = 0; i2 <= data.response.view[0].result.length - 1; i2++) {
+              var loc = data.response.view[0].result[i2].location;
               var center = L__namespace.latLng(loc.displayPosition.latitude, loc.displayPosition.longitude);
               var bbox = L__namespace.latLngBounds(L__namespace.latLng(loc.mapView.topLeft.latitude, loc.mapView.topLeft.longitude), L__namespace.latLng(loc.mapView.bottomRight.latitude, loc.mapView.bottomRight.longitude));
-              results[i] = {
+              results[i2] = {
                 name: loc.address.label,
                 properties: loc.address,
                 bbox,
@@ -37616,8 +37676,8 @@ out geom;`;
         getJSON(url, params, function(data) {
           var results = [];
           if (data.items && data.items.length) {
-            for (var i = 0; i <= data.items.length - 1; i++) {
-              var item = data.items[i];
+            for (var i2 = 0; i2 <= data.items.length - 1; i2++) {
+              var item = data.items[i2];
               var latLng2 = L__namespace.latLng(item.position.lat, item.position.lng);
               var bbox = void 0;
               if (item.mapView) {
@@ -37625,7 +37685,7 @@ out geom;`;
               } else {
                 bbox = L__namespace.latLngBounds(L__namespace.latLng(item.position.lat, item.position.lng), L__namespace.latLng(item.position.lat, item.position.lng));
               }
-              results[i] = {
+              results[i2] = {
                 name: item.address.label,
                 properties: item.address,
                 bbox,
@@ -37703,11 +37763,11 @@ out geom;`;
           text: loc.text,
           address: loc.address
         };
-        for (var j = 0; j < (loc.context || []).length; j++) {
-          var id = loc.context[j].id.split(".")[0];
-          properties[id] = loc.context[j].text;
-          if (loc.context[j].short_code) {
-            properties["countryShortCode"] = loc.context[j].short_code;
+        for (var j2 = 0; j2 < (loc.context || []).length; j2++) {
+          var id = loc.context[j2].id.split(".")[0];
+          properties[id] = loc.context[j2].text;
+          if (loc.context[j2].short_code) {
+            properties["countryShortCode"] = loc.context[j2].short_code;
           }
         }
         return properties;
@@ -37723,8 +37783,8 @@ out geom;`;
         getJSON(this.options.serviceUrl + encodeURIComponent(query) + ".json", params, function(data) {
           var results = [];
           if (data.features && data.features.length) {
-            for (var i = 0; i <= data.features.length - 1; i++) {
-              var loc = data.features[i];
+            for (var i2 = 0; i2 <= data.features.length - 1; i2++) {
+              var loc = data.features[i2];
               var center = L__namespace.latLng(loc.center.reverse());
               var bbox = void 0;
               if (loc.bbox) {
@@ -37732,7 +37792,7 @@ out geom;`;
               } else {
                 bbox = L__namespace.latLngBounds(center, center);
               }
-              results[i] = {
+              results[i2] = {
                 name: loc.place_name,
                 bbox,
                 center,
@@ -37755,8 +37815,8 @@ out geom;`;
         getJSON(url, param, function(data) {
           var results = [];
           if (data.features && data.features.length) {
-            for (var i = 0; i <= data.features.length - 1; i++) {
-              var loc = data.features[i];
+            for (var i2 = 0; i2 <= data.features.length - 1; i2++) {
+              var loc = data.features[i2];
               var center = L__namespace.latLng(loc.center.reverse());
               var bbox = void 0;
               if (loc.bbox) {
@@ -37764,7 +37824,7 @@ out geom;`;
               } else {
                 bbox = L__namespace.latLngBounds(center, center);
               }
-              results[i] = {
+              results[i2] = {
                 name: loc.place_name,
                 bbox,
                 center,
@@ -37790,8 +37850,8 @@ out geom;`;
       }
       var _proto = MapQuest2.prototype;
       _proto._formatName = function _formatName() {
-        return [].slice.call(arguments).filter(function(s) {
-          return !!s;
+        return [].slice.call(arguments).filter(function(s2) {
+          return !!s2;
         }).join(", ");
       };
       _proto.geocode = function geocode(query, cb, context) {
@@ -37804,10 +37864,10 @@ out geom;`;
         getJSON(this.options.serviceUrl + "/address", params, L__namespace.Util.bind(function(data) {
           var results = [];
           if (data.results && data.results[0].locations) {
-            for (var i = data.results[0].locations.length - 1; i >= 0; i--) {
-              var loc = data.results[0].locations[i];
+            for (var i2 = data.results[0].locations.length - 1; i2 >= 0; i2--) {
+              var loc = data.results[0].locations[i2];
               var center = L__namespace.latLng(loc.latLng);
-              results[i] = {
+              results[i2] = {
                 name: this._formatName(loc.street, loc.adminArea4, loc.adminArea3, loc.adminArea1),
                 bbox: L__namespace.latLngBounds(center, center),
                 center
@@ -37826,10 +37886,10 @@ out geom;`;
         getJSON(this.options.serviceUrl + "/reverse", params, L__namespace.Util.bind(function(data) {
           var results = [];
           if (data.results && data.results[0].locations) {
-            for (var i = data.results[0].locations.length - 1; i >= 0; i--) {
-              var loc = data.results[0].locations[i];
+            for (var i2 = data.results[0].locations.length - 1; i2 >= 0; i2--) {
+              var loc = data.results[0].locations[i2];
               var center = L__namespace.latLng(loc.latLng);
-              results[i] = {
+              results[i2] = {
                 name: this._formatName(loc.street, loc.adminArea4, loc.adminArea3, loc.adminArea1),
                 bbox: L__namespace.latLngBounds(center, center),
                 center
@@ -37909,8 +37969,8 @@ out geom;`;
       function Nominatim2(options) {
         this.options = {
           serviceUrl: "https://nominatim.openstreetmap.org/",
-          htmlTemplate: function htmlTemplate(r) {
-            var address = r.address;
+          htmlTemplate: function htmlTemplate(r2) {
+            var address = r2.address;
             var className;
             var parts = [];
             if (address.road || address.building) {
@@ -37940,18 +38000,18 @@ out geom;`;
         });
         getJSON(this.options.serviceUrl + "search", params, function(data) {
           var results = [];
-          for (var i = data.length - 1; i >= 0; i--) {
-            var bbox = data[i].boundingbox;
-            for (var j = 0; j < 4; j++) {
-              bbox[j] = +bbox[j];
+          for (var i2 = data.length - 1; i2 >= 0; i2--) {
+            var bbox = data[i2].boundingbox;
+            for (var j2 = 0; j2 < 4; j2++) {
+              bbox[j2] = +bbox[j2];
             }
-            results[i] = {
-              icon: data[i].icon,
-              name: data[i].display_name,
-              html: _this.options.htmlTemplate ? _this.options.htmlTemplate(data[i]) : void 0,
+            results[i2] = {
+              icon: data[i2].icon,
+              name: data[i2].display_name,
+              html: _this.options.htmlTemplate ? _this.options.htmlTemplate(data[i2]) : void 0,
               bbox: L__namespace.latLngBounds([bbox[0], bbox[2]], [bbox[1], bbox[3]]),
-              center: L__namespace.latLng(data[i].lat, data[i].lon),
-              properties: data[i]
+              center: L__namespace.latLng(data[i2].lat, data[i2].lon),
+              properties: data[i2]
             };
           }
           cb.call(context, results);
@@ -38001,8 +38061,8 @@ out geom;`;
             bbox: L__namespace.latLngBounds(L__namespace.latLng(decoded.latitudeLo, decoded.longitudeLo), L__namespace.latLng(decoded.latitudeHi, decoded.longitudeHi))
           };
           cb.call(context, [result]);
-        } catch (e) {
-          console.warn(e);
+        } catch (e2) {
+          console.warn(e2);
           cb.call(context, []);
         }
       };
@@ -38015,8 +38075,8 @@ out geom;`;
             bbox: L__namespace.latLngBounds(L__namespace.latLng(location2.lat, location2.lng), L__namespace.latLng(location2.lat, location2.lng))
           };
           cb.call(context, [result]);
-        } catch (e) {
-          console.warn(e);
+        } catch (e2) {
+          console.warn(e2);
           cb.call(context, []);
         }
       };
@@ -38041,8 +38101,8 @@ out geom;`;
         getJSON(this.options.serviceUrl, params, function(data) {
           var results = [];
           if (data.results && data.results.length) {
-            for (var i = 0; i < data.results.length; i++) {
-              var loc = data.results[i];
+            for (var i2 = 0; i2 < data.results.length; i2++) {
+              var loc = data.results[i2];
               var center = L__namespace.latLng(loc.geometry);
               var bbox = void 0;
               if (loc.annotations && loc.annotations.bounds) {
@@ -38071,8 +38131,8 @@ out geom;`;
         getJSON(this.options.serviceUrl, params, function(data) {
           var results = [];
           if (data.results && data.results.length) {
-            for (var i = 0; i < data.results.length; i++) {
-              var loc = data.results[i];
+            for (var i2 = 0; i2 < data.results.length; i2++) {
+              var loc = data.results[i2];
               var center = L__namespace.latLng(loc.geometry);
               var bbox = void 0;
               if (loc.annotations && loc.annotations.bounds) {
@@ -38221,10 +38281,10 @@ out geom;`;
       _proto._decodeFeatures = function _decodeFeatures(data) {
         var results = [];
         if (data && data.features) {
-          for (var i = 0; i < data.features.length; i++) {
-            var f = data.features[i];
-            var c = f.geometry.coordinates;
-            var center = L__namespace.latLng(c[1], c[0]);
+          for (var i2 = 0; i2 < data.features.length; i2++) {
+            var f = data.features[i2];
+            var c2 = f.geometry.coordinates;
+            var center = L__namespace.latLng(c2[1], c2[0]);
             var extent = f.properties.extent;
             var bbox = extent ? L__namespace.latLngBounds([extent[1], extent[0]], [extent[3], extent[2]]) : L__namespace.latLngBounds(center, center);
             results.push({
@@ -38416,16 +38476,16 @@ out geom;`;
         });
         if (this.options.collapsed) {
           if (this.options.expand === "click") {
-            L__namespace.DomEvent.addListener(container, "click", function(e) {
-              if (e.button === 0 && e.detail !== 2) {
+            L__namespace.DomEvent.addListener(container, "click", function(e2) {
+              if (e2.button === 0 && e2.detail !== 2) {
                 _this2._toggle();
               }
             });
           } else if (this.options.expand === "touch") {
-            L__namespace.DomEvent.addListener(container, L__namespace.Browser.touch ? "touchstart mousedown" : "mousedown", function(e) {
+            L__namespace.DomEvent.addListener(container, L__namespace.Browser.touch ? "touchstart mousedown" : "mousedown", function(e2) {
               _this2._toggle();
-              e.preventDefault();
-              e.stopPropagation();
+              e2.preventDefault();
+              e2.stopPropagation();
             }, this);
           } else {
             L__namespace.DomEvent.addListener(container, "mouseover", this._expand, this);
@@ -38466,8 +38526,8 @@ out geom;`;
           this._results = results;
           L__namespace.DomUtil.removeClass(this._alts, "leaflet-control-geocoder-alternatives-minimized");
           L__namespace.DomUtil.addClass(this._container, "leaflet-control-geocoder-options-open");
-          for (var i = 0; i < results.length; i++) {
-            this._alts.appendChild(this._createAlt(results[i], i));
+          for (var i2 = 0; i2 < results.length; i2++) {
+            this._alts.appendChild(this._createAlt(results[i2], i2));
           }
         } else {
           L__namespace.DomUtil.addClass(this._container, "leaflet-control-geocoder-options-error");
@@ -38550,9 +38610,9 @@ out geom;`;
       };
       _proto._createAlt = function _createAlt(result, index) {
         var _this4 = this;
-        var li = L__namespace.DomUtil.create("li", ""), a = L__namespace.DomUtil.create("a", "", li), icon = this.options.showResultIcons && result.icon ? L__namespace.DomUtil.create("img", "", a) : null, text = result.html ? void 0 : document.createTextNode(result.name), mouseDownHandler = function mouseDownHandler2(e) {
+        var li = L__namespace.DomUtil.create("li", ""), a2 = L__namespace.DomUtil.create("a", "", li), icon = this.options.showResultIcons && result.icon ? L__namespace.DomUtil.create("img", "", a2) : null, text = result.html ? void 0 : document.createTextNode(result.name), mouseDownHandler = function mouseDownHandler2(e2) {
           _this4._preventBlurCollapse = true;
-          L__namespace.DomEvent.stop(e);
+          L__namespace.DomEvent.stop(e2);
           _this4._geocodeResultSelected(result);
           L__namespace.DomEvent.on(li, "click touchend", function() {
             if (_this4.options.collapsed) {
@@ -38567,14 +38627,14 @@ out geom;`;
         }
         li.setAttribute("data-result-index", String(index));
         if (result.html) {
-          a.innerHTML = a.innerHTML + result.html;
+          a2.innerHTML = a2.innerHTML + result.html;
         } else if (text) {
-          a.appendChild(text);
+          a2.appendChild(text);
         }
         L__namespace.DomEvent.addListener(li, "mousedown touchstart", mouseDownHandler, this);
         return li;
       };
-      _proto._keydown = function _keydown(e) {
+      _proto._keydown = function _keydown(e2) {
         var _this5 = this;
         var select = function select2(dir) {
           if (_this5._selection) {
@@ -38588,7 +38648,7 @@ out geom;`;
             L__namespace.DomUtil.addClass(_this5._selection, "leaflet-control-geocoder-selected");
           }
         };
-        switch (e.keyCode) {
+        switch (e2.keyCode) {
           // Escape
           case 27:
             if (this.options.collapsed) {
@@ -38618,7 +38678,7 @@ out geom;`;
           default:
             return;
         }
-        L__namespace.DomEvent.preventDefault(e);
+        L__namespace.DomEvent.preventDefault(e2);
       };
       _proto._change = function _change() {
         var _this6 = this;
@@ -38671,11 +38731,11 @@ out geom;`;
         placeholder: "Search here...",
         defaultMarkGeocode: false,
         geocoder
-      }).on("markgeocode", function(e) {
-        map.fitBounds(e.geocode.bbox);
+      }).on("markgeocode", function(e2) {
+        map.fitBounds(e2.geocode.bbox);
         props.onSearch(
-          e.geocode.properties.osm_type,
-          e.geocode.properties.osm_id
+          e2.geocode.properties.osm_type,
+          e2.geocode.properties.osm_id
         );
       }).addTo(map);
     }, [props.onSearch]);
@@ -38755,16 +38815,18 @@ out geom;`;
         ]);
       }
       let roads = Object.values(roadsObject);
-      roads = roads.map((value) => ({ value, sort: Math.random() })).sort((a, b) => a.sort - b.sort).map(({ value }) => value);
+      roads = roads.map((value) => ({ value, sort: Math.random() })).sort((a2, b2) => a2.sort - b2.sort).map(({ value }) => value);
       roads[random(roads.length - 1)].state = "current";
       set(() => ({ isPlaying: true, wrongGuesses: 0, roads }));
     },
     cancelGame: () => set(() => ({ isPlaying: false, roads: [] })),
     submitGuess: (value) => {
       let result = false;
+      let roadName = "";
       set(({ roads, wrongGuesses }) => {
         const road = get().roads.find((road2) => road2.state === "current");
-        const expect = normalizeString(road.name);
+        roadName = road.name;
+        const expect = normalizeString(roadName);
         const guess = normalizeString(value);
         result = guess === expect;
         road.state = result ? "correct" : "wrong";
@@ -38775,10 +38837,10 @@ out geom;`;
           wrongGuesses: wrongGuesses + (result ? 0 : 1)
         };
       });
-      return result;
+      return { result, road: roadName };
     }
   }));
-  var random = (max) => Math.floor(Math.random() * max);
+  var random = (max2) => Math.floor(Math.random() * max2);
   var normalizeString = (value) => value.trim().toLowerCase().replaceAll("\xE4", "a").replaceAll("\xF6", "o").replaceAll("\xFC", "u").replaceAll("\xDF", "ss");
 
   // src/components/selection.tsx
@@ -38875,8 +38937,8 @@ out geom;`;
     );
     const eventHandlers = (0, import_react15.useMemo)(
       () => ({
-        "editable:edited": (e) => onSelectionUpdate(e.layer),
-        "editable:vertex:deleted": (e) => onSelectionUpdate(e.layer)
+        "editable:edited": (e2) => onSelectionUpdate(e2.layer),
+        "editable:vertex:deleted": (e2) => onSelectionUpdate(e2.layer)
       }),
       [onSelectionUpdate]
     );
@@ -38899,7 +38961,7 @@ out geom;`;
   };
 
   // src/components/form.tsx
-  var import_react16 = __toESM(require_react(), 1);
+  var import_react17 = __toESM(require_react(), 1);
 
   // src/icons/cancel.tsx
   var import_jsx_runtime2 = __toESM(require_jsx_runtime(), 1);
@@ -38926,6 +38988,1779 @@ out geom;`;
     }
   );
 
+  // node_modules/react-tooltip/dist/react-tooltip.min.mjs
+  var import_react16 = __toESM(require_react(), 1);
+
+  // node_modules/@floating-ui/utils/dist/floating-ui.utils.mjs
+  var min = Math.min;
+  var max = Math.max;
+  var round = Math.round;
+  var floor = Math.floor;
+  var createCoords = (v) => ({
+    x: v,
+    y: v
+  });
+  var oppositeSideMap = {
+    left: "right",
+    right: "left",
+    bottom: "top",
+    top: "bottom"
+  };
+  var oppositeAlignmentMap = {
+    start: "end",
+    end: "start"
+  };
+  function clamp(start, value, end) {
+    return max(start, min(value, end));
+  }
+  function evaluate(value, param) {
+    return typeof value === "function" ? value(param) : value;
+  }
+  function getSide(placement) {
+    return placement.split("-")[0];
+  }
+  function getAlignment(placement) {
+    return placement.split("-")[1];
+  }
+  function getOppositeAxis(axis) {
+    return axis === "x" ? "y" : "x";
+  }
+  function getAxisLength(axis) {
+    return axis === "y" ? "height" : "width";
+  }
+  function getSideAxis(placement) {
+    return ["top", "bottom"].includes(getSide(placement)) ? "y" : "x";
+  }
+  function getAlignmentAxis(placement) {
+    return getOppositeAxis(getSideAxis(placement));
+  }
+  function getAlignmentSides(placement, rects, rtl) {
+    if (rtl === void 0) {
+      rtl = false;
+    }
+    const alignment = getAlignment(placement);
+    const alignmentAxis = getAlignmentAxis(placement);
+    const length = getAxisLength(alignmentAxis);
+    let mainAlignmentSide = alignmentAxis === "x" ? alignment === (rtl ? "end" : "start") ? "right" : "left" : alignment === "start" ? "bottom" : "top";
+    if (rects.reference[length] > rects.floating[length]) {
+      mainAlignmentSide = getOppositePlacement(mainAlignmentSide);
+    }
+    return [mainAlignmentSide, getOppositePlacement(mainAlignmentSide)];
+  }
+  function getExpandedPlacements(placement) {
+    const oppositePlacement = getOppositePlacement(placement);
+    return [getOppositeAlignmentPlacement(placement), oppositePlacement, getOppositeAlignmentPlacement(oppositePlacement)];
+  }
+  function getOppositeAlignmentPlacement(placement) {
+    return placement.replace(/start|end/g, (alignment) => oppositeAlignmentMap[alignment]);
+  }
+  function getSideList(side, isStart, rtl) {
+    const lr = ["left", "right"];
+    const rl = ["right", "left"];
+    const tb = ["top", "bottom"];
+    const bt = ["bottom", "top"];
+    switch (side) {
+      case "top":
+      case "bottom":
+        if (rtl) return isStart ? rl : lr;
+        return isStart ? lr : rl;
+      case "left":
+      case "right":
+        return isStart ? tb : bt;
+      default:
+        return [];
+    }
+  }
+  function getOppositeAxisPlacements(placement, flipAlignment, direction, rtl) {
+    const alignment = getAlignment(placement);
+    let list = getSideList(getSide(placement), direction === "start", rtl);
+    if (alignment) {
+      list = list.map((side) => side + "-" + alignment);
+      if (flipAlignment) {
+        list = list.concat(list.map(getOppositeAlignmentPlacement));
+      }
+    }
+    return list;
+  }
+  function getOppositePlacement(placement) {
+    return placement.replace(/left|right|bottom|top/g, (side) => oppositeSideMap[side]);
+  }
+  function expandPaddingObject(padding) {
+    return {
+      top: 0,
+      right: 0,
+      bottom: 0,
+      left: 0,
+      ...padding
+    };
+  }
+  function getPaddingObject(padding) {
+    return typeof padding !== "number" ? expandPaddingObject(padding) : {
+      top: padding,
+      right: padding,
+      bottom: padding,
+      left: padding
+    };
+  }
+  function rectToClientRect(rect) {
+    const {
+      x: x2,
+      y: y2,
+      width,
+      height
+    } = rect;
+    return {
+      width,
+      height,
+      top: y2,
+      left: x2,
+      right: x2 + width,
+      bottom: y2 + height,
+      x: x2,
+      y: y2
+    };
+  }
+
+  // node_modules/@floating-ui/core/dist/floating-ui.core.mjs
+  function computeCoordsFromPlacement(_ref, placement, rtl) {
+    let {
+      reference,
+      floating
+    } = _ref;
+    const sideAxis = getSideAxis(placement);
+    const alignmentAxis = getAlignmentAxis(placement);
+    const alignLength = getAxisLength(alignmentAxis);
+    const side = getSide(placement);
+    const isVertical = sideAxis === "y";
+    const commonX = reference.x + reference.width / 2 - floating.width / 2;
+    const commonY = reference.y + reference.height / 2 - floating.height / 2;
+    const commonAlign = reference[alignLength] / 2 - floating[alignLength] / 2;
+    let coords;
+    switch (side) {
+      case "top":
+        coords = {
+          x: commonX,
+          y: reference.y - floating.height
+        };
+        break;
+      case "bottom":
+        coords = {
+          x: commonX,
+          y: reference.y + reference.height
+        };
+        break;
+      case "right":
+        coords = {
+          x: reference.x + reference.width,
+          y: commonY
+        };
+        break;
+      case "left":
+        coords = {
+          x: reference.x - floating.width,
+          y: commonY
+        };
+        break;
+      default:
+        coords = {
+          x: reference.x,
+          y: reference.y
+        };
+    }
+    switch (getAlignment(placement)) {
+      case "start":
+        coords[alignmentAxis] -= commonAlign * (rtl && isVertical ? -1 : 1);
+        break;
+      case "end":
+        coords[alignmentAxis] += commonAlign * (rtl && isVertical ? -1 : 1);
+        break;
+    }
+    return coords;
+  }
+  var computePosition = async (reference, floating, config) => {
+    const {
+      placement = "bottom",
+      strategy = "absolute",
+      middleware = [],
+      platform: platform2
+    } = config;
+    const validMiddleware = middleware.filter(Boolean);
+    const rtl = await (platform2.isRTL == null ? void 0 : platform2.isRTL(floating));
+    let rects = await platform2.getElementRects({
+      reference,
+      floating,
+      strategy
+    });
+    let {
+      x: x2,
+      y: y2
+    } = computeCoordsFromPlacement(rects, placement, rtl);
+    let statefulPlacement = placement;
+    let middlewareData = {};
+    let resetCount = 0;
+    for (let i2 = 0; i2 < validMiddleware.length; i2++) {
+      const {
+        name,
+        fn
+      } = validMiddleware[i2];
+      const {
+        x: nextX,
+        y: nextY,
+        data,
+        reset
+      } = await fn({
+        x: x2,
+        y: y2,
+        initialPlacement: placement,
+        placement: statefulPlacement,
+        strategy,
+        middlewareData,
+        rects,
+        platform: platform2,
+        elements: {
+          reference,
+          floating
+        }
+      });
+      x2 = nextX != null ? nextX : x2;
+      y2 = nextY != null ? nextY : y2;
+      middlewareData = {
+        ...middlewareData,
+        [name]: {
+          ...middlewareData[name],
+          ...data
+        }
+      };
+      if (reset && resetCount <= 50) {
+        resetCount++;
+        if (typeof reset === "object") {
+          if (reset.placement) {
+            statefulPlacement = reset.placement;
+          }
+          if (reset.rects) {
+            rects = reset.rects === true ? await platform2.getElementRects({
+              reference,
+              floating,
+              strategy
+            }) : reset.rects;
+          }
+          ({
+            x: x2,
+            y: y2
+          } = computeCoordsFromPlacement(rects, statefulPlacement, rtl));
+        }
+        i2 = -1;
+      }
+    }
+    return {
+      x: x2,
+      y: y2,
+      placement: statefulPlacement,
+      strategy,
+      middlewareData
+    };
+  };
+  async function detectOverflow(state, options) {
+    var _await$platform$isEle;
+    if (options === void 0) {
+      options = {};
+    }
+    const {
+      x: x2,
+      y: y2,
+      platform: platform2,
+      rects,
+      elements,
+      strategy
+    } = state;
+    const {
+      boundary = "clippingAncestors",
+      rootBoundary = "viewport",
+      elementContext = "floating",
+      altBoundary = false,
+      padding = 0
+    } = evaluate(options, state);
+    const paddingObject = getPaddingObject(padding);
+    const altContext = elementContext === "floating" ? "reference" : "floating";
+    const element = elements[altBoundary ? altContext : elementContext];
+    const clippingClientRect = rectToClientRect(await platform2.getClippingRect({
+      element: ((_await$platform$isEle = await (platform2.isElement == null ? void 0 : platform2.isElement(element))) != null ? _await$platform$isEle : true) ? element : element.contextElement || await (platform2.getDocumentElement == null ? void 0 : platform2.getDocumentElement(elements.floating)),
+      boundary,
+      rootBoundary,
+      strategy
+    }));
+    const rect = elementContext === "floating" ? {
+      x: x2,
+      y: y2,
+      width: rects.floating.width,
+      height: rects.floating.height
+    } : rects.reference;
+    const offsetParent = await (platform2.getOffsetParent == null ? void 0 : platform2.getOffsetParent(elements.floating));
+    const offsetScale = await (platform2.isElement == null ? void 0 : platform2.isElement(offsetParent)) ? await (platform2.getScale == null ? void 0 : platform2.getScale(offsetParent)) || {
+      x: 1,
+      y: 1
+    } : {
+      x: 1,
+      y: 1
+    };
+    const elementClientRect = rectToClientRect(platform2.convertOffsetParentRelativeRectToViewportRelativeRect ? await platform2.convertOffsetParentRelativeRectToViewportRelativeRect({
+      elements,
+      rect,
+      offsetParent,
+      strategy
+    }) : rect);
+    return {
+      top: (clippingClientRect.top - elementClientRect.top + paddingObject.top) / offsetScale.y,
+      bottom: (elementClientRect.bottom - clippingClientRect.bottom + paddingObject.bottom) / offsetScale.y,
+      left: (clippingClientRect.left - elementClientRect.left + paddingObject.left) / offsetScale.x,
+      right: (elementClientRect.right - clippingClientRect.right + paddingObject.right) / offsetScale.x
+    };
+  }
+  var arrow = (options) => ({
+    name: "arrow",
+    options,
+    async fn(state) {
+      const {
+        x: x2,
+        y: y2,
+        placement,
+        rects,
+        platform: platform2,
+        elements,
+        middlewareData
+      } = state;
+      const {
+        element,
+        padding = 0
+      } = evaluate(options, state) || {};
+      if (element == null) {
+        return {};
+      }
+      const paddingObject = getPaddingObject(padding);
+      const coords = {
+        x: x2,
+        y: y2
+      };
+      const axis = getAlignmentAxis(placement);
+      const length = getAxisLength(axis);
+      const arrowDimensions = await platform2.getDimensions(element);
+      const isYAxis = axis === "y";
+      const minProp = isYAxis ? "top" : "left";
+      const maxProp = isYAxis ? "bottom" : "right";
+      const clientProp = isYAxis ? "clientHeight" : "clientWidth";
+      const endDiff = rects.reference[length] + rects.reference[axis] - coords[axis] - rects.floating[length];
+      const startDiff = coords[axis] - rects.reference[axis];
+      const arrowOffsetParent = await (platform2.getOffsetParent == null ? void 0 : platform2.getOffsetParent(element));
+      let clientSize = arrowOffsetParent ? arrowOffsetParent[clientProp] : 0;
+      if (!clientSize || !await (platform2.isElement == null ? void 0 : platform2.isElement(arrowOffsetParent))) {
+        clientSize = elements.floating[clientProp] || rects.floating[length];
+      }
+      const centerToReference = endDiff / 2 - startDiff / 2;
+      const largestPossiblePadding = clientSize / 2 - arrowDimensions[length] / 2 - 1;
+      const minPadding = min(paddingObject[minProp], largestPossiblePadding);
+      const maxPadding = min(paddingObject[maxProp], largestPossiblePadding);
+      const min$1 = minPadding;
+      const max2 = clientSize - arrowDimensions[length] - maxPadding;
+      const center = clientSize / 2 - arrowDimensions[length] / 2 + centerToReference;
+      const offset3 = clamp(min$1, center, max2);
+      const shouldAddOffset = !middlewareData.arrow && getAlignment(placement) != null && center !== offset3 && rects.reference[length] / 2 - (center < min$1 ? minPadding : maxPadding) - arrowDimensions[length] / 2 < 0;
+      const alignmentOffset = shouldAddOffset ? center < min$1 ? center - min$1 : center - max2 : 0;
+      return {
+        [axis]: coords[axis] + alignmentOffset,
+        data: {
+          [axis]: offset3,
+          centerOffset: center - offset3 - alignmentOffset,
+          ...shouldAddOffset && {
+            alignmentOffset
+          }
+        },
+        reset: shouldAddOffset
+      };
+    }
+  });
+  var flip = function(options) {
+    if (options === void 0) {
+      options = {};
+    }
+    return {
+      name: "flip",
+      options,
+      async fn(state) {
+        var _middlewareData$arrow, _middlewareData$flip;
+        const {
+          placement,
+          middlewareData,
+          rects,
+          initialPlacement,
+          platform: platform2,
+          elements
+        } = state;
+        const {
+          mainAxis: checkMainAxis = true,
+          crossAxis: checkCrossAxis = true,
+          fallbackPlacements: specifiedFallbackPlacements,
+          fallbackStrategy = "bestFit",
+          fallbackAxisSideDirection = "none",
+          flipAlignment = true,
+          ...detectOverflowOptions
+        } = evaluate(options, state);
+        if ((_middlewareData$arrow = middlewareData.arrow) != null && _middlewareData$arrow.alignmentOffset) {
+          return {};
+        }
+        const side = getSide(placement);
+        const initialSideAxis = getSideAxis(initialPlacement);
+        const isBasePlacement = getSide(initialPlacement) === initialPlacement;
+        const rtl = await (platform2.isRTL == null ? void 0 : platform2.isRTL(elements.floating));
+        const fallbackPlacements = specifiedFallbackPlacements || (isBasePlacement || !flipAlignment ? [getOppositePlacement(initialPlacement)] : getExpandedPlacements(initialPlacement));
+        const hasFallbackAxisSideDirection = fallbackAxisSideDirection !== "none";
+        if (!specifiedFallbackPlacements && hasFallbackAxisSideDirection) {
+          fallbackPlacements.push(...getOppositeAxisPlacements(initialPlacement, flipAlignment, fallbackAxisSideDirection, rtl));
+        }
+        const placements2 = [initialPlacement, ...fallbackPlacements];
+        const overflow = await detectOverflow(state, detectOverflowOptions);
+        const overflows = [];
+        let overflowsData = ((_middlewareData$flip = middlewareData.flip) == null ? void 0 : _middlewareData$flip.overflows) || [];
+        if (checkMainAxis) {
+          overflows.push(overflow[side]);
+        }
+        if (checkCrossAxis) {
+          const sides2 = getAlignmentSides(placement, rects, rtl);
+          overflows.push(overflow[sides2[0]], overflow[sides2[1]]);
+        }
+        overflowsData = [...overflowsData, {
+          placement,
+          overflows
+        }];
+        if (!overflows.every((side2) => side2 <= 0)) {
+          var _middlewareData$flip2, _overflowsData$filter;
+          const nextIndex = (((_middlewareData$flip2 = middlewareData.flip) == null ? void 0 : _middlewareData$flip2.index) || 0) + 1;
+          const nextPlacement = placements2[nextIndex];
+          if (nextPlacement) {
+            return {
+              data: {
+                index: nextIndex,
+                overflows: overflowsData
+              },
+              reset: {
+                placement: nextPlacement
+              }
+            };
+          }
+          let resetPlacement = (_overflowsData$filter = overflowsData.filter((d) => d.overflows[0] <= 0).sort((a2, b2) => a2.overflows[1] - b2.overflows[1])[0]) == null ? void 0 : _overflowsData$filter.placement;
+          if (!resetPlacement) {
+            switch (fallbackStrategy) {
+              case "bestFit": {
+                var _overflowsData$filter2;
+                const placement2 = (_overflowsData$filter2 = overflowsData.filter((d) => {
+                  if (hasFallbackAxisSideDirection) {
+                    const currentSideAxis = getSideAxis(d.placement);
+                    return currentSideAxis === initialSideAxis || // Create a bias to the `y` side axis due to horizontal
+                    // reading directions favoring greater width.
+                    currentSideAxis === "y";
+                  }
+                  return true;
+                }).map((d) => [d.placement, d.overflows.filter((overflow2) => overflow2 > 0).reduce((acc, overflow2) => acc + overflow2, 0)]).sort((a2, b2) => a2[1] - b2[1])[0]) == null ? void 0 : _overflowsData$filter2[0];
+                if (placement2) {
+                  resetPlacement = placement2;
+                }
+                break;
+              }
+              case "initialPlacement":
+                resetPlacement = initialPlacement;
+                break;
+            }
+          }
+          if (placement !== resetPlacement) {
+            return {
+              reset: {
+                placement: resetPlacement
+              }
+            };
+          }
+        }
+        return {};
+      }
+    };
+  };
+  async function convertValueToCoords(state, options) {
+    const {
+      placement,
+      platform: platform2,
+      elements
+    } = state;
+    const rtl = await (platform2.isRTL == null ? void 0 : platform2.isRTL(elements.floating));
+    const side = getSide(placement);
+    const alignment = getAlignment(placement);
+    const isVertical = getSideAxis(placement) === "y";
+    const mainAxisMulti = ["left", "top"].includes(side) ? -1 : 1;
+    const crossAxisMulti = rtl && isVertical ? -1 : 1;
+    const rawValue = evaluate(options, state);
+    let {
+      mainAxis,
+      crossAxis,
+      alignmentAxis
+    } = typeof rawValue === "number" ? {
+      mainAxis: rawValue,
+      crossAxis: 0,
+      alignmentAxis: null
+    } : {
+      mainAxis: rawValue.mainAxis || 0,
+      crossAxis: rawValue.crossAxis || 0,
+      alignmentAxis: rawValue.alignmentAxis
+    };
+    if (alignment && typeof alignmentAxis === "number") {
+      crossAxis = alignment === "end" ? alignmentAxis * -1 : alignmentAxis;
+    }
+    return isVertical ? {
+      x: crossAxis * crossAxisMulti,
+      y: mainAxis * mainAxisMulti
+    } : {
+      x: mainAxis * mainAxisMulti,
+      y: crossAxis * crossAxisMulti
+    };
+  }
+  var offset = function(options) {
+    if (options === void 0) {
+      options = 0;
+    }
+    return {
+      name: "offset",
+      options,
+      async fn(state) {
+        var _middlewareData$offse, _middlewareData$arrow;
+        const {
+          x: x2,
+          y: y2,
+          placement,
+          middlewareData
+        } = state;
+        const diffCoords = await convertValueToCoords(state, options);
+        if (placement === ((_middlewareData$offse = middlewareData.offset) == null ? void 0 : _middlewareData$offse.placement) && (_middlewareData$arrow = middlewareData.arrow) != null && _middlewareData$arrow.alignmentOffset) {
+          return {};
+        }
+        return {
+          x: x2 + diffCoords.x,
+          y: y2 + diffCoords.y,
+          data: {
+            ...diffCoords,
+            placement
+          }
+        };
+      }
+    };
+  };
+  var shift = function(options) {
+    if (options === void 0) {
+      options = {};
+    }
+    return {
+      name: "shift",
+      options,
+      async fn(state) {
+        const {
+          x: x2,
+          y: y2,
+          placement
+        } = state;
+        const {
+          mainAxis: checkMainAxis = true,
+          crossAxis: checkCrossAxis = false,
+          limiter = {
+            fn: (_ref) => {
+              let {
+                x: x3,
+                y: y3
+              } = _ref;
+              return {
+                x: x3,
+                y: y3
+              };
+            }
+          },
+          ...detectOverflowOptions
+        } = evaluate(options, state);
+        const coords = {
+          x: x2,
+          y: y2
+        };
+        const overflow = await detectOverflow(state, detectOverflowOptions);
+        const crossAxis = getSideAxis(getSide(placement));
+        const mainAxis = getOppositeAxis(crossAxis);
+        let mainAxisCoord = coords[mainAxis];
+        let crossAxisCoord = coords[crossAxis];
+        if (checkMainAxis) {
+          const minSide = mainAxis === "y" ? "top" : "left";
+          const maxSide = mainAxis === "y" ? "bottom" : "right";
+          const min2 = mainAxisCoord + overflow[minSide];
+          const max2 = mainAxisCoord - overflow[maxSide];
+          mainAxisCoord = clamp(min2, mainAxisCoord, max2);
+        }
+        if (checkCrossAxis) {
+          const minSide = crossAxis === "y" ? "top" : "left";
+          const maxSide = crossAxis === "y" ? "bottom" : "right";
+          const min2 = crossAxisCoord + overflow[minSide];
+          const max2 = crossAxisCoord - overflow[maxSide];
+          crossAxisCoord = clamp(min2, crossAxisCoord, max2);
+        }
+        const limitedCoords = limiter.fn({
+          ...state,
+          [mainAxis]: mainAxisCoord,
+          [crossAxis]: crossAxisCoord
+        });
+        return {
+          ...limitedCoords,
+          data: {
+            x: limitedCoords.x - x2,
+            y: limitedCoords.y - y2,
+            enabled: {
+              [mainAxis]: checkMainAxis,
+              [crossAxis]: checkCrossAxis
+            }
+          }
+        };
+      }
+    };
+  };
+
+  // node_modules/@floating-ui/utils/dist/floating-ui.utils.dom.mjs
+  function hasWindow() {
+    return typeof window !== "undefined";
+  }
+  function getNodeName(node) {
+    if (isNode(node)) {
+      return (node.nodeName || "").toLowerCase();
+    }
+    return "#document";
+  }
+  function getWindow(node) {
+    var _node$ownerDocument;
+    return (node == null || (_node$ownerDocument = node.ownerDocument) == null ? void 0 : _node$ownerDocument.defaultView) || window;
+  }
+  function getDocumentElement(node) {
+    var _ref;
+    return (_ref = (isNode(node) ? node.ownerDocument : node.document) || window.document) == null ? void 0 : _ref.documentElement;
+  }
+  function isNode(value) {
+    if (!hasWindow()) {
+      return false;
+    }
+    return value instanceof Node || value instanceof getWindow(value).Node;
+  }
+  function isElement(value) {
+    if (!hasWindow()) {
+      return false;
+    }
+    return value instanceof Element || value instanceof getWindow(value).Element;
+  }
+  function isHTMLElement(value) {
+    if (!hasWindow()) {
+      return false;
+    }
+    return value instanceof HTMLElement || value instanceof getWindow(value).HTMLElement;
+  }
+  function isShadowRoot(value) {
+    if (!hasWindow() || typeof ShadowRoot === "undefined") {
+      return false;
+    }
+    return value instanceof ShadowRoot || value instanceof getWindow(value).ShadowRoot;
+  }
+  function isOverflowElement(element) {
+    const {
+      overflow,
+      overflowX,
+      overflowY,
+      display
+    } = getComputedStyle2(element);
+    return /auto|scroll|overlay|hidden|clip/.test(overflow + overflowY + overflowX) && !["inline", "contents"].includes(display);
+  }
+  function isTableElement(element) {
+    return ["table", "td", "th"].includes(getNodeName(element));
+  }
+  function isTopLayer(element) {
+    return [":popover-open", ":modal"].some((selector) => {
+      try {
+        return element.matches(selector);
+      } catch (e2) {
+        return false;
+      }
+    });
+  }
+  function isContainingBlock(elementOrCss) {
+    const webkit = isWebKit();
+    const css = isElement(elementOrCss) ? getComputedStyle2(elementOrCss) : elementOrCss;
+    return css.transform !== "none" || css.perspective !== "none" || (css.containerType ? css.containerType !== "normal" : false) || !webkit && (css.backdropFilter ? css.backdropFilter !== "none" : false) || !webkit && (css.filter ? css.filter !== "none" : false) || ["transform", "perspective", "filter"].some((value) => (css.willChange || "").includes(value)) || ["paint", "layout", "strict", "content"].some((value) => (css.contain || "").includes(value));
+  }
+  function getContainingBlock(element) {
+    let currentNode = getParentNode(element);
+    while (isHTMLElement(currentNode) && !isLastTraversableNode(currentNode)) {
+      if (isContainingBlock(currentNode)) {
+        return currentNode;
+      } else if (isTopLayer(currentNode)) {
+        return null;
+      }
+      currentNode = getParentNode(currentNode);
+    }
+    return null;
+  }
+  function isWebKit() {
+    if (typeof CSS === "undefined" || !CSS.supports) return false;
+    return CSS.supports("-webkit-backdrop-filter", "none");
+  }
+  function isLastTraversableNode(node) {
+    return ["html", "body", "#document"].includes(getNodeName(node));
+  }
+  function getComputedStyle2(element) {
+    return getWindow(element).getComputedStyle(element);
+  }
+  function getNodeScroll(element) {
+    if (isElement(element)) {
+      return {
+        scrollLeft: element.scrollLeft,
+        scrollTop: element.scrollTop
+      };
+    }
+    return {
+      scrollLeft: element.scrollX,
+      scrollTop: element.scrollY
+    };
+  }
+  function getParentNode(node) {
+    if (getNodeName(node) === "html") {
+      return node;
+    }
+    const result = (
+      // Step into the shadow DOM of the parent of a slotted node.
+      node.assignedSlot || // DOM Element detected.
+      node.parentNode || // ShadowRoot detected.
+      isShadowRoot(node) && node.host || // Fallback.
+      getDocumentElement(node)
+    );
+    return isShadowRoot(result) ? result.host : result;
+  }
+  function getNearestOverflowAncestor(node) {
+    const parentNode = getParentNode(node);
+    if (isLastTraversableNode(parentNode)) {
+      return node.ownerDocument ? node.ownerDocument.body : node.body;
+    }
+    if (isHTMLElement(parentNode) && isOverflowElement(parentNode)) {
+      return parentNode;
+    }
+    return getNearestOverflowAncestor(parentNode);
+  }
+  function getOverflowAncestors(node, list, traverseIframes) {
+    var _node$ownerDocument2;
+    if (list === void 0) {
+      list = [];
+    }
+    if (traverseIframes === void 0) {
+      traverseIframes = true;
+    }
+    const scrollableAncestor = getNearestOverflowAncestor(node);
+    const isBody = scrollableAncestor === ((_node$ownerDocument2 = node.ownerDocument) == null ? void 0 : _node$ownerDocument2.body);
+    const win = getWindow(scrollableAncestor);
+    if (isBody) {
+      const frameElement = getFrameElement(win);
+      return list.concat(win, win.visualViewport || [], isOverflowElement(scrollableAncestor) ? scrollableAncestor : [], frameElement && traverseIframes ? getOverflowAncestors(frameElement) : []);
+    }
+    return list.concat(scrollableAncestor, getOverflowAncestors(scrollableAncestor, [], traverseIframes));
+  }
+  function getFrameElement(win) {
+    return win.parent && Object.getPrototypeOf(win.parent) ? win.frameElement : null;
+  }
+
+  // node_modules/@floating-ui/dom/dist/floating-ui.dom.mjs
+  function getCssDimensions(element) {
+    const css = getComputedStyle2(element);
+    let width = parseFloat(css.width) || 0;
+    let height = parseFloat(css.height) || 0;
+    const hasOffset = isHTMLElement(element);
+    const offsetWidth = hasOffset ? element.offsetWidth : width;
+    const offsetHeight = hasOffset ? element.offsetHeight : height;
+    const shouldFallback = round(width) !== offsetWidth || round(height) !== offsetHeight;
+    if (shouldFallback) {
+      width = offsetWidth;
+      height = offsetHeight;
+    }
+    return {
+      width,
+      height,
+      $: shouldFallback
+    };
+  }
+  function unwrapElement(element) {
+    return !isElement(element) ? element.contextElement : element;
+  }
+  function getScale(element) {
+    const domElement = unwrapElement(element);
+    if (!isHTMLElement(domElement)) {
+      return createCoords(1);
+    }
+    const rect = domElement.getBoundingClientRect();
+    const {
+      width,
+      height,
+      $: $2
+    } = getCssDimensions(domElement);
+    let x2 = ($2 ? round(rect.width) : rect.width) / width;
+    let y2 = ($2 ? round(rect.height) : rect.height) / height;
+    if (!x2 || !Number.isFinite(x2)) {
+      x2 = 1;
+    }
+    if (!y2 || !Number.isFinite(y2)) {
+      y2 = 1;
+    }
+    return {
+      x: x2,
+      y: y2
+    };
+  }
+  var noOffsets = /* @__PURE__ */ createCoords(0);
+  function getVisualOffsets(element) {
+    const win = getWindow(element);
+    if (!isWebKit() || !win.visualViewport) {
+      return noOffsets;
+    }
+    return {
+      x: win.visualViewport.offsetLeft,
+      y: win.visualViewport.offsetTop
+    };
+  }
+  function shouldAddVisualOffsets(element, isFixed, floatingOffsetParent) {
+    if (isFixed === void 0) {
+      isFixed = false;
+    }
+    if (!floatingOffsetParent || isFixed && floatingOffsetParent !== getWindow(element)) {
+      return false;
+    }
+    return isFixed;
+  }
+  function getBoundingClientRect(element, includeScale, isFixedStrategy, offsetParent) {
+    if (includeScale === void 0) {
+      includeScale = false;
+    }
+    if (isFixedStrategy === void 0) {
+      isFixedStrategy = false;
+    }
+    const clientRect = element.getBoundingClientRect();
+    const domElement = unwrapElement(element);
+    let scale = createCoords(1);
+    if (includeScale) {
+      if (offsetParent) {
+        if (isElement(offsetParent)) {
+          scale = getScale(offsetParent);
+        }
+      } else {
+        scale = getScale(element);
+      }
+    }
+    const visualOffsets = shouldAddVisualOffsets(domElement, isFixedStrategy, offsetParent) ? getVisualOffsets(domElement) : createCoords(0);
+    let x2 = (clientRect.left + visualOffsets.x) / scale.x;
+    let y2 = (clientRect.top + visualOffsets.y) / scale.y;
+    let width = clientRect.width / scale.x;
+    let height = clientRect.height / scale.y;
+    if (domElement) {
+      const win = getWindow(domElement);
+      const offsetWin = offsetParent && isElement(offsetParent) ? getWindow(offsetParent) : offsetParent;
+      let currentWin = win;
+      let currentIFrame = getFrameElement(currentWin);
+      while (currentIFrame && offsetParent && offsetWin !== currentWin) {
+        const iframeScale = getScale(currentIFrame);
+        const iframeRect = currentIFrame.getBoundingClientRect();
+        const css = getComputedStyle2(currentIFrame);
+        const left = iframeRect.left + (currentIFrame.clientLeft + parseFloat(css.paddingLeft)) * iframeScale.x;
+        const top = iframeRect.top + (currentIFrame.clientTop + parseFloat(css.paddingTop)) * iframeScale.y;
+        x2 *= iframeScale.x;
+        y2 *= iframeScale.y;
+        width *= iframeScale.x;
+        height *= iframeScale.y;
+        x2 += left;
+        y2 += top;
+        currentWin = getWindow(currentIFrame);
+        currentIFrame = getFrameElement(currentWin);
+      }
+    }
+    return rectToClientRect({
+      width,
+      height,
+      x: x2,
+      y: y2
+    });
+  }
+  function getWindowScrollBarX(element, rect) {
+    const leftScroll = getNodeScroll(element).scrollLeft;
+    if (!rect) {
+      return getBoundingClientRect(getDocumentElement(element)).left + leftScroll;
+    }
+    return rect.left + leftScroll;
+  }
+  function getHTMLOffset(documentElement, scroll, ignoreScrollbarX) {
+    if (ignoreScrollbarX === void 0) {
+      ignoreScrollbarX = false;
+    }
+    const htmlRect = documentElement.getBoundingClientRect();
+    const x2 = htmlRect.left + scroll.scrollLeft - (ignoreScrollbarX ? 0 : (
+      // RTL <body> scrollbar.
+      getWindowScrollBarX(documentElement, htmlRect)
+    ));
+    const y2 = htmlRect.top + scroll.scrollTop;
+    return {
+      x: x2,
+      y: y2
+    };
+  }
+  function convertOffsetParentRelativeRectToViewportRelativeRect(_ref) {
+    let {
+      elements,
+      rect,
+      offsetParent,
+      strategy
+    } = _ref;
+    const isFixed = strategy === "fixed";
+    const documentElement = getDocumentElement(offsetParent);
+    const topLayer = elements ? isTopLayer(elements.floating) : false;
+    if (offsetParent === documentElement || topLayer && isFixed) {
+      return rect;
+    }
+    let scroll = {
+      scrollLeft: 0,
+      scrollTop: 0
+    };
+    let scale = createCoords(1);
+    const offsets = createCoords(0);
+    const isOffsetParentAnElement = isHTMLElement(offsetParent);
+    if (isOffsetParentAnElement || !isOffsetParentAnElement && !isFixed) {
+      if (getNodeName(offsetParent) !== "body" || isOverflowElement(documentElement)) {
+        scroll = getNodeScroll(offsetParent);
+      }
+      if (isHTMLElement(offsetParent)) {
+        const offsetRect = getBoundingClientRect(offsetParent);
+        scale = getScale(offsetParent);
+        offsets.x = offsetRect.x + offsetParent.clientLeft;
+        offsets.y = offsetRect.y + offsetParent.clientTop;
+      }
+    }
+    const htmlOffset = documentElement && !isOffsetParentAnElement && !isFixed ? getHTMLOffset(documentElement, scroll, true) : createCoords(0);
+    return {
+      width: rect.width * scale.x,
+      height: rect.height * scale.y,
+      x: rect.x * scale.x - scroll.scrollLeft * scale.x + offsets.x + htmlOffset.x,
+      y: rect.y * scale.y - scroll.scrollTop * scale.y + offsets.y + htmlOffset.y
+    };
+  }
+  function getClientRects(element) {
+    return Array.from(element.getClientRects());
+  }
+  function getDocumentRect(element) {
+    const html = getDocumentElement(element);
+    const scroll = getNodeScroll(element);
+    const body = element.ownerDocument.body;
+    const width = max(html.scrollWidth, html.clientWidth, body.scrollWidth, body.clientWidth);
+    const height = max(html.scrollHeight, html.clientHeight, body.scrollHeight, body.clientHeight);
+    let x2 = -scroll.scrollLeft + getWindowScrollBarX(element);
+    const y2 = -scroll.scrollTop;
+    if (getComputedStyle2(body).direction === "rtl") {
+      x2 += max(html.clientWidth, body.clientWidth) - width;
+    }
+    return {
+      width,
+      height,
+      x: x2,
+      y: y2
+    };
+  }
+  function getViewportRect(element, strategy) {
+    const win = getWindow(element);
+    const html = getDocumentElement(element);
+    const visualViewport = win.visualViewport;
+    let width = html.clientWidth;
+    let height = html.clientHeight;
+    let x2 = 0;
+    let y2 = 0;
+    if (visualViewport) {
+      width = visualViewport.width;
+      height = visualViewport.height;
+      const visualViewportBased = isWebKit();
+      if (!visualViewportBased || visualViewportBased && strategy === "fixed") {
+        x2 = visualViewport.offsetLeft;
+        y2 = visualViewport.offsetTop;
+      }
+    }
+    return {
+      width,
+      height,
+      x: x2,
+      y: y2
+    };
+  }
+  function getInnerBoundingClientRect(element, strategy) {
+    const clientRect = getBoundingClientRect(element, true, strategy === "fixed");
+    const top = clientRect.top + element.clientTop;
+    const left = clientRect.left + element.clientLeft;
+    const scale = isHTMLElement(element) ? getScale(element) : createCoords(1);
+    const width = element.clientWidth * scale.x;
+    const height = element.clientHeight * scale.y;
+    const x2 = left * scale.x;
+    const y2 = top * scale.y;
+    return {
+      width,
+      height,
+      x: x2,
+      y: y2
+    };
+  }
+  function getClientRectFromClippingAncestor(element, clippingAncestor, strategy) {
+    let rect;
+    if (clippingAncestor === "viewport") {
+      rect = getViewportRect(element, strategy);
+    } else if (clippingAncestor === "document") {
+      rect = getDocumentRect(getDocumentElement(element));
+    } else if (isElement(clippingAncestor)) {
+      rect = getInnerBoundingClientRect(clippingAncestor, strategy);
+    } else {
+      const visualOffsets = getVisualOffsets(element);
+      rect = {
+        x: clippingAncestor.x - visualOffsets.x,
+        y: clippingAncestor.y - visualOffsets.y,
+        width: clippingAncestor.width,
+        height: clippingAncestor.height
+      };
+    }
+    return rectToClientRect(rect);
+  }
+  function hasFixedPositionAncestor(element, stopNode) {
+    const parentNode = getParentNode(element);
+    if (parentNode === stopNode || !isElement(parentNode) || isLastTraversableNode(parentNode)) {
+      return false;
+    }
+    return getComputedStyle2(parentNode).position === "fixed" || hasFixedPositionAncestor(parentNode, stopNode);
+  }
+  function getClippingElementAncestors(element, cache) {
+    const cachedResult = cache.get(element);
+    if (cachedResult) {
+      return cachedResult;
+    }
+    let result = getOverflowAncestors(element, [], false).filter((el) => isElement(el) && getNodeName(el) !== "body");
+    let currentContainingBlockComputedStyle = null;
+    const elementIsFixed = getComputedStyle2(element).position === "fixed";
+    let currentNode = elementIsFixed ? getParentNode(element) : element;
+    while (isElement(currentNode) && !isLastTraversableNode(currentNode)) {
+      const computedStyle = getComputedStyle2(currentNode);
+      const currentNodeIsContaining = isContainingBlock(currentNode);
+      if (!currentNodeIsContaining && computedStyle.position === "fixed") {
+        currentContainingBlockComputedStyle = null;
+      }
+      const shouldDropCurrentNode = elementIsFixed ? !currentNodeIsContaining && !currentContainingBlockComputedStyle : !currentNodeIsContaining && computedStyle.position === "static" && !!currentContainingBlockComputedStyle && ["absolute", "fixed"].includes(currentContainingBlockComputedStyle.position) || isOverflowElement(currentNode) && !currentNodeIsContaining && hasFixedPositionAncestor(element, currentNode);
+      if (shouldDropCurrentNode) {
+        result = result.filter((ancestor) => ancestor !== currentNode);
+      } else {
+        currentContainingBlockComputedStyle = computedStyle;
+      }
+      currentNode = getParentNode(currentNode);
+    }
+    cache.set(element, result);
+    return result;
+  }
+  function getClippingRect(_ref) {
+    let {
+      element,
+      boundary,
+      rootBoundary,
+      strategy
+    } = _ref;
+    const elementClippingAncestors = boundary === "clippingAncestors" ? isTopLayer(element) ? [] : getClippingElementAncestors(element, this._c) : [].concat(boundary);
+    const clippingAncestors = [...elementClippingAncestors, rootBoundary];
+    const firstClippingAncestor = clippingAncestors[0];
+    const clippingRect = clippingAncestors.reduce((accRect, clippingAncestor) => {
+      const rect = getClientRectFromClippingAncestor(element, clippingAncestor, strategy);
+      accRect.top = max(rect.top, accRect.top);
+      accRect.right = min(rect.right, accRect.right);
+      accRect.bottom = min(rect.bottom, accRect.bottom);
+      accRect.left = max(rect.left, accRect.left);
+      return accRect;
+    }, getClientRectFromClippingAncestor(element, firstClippingAncestor, strategy));
+    return {
+      width: clippingRect.right - clippingRect.left,
+      height: clippingRect.bottom - clippingRect.top,
+      x: clippingRect.left,
+      y: clippingRect.top
+    };
+  }
+  function getDimensions(element) {
+    const {
+      width,
+      height
+    } = getCssDimensions(element);
+    return {
+      width,
+      height
+    };
+  }
+  function getRectRelativeToOffsetParent(element, offsetParent, strategy) {
+    const isOffsetParentAnElement = isHTMLElement(offsetParent);
+    const documentElement = getDocumentElement(offsetParent);
+    const isFixed = strategy === "fixed";
+    const rect = getBoundingClientRect(element, true, isFixed, offsetParent);
+    let scroll = {
+      scrollLeft: 0,
+      scrollTop: 0
+    };
+    const offsets = createCoords(0);
+    if (isOffsetParentAnElement || !isOffsetParentAnElement && !isFixed) {
+      if (getNodeName(offsetParent) !== "body" || isOverflowElement(documentElement)) {
+        scroll = getNodeScroll(offsetParent);
+      }
+      if (isOffsetParentAnElement) {
+        const offsetRect = getBoundingClientRect(offsetParent, true, isFixed, offsetParent);
+        offsets.x = offsetRect.x + offsetParent.clientLeft;
+        offsets.y = offsetRect.y + offsetParent.clientTop;
+      } else if (documentElement) {
+        offsets.x = getWindowScrollBarX(documentElement);
+      }
+    }
+    const htmlOffset = documentElement && !isOffsetParentAnElement && !isFixed ? getHTMLOffset(documentElement, scroll) : createCoords(0);
+    const x2 = rect.left + scroll.scrollLeft - offsets.x - htmlOffset.x;
+    const y2 = rect.top + scroll.scrollTop - offsets.y - htmlOffset.y;
+    return {
+      x: x2,
+      y: y2,
+      width: rect.width,
+      height: rect.height
+    };
+  }
+  function isStaticPositioned(element) {
+    return getComputedStyle2(element).position === "static";
+  }
+  function getTrueOffsetParent(element, polyfill) {
+    if (!isHTMLElement(element) || getComputedStyle2(element).position === "fixed") {
+      return null;
+    }
+    if (polyfill) {
+      return polyfill(element);
+    }
+    let rawOffsetParent = element.offsetParent;
+    if (getDocumentElement(element) === rawOffsetParent) {
+      rawOffsetParent = rawOffsetParent.ownerDocument.body;
+    }
+    return rawOffsetParent;
+  }
+  function getOffsetParent(element, polyfill) {
+    const win = getWindow(element);
+    if (isTopLayer(element)) {
+      return win;
+    }
+    if (!isHTMLElement(element)) {
+      let svgOffsetParent = getParentNode(element);
+      while (svgOffsetParent && !isLastTraversableNode(svgOffsetParent)) {
+        if (isElement(svgOffsetParent) && !isStaticPositioned(svgOffsetParent)) {
+          return svgOffsetParent;
+        }
+        svgOffsetParent = getParentNode(svgOffsetParent);
+      }
+      return win;
+    }
+    let offsetParent = getTrueOffsetParent(element, polyfill);
+    while (offsetParent && isTableElement(offsetParent) && isStaticPositioned(offsetParent)) {
+      offsetParent = getTrueOffsetParent(offsetParent, polyfill);
+    }
+    if (offsetParent && isLastTraversableNode(offsetParent) && isStaticPositioned(offsetParent) && !isContainingBlock(offsetParent)) {
+      return win;
+    }
+    return offsetParent || getContainingBlock(element) || win;
+  }
+  var getElementRects = async function(data) {
+    const getOffsetParentFn = this.getOffsetParent || getOffsetParent;
+    const getDimensionsFn = this.getDimensions;
+    const floatingDimensions = await getDimensionsFn(data.floating);
+    return {
+      reference: getRectRelativeToOffsetParent(data.reference, await getOffsetParentFn(data.floating), data.strategy),
+      floating: {
+        x: 0,
+        y: 0,
+        width: floatingDimensions.width,
+        height: floatingDimensions.height
+      }
+    };
+  };
+  function isRTL(element) {
+    return getComputedStyle2(element).direction === "rtl";
+  }
+  var platform = {
+    convertOffsetParentRelativeRectToViewportRelativeRect,
+    getDocumentElement,
+    getClippingRect,
+    getOffsetParent,
+    getElementRects,
+    getClientRects,
+    getDimensions,
+    getScale,
+    isElement,
+    isRTL
+  };
+  function observeMove(element, onMove) {
+    let io = null;
+    let timeoutId;
+    const root2 = getDocumentElement(element);
+    function cleanup() {
+      var _io;
+      clearTimeout(timeoutId);
+      (_io = io) == null || _io.disconnect();
+      io = null;
+    }
+    function refresh(skip, threshold) {
+      if (skip === void 0) {
+        skip = false;
+      }
+      if (threshold === void 0) {
+        threshold = 1;
+      }
+      cleanup();
+      const {
+        left,
+        top,
+        width,
+        height
+      } = element.getBoundingClientRect();
+      if (!skip) {
+        onMove();
+      }
+      if (!width || !height) {
+        return;
+      }
+      const insetTop = floor(top);
+      const insetRight = floor(root2.clientWidth - (left + width));
+      const insetBottom = floor(root2.clientHeight - (top + height));
+      const insetLeft = floor(left);
+      const rootMargin = -insetTop + "px " + -insetRight + "px " + -insetBottom + "px " + -insetLeft + "px";
+      const options = {
+        rootMargin,
+        threshold: max(0, min(1, threshold)) || 1
+      };
+      let isFirstUpdate = true;
+      function handleObserve(entries) {
+        const ratio = entries[0].intersectionRatio;
+        if (ratio !== threshold) {
+          if (!isFirstUpdate) {
+            return refresh();
+          }
+          if (!ratio) {
+            timeoutId = setTimeout(() => {
+              refresh(false, 1e-7);
+            }, 1e3);
+          } else {
+            refresh(false, ratio);
+          }
+        }
+        isFirstUpdate = false;
+      }
+      try {
+        io = new IntersectionObserver(handleObserve, {
+          ...options,
+          // Handle <iframe>s
+          root: root2.ownerDocument
+        });
+      } catch (e2) {
+        io = new IntersectionObserver(handleObserve, options);
+      }
+      io.observe(element);
+    }
+    refresh(true);
+    return cleanup;
+  }
+  function autoUpdate(reference, floating, update, options) {
+    if (options === void 0) {
+      options = {};
+    }
+    const {
+      ancestorScroll = true,
+      ancestorResize = true,
+      elementResize = typeof ResizeObserver === "function",
+      layoutShift = typeof IntersectionObserver === "function",
+      animationFrame = false
+    } = options;
+    const referenceEl = unwrapElement(reference);
+    const ancestors = ancestorScroll || ancestorResize ? [...referenceEl ? getOverflowAncestors(referenceEl) : [], ...getOverflowAncestors(floating)] : [];
+    ancestors.forEach((ancestor) => {
+      ancestorScroll && ancestor.addEventListener("scroll", update, {
+        passive: true
+      });
+      ancestorResize && ancestor.addEventListener("resize", update);
+    });
+    const cleanupIo = referenceEl && layoutShift ? observeMove(referenceEl, update) : null;
+    let reobserveFrame = -1;
+    let resizeObserver = null;
+    if (elementResize) {
+      resizeObserver = new ResizeObserver((_ref) => {
+        let [firstEntry] = _ref;
+        if (firstEntry && firstEntry.target === referenceEl && resizeObserver) {
+          resizeObserver.unobserve(floating);
+          cancelAnimationFrame(reobserveFrame);
+          reobserveFrame = requestAnimationFrame(() => {
+            var _resizeObserver;
+            (_resizeObserver = resizeObserver) == null || _resizeObserver.observe(floating);
+          });
+        }
+        update();
+      });
+      if (referenceEl && !animationFrame) {
+        resizeObserver.observe(referenceEl);
+      }
+      resizeObserver.observe(floating);
+    }
+    let frameId;
+    let prevRefRect = animationFrame ? getBoundingClientRect(reference) : null;
+    if (animationFrame) {
+      frameLoop();
+    }
+    function frameLoop() {
+      const nextRefRect = getBoundingClientRect(reference);
+      if (prevRefRect && (nextRefRect.x !== prevRefRect.x || nextRefRect.y !== prevRefRect.y || nextRefRect.width !== prevRefRect.width || nextRefRect.height !== prevRefRect.height)) {
+        update();
+      }
+      prevRefRect = nextRefRect;
+      frameId = requestAnimationFrame(frameLoop);
+    }
+    update();
+    return () => {
+      var _resizeObserver2;
+      ancestors.forEach((ancestor) => {
+        ancestorScroll && ancestor.removeEventListener("scroll", update);
+        ancestorResize && ancestor.removeEventListener("resize", update);
+      });
+      cleanupIo == null || cleanupIo();
+      (_resizeObserver2 = resizeObserver) == null || _resizeObserver2.disconnect();
+      resizeObserver = null;
+      if (animationFrame) {
+        cancelAnimationFrame(frameId);
+      }
+    };
+  }
+  var offset2 = offset;
+  var shift2 = shift;
+  var flip2 = flip;
+  var arrow2 = arrow;
+  var computePosition2 = (reference, floating, options) => {
+    const cache = /* @__PURE__ */ new Map();
+    const mergedOptions = {
+      platform,
+      ...options
+    };
+    const platformWithCache = {
+      ...mergedOptions.platform,
+      _c: cache
+    };
+    return computePosition(reference, floating, {
+      ...mergedOptions,
+      platform: platformWithCache
+    });
+  };
+
+  // node_modules/react-tooltip/dist/react-tooltip.min.mjs
+  var import_classnames = __toESM(require_classnames(), 1);
+  var h = "react-tooltip-core-styles";
+  var w = "react-tooltip-base-styles";
+  var b = { core: false, base: false };
+  function S({ css: e2, id: t2 = w, type: o2 = "base", ref: l2 }) {
+    var r2, n2;
+    if (!e2 || "undefined" == typeof document || b[o2]) return;
+    if ("core" === o2 && "undefined" != typeof process && (null === (r2 = null === process || void 0 === process ? void 0 : process.env) || void 0 === r2 ? void 0 : r2.REACT_TOOLTIP_DISABLE_CORE_STYLES)) return;
+    if ("base" !== o2 && "undefined" != typeof process && (null === (n2 = null === process || void 0 === process ? void 0 : process.env) || void 0 === n2 ? void 0 : n2.REACT_TOOLTIP_DISABLE_BASE_STYLES)) return;
+    "core" === o2 && (t2 = h), l2 || (l2 = {});
+    const { insertAt: i2 } = l2;
+    if (document.getElementById(t2)) return;
+    const c2 = document.head || document.getElementsByTagName("head")[0], s2 = document.createElement("style");
+    s2.id = t2, s2.type = "text/css", "top" === i2 && c2.firstChild ? c2.insertBefore(s2, c2.firstChild) : c2.appendChild(s2), s2.styleSheet ? s2.styleSheet.cssText = e2 : s2.appendChild(document.createTextNode(e2)), b[o2] = true;
+  }
+  var E = async ({ elementReference: e2 = null, tooltipReference: t2 = null, tooltipArrowReference: o2 = null, place: l2 = "top", offset: r2 = 10, strategy: n2 = "absolute", middlewares: i2 = [offset2(Number(r2)), flip2({ fallbackAxisSideDirection: "start" }), shift2({ padding: 5 })], border: c2 }) => {
+    if (!e2) return { tooltipStyles: {}, tooltipArrowStyles: {}, place: l2 };
+    if (null === t2) return { tooltipStyles: {}, tooltipArrowStyles: {}, place: l2 };
+    const s2 = i2;
+    return o2 ? (s2.push(arrow2({ element: o2, padding: 5 })), computePosition2(e2, t2, { placement: l2, strategy: n2, middleware: s2 }).then(({ x: e3, y: t3, placement: o3, middlewareData: l3 }) => {
+      var r3, n3;
+      const i3 = { left: `${e3}px`, top: `${t3}px`, border: c2 }, { x: s3, y: a2 } = null !== (r3 = l3.arrow) && void 0 !== r3 ? r3 : { x: 0, y: 0 }, u = null !== (n3 = { top: "bottom", right: "left", bottom: "top", left: "right" }[o3.split("-")[0]]) && void 0 !== n3 ? n3 : "bottom", d = c2 && { borderBottom: c2, borderRight: c2 };
+      let p = 0;
+      if (c2) {
+        const e4 = `${c2}`.match(/(\d+)px/);
+        p = (null == e4 ? void 0 : e4[1]) ? Number(e4[1]) : 1;
+      }
+      return { tooltipStyles: i3, tooltipArrowStyles: { left: null != s3 ? `${s3}px` : "", top: null != a2 ? `${a2}px` : "", right: "", bottom: "", ...d, [u]: `-${4 + p}px` }, place: o3 };
+    })) : computePosition2(e2, t2, { placement: "bottom", strategy: n2, middleware: s2 }).then(({ x: e3, y: t3, placement: o3 }) => ({ tooltipStyles: { left: `${e3}px`, top: `${t3}px` }, tooltipArrowStyles: {}, place: o3 }));
+  };
+  var A = (e2, t2) => !("CSS" in window && "supports" in window.CSS) || window.CSS.supports(e2, t2);
+  var _ = (e2, t2, o2) => {
+    let l2 = null;
+    const r2 = function(...r3) {
+      const n2 = () => {
+        l2 = null, o2 || e2.apply(this, r3);
+      };
+      o2 && !l2 && (e2.apply(this, r3), l2 = setTimeout(n2, t2)), o2 || (l2 && clearTimeout(l2), l2 = setTimeout(n2, t2));
+    };
+    return r2.cancel = () => {
+      l2 && (clearTimeout(l2), l2 = null);
+    }, r2;
+  };
+  var O = (e2) => null !== e2 && !Array.isArray(e2) && "object" == typeof e2;
+  var k = (e2, t2) => {
+    if (e2 === t2) return true;
+    if (Array.isArray(e2) && Array.isArray(t2)) return e2.length === t2.length && e2.every((e3, o3) => k(e3, t2[o3]));
+    if (Array.isArray(e2) !== Array.isArray(t2)) return false;
+    if (!O(e2) || !O(t2)) return e2 === t2;
+    const o2 = Object.keys(e2), l2 = Object.keys(t2);
+    return o2.length === l2.length && o2.every((o3) => k(e2[o3], t2[o3]));
+  };
+  var T = (e2) => {
+    if (!(e2 instanceof HTMLElement || e2 instanceof SVGElement)) return false;
+    const t2 = getComputedStyle(e2);
+    return ["overflow", "overflow-x", "overflow-y"].some((e3) => {
+      const o2 = t2.getPropertyValue(e3);
+      return "auto" === o2 || "scroll" === o2;
+    });
+  };
+  var L3 = (e2) => {
+    if (!e2) return null;
+    let t2 = e2.parentElement;
+    for (; t2; ) {
+      if (T(t2)) return t2;
+      t2 = t2.parentElement;
+    }
+    return document.scrollingElement || document.documentElement;
+  };
+  var C = "undefined" != typeof window ? import_react16.useLayoutEffect : import_react16.useEffect;
+  var R = (e2) => {
+    e2.current && (clearTimeout(e2.current), e2.current = null);
+  };
+  var x = "DEFAULT_TOOLTIP_ID";
+  var N = { anchorRefs: /* @__PURE__ */ new Set(), activeAnchor: { current: null }, attach: () => {
+  }, detach: () => {
+  }, setActiveAnchor: () => {
+  } };
+  var $ = (0, import_react16.createContext)({ getTooltipData: () => N });
+  function j(e2 = x) {
+    return (0, import_react16.useContext)($).getTooltipData(e2);
+  }
+  var z = { tooltip: "core-styles-module_tooltip__3vRRp", fixed: "core-styles-module_fixed__pcSol", arrow: "core-styles-module_arrow__cvMwQ", noArrow: "core-styles-module_noArrow__xock6", clickable: "core-styles-module_clickable__ZuTTB", show: "core-styles-module_show__Nt9eE", closing: "core-styles-module_closing__sGnxF" };
+  var D = { tooltip: "styles-module_tooltip__mnnfp", arrow: "styles-module_arrow__K0L3T", dark: "styles-module_dark__xNqje", light: "styles-module_light__Z6W-X", success: "styles-module_success__A2AKt", warning: "styles-module_warning__SCK0X", error: "styles-module_error__JvumD", info: "styles-module_info__BWdHW" };
+  var q = ({ forwardRef: t2, id: l2, className: i2, classNameArrow: c2, variant: u = "dark", anchorId: d, anchorSelect: p, place: v = "top", offset: m = 10, events: h2 = ["hover"], openOnClick: w2 = false, positionStrategy: b2 = "absolute", middlewares: S2, wrapper: g, delayShow: A2 = 0, delayHide: O2 = 0, float: T2 = false, hidden: x2 = false, noArrow: N2 = false, clickable: $2 = false, closeOnEsc: I = false, closeOnScroll: B = false, closeOnResize: q2 = false, openEvents: H2, closeEvents: M2, globalCloseEvents: W, imperativeModeOnly: P, style: V, position: F, afterShow: K, afterHide: U, disableTooltip: X, content: Y, contentWrapperRef: G, isOpen: Z, defaultIsOpen: J = false, setIsOpen: Q, activeAnchor: ee, setActiveAnchor: te, border: oe, opacity: le, arrowColor: re, role: ne = "tooltip" }) => {
+    var ie;
+    const ce = (0, import_react16.useRef)(null), se = (0, import_react16.useRef)(null), ae = (0, import_react16.useRef)(null), ue = (0, import_react16.useRef)(null), de = (0, import_react16.useRef)(null), [pe, ve] = (0, import_react16.useState)({ tooltipStyles: {}, tooltipArrowStyles: {}, place: v }), [me, fe] = (0, import_react16.useState)(false), [ye, he] = (0, import_react16.useState)(false), [we, be] = (0, import_react16.useState)(null), Se = (0, import_react16.useRef)(false), ge = (0, import_react16.useRef)(null), { anchorRefs: Ee, setActiveAnchor: Ae } = j(l2), _e = (0, import_react16.useRef)(false), [Oe, ke] = (0, import_react16.useState)([]), Te = (0, import_react16.useRef)(false), Le = w2 || h2.includes("click"), Ce = Le || (null == H2 ? void 0 : H2.click) || (null == H2 ? void 0 : H2.dblclick) || (null == H2 ? void 0 : H2.mousedown), Re = H2 ? { ...H2 } : { mouseover: true, focus: true, mouseenter: false, click: false, dblclick: false, mousedown: false };
+    !H2 && Le && Object.assign(Re, { mouseenter: false, focus: false, mouseover: false, click: true });
+    const xe = M2 ? { ...M2 } : { mouseout: true, blur: true, mouseleave: false, click: false, dblclick: false, mouseup: false };
+    !M2 && Le && Object.assign(xe, { mouseleave: false, blur: false, mouseout: false });
+    const Ne = W ? { ...W } : { escape: I || false, scroll: B || false, resize: q2 || false, clickOutsideAnchor: Ce || false };
+    P && (Object.assign(Re, { mouseenter: false, focus: false, click: false, dblclick: false, mousedown: false }), Object.assign(xe, { mouseleave: false, blur: false, click: false, dblclick: false, mouseup: false }), Object.assign(Ne, { escape: false, scroll: false, resize: false, clickOutsideAnchor: false })), C(() => (Te.current = true, () => {
+      Te.current = false;
+    }), []);
+    const $e = (e2) => {
+      Te.current && (e2 && he(true), setTimeout(() => {
+        Te.current && (null == Q || Q(e2), void 0 === Z && fe(e2));
+      }, 10));
+    };
+    (0, import_react16.useEffect)(() => {
+      if (void 0 === Z) return () => null;
+      Z && he(true);
+      const e2 = setTimeout(() => {
+        fe(Z);
+      }, 10);
+      return () => {
+        clearTimeout(e2);
+      };
+    }, [Z]), (0, import_react16.useEffect)(() => {
+      if (me !== Se.current) if (R(de), Se.current = me, me) null == K || K();
+      else {
+        const e2 = ((e3) => {
+          const t3 = e3.match(/^([\d.]+)(ms|s)$/);
+          if (!t3) return 0;
+          const [, o2, l3] = t3;
+          return Number(o2) * ("ms" === l3 ? 1 : 1e3);
+        })(getComputedStyle(document.body).getPropertyValue("--rt-transition-show-delay"));
+        de.current = setTimeout(() => {
+          he(false), be(null), null == U || U();
+        }, e2 + 25);
+      }
+    }, [me]);
+    const Ie = (e2) => {
+      ve((t3) => k(t3, e2) ? t3 : e2);
+    }, je = (e2 = A2) => {
+      R(ae), ye ? $e(true) : ae.current = setTimeout(() => {
+        $e(true);
+      }, e2);
+    }, Be = (e2 = O2) => {
+      R(ue), ue.current = setTimeout(() => {
+        _e.current || $e(false);
+      }, e2);
+    }, ze = (e2) => {
+      var t3;
+      if (!e2) return;
+      const o2 = null !== (t3 = e2.currentTarget) && void 0 !== t3 ? t3 : e2.target;
+      if (!(null == o2 ? void 0 : o2.isConnected)) return te(null), void Ae({ current: null });
+      A2 ? je() : $e(true), te(o2), Ae({ current: o2 }), R(ue);
+    }, De = () => {
+      $2 ? Be(O2 || 100) : O2 ? Be() : $e(false), R(ae);
+    }, qe = ({ x: e2, y: t3 }) => {
+      var o2;
+      const l3 = { getBoundingClientRect: () => ({ x: e2, y: t3, width: 0, height: 0, top: t3, left: e2, right: e2, bottom: t3 }) };
+      E({ place: null !== (o2 = null == we ? void 0 : we.place) && void 0 !== o2 ? o2 : v, offset: m, elementReference: l3, tooltipReference: ce.current, tooltipArrowReference: se.current, strategy: b2, middlewares: S2, border: oe }).then((e3) => {
+        Ie(e3);
+      });
+    }, He = (e2) => {
+      if (!e2) return;
+      const t3 = e2, o2 = { x: t3.clientX, y: t3.clientY };
+      qe(o2), ge.current = o2;
+    }, Me = (e2) => {
+      var t3;
+      if (!me) return;
+      const o2 = e2.target;
+      if (!o2.isConnected) return;
+      if (null === (t3 = ce.current) || void 0 === t3 ? void 0 : t3.contains(o2)) return;
+      [document.querySelector(`[id='${d}']`), ...Oe].some((e3) => null == e3 ? void 0 : e3.contains(o2)) || ($e(false), R(ae));
+    }, We = _(ze, 50, true), Pe = _(De, 50, true), Ve = (e2) => {
+      Pe.cancel(), We(e2);
+    }, Fe = () => {
+      We.cancel(), Pe();
+    }, Ke = (0, import_react16.useCallback)(() => {
+      var e2, t3;
+      const o2 = null !== (e2 = null == we ? void 0 : we.position) && void 0 !== e2 ? e2 : F;
+      o2 ? qe(o2) : T2 ? ge.current && qe(ge.current) : (null == ee ? void 0 : ee.isConnected) && E({ place: null !== (t3 = null == we ? void 0 : we.place) && void 0 !== t3 ? t3 : v, offset: m, elementReference: ee, tooltipReference: ce.current, tooltipArrowReference: se.current, strategy: b2, middlewares: S2, border: oe }).then((e3) => {
+        Te.current && Ie(e3);
+      });
+    }, [me, ee, Y, V, v, null == we ? void 0 : we.place, m, b2, F, null == we ? void 0 : we.position, T2]);
+    (0, import_react16.useEffect)(() => {
+      var e2, t3;
+      const o2 = new Set(Ee);
+      Oe.forEach((e3) => {
+        (null == X ? void 0 : X(e3)) || o2.add({ current: e3 });
+      });
+      const l3 = document.querySelector(`[id='${d}']`);
+      l3 && !(null == X ? void 0 : X(l3)) && o2.add({ current: l3 });
+      const r2 = () => {
+        $e(false);
+      }, n2 = L3(ee), i3 = L3(ce.current);
+      Ne.scroll && (window.addEventListener("scroll", r2), null == n2 || n2.addEventListener("scroll", r2), null == i3 || i3.addEventListener("scroll", r2));
+      let c3 = null;
+      Ne.resize ? window.addEventListener("resize", r2) : ee && ce.current && (c3 = autoUpdate(ee, ce.current, Ke, { ancestorResize: true, elementResize: true, layoutShift: true }));
+      const s2 = (e3) => {
+        "Escape" === e3.key && $e(false);
+      };
+      Ne.escape && window.addEventListener("keydown", s2), Ne.clickOutsideAnchor && window.addEventListener("click", Me);
+      const a2 = [], u2 = (e3) => {
+        me && (null == e3 ? void 0 : e3.target) === ee || ze(e3);
+      }, p2 = (e3) => {
+        me && (null == e3 ? void 0 : e3.target) === ee && De();
+      }, v2 = ["mouseover", "mouseout", "mouseenter", "mouseleave", "focus", "blur"], m2 = ["click", "dblclick", "mousedown", "mouseup"];
+      Object.entries(Re).forEach(([e3, t4]) => {
+        t4 && (v2.includes(e3) ? a2.push({ event: e3, listener: Ve }) : m2.includes(e3) && a2.push({ event: e3, listener: u2 }));
+      }), Object.entries(xe).forEach(([e3, t4]) => {
+        t4 && (v2.includes(e3) ? a2.push({ event: e3, listener: Fe }) : m2.includes(e3) && a2.push({ event: e3, listener: p2 }));
+      }), T2 && a2.push({ event: "pointermove", listener: He });
+      const y2 = () => {
+        _e.current = true;
+      }, h3 = () => {
+        _e.current = false, De();
+      };
+      return $2 && !Ce && (null === (e2 = ce.current) || void 0 === e2 || e2.addEventListener("mouseenter", y2), null === (t3 = ce.current) || void 0 === t3 || t3.addEventListener("mouseleave", h3)), a2.forEach(({ event: e3, listener: t4 }) => {
+        o2.forEach((o3) => {
+          var l4;
+          null === (l4 = o3.current) || void 0 === l4 || l4.addEventListener(e3, t4);
+        });
+      }), () => {
+        var e3, t4;
+        Ne.scroll && (window.removeEventListener("scroll", r2), null == n2 || n2.removeEventListener("scroll", r2), null == i3 || i3.removeEventListener("scroll", r2)), Ne.resize ? window.removeEventListener("resize", r2) : null == c3 || c3(), Ne.clickOutsideAnchor && window.removeEventListener("click", Me), Ne.escape && window.removeEventListener("keydown", s2), $2 && !Ce && (null === (e3 = ce.current) || void 0 === e3 || e3.removeEventListener("mouseenter", y2), null === (t4 = ce.current) || void 0 === t4 || t4.removeEventListener("mouseleave", h3)), a2.forEach(({ event: e4, listener: t5 }) => {
+          o2.forEach((o3) => {
+            var l4;
+            null === (l4 = o3.current) || void 0 === l4 || l4.removeEventListener(e4, t5);
+          });
+        });
+      };
+    }, [ee, Ke, ye, Ee, Oe, H2, M2, W, Le, A2, O2]), (0, import_react16.useEffect)(() => {
+      var e2, t3;
+      let o2 = null !== (t3 = null !== (e2 = null == we ? void 0 : we.anchorSelect) && void 0 !== e2 ? e2 : p) && void 0 !== t3 ? t3 : "";
+      !o2 && l2 && (o2 = `[data-tooltip-id='${l2.replace(/'/g, "\\'")}']`);
+      const r2 = new MutationObserver((e3) => {
+        const t4 = [], r3 = [];
+        e3.forEach((e4) => {
+          if ("attributes" === e4.type && "data-tooltip-id" === e4.attributeName) {
+            e4.target.getAttribute("data-tooltip-id") === l2 ? t4.push(e4.target) : e4.oldValue === l2 && r3.push(e4.target);
+          }
+          if ("childList" === e4.type) {
+            if (ee) {
+              const t5 = [...e4.removedNodes].filter((e5) => 1 === e5.nodeType);
+              if (o2) try {
+                r3.push(...t5.filter((e5) => e5.matches(o2))), r3.push(...t5.flatMap((e5) => [...e5.querySelectorAll(o2)]));
+              } catch (e5) {
+              }
+              t5.some((e5) => {
+                var t6;
+                return !!(null === (t6 = null == e5 ? void 0 : e5.contains) || void 0 === t6 ? void 0 : t6.call(e5, ee)) && (he(false), $e(false), te(null), R(ae), R(ue), true);
+              });
+            }
+            if (o2) try {
+              const l3 = [...e4.addedNodes].filter((e5) => 1 === e5.nodeType);
+              t4.push(...l3.filter((e5) => e5.matches(o2))), t4.push(...l3.flatMap((e5) => [...e5.querySelectorAll(o2)]));
+            } catch (e5) {
+            }
+          }
+        }), (t4.length || r3.length) && ke((e4) => [...e4.filter((e5) => !r3.includes(e5)), ...t4]);
+      });
+      return r2.observe(document.body, { childList: true, subtree: true, attributes: true, attributeFilter: ["data-tooltip-id"], attributeOldValue: true }), () => {
+        r2.disconnect();
+      };
+    }, [l2, p, null == we ? void 0 : we.anchorSelect, ee]), (0, import_react16.useEffect)(() => {
+      Ke();
+    }, [Ke]), (0, import_react16.useEffect)(() => {
+      if (!(null == G ? void 0 : G.current)) return () => null;
+      const e2 = new ResizeObserver(() => {
+        setTimeout(() => Ke());
+      });
+      return e2.observe(G.current), () => {
+        e2.disconnect();
+      };
+    }, [Y, null == G ? void 0 : G.current]), (0, import_react16.useEffect)(() => {
+      var e2;
+      const t3 = document.querySelector(`[id='${d}']`), o2 = [...Oe, t3];
+      ee && o2.includes(ee) || te(null !== (e2 = Oe[0]) && void 0 !== e2 ? e2 : t3);
+    }, [d, Oe, ee]), (0, import_react16.useEffect)(() => (J && $e(true), () => {
+      R(ae), R(ue);
+    }), []), (0, import_react16.useEffect)(() => {
+      var e2;
+      let t3 = null !== (e2 = null == we ? void 0 : we.anchorSelect) && void 0 !== e2 ? e2 : p;
+      if (!t3 && l2 && (t3 = `[data-tooltip-id='${l2.replace(/'/g, "\\'")}']`), t3) try {
+        const e3 = Array.from(document.querySelectorAll(t3));
+        ke(e3);
+      } catch (e3) {
+        ke([]);
+      }
+    }, [l2, p, null == we ? void 0 : we.anchorSelect]), (0, import_react16.useEffect)(() => {
+      ae.current && (R(ae), je(A2));
+    }, [A2]);
+    const Ue = null !== (ie = null == we ? void 0 : we.content) && void 0 !== ie ? ie : Y, Xe = me && Object.keys(pe.tooltipStyles).length > 0;
+    return (0, import_react16.useImperativeHandle)(t2, () => ({ open: (e2) => {
+      if (null == e2 ? void 0 : e2.anchorSelect) try {
+        document.querySelector(e2.anchorSelect);
+      } catch (t3) {
+        return void console.warn(`[react-tooltip] "${e2.anchorSelect}" is not a valid CSS selector`);
+      }
+      be(null != e2 ? e2 : null), (null == e2 ? void 0 : e2.delay) ? je(e2.delay) : $e(true);
+    }, close: (e2) => {
+      (null == e2 ? void 0 : e2.delay) ? Be(e2.delay) : $e(false);
+    }, activeAnchor: ee, place: pe.place, isOpen: Boolean(ye && !x2 && Ue && Xe) })), ye && !x2 && Ue ? import_react16.default.createElement(g, { id: l2, role: ne, className: (0, import_classnames.default)("react-tooltip", z.tooltip, D.tooltip, D[u], i2, `react-tooltip__place-${pe.place}`, z[Xe ? "show" : "closing"], Xe ? "react-tooltip__show" : "react-tooltip__closing", "fixed" === b2 && z.fixed, $2 && z.clickable), onTransitionEnd: (e2) => {
+      R(de), me || "opacity" !== e2.propertyName || (he(false), be(null), null == U || U());
+    }, style: { ...V, ...pe.tooltipStyles, opacity: void 0 !== le && Xe ? le : void 0 }, ref: ce }, Ue, import_react16.default.createElement(g, { className: (0, import_classnames.default)("react-tooltip-arrow", z.arrow, D.arrow, c2, N2 && z.noArrow), style: { ...pe.tooltipArrowStyles, background: re ? `linear-gradient(to right bottom, transparent 50%, ${re} 50%)` : void 0 }, ref: se })) : null;
+  };
+  var H = ({ content: t2 }) => import_react16.default.createElement("span", { dangerouslySetInnerHTML: { __html: t2 } });
+  var M = import_react16.default.forwardRef(({ id: t2, anchorId: l2, anchorSelect: n2, content: i2, html: c2, render: a2, className: u, classNameArrow: d, variant: p = "dark", place: v = "top", offset: m = 10, wrapper: f = "div", children: h2 = null, events: w2 = ["hover"], openOnClick: b2 = false, positionStrategy: S2 = "absolute", middlewares: g, delayShow: E2 = 0, delayHide: _2 = 0, float: O2 = false, hidden: k2 = false, noArrow: T2 = false, clickable: L4 = false, closeOnEsc: C2 = false, closeOnScroll: R2 = false, closeOnResize: x2 = false, openEvents: N2, closeEvents: $2, globalCloseEvents: I, imperativeModeOnly: B = false, style: z2, position: D2, isOpen: M2, defaultIsOpen: W = false, disableStyleInjection: P = false, border: V, opacity: F, arrowColor: K, setIsOpen: U, afterShow: X, afterHide: Y, disableTooltip: G, role: Z = "tooltip" }, J) => {
+    const [Q, ee] = (0, import_react16.useState)(i2), [te, oe] = (0, import_react16.useState)(c2), [le, re] = (0, import_react16.useState)(v), [ne, ie] = (0, import_react16.useState)(p), [ce, se] = (0, import_react16.useState)(m), [ae, ue] = (0, import_react16.useState)(E2), [de, pe] = (0, import_react16.useState)(_2), [ve, me] = (0, import_react16.useState)(O2), [fe, ye] = (0, import_react16.useState)(k2), [he, we] = (0, import_react16.useState)(f), [be, Se] = (0, import_react16.useState)(w2), [ge, Ee] = (0, import_react16.useState)(S2), [Ae, _e] = (0, import_react16.useState)(null), [Oe, ke] = (0, import_react16.useState)(null), Te = (0, import_react16.useRef)(P), { anchorRefs: Le, activeAnchor: Ce } = j(t2), Re = (e2) => null == e2 ? void 0 : e2.getAttributeNames().reduce((t3, o2) => {
+      var l3;
+      if (o2.startsWith("data-tooltip-")) {
+        t3[o2.replace(/^data-tooltip-/, "")] = null !== (l3 = null == e2 ? void 0 : e2.getAttribute(o2)) && void 0 !== l3 ? l3 : null;
+      }
+      return t3;
+    }, {}), xe = (e2) => {
+      const t3 = { place: (e3) => {
+        var t4;
+        re(null !== (t4 = e3) && void 0 !== t4 ? t4 : v);
+      }, content: (e3) => {
+        ee(null != e3 ? e3 : i2);
+      }, html: (e3) => {
+        oe(null != e3 ? e3 : c2);
+      }, variant: (e3) => {
+        var t4;
+        ie(null !== (t4 = e3) && void 0 !== t4 ? t4 : p);
+      }, offset: (e3) => {
+        se(null === e3 ? m : Number(e3));
+      }, wrapper: (e3) => {
+        var t4;
+        we(null !== (t4 = e3) && void 0 !== t4 ? t4 : f);
+      }, events: (e3) => {
+        const t4 = null == e3 ? void 0 : e3.split(" ");
+        Se(null != t4 ? t4 : w2);
+      }, "position-strategy": (e3) => {
+        var t4;
+        Ee(null !== (t4 = e3) && void 0 !== t4 ? t4 : S2);
+      }, "delay-show": (e3) => {
+        ue(null === e3 ? E2 : Number(e3));
+      }, "delay-hide": (e3) => {
+        pe(null === e3 ? _2 : Number(e3));
+      }, float: (e3) => {
+        me(null === e3 ? O2 : "true" === e3);
+      }, hidden: (e3) => {
+        ye(null === e3 ? k2 : "true" === e3);
+      }, "class-name": (e3) => {
+        _e(e3);
+      } };
+      Object.values(t3).forEach((e3) => e3(null)), Object.entries(e2).forEach(([e3, o2]) => {
+        var l3;
+        null === (l3 = t3[e3]) || void 0 === l3 || l3.call(t3, o2);
+      });
+    };
+    (0, import_react16.useEffect)(() => {
+      ee(i2);
+    }, [i2]), (0, import_react16.useEffect)(() => {
+      oe(c2);
+    }, [c2]), (0, import_react16.useEffect)(() => {
+      re(v);
+    }, [v]), (0, import_react16.useEffect)(() => {
+      ie(p);
+    }, [p]), (0, import_react16.useEffect)(() => {
+      se(m);
+    }, [m]), (0, import_react16.useEffect)(() => {
+      ue(E2);
+    }, [E2]), (0, import_react16.useEffect)(() => {
+      pe(_2);
+    }, [_2]), (0, import_react16.useEffect)(() => {
+      me(O2);
+    }, [O2]), (0, import_react16.useEffect)(() => {
+      ye(k2);
+    }, [k2]), (0, import_react16.useEffect)(() => {
+      Ee(S2);
+    }, [S2]), (0, import_react16.useEffect)(() => {
+      Te.current !== P && console.warn("[react-tooltip] Do not change `disableStyleInjection` dynamically.");
+    }, [P]), (0, import_react16.useEffect)(() => {
+      "undefined" != typeof window && window.dispatchEvent(new CustomEvent("react-tooltip-inject-styles", { detail: { disableCore: "core" === P, disableBase: P } }));
+    }, []), (0, import_react16.useEffect)(() => {
+      var e2;
+      const o2 = new Set(Le);
+      let r2 = n2;
+      if (!r2 && t2 && (r2 = `[data-tooltip-id='${t2.replace(/'/g, "\\'")}']`), r2) try {
+        document.querySelectorAll(r2).forEach((e3) => {
+          o2.add({ current: e3 });
+        });
+      } catch (e3) {
+        console.warn(`[react-tooltip] "${r2}" is not a valid CSS selector`);
+      }
+      const i3 = document.querySelector(`[id='${l2}']`);
+      if (i3 && o2.add({ current: i3 }), !o2.size) return () => null;
+      const c3 = null !== (e2 = null != Oe ? Oe : i3) && void 0 !== e2 ? e2 : Ce.current, s2 = new MutationObserver((e3) => {
+        e3.forEach((e4) => {
+          var t3;
+          if (!c3 || "attributes" !== e4.type || !(null === (t3 = e4.attributeName) || void 0 === t3 ? void 0 : t3.startsWith("data-tooltip-"))) return;
+          const o3 = Re(c3);
+          xe(o3);
+        });
+      }), a3 = { attributes: true, childList: false, subtree: false };
+      if (c3) {
+        const e3 = Re(c3);
+        xe(e3), s2.observe(c3, a3);
+      }
+      return () => {
+        s2.disconnect();
+      };
+    }, [Le, Ce, Oe, l2, n2]), (0, import_react16.useEffect)(() => {
+      (null == z2 ? void 0 : z2.border) && console.warn("[react-tooltip] Do not set `style.border`. Use `border` prop instead."), V && !A("border", `${V}`) && console.warn(`[react-tooltip] "${V}" is not a valid \`border\`.`), (null == z2 ? void 0 : z2.opacity) && console.warn("[react-tooltip] Do not set `style.opacity`. Use `opacity` prop instead."), F && !A("opacity", `${F}`) && console.warn(`[react-tooltip] "${F}" is not a valid \`opacity\`.`);
+    }, []);
+    let Ne = h2;
+    const $e = (0, import_react16.useRef)(null);
+    if (a2) {
+      const t3 = a2({ content: (null == Oe ? void 0 : Oe.getAttribute("data-tooltip-content")) || Q || null, activeAnchor: Oe });
+      Ne = t3 ? import_react16.default.createElement("div", { ref: $e, className: "react-tooltip-content-wrapper" }, t3) : null;
+    } else Q && (Ne = Q);
+    te && (Ne = import_react16.default.createElement(H, { content: te }));
+    const Ie = { forwardRef: J, id: t2, anchorId: l2, anchorSelect: n2, className: (0, import_classnames.default)(u, Ae), classNameArrow: d, content: Ne, contentWrapperRef: $e, place: le, variant: ne, offset: ce, wrapper: he, events: be, openOnClick: b2, positionStrategy: ge, middlewares: g, delayShow: ae, delayHide: de, float: ve, hidden: fe, noArrow: T2, clickable: L4, closeOnEsc: C2, closeOnScroll: R2, closeOnResize: x2, openEvents: N2, closeEvents: $2, globalCloseEvents: I, imperativeModeOnly: B, style: z2, position: D2, isOpen: M2, defaultIsOpen: W, border: V, opacity: F, arrowColor: K, setIsOpen: U, afterShow: X, afterHide: Y, disableTooltip: G, activeAnchor: Oe, setActiveAnchor: (e2) => ke(e2), role: Z };
+    return import_react16.default.createElement(q, { ...Ie });
+  });
+  "undefined" != typeof window && window.addEventListener("react-tooltip-inject-styles", (e2) => {
+    e2.detail.disableCore || S({ css: `:root{--rt-color-white:#fff;--rt-color-dark:#222;--rt-color-success:#8dc572;--rt-color-error:#be6464;--rt-color-warning:#f0ad4e;--rt-color-info:#337ab7;--rt-opacity:0.9;--rt-transition-show-delay:0.15s;--rt-transition-closing-delay:0.15s}.core-styles-module_tooltip__3vRRp{position:absolute;top:0;left:0;pointer-events:none;opacity:0;will-change:opacity}.core-styles-module_fixed__pcSol{position:fixed}.core-styles-module_arrow__cvMwQ{position:absolute;background:inherit}.core-styles-module_noArrow__xock6{display:none}.core-styles-module_clickable__ZuTTB{pointer-events:auto}.core-styles-module_show__Nt9eE{opacity:var(--rt-opacity);transition:opacity var(--rt-transition-show-delay)ease-out}.core-styles-module_closing__sGnxF{opacity:0;transition:opacity var(--rt-transition-closing-delay)ease-in}`, type: "core" }), e2.detail.disableBase || S({ css: `
+.styles-module_tooltip__mnnfp{padding:8px 16px;border-radius:3px;font-size:90%;width:max-content}.styles-module_arrow__K0L3T{width:8px;height:8px}[class*='react-tooltip__place-top']>.styles-module_arrow__K0L3T{transform:rotate(45deg)}[class*='react-tooltip__place-right']>.styles-module_arrow__K0L3T{transform:rotate(135deg)}[class*='react-tooltip__place-bottom']>.styles-module_arrow__K0L3T{transform:rotate(225deg)}[class*='react-tooltip__place-left']>.styles-module_arrow__K0L3T{transform:rotate(315deg)}.styles-module_dark__xNqje{background:var(--rt-color-dark);color:var(--rt-color-white)}.styles-module_light__Z6W-X{background-color:var(--rt-color-white);color:var(--rt-color-dark)}.styles-module_success__A2AKt{background-color:var(--rt-color-success);color:var(--rt-color-white)}.styles-module_warning__SCK0X{background-color:var(--rt-color-warning);color:var(--rt-color-white)}.styles-module_error__JvumD{background-color:var(--rt-color-error);color:var(--rt-color-white)}.styles-module_info__BWdHW{background-color:var(--rt-color-info);color:var(--rt-color-white)}`, type: "base" });
+  });
+
   // src/components/form.tsx
   var import_jsx_runtime3 = __toESM(require_jsx_runtime(), 1);
   var Form = () => {
@@ -38939,23 +40774,31 @@ out geom;`;
         state.submitGuess
       ])
     );
-    const score = (0, import_react16.useMemo)(
+    const score = (0, import_react17.useMemo)(
       () => ({
-        correct: roads.filter((r) => r.state === "correct").length,
+        correct: roads.filter((r2) => r2.state === "correct").length,
         wrong: wrongGuesses,
         total: roads.length
       }),
       [roads, wrongGuesses]
     );
-    const [isCorrect, setIsCorrect] = (0, import_react16.useState)(false);
-    const [isWrong, setIsWrong] = (0, import_react16.useState)(false);
-    const onKeyDown = (0, import_react16.useCallback)(
+    const tooltipRef = (0, import_react17.useRef)(null);
+    const [isCorrect, setIsCorrect] = (0, import_react17.useState)(false);
+    const [isWrong, setIsWrong] = (0, import_react17.useState)(false);
+    const onKeyDown = (0, import_react17.useCallback)(
       (event) => {
         if (event.keyCode === 13) {
-          const result = submitGuess(event.target.value);
+          const { result, road } = submitGuess(event.target.value);
           const fn = result ? setIsCorrect : setIsWrong;
           fn(true);
           setTimeout(() => fn(false), 1e3);
+          if (!result) {
+            tooltipRef.current?.open({
+              anchorSelect: "#guess-input",
+              content: road
+            });
+            tooltipRef.current?.close({ delay: 2e3 });
+          }
           event.target.value = "";
         }
       },
@@ -38972,7 +40815,7 @@ out geom;`;
           left: "50px"
         },
         children: isPlaying ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { className: "has-text-centered mb-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { className: "mb-3", children: [
             score.correct,
             " / ",
             score.total,
@@ -38982,6 +40825,7 @@ out geom;`;
             /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
               "input",
               {
+                id: "guess-input",
                 type: "text",
                 placeholder: "Enter street name",
                 onKeyDown,
@@ -38990,14 +40834,15 @@ out geom;`;
               }
             ),
             /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: "button", onClick: cancelGame, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "icon is-small", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(CancelIcon, { color: "#fff" }) }) })
-          ] })
+          ] }),
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(M, { ref: tooltipRef })
         ] }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: "button is-fullwidth", onClick: startGame, children: "Start" })
       }
     );
   };
 
   // src/components/roads.tsx
-  var import_react17 = __toESM(require_react(), 1);
+  var import_react18 = __toESM(require_react(), 1);
   var import_jsx_runtime4 = __toESM(require_jsx_runtime(), 1);
   var COLORS = {
     correct: "#0F0",
@@ -39006,14 +40851,14 @@ out geom;`;
   };
   var Roads = (props) => {
     let [roads] = useStore2(useShallow((state) => [state.roads]));
-    roads = (0, import_react17.useMemo)(
+    roads = (0, import_react18.useMemo)(
       () => roads.filter((road) => road.state === props.type),
       [roads]
     );
     const isCurrent = props.type === "current";
-    const ref = (0, import_react17.useRef)();
+    const ref = (0, import_react18.useRef)();
     const map = useMap();
-    (0, import_react17.useEffect)(() => {
+    (0, import_react18.useEffect)(() => {
       const feature = ref.current;
       if (isCurrent && feature) {
         map.setView(feature.getBounds().getCenter(), map.getZoom(), {
@@ -39022,7 +40867,7 @@ out geom;`;
       }
     }, [isCurrent, roads]);
     return /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(LayerGroup, { children: roads.map((road) => /* @__PURE__ */ (0, import_jsx_runtime4.jsxs)(FeatureGroup, { ref, children: [
-      road.positions.map((position, i) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
+      road.positions.map((position, i2) => /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(
         Polyline,
         {
           weight: 3.5,
@@ -39030,7 +40875,7 @@ out geom;`;
           color: COLORS[props.type],
           positions: position
         },
-        `${road.name}-${i}`
+        `${road.name}-${i2}`
       )),
       !isCurrent ? /* @__PURE__ */ (0, import_jsx_runtime4.jsx)(Tooltip, { children: road.name }) : null
     ] }, road.name)) });
@@ -39040,9 +40885,9 @@ out geom;`;
   var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
   var Map2 = () => {
     const isPlaying = useStore2((state) => state.isPlaying);
-    const selectionRef = (0, import_react18.useRef)(null);
-    (0, import_react18.useEffect)(() => selectionRef.current?.enableEdit(), [selectionRef]);
-    const onSearch = (0, import_react18.useCallback)(
+    const selectionRef = (0, import_react19.useRef)(null);
+    (0, import_react19.useEffect)(() => selectionRef.current?.enableEdit(), [selectionRef]);
+    const onSearch = (0, import_react19.useCallback)(
       async (osmType, osmId) => {
         const boundaries = await fetchCityBoundaries(osmType, osmId);
         const geo = { type: "Feature", geometry: (0, import_osm2geojson_lite.default)(boundaries) };
@@ -39193,6 +41038,13 @@ react/cjs/react-jsx-runtime.development.js:
    * LICENSE file in the root directory of this source tree.
    *)
 
+classnames/index.js:
+  (*!
+  	Copyright (c) 2018 Jed Watson.
+  	Licensed under the MIT License (MIT), see
+  	http://jedwatson.github.io/classnames
+  *)
+
 leaflet-control-geocoder/dist/Control.Geocoder.js:
   (* @preserve
    * Leaflet Control Geocoder
@@ -39202,5 +41054,13 @@ leaflet-control-geocoder/dist/Control.Geocoder.js:
    * Copyright (c) 2018 Per Liedman
    * All rights reserved.
    *)
+
+react-tooltip/dist/react-tooltip.min.mjs:
+  (*
+  * React Tooltip
+  * {@link https://github.com/ReactTooltip/react-tooltip}
+  * @copyright ReactTooltip Team
+  * @license MIT
+  *)
 */
 //# sourceMappingURL=index.js.map
