@@ -1404,7 +1404,7 @@
               }
             }
           }
-          function checkPropTypes(typeSpecs, values, location2, componentName, element) {
+          function checkPropTypes(typeSpecs, values, location, componentName, element) {
             {
               var has = Function.call.bind(hasOwnProperty);
               for (var typeSpecName in typeSpecs) {
@@ -1412,23 +1412,23 @@
                   var error$1 = void 0;
                   try {
                     if (typeof typeSpecs[typeSpecName] !== "function") {
-                      var err = Error((componentName || "React class") + ": " + location2 + " type `" + typeSpecName + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                      var err = Error((componentName || "React class") + ": " + location + " type `" + typeSpecName + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
                       err.name = "Invariant Violation";
                       throw err;
                     }
-                    error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location2, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+                    error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
                   } catch (ex) {
                     error$1 = ex;
                   }
                   if (error$1 && !(error$1 instanceof Error)) {
                     setCurrentlyValidatingElement(element);
-                    error("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", componentName || "React class", location2, typeSpecName, typeof error$1);
+                    error("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", componentName || "React class", location, typeSpecName, typeof error$1);
                     setCurrentlyValidatingElement(null);
                   }
                   if (error$1 instanceof Error && !(error$1.message in loggedTypeFailures)) {
                     loggedTypeFailures[error$1.message] = true;
                     setCurrentlyValidatingElement(element);
-                    error("Failed %s type: %s", location2, error$1.message);
+                    error("Failed %s type: %s", location, error$1.message);
                     setCurrentlyValidatingElement(null);
                   }
                 }
@@ -10806,7 +10806,7 @@
               }
             }
           }
-          function checkPropTypes(typeSpecs, values, location2, componentName, element) {
+          function checkPropTypes(typeSpecs, values, location, componentName, element) {
             {
               var has2 = Function.call.bind(hasOwnProperty);
               for (var typeSpecName in typeSpecs) {
@@ -10814,23 +10814,23 @@
                   var error$1 = void 0;
                   try {
                     if (typeof typeSpecs[typeSpecName] !== "function") {
-                      var err = Error((componentName || "React class") + ": " + location2 + " type `" + typeSpecName + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                      var err = Error((componentName || "React class") + ": " + location + " type `" + typeSpecName + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
                       err.name = "Invariant Violation";
                       throw err;
                     }
-                    error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location2, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+                    error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
                   } catch (ex) {
                     error$1 = ex;
                   }
                   if (error$1 && !(error$1 instanceof Error)) {
                     setCurrentlyValidatingElement(element);
-                    error("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", componentName || "React class", location2, typeSpecName, typeof error$1);
+                    error("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", componentName || "React class", location, typeSpecName, typeof error$1);
                     setCurrentlyValidatingElement(null);
                   }
                   if (error$1 instanceof Error && !(error$1.message in loggedTypeFailures)) {
                     loggedTypeFailures[error$1.message] = true;
                     setCurrentlyValidatingElement(element);
-                    error("Failed %s type: %s", location2, error$1.message);
+                    error("Failed %s type: %s", location, error$1.message);
                     setCurrentlyValidatingElement(null);
                   }
                 }
@@ -27697,7 +27697,7 @@
           polygonCenter,
           centroid
         };
-        function simplify2(points, tolerance) {
+        function simplify3(points, tolerance) {
           if (!tolerance || !points.length) {
             return points.slice();
           }
@@ -27880,7 +27880,7 @@
         }
         var LineUtil = {
           __proto__: null,
-          simplify: simplify2,
+          simplify: simplify3,
           pointToSegmentDistance,
           closestPointOnSegment,
           clipSegment,
@@ -29206,7 +29206,7 @@
           _simplifyPoints: function() {
             var parts = this._parts, tolerance = this.options.smoothFactor;
             for (var i2 = 0, len = parts.length; i2 < len; i2++) {
-              parts[i2] = simplify2(parts[i2], tolerance);
+              parts[i2] = simplify3(parts[i2], tolerance);
             }
           },
           _update: function() {
@@ -34684,124 +34684,6 @@
     }
   });
 
-  // node_modules/simplify-geometry/lib/line.js
-  var require_line = __commonJS({
-    "node_modules/simplify-geometry/lib/line.js"(exports, module) {
-      var Line = function(p1, p2) {
-        this.p1 = p1;
-        this.p2 = p2;
-      };
-      Line.prototype.rise = function() {
-        return this.p2[1] - this.p1[1];
-      };
-      Line.prototype.run = function() {
-        return this.p2[0] - this.p1[0];
-      };
-      Line.prototype.slope = function() {
-        return this.rise() / this.run();
-      };
-      Line.prototype.yIntercept = function() {
-        return this.p1[1] - this.p1[0] * this.slope(this.p1, this.p2);
-      };
-      Line.prototype.isVertical = function() {
-        return !isFinite(this.slope());
-      };
-      Line.prototype.isHorizontal = function() {
-        return this.p1[1] == this.p2[1];
-      };
-      Line.prototype._perpendicularDistanceHorizontal = function(point) {
-        return Math.abs(this.p1[1] - point[1]);
-      };
-      Line.prototype._perpendicularDistanceVertical = function(point) {
-        return Math.abs(this.p1[0] - point[0]);
-      };
-      Line.prototype._perpendicularDistanceHasSlope = function(point) {
-        var slope = this.slope();
-        var y_intercept = this.yIntercept();
-        return Math.abs(slope * point[0] - point[1] + y_intercept) / Math.sqrt(Math.pow(slope, 2) + 1);
-      };
-      Line.prototype.perpendicularDistance = function(point) {
-        if (this.isVertical()) {
-          return this._perpendicularDistanceVertical(point);
-        } else if (this.isHorizontal()) {
-          return this._perpendicularDistanceHorizontal(point);
-        } else {
-          return this._perpendicularDistanceHasSlope(point);
-        }
-      };
-      module.exports = Line;
-    }
-  });
-
-  // node_modules/simplify-geometry/lib/index.js
-  var require_lib = __commonJS({
-    "node_modules/simplify-geometry/lib/index.js"(exports, module) {
-      var Line = require_line();
-      var simplifyGeometry = function(points, tolerance) {
-        var dmax = 0;
-        var index = 0;
-        for (var i2 = 1; i2 <= points.length - 2; i2++) {
-          var d = new Line(points[0], points[points.length - 1]).perpendicularDistance(points[i2]);
-          if (d > dmax) {
-            index = i2;
-            dmax = d;
-          }
-        }
-        if (dmax > tolerance) {
-          var results_one = simplifyGeometry(points.slice(0, index), tolerance);
-          var results_two = simplifyGeometry(points.slice(index, points.length), tolerance);
-          var results = results_one.concat(results_two);
-        } else if (points.length > 1) {
-          results = [points[0], points[points.length - 1]];
-        } else {
-          results = [points[0]];
-        }
-        return results;
-      };
-      module.exports = simplifyGeometry;
-    }
-  });
-
-  // node_modules/simplify-geojson/index.js
-  var require_simplify_geojson = __commonJS({
-    "node_modules/simplify-geojson/index.js"(exports, module) {
-      var simplify2 = require_lib();
-      module.exports = function(geojson, tolerance, dontClone) {
-        if (!dontClone) geojson = JSON.parse(JSON.stringify(geojson));
-        if (geojson.features) return simplifyFeatureCollection(geojson, tolerance);
-        else if (geojson.type && geojson.type === "Feature") return simplifyFeature(geojson, tolerance);
-        else return new Error("FeatureCollection or individual Feature required");
-      };
-      module.exports.simplify = function(coordinates, tolerance) {
-        return simplify2(coordinates, tolerance);
-      };
-      function simplifyFeature(feat, tolerance) {
-        var geom = feat.geometry;
-        var type = geom.type;
-        if (type === "LineString") {
-          geom.coordinates = module.exports.simplify(geom.coordinates, tolerance);
-        } else if (type === "Polygon" || type === "MultiLineString") {
-          for (var j2 = 0; j2 < geom.coordinates.length; j2++) {
-            geom.coordinates[j2] = module.exports.simplify(geom.coordinates[j2], tolerance);
-          }
-        } else if (type === "MultiPolygon") {
-          for (var k2 = 0; k2 < geom.coordinates.length; k2++) {
-            for (var l2 = 0; l2 < geom.coordinates[k2].length; l2++) {
-              geom.coordinates[k2][l2] = module.exports.simplify(geom.coordinates[k2][l2], tolerance);
-            }
-          }
-        }
-        return feat;
-      }
-      function simplifyFeatureCollection(fc, tolerance) {
-        for (var i2 = 0; i2 < fc.features.length; i2++) {
-          fc.features[i2] = simplifyFeature(fc.features[i2], tolerance);
-        }
-        return fc;
-      }
-    }
-  });
-
   // node_modules/osm2geojson-lite/lib/utils.js
   var require_utils = __commonJS({
     "node_modules/osm2geojson-lite/lib/utils.js"(exports, module) {
@@ -35586,7 +35468,7 @@
   });
 
   // node_modules/osm2geojson-lite/lib/index.js
-  var require_lib2 = __commonJS({
+  var require_lib = __commonJS({
     "node_modules/osm2geojson-lite/lib/index.js"(exports, module) {
       var { Node: Node2, Way, Relation } = require_osmobjs();
       var { purgeProps, RefElements } = require_utils();
@@ -35769,6 +35651,124 @@
         }
         return { type: "FeatureCollection", features: featureArray };
       };
+    }
+  });
+
+  // node_modules/simplify-geometry/lib/line.js
+  var require_line = __commonJS({
+    "node_modules/simplify-geometry/lib/line.js"(exports, module) {
+      var Line = function(p1, p2) {
+        this.p1 = p1;
+        this.p2 = p2;
+      };
+      Line.prototype.rise = function() {
+        return this.p2[1] - this.p1[1];
+      };
+      Line.prototype.run = function() {
+        return this.p2[0] - this.p1[0];
+      };
+      Line.prototype.slope = function() {
+        return this.rise() / this.run();
+      };
+      Line.prototype.yIntercept = function() {
+        return this.p1[1] - this.p1[0] * this.slope(this.p1, this.p2);
+      };
+      Line.prototype.isVertical = function() {
+        return !isFinite(this.slope());
+      };
+      Line.prototype.isHorizontal = function() {
+        return this.p1[1] == this.p2[1];
+      };
+      Line.prototype._perpendicularDistanceHorizontal = function(point) {
+        return Math.abs(this.p1[1] - point[1]);
+      };
+      Line.prototype._perpendicularDistanceVertical = function(point) {
+        return Math.abs(this.p1[0] - point[0]);
+      };
+      Line.prototype._perpendicularDistanceHasSlope = function(point) {
+        var slope = this.slope();
+        var y_intercept = this.yIntercept();
+        return Math.abs(slope * point[0] - point[1] + y_intercept) / Math.sqrt(Math.pow(slope, 2) + 1);
+      };
+      Line.prototype.perpendicularDistance = function(point) {
+        if (this.isVertical()) {
+          return this._perpendicularDistanceVertical(point);
+        } else if (this.isHorizontal()) {
+          return this._perpendicularDistanceHorizontal(point);
+        } else {
+          return this._perpendicularDistanceHasSlope(point);
+        }
+      };
+      module.exports = Line;
+    }
+  });
+
+  // node_modules/simplify-geometry/lib/index.js
+  var require_lib2 = __commonJS({
+    "node_modules/simplify-geometry/lib/index.js"(exports, module) {
+      var Line = require_line();
+      var simplifyGeometry = function(points, tolerance) {
+        var dmax = 0;
+        var index = 0;
+        for (var i2 = 1; i2 <= points.length - 2; i2++) {
+          var d = new Line(points[0], points[points.length - 1]).perpendicularDistance(points[i2]);
+          if (d > dmax) {
+            index = i2;
+            dmax = d;
+          }
+        }
+        if (dmax > tolerance) {
+          var results_one = simplifyGeometry(points.slice(0, index), tolerance);
+          var results_two = simplifyGeometry(points.slice(index, points.length), tolerance);
+          var results = results_one.concat(results_two);
+        } else if (points.length > 1) {
+          results = [points[0], points[points.length - 1]];
+        } else {
+          results = [points[0]];
+        }
+        return results;
+      };
+      module.exports = simplifyGeometry;
+    }
+  });
+
+  // node_modules/simplify-geojson/index.js
+  var require_simplify_geojson = __commonJS({
+    "node_modules/simplify-geojson/index.js"(exports, module) {
+      var simplify3 = require_lib2();
+      module.exports = function(geojson, tolerance, dontClone) {
+        if (!dontClone) geojson = JSON.parse(JSON.stringify(geojson));
+        if (geojson.features) return simplifyFeatureCollection(geojson, tolerance);
+        else if (geojson.type && geojson.type === "Feature") return simplifyFeature(geojson, tolerance);
+        else return new Error("FeatureCollection or individual Feature required");
+      };
+      module.exports.simplify = function(coordinates, tolerance) {
+        return simplify3(coordinates, tolerance);
+      };
+      function simplifyFeature(feat, tolerance) {
+        var geom = feat.geometry;
+        var type = geom.type;
+        if (type === "LineString") {
+          geom.coordinates = module.exports.simplify(geom.coordinates, tolerance);
+        } else if (type === "Polygon" || type === "MultiLineString") {
+          for (var j2 = 0; j2 < geom.coordinates.length; j2++) {
+            geom.coordinates[j2] = module.exports.simplify(geom.coordinates[j2], tolerance);
+          }
+        } else if (type === "MultiPolygon") {
+          for (var k2 = 0; k2 < geom.coordinates.length; k2++) {
+            for (var l2 = 0; l2 < geom.coordinates[k2].length; l2++) {
+              geom.coordinates[k2][l2] = module.exports.simplify(geom.coordinates[k2][l2], tolerance);
+            }
+          }
+        }
+        return feat;
+      }
+      function simplifyFeatureCollection(fc, tolerance) {
+        for (var i2 = 0; i2 < fc.features.length; i2++) {
+          fc.features[i2] = simplifyFeature(fc.features[i2], tolerance);
+        }
+        return fc;
+      }
     }
   });
 
@@ -36191,7 +36191,7 @@
               }
             }
           }
-          function checkPropTypes(typeSpecs, values, location2, componentName, element) {
+          function checkPropTypes(typeSpecs, values, location, componentName, element) {
             {
               var has = Function.call.bind(hasOwnProperty);
               for (var typeSpecName in typeSpecs) {
@@ -36199,23 +36199,23 @@
                   var error$1 = void 0;
                   try {
                     if (typeof typeSpecs[typeSpecName] !== "function") {
-                      var err = Error((componentName || "React class") + ": " + location2 + " type `" + typeSpecName + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
+                      var err = Error((componentName || "React class") + ": " + location + " type `" + typeSpecName + "` is invalid; it must be a function, usually from the `prop-types` package, but received `" + typeof typeSpecs[typeSpecName] + "`.This often happens because of typos such as `PropTypes.function` instead of `PropTypes.func`.");
                       err.name = "Invariant Violation";
                       throw err;
                     }
-                    error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location2, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
+                    error$1 = typeSpecs[typeSpecName](values, typeSpecName, componentName, location, null, "SECRET_DO_NOT_PASS_THIS_OR_YOU_WILL_BE_FIRED");
                   } catch (ex) {
                     error$1 = ex;
                   }
                   if (error$1 && !(error$1 instanceof Error)) {
                     setCurrentlyValidatingElement(element);
-                    error("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", componentName || "React class", location2, typeSpecName, typeof error$1);
+                    error("%s: type specification of %s `%s` is invalid; the type checker function must return `null` or an `Error` but returned a %s. You may have forgotten to pass an argument to the type checker creator (arrayOf, instanceOf, objectOf, oneOf, oneOfType, and shape all require an argument).", componentName || "React class", location, typeSpecName, typeof error$1);
                     setCurrentlyValidatingElement(null);
                   }
                   if (error$1 instanceof Error && !(error$1.message in loggedTypeFailures)) {
                     loggedTypeFailures[error$1.message] = true;
                     setCurrentlyValidatingElement(element);
-                    error("Failed %s type: %s", location2, error$1.message);
+                    error("Failed %s type: %s", location, error$1.message);
                     setCurrentlyValidatingElement(null);
                   }
                 }
@@ -37269,6 +37269,7 @@
 [out:json];
 way(poly:"${coords}")[highway][name];
 out geom;`;
+    console.log(query);
     return fetchApi(query);
   };
   var fetchCityBoundaries = async (osmType, osmId) => {
@@ -37280,7 +37281,7 @@ out geom;`;
   };
 
   // src/components/geocoder.tsx
-  var import_react12 = __toESM(require_react(), 1);
+  var import_react13 = __toESM(require_react(), 1);
 
   // node_modules/leaflet-control-geocoder/dist/Control.Geocoder.js
   var leafletControlGeocoder = function(exports, L4) {
@@ -37446,9 +37447,9 @@ out geom;`;
       _proto.suggest = function suggest(query, cb, context) {
         return this.geocode(query, cb, context);
       };
-      _proto.reverse = function reverse(location2, scale, cb, context) {
+      _proto.reverse = function reverse(location, scale, cb, context) {
         var params = reverseParams(this.options, {
-          location: location2.lng + "," + location2.lat,
+          location: location.lng + "," + location.lat,
           distance: 100,
           f: "json"
         });
@@ -37499,11 +37500,11 @@ out geom;`;
           cb.call(context, results);
         }, this, "jsonp");
       };
-      _proto.reverse = function reverse(location2, scale, cb, context) {
+      _proto.reverse = function reverse(location, scale, cb, context) {
         var params = reverseParams(this.options, {
           key: this.options.apiKey
         });
-        jsonp(this.options.serviceUrl + location2.lat + "," + location2.lng, params, function(data) {
+        jsonp(this.options.serviceUrl + location.lat + "," + location.lng, params, function(data) {
           var results = [];
           for (var i2 = data.resourceSets[0].resources.length - 1; i2 >= 0; i2--) {
             var resource = data.resourceSets[0].resources[i2], bbox = resource.bbox;
@@ -37552,10 +37553,10 @@ out geom;`;
           cb.call(context, results);
         });
       };
-      _proto.reverse = function reverse(location2, scale, cb, context) {
+      _proto.reverse = function reverse(location, scale, cb, context) {
         var params = reverseParams(this.options, {
           key: this.options.apiKey,
-          latlng: location2.lat + "," + location2.lng
+          latlng: location.lat + "," + location.lng
         });
         getJSON(this.options.serviceUrl, params, function(data) {
           var results = [];
@@ -37604,8 +37605,8 @@ out geom;`;
         });
         this.getJSON(this.options.serviceUrl + "geocode.json", params, cb, context);
       };
-      _proto.reverse = function reverse(location2, scale, cb, context) {
-        var prox = location2.lat + "," + location2.lng;
+      _proto.reverse = function reverse(location, scale, cb, context) {
+        var prox = location.lat + "," + location.lng;
         if (this.options.reverseGeocodeProxRadius) {
           prox += "," + this.options.reverseGeocodeProxRadius;
         }
@@ -37664,9 +37665,9 @@ out geom;`;
         }
         this.getJSON(this.options.serviceUrl + "/discover", params, cb, context);
       };
-      _proto2.reverse = function reverse(location2, scale, cb, context) {
+      _proto2.reverse = function reverse(location, scale, cb, context) {
         var params = reverseParams(this.options, {
-          at: location2.lat + "," + location2.lng,
+          at: location.lat + "," + location.lng,
           limit: this.options.reverseGeocodeProxRadius,
           apiKey: this.options.apiKey
         });
@@ -37806,9 +37807,9 @@ out geom;`;
       _proto.suggest = function suggest(query, cb, context) {
         return this.geocode(query, cb, context);
       };
-      _proto.reverse = function reverse(location2, scale, cb, context) {
+      _proto.reverse = function reverse(location, scale, cb, context) {
         var _this2 = this;
-        var url = this.options.serviceUrl + location2.lng + "," + location2.lat + ".json";
+        var url = this.options.serviceUrl + location.lng + "," + location.lat + ".json";
         var param = reverseParams(this.options, {
           access_token: this.options.apiKey
         });
@@ -37877,10 +37878,10 @@ out geom;`;
           cb.call(context, results);
         }, this));
       };
-      _proto.reverse = function reverse(location2, scale, cb, context) {
+      _proto.reverse = function reverse(location, scale, cb, context) {
         var params = reverseParams(this.options, {
           key: this.options.apiKey,
-          location: location2.lat + "," + location2.lng,
+          location: location.lat + "," + location.lng,
           outputFormat: "json"
         });
         getJSON(this.options.serviceUrl + "/reverse", params, L__namespace.Util.bind(function(data) {
@@ -37939,17 +37940,17 @@ out geom;`;
       _proto.suggest = function suggest(query, cb, context) {
         return this.geocode(query, cb, context);
       };
-      _proto.reverse = function reverse(location2, scale, cb, context) {
+      _proto.reverse = function reverse(location, scale, cb, context) {
         var params = reverseParams(this.options, {
           apiKey: this.options.apiKey,
           userId: this.options.userId,
-          latitude: location2.lat,
-          longitude: location2.lng
+          latitude: location.lat,
+          longitude: location.lng
         });
         getJSON(this.options.serviceUrl + "geocode-reverse", params, function(data) {
           var results = [];
           if (data.status.status == 200 && data.found) {
-            var center = L__namespace.latLng(location2.lat, location2.lng);
+            var center = L__namespace.latLng(location.lat, location.lng);
             var bbox = L__namespace.latLngBounds(center, center);
             results[0] = {
               name: data.address,
@@ -38017,11 +38018,11 @@ out geom;`;
           cb.call(context, results);
         });
       };
-      _proto.reverse = function reverse(location2, scale, cb, context) {
+      _proto.reverse = function reverse(location, scale, cb, context) {
         var _this2 = this;
         var params = reverseParams(this.options, {
-          lat: location2.lat,
-          lon: location2.lng,
+          lat: location.lat,
+          lon: location.lng,
           zoom: Math.round(Math.log(scale / 256) / Math.log(2)),
           addressdetails: 1,
           format: "json"
@@ -38066,13 +38067,13 @@ out geom;`;
           cb.call(context, []);
         }
       };
-      _proto.reverse = function reverse(location2, scale, cb, context) {
+      _proto.reverse = function reverse(location, scale, cb, context) {
         try {
-          var code = this.options.OpenLocationCode.encode(location2.lat, location2.lng, this.options.codeLength);
+          var code = this.options.OpenLocationCode.encode(location.lat, location.lng, this.options.codeLength);
           var result = {
             name: code,
-            center: L__namespace.latLng(location2.lat, location2.lng),
-            bbox: L__namespace.latLngBounds(L__namespace.latLng(location2.lat, location2.lng), L__namespace.latLng(location2.lat, location2.lng))
+            center: L__namespace.latLng(location.lat, location.lng),
+            bbox: L__namespace.latLngBounds(L__namespace.latLng(location.lat, location.lng), L__namespace.latLng(location.lat, location.lng))
           };
           cb.call(context, [result]);
         } catch (e2) {
@@ -38123,10 +38124,10 @@ out geom;`;
       _proto.suggest = function suggest(query, cb, context) {
         return this.geocode(query, cb, context);
       };
-      _proto.reverse = function reverse(location2, scale, cb, context) {
+      _proto.reverse = function reverse(location, scale, cb, context) {
         var params = reverseParams(this.options, {
           key: this.options.apiKey,
-          q: [location2.lat, location2.lng].join(",")
+          q: [location.lat, location.lng].join(",")
         });
         getJSON(this.options.serviceUrl, params, function(data) {
           var results = [];
@@ -38187,12 +38188,12 @@ out geom;`;
           }
         });
       };
-      _proto.reverse = function reverse(location2, scale, cb, context) {
+      _proto.reverse = function reverse(location, scale, cb, context) {
         var _this3 = this;
         var params = reverseParams(this.options, {
           api_key: this.options.apiKey,
-          "point.lat": location2.lat,
-          "point.lon": location2.lng
+          "point.lat": location.lat,
+          "point.lon": location.lng
         });
         getJSON(this.options.serviceUrl + "/reverse", params, function(data) {
           cb.call(context, _this3._parseResults(data, "bounds"));
@@ -38339,10 +38340,10 @@ out geom;`;
       _proto.suggest = function suggest(query, cb, context) {
         return this.geocode(query, cb, context);
       };
-      _proto.reverse = function reverse(location2, scale, cb, context) {
+      _proto.reverse = function reverse(location, scale, cb, context) {
         getJSON(this.options.serviceUrl + "reverse", reverseParams(this.options, {
           key: this.options.apiKey,
-          coords: [location2.lat, location2.lng].join(",")
+          coords: [location.lat, location.lng].join(",")
         }), function(data) {
           var results = [];
           if (data.status.status == 200) {
@@ -38712,39 +38713,7 @@ out geom;`;
   }({}, L);
 
   // src/components/geocoder.tsx
-  var import_leaflet9 = __toESM(require_leaflet_src(), 1);
-  var LeafletControlGeocoder = (props) => {
-    const map = useMap();
-    (0, import_react12.useEffect)(() => {
-      var geocoder = import_leaflet9.default.Control.Geocoder.nominatim();
-      if (typeof URLSearchParams !== "undefined" && location.search) {
-        var params = new URLSearchParams(location.search);
-        var geocoderString = params.get("geocoder");
-        if (geocoderString && import_leaflet9.default.Control.Geocoder[geocoderString]) {
-          geocoder = import_leaflet9.default.Control.Geocoder[geocoderString]();
-        } else if (geocoderString) {
-          console.warn("Unsupported geocoder", geocoderString);
-        }
-      }
-      import_leaflet9.default.Control.geocoder({
-        query: "",
-        placeholder: "Search here...",
-        defaultMarkGeocode: false,
-        geocoder
-      }).on("markgeocode", function(e2) {
-        map.fitBounds(e2.geocode.bbox);
-        props.onSearch(
-          e2.geocode.properties.osm_type,
-          e2.geocode.properties.osm_id
-        );
-      }).addTo(map);
-    }, [props.onSearch]);
-    return null;
-  };
-
-  // src/components/map.tsx
-  var import_simplify_geojson = __toESM(require_simplify_geojson(), 1);
-  var import_osm2geojson_lite = __toESM(require_lib2(), 1);
+  var import_leaflet10 = __toESM(require_leaflet_src(), 1);
 
   // node_modules/zustand/esm/vanilla.mjs
   var createStoreImpl = (createState) => {
@@ -38771,15 +38740,15 @@ out geom;`;
   var createStore = (createState) => createState ? createStoreImpl(createState) : createStoreImpl;
 
   // node_modules/zustand/esm/react.mjs
-  var import_react13 = __toESM(require_react(), 1);
+  var import_react12 = __toESM(require_react(), 1);
   var identity = (arg) => arg;
   function useStore(api, selector = identity) {
-    const slice = import_react13.default.useSyncExternalStore(
+    const slice = import_react12.default.useSyncExternalStore(
       api.subscribe,
       () => selector(api.getState()),
       () => selector(api.getInitialState())
     );
-    import_react13.default.useDebugValue(slice);
+    import_react12.default.useDebugValue(slice);
     return slice;
   }
   var createImpl = (createState) => {
@@ -38791,7 +38760,7 @@ out geom;`;
   var create = (createState) => createState ? createImpl(createState) : createImpl;
 
   // src/store.ts
-  var import_leaflet10 = __toESM(require_leaflet_src(), 1);
+  var import_leaflet9 = __toESM(require_leaflet_src(), 1);
   var useStore2 = create()((set, get) => ({
     isPlaying: false,
     wrongGuesses: 0,
@@ -38811,7 +38780,7 @@ out geom;`;
         const name = road.tags.name;
         roadsObject[name] ??= { name, state: "pending", positions: [] };
         roadsObject[name].positions.push([
-          road.geometry.map((point) => new import_leaflet10.LatLng(point.lat, point.lon))
+          road.geometry.map((point) => new import_leaflet9.LatLng(point.lat, point.lon))
         ]);
       }
       let roads = Object.values(roadsObject);
@@ -38842,6 +38811,65 @@ out geom;`;
   }));
   var random = (max2) => Math.floor(Math.random() * max2);
   var normalizeString = (value) => value.trim().toLowerCase().replaceAll("\xE4", "a").replaceAll("\xF6", "o").replaceAll("\xFC", "u").replaceAll("\xDF", "ss");
+
+  // src/components/geocoder.tsx
+  var import_osm2geojson_lite = __toESM(require_lib(), 1);
+  var import_simplify_geojson = __toESM(require_simplify_geojson(), 1);
+  var OSM_TYPE_MAPPING = {
+    N: "node",
+    R: "relation",
+    W: "way"
+  };
+  var LeafletControlGeocoder = (props) => {
+    const setSelection = useStore2((state) => state.setSelection);
+    const map = useMap();
+    (0, import_react13.useEffect)(() => {
+      let geocoder = import_leaflet10.default.Control.Geocoder.photon();
+      import_leaflet10.default.Control.geocoder({
+        query: "",
+        placeholder: "Search...",
+        defaultMarkGeocode: false,
+        geocoder
+      }).on("markgeocode", async (e2) => {
+        map.fitBounds(e2.geocode.bbox);
+        const positions = [];
+        if (e2.geocode.properties.osm_type === "R") {
+          const boundaries = await fetchCityBoundaries(
+            OSM_TYPE_MAPPING[e2.geocode.properties.osm_type],
+            e2.geocode.properties.osm_id
+          );
+          console.log(boundaries);
+          const geo = { type: "Feature", geometry: (0, import_osm2geojson_lite.default)(boundaries) };
+          const simplified = (0, import_simplify_geojson.default)(geo, 1e-3);
+          positions.push(
+            ...simplified.geometry.coordinates[0].map(([lon, lat]) => [
+              lat,
+              lon
+            ])
+          );
+        } else {
+          console.log(e2.geocode);
+          const { lat, lng } = e2.geocode.center;
+          const latOffset = 1e-3;
+          const lngOffset = 1e-3;
+          positions.push(
+            [lat + latOffset, lng - lngOffset],
+            [lat + latOffset, lng + lngOffset],
+            [lat - latOffset, lng + lngOffset],
+            [lat - latOffset, lng - lngOffset]
+          );
+          console.log(positions);
+        }
+        console.log(positions);
+        setSelection(positions);
+      }).addTo(map);
+    }, [props.onSearch]);
+    return null;
+  };
+
+  // src/components/map.tsx
+  var import_simplify_geojson2 = __toESM(require_simplify_geojson(), 1);
+  var import_osm2geojson_lite2 = __toESM(require_lib(), 1);
 
   // src/components/selection.tsx
   var import_react15 = __toESM(require_react(), 1);
@@ -38913,10 +38941,20 @@ out geom;`;
   // src/components/selection.tsx
   var import_jsx_runtime = __toESM(require_jsx_runtime(), 1);
   var Selection = () => {
-    const [setSelection, isPlaying] = useStore2(
-      useShallow((state) => [state.setSelection, state.isPlaying])
+    const [selection, setSelection, isPlaying] = useStore2(
+      useShallow((state) => [
+        state.selection,
+        state.setSelection,
+        state.isPlaying
+      ])
     );
     const ref = (0, import_react15.useRef)(null);
+    (0, import_react15.useEffect)(() => {
+      ref.current?.disableEdit();
+      ref.current?.setLatLngs(selection);
+      ref.current?.enableEdit();
+      ref.current?.redraw();
+    }, [selection]);
     (0, import_react15.useEffect)(() => {
       ref?.current?.enableEdit();
     }, [ref]);
@@ -40794,7 +40832,7 @@ out geom;`;
           setTimeout(() => fn(false), 1e3);
           if (!result) {
             tooltipRef.current?.open({
-              anchorSelect: "#guess-input",
+              anchorSelect: "#guess-wrapper",
               content: road
             });
             tooltipRef.current?.close({ delay: 2e3 });
@@ -40807,35 +40845,35 @@ out geom;`;
     return /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
       "div",
       {
+        className: "p-5",
         style: {
           zIndex: 1e6,
           position: "absolute",
-          bottom: "50px",
-          right: "50px",
-          left: "50px"
+          bottom: "0",
+          right: "0",
+          left: "0"
         },
         children: isPlaying ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { className: "mb-3", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { className: "mb-4", children: [
             score.correct,
             " / ",
             score.total,
             score.wrong ? ` (${score.wrong} wrong)` : ""
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { className: "container", style: { display: "flex", gap: "8px" }, children: [
-            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { style: { display: "flex", gap: "8px" }, children: [
+            /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("div", { id: "guess-wrapper", style: { width: "100%" }, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(
               "input",
               {
-                id: "guess-input",
                 type: "text",
                 placeholder: "Enter street name",
                 onKeyDown,
                 autoFocus: true,
                 className: `input text-input ${isCorrect ? "correct" : ""} ${isWrong ? "wrong" : ""}`
               }
-            ),
+            ) }),
             /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: "button", onClick: cancelGame, children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("span", { className: "icon is-small", children: /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(CancelIcon, { color: "#fff" }) }) })
           ] }),
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(M, { ref: tooltipRef })
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsx)(M, { ref: tooltipRef, className: "box" })
         ] }) : /* @__PURE__ */ (0, import_jsx_runtime3.jsx)("button", { className: "button is-fullwidth", onClick: startGame, children: "Start" })
       }
     );
@@ -40884,13 +40922,16 @@ out geom;`;
   // src/components/map.tsx
   var import_jsx_runtime5 = __toESM(require_jsx_runtime(), 1);
   var Map2 = () => {
-    const isPlaying = useStore2((state) => state.isPlaying);
+    const [isPlaying, setSelection] = useStore2(
+      useShallow((state) => [state.isPlaying, state.setSelection])
+    );
     const selectionRef = (0, import_react19.useRef)(null);
     (0, import_react19.useEffect)(() => selectionRef.current?.enableEdit(), [selectionRef]);
     const onSearch = (0, import_react19.useCallback)(
       async (osmType, osmId) => {
         const boundaries = await fetchCityBoundaries(osmType, osmId);
-        const geo = { type: "Feature", geometry: (0, import_osm2geojson_lite.default)(boundaries) };
+        console.log(boundaries);
+        const geo = { type: "Feature", geometry: (0, import_osm2geojson_lite2.default)(boundaries) };
         const positions = [];
         if (geo.geometry.type === "FeatureCollection") {
           const [lat, lon] = geo.geometry.features[0].geometry.coordinates;
@@ -40904,15 +40945,13 @@ out geom;`;
           ];
           positions.push(...bbox);
         } else {
-          const simplified = (0, import_simplify_geojson.default)(geo, 1e-3);
+          const simplified = (0, import_simplify_geojson2.default)(geo, 1e-3);
           positions.push(
             ...simplified.geometry.coordinates[0].map(([lon, lat]) => [lat, lon])
           );
         }
-        selectionRef.current?.disableEdit();
-        selectionRef.current?.setLatLngs(positions);
-        selectionRef.current?.enableEdit();
-        selectionRef.current?.redraw();
+        console.log(positions, selectionRef);
+        setSelection(positions);
       },
       [selectionRef]
     );
