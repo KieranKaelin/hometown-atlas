@@ -1085,7 +1085,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState7(initialState) {
+          function useState8(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1109,7 +1109,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useLayoutEffect(create2, deps);
           }
-          function useCallback7(callback, deps) {
+          function useCallback6(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
@@ -1876,7 +1876,7 @@
           exports.memo = memo;
           exports.startTransition = startTransition;
           exports.unstable_act = act;
-          exports.useCallback = useCallback7;
+          exports.useCallback = useCallback6;
           exports.useContext = useContext5;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
@@ -1888,7 +1888,7 @@
           exports.useMemo = useMemo6;
           exports.useReducer = useReducer;
           exports.useRef = useRef10;
-          exports.useState = useState7;
+          exports.useState = useState8;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -2384,9 +2384,9 @@
           if (typeof __REACT_DEVTOOLS_GLOBAL_HOOK__ !== "undefined" && typeof __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart === "function") {
             __REACT_DEVTOOLS_GLOBAL_HOOK__.registerInternalModuleStart(new Error());
           }
-          var React8 = require_react();
+          var React9 = require_react();
           var Scheduler = require_scheduler();
-          var ReactSharedInternals = React8.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React9.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           var suppressWarning = false;
           function setSuppressWarning(newSuppressWarning) {
             {
@@ -2435,7 +2435,7 @@
           var HostPortal = 4;
           var HostComponent = 5;
           var HostText = 6;
-          var Fragment3 = 7;
+          var Fragment2 = 7;
           var Mode = 8;
           var ContextConsumer = 9;
           var ContextProvider = 10;
@@ -3592,7 +3592,7 @@
                 return "DehydratedFragment";
               case ForwardRef:
                 return getWrappedName$1(type, type.render, "ForwardRef");
-              case Fragment3:
+              case Fragment2:
                 return "Fragment";
               case HostComponent:
                 return type;
@@ -3993,7 +3993,7 @@
             {
               if (props.value == null) {
                 if (typeof props.children === "object" && props.children !== null) {
-                  React8.Children.forEach(props.children, function(child) {
+                  React9.Children.forEach(props.children, function(child) {
                     if (child == null) {
                       return;
                     }
@@ -12021,7 +12021,7 @@
               }
             }
             function updateFragment2(returnFiber, current2, fragment, lanes, key) {
-              if (current2 === null || current2.tag !== Fragment3) {
+              if (current2 === null || current2.tag !== Fragment2) {
                 var created = createFiberFromFragment(fragment, returnFiber.mode, lanes, key);
                 created.return = returnFiber;
                 return created;
@@ -12424,7 +12424,7 @@
                 if (child.key === key) {
                   var elementType = element.type;
                   if (elementType === REACT_FRAGMENT_TYPE) {
-                    if (child.tag === Fragment3) {
+                    if (child.tag === Fragment2) {
                       deleteRemainingChildren(returnFiber, child.sibling);
                       var existing = useFiber(child, element.props.children);
                       existing.return = returnFiber;
@@ -17900,7 +17900,7 @@
                 var _resolvedProps2 = workInProgress2.elementType === type ? _unresolvedProps2 : resolveDefaultProps(type, _unresolvedProps2);
                 return updateForwardRef(current2, workInProgress2, type, _resolvedProps2, renderLanes2);
               }
-              case Fragment3:
+              case Fragment2:
                 return updateFragment(current2, workInProgress2, renderLanes2);
               case Mode:
                 return updateMode(current2, workInProgress2, renderLanes2);
@@ -18172,7 +18172,7 @@
               case SimpleMemoComponent:
               case FunctionComponent:
               case ForwardRef:
-              case Fragment3:
+              case Fragment2:
               case Mode:
               case Profiler:
               case ContextConsumer:
@@ -22433,7 +22433,7 @@
             return fiber;
           }
           function createFiberFromFragment(elements, mode, lanes, key) {
-            var fiber = createFiber(Fragment3, elements, key, mode);
+            var fiber = createFiber(Fragment2, elements, key, mode);
             fiber.lanes = lanes;
             return fiber;
           }
@@ -35801,7 +35801,7 @@
       if (true) {
         (function() {
           "use strict";
-          var React8 = require_react();
+          var React9 = require_react();
           var REACT_ELEMENT_TYPE = Symbol.for("react.element");
           var REACT_PORTAL_TYPE = Symbol.for("react.portal");
           var REACT_FRAGMENT_TYPE = Symbol.for("react.fragment");
@@ -35827,7 +35827,7 @@
             }
             return null;
           }
-          var ReactSharedInternals = React8.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
+          var ReactSharedInternals = React9.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
           function error(format) {
             {
               {
@@ -36677,11 +36677,11 @@
               return jsxWithValidation(type, props, key, false);
             }
           }
-          var jsx13 = jsxWithValidationDynamic;
-          var jsxs10 = jsxWithValidationStatic;
+          var jsx17 = jsxWithValidationDynamic;
+          var jsxs13 = jsxWithValidationStatic;
           exports.Fragment = REACT_FRAGMENT_TYPE;
-          exports.jsx = jsx13;
-          exports.jsxs = jsxs10;
+          exports.jsx = jsx17;
+          exports.jsxs = jsxs13;
         })();
       }
     }
@@ -41137,7 +41137,7 @@ out geom;`;
           left: "0"
         },
         children: isPlaying ? /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("div", { children: [
-          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { className: "mb-4", children: [
+          /* @__PURE__ */ (0, import_jsx_runtime3.jsxs)("p", { className: "tag mb-4", children: [
             score.correct,
             " / ",
             score.total,
@@ -41184,6 +41184,7 @@ out geom;`;
       if (isCurrent && feature) {
         map.setView(feature.getBounds().getCenter(), map.getZoom(), {
           animate: true
+          // easeLinearity: 2.35,
         });
       }
     }, [isCurrent, roads]);
@@ -41253,7 +41254,7 @@ out geom;`;
   };
   var Control_default = Control;
 
-  // src/components/language-picker.tsx
+  // src/components/controls/language-picker.tsx
   var import_react28 = __toESM(require_react(), 1);
 
   // src/icons/language.tsx
@@ -43535,8 +43536,8 @@ out geom;`;
     title: "Heimatatlas vo Kieran",
     controls: {
       start: "Aafange",
-      search: "Sueche...",
-      guess: "Was isch d\xE4 Name vo dere Strass?"
+      search: "Su\xE4che...",
+      guess: "Was isch d\xE4 Nam\xE4 vo der\xE4 Strass?"
     },
     score: {
       wrong: "falsch"
@@ -44017,7 +44018,7 @@ out geom;`;
     }
   );
 
-  // src/components/language-picker.tsx
+  // src/components/controls/language-picker.tsx
   var import_jsx_runtime10 = __toESM(require_jsx_runtime(), 1);
   var ICONS = {
     en: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(UnitedKingdomIcon, { style: { borderRadius: "4px" }, height: 20, width: 30 }),
@@ -44027,8 +44028,8 @@ out geom;`;
   };
   var LanguagePicker = () => {
     const { i18n } = useTranslation();
-    const [showMenu, setShowMenu] = (0, import_react28.useState)(true);
-    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { className: "language-picker", children: [
+    const [showMenu, setShowMenu] = (0, import_react28.useState)(false);
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", height: "30px", gap: "4px" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
         "button",
         {
@@ -44037,41 +44038,175 @@ out geom;`;
           children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LanguageIcon, { height: "auto", width: "auto" })
         }
       ),
-      showMenu && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "box language-box mt-2 p-4", children: Object.keys(resources).map((language) => /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)(
-        "div",
+      showMenu && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "buttons has-addons", children: Object.keys(resources).map((language) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+        "button",
         {
           onClick: () => {
             i18n.changeLanguage(language);
             setShowMenu(false);
           },
-          className: `language-item`,
-          children: [
-            /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-              "div",
-              {
-                style: {
-                  width: "30px",
-                  display: "flex",
-                  justifyContent: "center",
-                  marginRight: "4px"
-                },
-                children: ICONS[language]
-              }
-            ),
-            i18n.t("language", { lng: language })
-          ]
+          className: "button",
+          style: { height: "30px" },
+          children: ICONS[language]
         },
         language
       )) })
     ] });
   };
 
-  // src/components/map.tsx
+  // src/icons/layers.tsx
   var import_jsx_runtime11 = __toESM(require_jsx_runtime(), 1);
+  var LayersIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+    "svg",
+    {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      width: 24,
+      height: 24,
+      color: "#ffffff",
+      fill: "none",
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          "path",
+          {
+            d: "M8.64298 3.14559L6.93816 3.93362C4.31272 5.14719 3 5.75397 3 6.75C3 7.74603 4.31272 8.35281 6.93817 9.56638L8.64298 10.3544C10.2952 11.1181 11.1214 11.5 12 11.5C12.8786 11.5 13.7048 11.1181 15.357 10.3544L17.0618 9.56638C19.6873 8.35281 21 7.74603 21 6.75C21 5.75397 19.6873 5.14719 17.0618 3.93362L15.357 3.14559C13.7048 2.38186 12.8786 2 12 2C11.1214 2 10.2952 2.38186 8.64298 3.14559Z",
+            stroke: "currentColor",
+            strokeWidth: "1.5",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          "path",
+          {
+            d: "M20.788 11.0972C20.9293 11.2959 21 11.5031 21 11.7309C21 12.7127 19.6873 13.3109 17.0618 14.5072L15.357 15.284C13.7048 16.0368 12.8786 16.4133 12 16.4133C11.1214 16.4133 10.2952 16.0368 8.64298 15.284L6.93817 14.5072C4.31272 13.3109 3 12.7127 3 11.7309C3 11.5031 3.07067 11.2959 3.212 11.0972",
+            stroke: "currentColor",
+            strokeWidth: "1.5",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+          "path",
+          {
+            d: "M20.3767 16.2661C20.7922 16.5971 21 16.927 21 17.3176C21 18.2995 19.6873 18.8976 17.0618 20.0939L15.357 20.8707C13.7048 21.6236 12.8786 22 12 22C11.1214 22 10.2952 21.6236 8.64298 20.8707L6.93817 20.0939C4.31272 18.8976 3 18.2995 3 17.3176C3 16.927 3.20778 16.5971 3.62334 16.2661",
+            stroke: "currentColor",
+            strokeWidth: "1.5",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+          }
+        )
+      ]
+    }
+  );
+
+  // src/icons/plus.tsx
+  var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
+  var PlusIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime12.jsxs)(
+    "svg",
+    {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      width: 24,
+      height: 24,
+      color: "#ffffff",
+      fill: "none",
+      ...props,
+      children: [
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          "path",
+          {
+            d: "M12 4V20",
+            stroke: "currentColor",
+            strokeWidth: "1.5",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+          }
+        ),
+        /* @__PURE__ */ (0, import_jsx_runtime12.jsx)(
+          "path",
+          {
+            d: "M4 12H20",
+            stroke: "currentColor",
+            strokeWidth: "1.5",
+            strokeLinecap: "round",
+            strokeLinejoin: "round"
+          }
+        )
+      ]
+    }
+  );
+
+  // src/icons/minus.tsx
+  var import_jsx_runtime13 = __toESM(require_jsx_runtime(), 1);
+  var MinusIcon = (props) => /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+    "svg",
+    {
+      xmlns: "http://www.w3.org/2000/svg",
+      viewBox: "0 0 24 24",
+      width: 24,
+      height: 24,
+      color: "#ffffff",
+      fill: "none",
+      ...props,
+      children: /* @__PURE__ */ (0, import_jsx_runtime13.jsx)(
+        "path",
+        {
+          d: "M20 12L4 12",
+          stroke: "currentColor",
+          strokeWidth: "1.5",
+          strokeLinecap: "round",
+          strokeLinejoin: "round"
+        }
+      )
+    }
+  );
+
+  // src/components/controls/zoom.tsx
+  var import_jsx_runtime14 = __toESM(require_jsx_runtime(), 1);
+  var ZoomControl = () => {
+    const map = useMap();
+    return /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(Control_default, { position: "topleft", children: /* @__PURE__ */ (0, import_jsx_runtime14.jsxs)(
+      "div",
+      {
+        className: "language-picker",
+        style: { display: "flex", flexDirection: "column" },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+            "button",
+            {
+              className: "language-button button",
+              style: { borderBottomLeftRadius: 0, borderBottomRightRadius: 0 },
+              onClick: () => map.setZoom(map.getZoom() + 1),
+              children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(PlusIcon, { height: "auto", width: "auto" })
+            }
+          ),
+          /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(
+            "button",
+            {
+              className: "language-button button",
+              style: { borderTopLeftRadius: 0, borderTopRightRadius: 0 },
+              onClick: () => map.setZoom(map.getZoom() - 1),
+              children: /* @__PURE__ */ (0, import_jsx_runtime14.jsx)(MinusIcon, { height: "auto", width: "auto" })
+            }
+          )
+        ]
+      }
+    ) });
+  };
+
+  // src/components/map.tsx
+  var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
   var Map2 = () => {
-    const [isPlaying, setSelection] = useStore2(
-      useShallow((state) => [state.isPlaying, state.setSelection])
+    const [isPlaying, selection, setSelection] = useStore2(
+      useShallow((state) => [
+        state.isPlaying,
+        state.selection,
+        state.setSelection
+      ])
     );
+    const [isSatellite, setSatellite] = (0, import_react29.useState)(false);
     const selectionRef = (0, import_react29.useRef)(null);
     (0, import_react29.useEffect)(() => selectionRef.current?.enableEdit(), [selectionRef]);
     const onSearch = (0, import_react29.useCallback)(
@@ -44100,9 +44235,9 @@ out geom;`;
       },
       [selectionRef]
     );
-    return /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(import_jsx_runtime11.Fragment, { children: [
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Form, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { "data-theme": "dark", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Form, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
         MapContainer,
         {
           style: {
@@ -44112,38 +44247,62 @@ out geom;`;
             top: 0,
             position: "absolute"
           },
-          center: [47.8305, 16.4],
+          center: [47.8366232, 16.4134224],
           zoom: 14,
           scrollWheelZoom: true,
           editable: true,
+          attributionControl: false,
+          zoomControl: false,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            isSatellite ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+              TileLayer,
+              {
+                attribution: "Tiles \xA9 Esri \u2014 Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
+                url: "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}",
+                maxZoom: 20,
+                edgeBufferTiles: 5
+              }
+            ) : null,
+            !isSatellite ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
               TileLayer,
               {
                 attribution: '\xA9 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors \xA9 <a href="https://carto.com/attributions">CARTO</a>',
-                url: `https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png`,
+                url: "https://{s}.basemaps.cartocdn.com/dark_nolabels/{z}/{x}/{y}{r}.png",
                 maxZoom: 20,
                 edgeBufferTiles: 5,
                 opacity: isPlaying ? 1 : 0
               }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(
+            ) : null,
+            !isSatellite ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
               TileLayer,
               {
                 attribution: '\xA9 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors \xA9 <a href="https://carto.com/attributions">CARTO</a>',
-                url: `https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png`,
+                url: "https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png",
                 maxZoom: 20,
                 edgeBufferTiles: 5,
                 opacity: isPlaying ? 0 : 1
               }
-            ),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(LeafletControlGeocoder, { onSearch }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Control_default, { position: "topleft", children: /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(LanguagePicker, {}) }),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Selection, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime11.jsxs)(Pane, { name: "roads", style: { opacity: 0.5 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Roads, { type: "current" }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Roads, { type: "correct" }),
-              /* @__PURE__ */ (0, import_jsx_runtime11.jsx)(Roads, { type: "wrong" })
+            ) : null,
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LeafletControlGeocoder, { onSearch }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(ZoomControl, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Control_default, { position: "topleft", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "language-picker", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+              "button",
+              {
+                className: "language-button button",
+                onClick: () => {
+                  console.log(selection);
+                  setSatellite((prev) => !prev);
+                  setTimeout(() => setSelection(selection), 200);
+                },
+                children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LayersIcon, { height: "auto", width: "auto" })
+              }
+            ) }) }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Control_default, { position: "topleft", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LanguagePicker, {}) }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Selection, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Pane, { name: "roads", style: { opacity: 0.8 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Roads, { type: "current" }),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Roads, { type: "correct" }),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Roads, { type: "wrong" })
             ] })
           ]
         }
@@ -44152,9 +44311,9 @@ out geom;`;
   };
 
   // src/index.tsx
-  var import_jsx_runtime12 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
   var root = (0, import_client.createRoot)(document.getElementById("root"));
-  root.render(/* @__PURE__ */ (0, import_jsx_runtime12.jsx)(Map2, {}));
+  root.render(/* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Map2, {}));
 })();
 /*! Bundled license information:
 
