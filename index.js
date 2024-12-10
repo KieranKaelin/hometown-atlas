@@ -43708,7 +43708,7 @@ out geom;`;
     }
     return hasLocalStorageSupport;
   };
-  var localStorage = {
+  var localStorage2 = {
     name: "localStorage",
     // Deconstruct the options object and extract the lookupLocalStorage property
     lookup(_ref) {
@@ -43872,7 +43872,7 @@ out geom;`;
       this.i18nOptions = i18nOptions;
       this.addDetector(cookie$1);
       this.addDetector(querystring);
-      this.addDetector(localStorage);
+      this.addDetector(localStorage2);
       this.addDetector(sessionStorage);
       this.addDetector(navigator$1);
       this.addDetector(htmlTag);
@@ -44196,6 +44196,31 @@ out geom;`;
     ) });
   };
 
+  // src/constants.ts
+  var LAST_BBOX = "LAST_BBOX";
+  var getMapBounds = () => JSON.parse(
+    localStorage.getItem(LAST_BBOX) || "[[47.85325621219623,16.36997222900391],[47.81350035422176,16.459751129150394]]"
+  );
+  var setMapBounds = (bbox) => localStorage.setItem(LAST_BBOX, JSON.stringify(bbox));
+  var MAP_LAYER = "MAP_LAYER";
+  var getMapLayer = () => localStorage.getItem(MAP_LAYER) || "carto";
+  var setMapLayer = (layer) => localStorage.setItem(MAP_LAYER, layer);
+
+  // src/components/map-listeners.tsx
+  var MapListeners = () => {
+    const map = useMap();
+    map.on("moveend", (event) => {
+      console.log(map.getBounds().toBBoxString());
+      const bounds = map.getBounds();
+      const nw = bounds.getNorthWest();
+      const se = bounds.getSouthEast();
+      setMapBounds([
+        [nw.lat, nw.lng],
+        [se.lat, se.lng]
+      ]);
+    });
+  };
+
   // src/components/map.tsx
   var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
   var Map2 = () => {
@@ -44206,7 +44231,7 @@ out geom;`;
         state.setSelection
       ])
     );
-    const [isSatellite, setSatellite] = (0, import_react29.useState)(false);
+    const [isSatellite, setSatellite] = (0, import_react29.useState)(getMapLayer() === "esri");
     const selectionRef = (0, import_react29.useRef)(null);
     (0, import_react29.useEffect)(() => selectionRef.current?.enableEdit(), [selectionRef]);
     const onSearch = (0, import_react29.useCallback)(
@@ -44247,13 +44272,13 @@ out geom;`;
             top: 0,
             position: "absolute"
           },
-          center: [47.8366232, 16.4134224],
-          zoom: 14,
+          bounds: getMapBounds(),
           scrollWheelZoom: true,
           editable: true,
           attributionControl: false,
           zoomControl: false,
           children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(MapListeners, {}),
             isSatellite ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
               TileLayer,
               {
@@ -44291,7 +44316,10 @@ out geom;`;
                 className: "language-button button",
                 onClick: () => {
                   console.log(selection);
-                  setSatellite((prev) => !prev);
+                  setSatellite((prev) => {
+                    setMapLayer(prev ? "carto" : "esri");
+                    return !prev;
+                  });
                   setTimeout(() => setSelection(selection), 200);
                 },
                 children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LayersIcon, { height: "auto", width: "auto" })
