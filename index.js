@@ -1085,7 +1085,7 @@
             }
             return dispatcher.useContext(Context);
           }
-          function useState8(initialState) {
+          function useState9(initialState) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useState(initialState);
           }
@@ -1109,7 +1109,7 @@
             var dispatcher = resolveDispatcher();
             return dispatcher.useLayoutEffect(create2, deps);
           }
-          function useCallback6(callback, deps) {
+          function useCallback7(callback, deps) {
             var dispatcher = resolveDispatcher();
             return dispatcher.useCallback(callback, deps);
           }
@@ -1876,7 +1876,7 @@
           exports.memo = memo;
           exports.startTransition = startTransition;
           exports.unstable_act = act;
-          exports.useCallback = useCallback6;
+          exports.useCallback = useCallback7;
           exports.useContext = useContext5;
           exports.useDebugValue = useDebugValue;
           exports.useDeferredValue = useDeferredValue;
@@ -1888,7 +1888,7 @@
           exports.useMemo = useMemo6;
           exports.useReducer = useReducer;
           exports.useRef = useRef10;
-          exports.useState = useState8;
+          exports.useState = useState9;
           exports.useSyncExternalStore = useSyncExternalStore;
           exports.useTransition = useTransition;
           exports.version = ReactVersion;
@@ -36677,11 +36677,11 @@
               return jsxWithValidation(type, props, key, false);
             }
           }
-          var jsx17 = jsxWithValidationDynamic;
-          var jsxs13 = jsxWithValidationStatic;
+          var jsx18 = jsxWithValidationDynamic;
+          var jsxs14 = jsxWithValidationStatic;
           exports.Fragment = REACT_FRAGMENT_TYPE;
-          exports.jsx = jsx17;
-          exports.jsxs = jsxs13;
+          exports.jsx = jsx18;
+          exports.jsxs = jsxs14;
         })();
       }
     }
@@ -37268,7 +37268,7 @@
   });
 
   // src/components/map.tsx
-  var import_react29 = __toESM(require_react(), 1);
+  var import_react30 = __toESM(require_react(), 1);
 
   // src/overpass.ts
   var fetchApi = async (query) => {
@@ -43492,6 +43492,21 @@ out geom;`;
   var locales_en_default = {
     language: "English",
     title: "Hometown Atlas by Kieran",
+    tutorial: {
+      title: "Hometown Atlas",
+      attribution: "by Kieran",
+      close: "Close",
+      doNotShowAgain: "Do not show again",
+      body: {
+        description: "This application is designed to help you learn street names. Follow these steps to get started:",
+        selectPlayArea: "Select Your Play Area",
+        selectPlayAreaDescription: "Use the polygon tool to define your play area on the map. You can also use the search bar in the top-right corner to jump to a specific location.",
+        startGame: "Start the Game",
+        startGameDescription: "Once you\u2019re ready, click the Start button to begin.",
+        guessName: "Guess the Street Name",
+        guessNameDescription: "The game will highlight a street. Enter your guess in the input box at the bottom of the screen. Keep guessing until you get them all right!"
+      }
+    },
     controls: {
       start: "Start",
       search: "Search...",
@@ -43505,7 +43520,22 @@ out geom;`;
   // src/locales/locales.de.json
   var locales_de_default = {
     language: "Deutsch",
-    title: "Hometown Atlas von Kieran",
+    title: "Heimatatlas von Kieran",
+    tutorial: {
+      title: "Heimatatlas",
+      attribution: "von Kieran",
+      close: "Schlie\xDFen",
+      doNotShowAgain: "Nicht mehr anzeigen",
+      body: {
+        description: "Diese Anwendung hilft dir dabei, Stra\xDFennamen zu erlernen! Folge diesen Schritten, um zu beginnen:",
+        selectPlayArea: "W\xE4hle dein Spielgebiet",
+        selectPlayAreaDescription: "Nutze das Polygon-Werkzeug, um dein Spielgebiet auf der Karte festzulegen. Du kannst auch die Suchleiste oben rechts verwenden, um zu einem bestimmten Ort zu springen.",
+        startGame: "Spiel starten",
+        startGameDescription: "Wenn du bereit bist, klicke auf den Start-Button, um loszulegen.",
+        guessName: "Rate den Stra\xDFennamen",
+        guessNameDescription: "Das Spiel wird eine Stra\xDFe hervorheben. Gib deinen Tipp in das Eingabefeld unten auf dem Bildschirm ein. Rate solange weiter, bis du alle richtig hast!"
+      }
+    },
     controls: {
       start: "Start",
       search: "Suchen...",
@@ -43520,6 +43550,21 @@ out geom;`;
   var locales_de_AT_default = {
     language: "Burgnl\xE4nderisch",
     title: "Heimatatlas vom Kieran",
+    tutorial: {
+      title: "Heimatatlas",
+      attribution: "vom Kieran",
+      close: "Schlie\xDFn",
+      doNotShowAgain: "Ned no amoi zoagn",
+      body: {
+        description: "De Anwendung h\xFCft da dabei, Stro\xDFnnomen z'lernen! Fuig den Schrittn, um zu stortn:",
+        selectPlayArea: "W\xF6h da Sp\xFC'gebiet",
+        selectPlayAreaDescription: "Verwend es Polygon-Werkzeug, um dei Sp\xFC'gebiet auf da Kortn festzlegen. Du konnst au de Suachleistn rechts obn verwendn, um zu oam bestimmtn Ort zu springn.",
+        startGame: "Spiel stortn",
+        startGameDescription: "Wenns bereit bist, klick aufn Start-Button, um loszlegen.",
+        guessName: "Rot den Stro\xDFnnamen",
+        guessNameDescription: "Es Sp\xFC' wird a Stro\xDFn hervurhebn. Gib dan Tipp ins Eingobef\xF6'd unten aufm Bildschirm ei. Rot solong weida, bis du olle richtig host!"
+      }
+    },
     controls: {
       start: "Geht scho",
       search: "Suach'n...",
@@ -43534,6 +43579,21 @@ out geom;`;
   var locales_de_CH_default = {
     language: "Schwiizerd\xFCtsch",
     title: "Heimatatlas vo Kieran",
+    tutorial: {
+      title: "Heimatatlas",
+      attribution: "vo Kieran",
+      close: "Schliess\xE4",
+      doNotShowAgain: "N\xFCmme aazeige",
+      body: {
+        description: "Die App isch da, um dir z'helfe, d'Stra\xDFennamen z'lerne. Folge dene Schritt, um z'beginne:",
+        selectPlayArea: "W\xE4hl di's Spielgebi\xE4t",
+        selectPlayAreaDescription: "Nutz s'Polygon-Werkz\xFCg, um di's Spielgebi\xE4t uf der Karte z'zeichne. Du chasch au die Su\xE4chleiste oben rechts nutz\xE4, um \xE4n bestimmte Ort z'finde.",
+        startGame: "Spiel starte",
+        startGameDescription: "Wenn du parat bisch, klick uf de Start-Button, um loszl\xE4ge.",
+        guessName: "Rate de Stra\xDFename",
+        guessNameDescription: "S'Spiel wird e Strass hervorhebe. Gib din Tipp im Igabefeld unne uf em Bildschirm ii. Rat, bis du alli richtig hesch!"
+      }
+    },
     controls: {
       start: "Aafange",
       search: "Su\xE4che...",
@@ -44026,8 +44086,23 @@ out geom;`;
     "de-CH": /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(SwitzerlandIcon, { style: { borderRadius: "4px" }, height: 20, width: 20 }),
     de: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(GermanyIcon, { style: { borderRadius: "4px" }, height: 20, width: 30 })
   };
-  var LanguagePicker = () => {
+  var LanguageButtons = (props) => {
     const { i18n } = useTranslation();
+    return /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "buttons has-addons", style: { marginBottom: 0 }, children: Object.keys(resources).map((language) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
+      "button",
+      {
+        onClick: () => {
+          i18n.changeLanguage(language);
+          props.hide();
+        },
+        style: { height: props.height },
+        className: "button has-tooltip-arrow",
+        children: ICONS[language]
+      },
+      language
+    )) });
+  };
+  var LanguagePicker = () => {
     const [showMenu, setShowMenu] = (0, import_react28.useState)(false);
     return /* @__PURE__ */ (0, import_jsx_runtime10.jsxs)("div", { style: { display: "flex", height: "30px", gap: "4px" }, children: [
       /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
@@ -44038,19 +44113,7 @@ out geom;`;
           children: /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LanguageIcon, { height: "auto", width: "auto" })
         }
       ),
-      showMenu && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)("div", { className: "buttons has-addons", children: Object.keys(resources).map((language) => /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(
-        "button",
-        {
-          onClick: () => {
-            i18n.changeLanguage(language);
-            setShowMenu(false);
-          },
-          className: "button",
-          style: { height: "30px" },
-          children: ICONS[language]
-        },
-        language
-      )) })
+      showMenu && /* @__PURE__ */ (0, import_jsx_runtime10.jsx)(LanguageButtons, { height: "30px", hide: () => setShowMenu(false) })
     ] });
   };
 
@@ -44205,6 +44268,9 @@ out geom;`;
   var MAP_LAYER = "MAP_LAYER";
   var getMapLayer = () => localStorage.getItem(MAP_LAYER) || "carto";
   var setMapLayer = (layer) => localStorage.setItem(MAP_LAYER, layer);
+  var TUTORIAL = "TUTORIAL";
+  var isTutorialAcknowledged = () => (localStorage.getItem(TUTORIAL) || "false") === "true";
+  var acknowledgeTutorial = () => localStorage.setItem(TUTORIAL, "true");
 
   // src/components/map-listeners.tsx
   var MapListeners = () => {
@@ -44221,8 +44287,80 @@ out geom;`;
     });
   };
 
-  // src/components/map.tsx
+  // src/components/tutorial.tsx
+  var import_react29 = __toESM(require_react(), 1);
   var import_jsx_runtime15 = __toESM(require_jsx_runtime(), 1);
+  var Tutorial = () => {
+    const { t: t3 } = useTranslation();
+    const [show, setShow] = (0, import_react29.useState)(!isTutorialAcknowledged());
+    const close = (0, import_react29.useCallback)(() => setShow(false), [setShow]);
+    const acknowledge = (0, import_react29.useCallback)(() => {
+      setShow(false);
+      acknowledgeTutorial();
+    }, [setShow]);
+    return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
+      "div",
+      {
+        className: `modal ${show ? "is-active" : ""}`,
+        style: { zIndex: 9999999 },
+        children: [
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "modal-background" }),
+          /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "modal-card", children: [
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("header", { className: "modal-card-head", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("p", { className: "modal-card-title", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "is-size-3 mr-1", children: t3("tutorial.title") }),
+                " ",
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("span", { className: "is-size-5", children: t3("tutorial.attribution") })
+              ] }),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+                "button",
+                {
+                  className: "delete",
+                  "aria-label": "close",
+                  onClick: close
+                }
+              )
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("section", { className: "modal-card-body", children: [
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "block", children: t3("tutorial.body.description") }),
+              /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("ol", { className: "content ml-4", children: [
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("li", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("b", { children: t3("tutorial.body.selectPlayArea") }),
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { children: t3("tutorial.body.selectPlayAreaDescription") })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("li", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("b", { children: t3("tutorial.body.startGame") }),
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { children: t3("tutorial.body.startGameDescription") })
+                ] }),
+                /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("li", { children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("b", { children: t3("tutorial.body.guessName") }),
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("p", { children: t3("tutorial.body.guessNameDescription") })
+                ] })
+              ] })
+            ] }),
+            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("footer", { className: "modal-card-foot", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
+              "div",
+              {
+                className: "is-flex is-justify-content-space-between",
+                style: { width: "100%" },
+                children: [
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LanguageButtons, { height: "40px", hide: () => {
+                  } }),
+                  /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { className: "buttons", children: [
+                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { className: "button", onClick: acknowledge, children: t3("tutorial.doNotShowAgain") }),
+                    /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("button", { className: "button is-success", onClick: close, children: t3("tutorial.close") })
+                  ] })
+                ]
+              }
+            ) })
+          ] })
+        ]
+      }
+    );
+  };
+
+  // src/components/map.tsx
+  var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
   var Map2 = () => {
     const [isPlaying, selection, setSelection] = useStore2(
       useShallow((state) => [
@@ -44231,10 +44369,10 @@ out geom;`;
         state.setSelection
       ])
     );
-    const [isSatellite, setSatellite] = (0, import_react29.useState)(getMapLayer() === "esri");
-    const selectionRef = (0, import_react29.useRef)(null);
-    (0, import_react29.useEffect)(() => selectionRef.current?.enableEdit(), [selectionRef]);
-    const onSearch = (0, import_react29.useCallback)(
+    const [isSatellite, setSatellite] = (0, import_react30.useState)(getMapLayer() === "esri");
+    const selectionRef = (0, import_react30.useRef)(null);
+    (0, import_react30.useEffect)(() => selectionRef.current?.enableEdit(), [selectionRef]);
+    const onSearch = (0, import_react30.useCallback)(
       async (osmType, osmId) => {
         const boundaries = await fetchCityBoundaries(osmType, osmId);
         const geo = { type: "Feature", geometry: (0, import_osm2geojson_lite2.default)(boundaries) };
@@ -44260,9 +44398,10 @@ out geom;`;
       },
       [selectionRef]
     );
-    return /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)("div", { "data-theme": "dark", children: [
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Form, {}),
-      /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(
+    return /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)("div", { "data-theme": "dark", children: [
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Form, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Tutorial, {}),
+      /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(
         MapContainer,
         {
           style: {
@@ -44278,8 +44417,8 @@ out geom;`;
           attributionControl: false,
           zoomControl: false,
           children: [
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(MapListeners, {}),
-            isSatellite ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(MapListeners, {}),
+            isSatellite ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
               TileLayer,
               {
                 attribution: "Tiles \xA9 Esri \u2014 Source: Esri, i-cubed, USDA, USGS, AEX, GeoEye, Getmapping, Aerogrid, IGN, IGP, UPR-EGP, and the GIS User Community",
@@ -44288,7 +44427,7 @@ out geom;`;
                 edgeBufferTiles: 5
               }
             ) : null,
-            !isSatellite ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+            !isSatellite ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
               TileLayer,
               {
                 attribution: '\xA9 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors \xA9 <a href="https://carto.com/attributions">CARTO</a>',
@@ -44298,7 +44437,7 @@ out geom;`;
                 opacity: isPlaying ? 1 : 0
               }
             ) : null,
-            !isSatellite ? /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+            !isSatellite ? /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
               TileLayer,
               {
                 attribution: '\xA9 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors \xA9 <a href="https://carto.com/attributions">CARTO</a>',
@@ -44308,9 +44447,9 @@ out geom;`;
                 opacity: isPlaying ? 0 : 1
               }
             ) : null,
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LeafletControlGeocoder, { onSearch }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(ZoomControl, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Control_default, { position: "topleft", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)("div", { className: "language-picker", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(LeafletControlGeocoder, { onSearch }),
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(ZoomControl, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Control_default, { position: "topleft", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)("div", { className: "language-picker", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(
               "button",
               {
                 className: "language-button button",
@@ -44322,15 +44461,15 @@ out geom;`;
                   });
                   setTimeout(() => setSelection(selection), 200);
                 },
-                children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LayersIcon, { height: "auto", width: "auto" })
+                children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(LayersIcon, { height: "auto", width: "auto" })
               }
             ) }) }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Control_default, { position: "topleft", children: /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(LanguagePicker, {}) }),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Selection, {}),
-            /* @__PURE__ */ (0, import_jsx_runtime15.jsxs)(Pane, { name: "roads", style: { opacity: 0.8 }, children: [
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Roads, { type: "current" }),
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Roads, { type: "correct" }),
-              /* @__PURE__ */ (0, import_jsx_runtime15.jsx)(Roads, { type: "wrong" })
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Control_default, { position: "topleft", children: /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(LanguagePicker, {}) }),
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Selection, {}),
+            /* @__PURE__ */ (0, import_jsx_runtime16.jsxs)(Pane, { name: "roads", style: { opacity: 0.8 }, children: [
+              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Roads, { type: "current" }),
+              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Roads, { type: "correct" }),
+              /* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Roads, { type: "wrong" })
             ] })
           ]
         }
@@ -44339,9 +44478,9 @@ out geom;`;
   };
 
   // src/index.tsx
-  var import_jsx_runtime16 = __toESM(require_jsx_runtime(), 1);
+  var import_jsx_runtime17 = __toESM(require_jsx_runtime(), 1);
   var root = (0, import_client.createRoot)(document.getElementById("root"));
-  root.render(/* @__PURE__ */ (0, import_jsx_runtime16.jsx)(Map2, {}));
+  root.render(/* @__PURE__ */ (0, import_jsx_runtime17.jsx)(Map2, {}));
 })();
 /*! Bundled license information:
 
