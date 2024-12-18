@@ -1,0 +1,72 @@
+{
+  "language": "Schwiizerdütsch",
+  "title": "Heimatatlas vo Kieran",
+  "tutorial": {
+    "title": "Heimatatlas",
+    "attribution": "vo Kieran",
+    "close": "Zuemachä",
+    "doNotShowAgain": "Nöd nomol aazeige",
+    "body": {
+      "description": "Mit dä App chasch d'Strassename lerne. So geit's los:",
+      "selectPlayArea": "Wähl dini Spiil-Zone",
+      "selectPlayAreaDescription": "Mit em Polygon-Wärkzüüg chasch d’Zone uf dr Charte definierä. Oder nütze d’Suechfunktion obe rächts, zum zu ere Ort z’hüpfe.",
+      "selectTools": "Die Wärkzüüg chöited dir hälfe:",
+      "selectToolsSearch": "Schnäll zu ere bestimmte Ort findä.",
+      "selectToolsGps": "Chartä uf dini aktuelli Posizion setze (Standortzuegriff nötig).",
+      "selectToolsSetSelection": "Spiil-Zone uf d'Mitti vo dr aktuelli Charte verschiebe.",
+      "selectToolsLayers": "Zwüsche Standard- und Satellitahsicht wächsle.",
+      "startGame": "Startä",
+      "startGameDescription": "Bisch parat? Drück uf Start, und los geit's.",
+      "guessName": "Strassename rate",
+      "guessNameDescription": "E Strass wird markiert. Gib d’Antwort ih, und rate wiiter, bis alli stimmed!"
+    }
+  },
+  "controls": {
+    "start": "Aafange",
+    "search": "Suäche...",
+    "guess": "Was isch dä Namä vo derä Strass?",
+    "cancelModal": {
+      "title": "Spiil stoppä?",
+      "body": "Bisch sichr, dass dis Spiil abbrechä wodsch?",
+      "cancel": "Abbrechä",
+      "continue": "Wiiterspiele"
+    },
+    "locate": {
+      "errorModal": {
+        "title": "Posizion nöd gfunde",
+        "body": "Mir chönd dini Posizion nöd bestimme. Gib dr Browser Zuegriff und versuch’s nomol.",
+        "close": "Zuemachä"
+      }
+    },
+    "restart": "Nomal!",
+    "congratulations": "Guet gmacht!",
+    "summary": "Du hesch <strong>{{road}}</strong> erfolgrich in <strong>{{time}}</strong> {{incorrect}} erkannt!",
+    "time_minutes_zero": "",
+    "time_minutes_one": "einr Minute und ",
+    "time_minutes_other": "{{count}} Minute und ",
+    "time_seconds_one": "einr Sekunde",
+    "time_seconds_other": "{{count}} Sekunde",
+    "incorrect_zero": "ohni e einzig falschi Usswahl",
+    "incorrect_one": "mit einr falsche Usswahl",
+    "incorrect_other": "mit {{count}} falsche Usswahlä",
+    "roads_one": "e einzigi Strass",
+    "roads_other": "alli {{count}} Strassä"
+  },
+  "success": {
+    "0": "Bravo!",
+    "1": "Ja!",
+    "2": "Guet!",
+    "3": "Richtig!",
+    "4": "Guet gmacht.",
+    "5": "So isch es!",
+    "6": "Richtig!",
+    "7": "Treffer!",
+    "8": "G'nau!"
+  },
+  "errors": {
+    "overpass": "Din Polygon isch z’kompliziert. Muesh simplifizierä und nomol probiere."
+  },
+  "score": {
+    "wrong": "falsch"
+  }
+}

@@ -1,0 +1,24 @@
+.language-picker {
+    position: relative;
+    display: inline-block;
+}
+
+.language-button {
+    width: 30px;
+    height: 30px;
+    padding: 4px;
+}
+
+.language-box {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+.item:hover {
+    cursor: pointer;
+}
+
+.language-item {
+    display: flex;
+    gap: 4px;
+}

@@ -1,0 +1,72 @@
+{
+  "language": "Deutsch",
+  "title": "Heimatatlas von Kieran",
+  "tutorial": {
+    "title": "Heimatatlas",
+    "attribution": "von Kieran",
+    "close": "Schließen",
+    "doNotShowAgain": "Nicht mehr anzeigen",
+    "body": {
+      "description": "Diese Anwendung hilft dir dabei, Straßennamen zu erlernen! Folge diesen Schritten, um zu beginnen:",
+      "selectPlayArea": "Wähle dein Spielgebiet",
+      "selectPlayAreaDescription": "Nutze das Polygon-Werkzeug, um dein Spielgebiet auf der Karte festzulegen. Du kannst auch die Suchleiste oben rechts verwenden, um zu einem bestimmten Ort zu springen.",
+      "selectTools": "Die folgenden Werkzeuge können dir bei der Auswahl helfen:",
+      "selectToolsSearch": "Springe schnell zu einer bestimmten Adresse.",
+      "selectToolsGps": "Zentriere die Karte auf deinen aktuellen Standort (erfordert Standortberechtigungen).",
+      "selectToolsSetSelection": "Verschiebe die Auswahl in die Mitte deines aktuellen Kartenausschnitts.",
+      "selectToolsLayers": "Wechsle zwischen Standard- und Satellitenansicht.",
+      "startGame": "Spiel starten",
+      "startGameDescription": "Wenn du bereit bist, klicke auf den Start-Button, um loszulegen.",
+      "guessName": "Rate den Straßennamen",
+      "guessNameDescription": "Das Spiel wird eine Straße hervorheben. Gib deinen Tipp in das Eingabefeld unten auf dem Bildschirm ein. Rate solange weiter, bis du alle richtig hast!"
+    }
+  },
+  "controls": {
+    "start": "Start",
+    "search": "Suchen...",
+    "guess": "Was ist der Name dieser Straße?",
+    "cancelModal": {
+      "title": "Spiel abbrechen?",
+      "body": "Bist du dir sicher, dass du dein Spiel abbrechen möchtest?",
+      "cancel": "Abbrechen",
+      "continue": "Weiterspielen"
+    },
+    "locate": {
+      "errorModal": {
+        "title": "GPS Fehler",
+        "body": "Ihre Position konnte nicht festgestellt werden. Bitte stellen Sie sicher, dass Sie dem Browser die notwendigen Rechte erlauben, und versuchen Sie es erneut.",
+        "close": "Schließen"
+      }
+    },
+    "restart": "Neustart",
+    "congratulations": "Bravo!",
+    "summary": "Du hast <strong>{{road}}</strong> in nur <strong>{{time}}</strong> {{incorrect}} identifiziert!",
+    "time_minutes_zero": "",
+    "time_minutes_one": "einer Minute und ",
+    "time_minutes_other": "{{count}} Minuten und ",
+    "time_seconds_one": "einer Sekunde",
+    "time_seconds_other": "{{count}} Sekunden ",
+    "incorrect_zero": "ohne einen einzigen falschen Versuch",
+    "incorrect_one": "mit einem falschen Versuch",
+    "incorrect_other": "mit {{count}} falschen Versuchen",
+    "roads_one": "eine einzige Straße",
+    "roads_other": "alle {{count}} Straßen"
+  },
+  "success": {
+    "0": "Perfekt!",
+    "1": "Ja!",
+    "2": "Yep.",
+    "3": "Richtig!",
+    "4": "Gut gemacht.",
+    "5": "Genau!",
+    "6": "Korrekt!",
+    "7": "Treffer.",
+    "8": "Richtig!"
+  },
+  "errors": {
+    "overpass": "Dein Polygon ist zu detailliert. Bitte entferne einige Eckpunkte um es zu vereinfachen, und versuche es erneut."
+  },
+  "score": {
+    "wrong": "falsch"
+  }
+}

@@ -8,6 +8,9 @@ const options = {
   metafile: true,
   sourcemap: true,
   outdir: "build/",
+  loader: {
+    ".svg": "dataurl",
+  },
   plugins: [
     htmlPlugin({
       files: [
@@ -16,10 +19,12 @@ const options = {
           filename: "index.html",
           htmlTemplate: `
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="height: 100%">
 <head>
+  <title>Hometown Atlas by Kieran</title>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, interactive-widget=resizes-content">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@1.0.2/css/bulma.min.css">
  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
      integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY="
      crossorigin=""/>
@@ -27,8 +32,8 @@ const options = {
      integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
      crossorigin=""></script>
 </head>
-<body>
-  <div id="root" />
+<body style="height: 100%">
+  <div id="root" style="height: 100%" />
 </body>
 </html>
           `,

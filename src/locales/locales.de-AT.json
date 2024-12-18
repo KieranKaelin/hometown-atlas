@@ -1,0 +1,72 @@
+{
+  "language": "Burgnländerisch",
+  "title": "Heimatatlas vom Kieran",
+  "tutorial": {
+    "title": "Heimatatlas",
+    "attribution": "vom Kieran",
+    "close": "Schließn",
+    "doNotShowAgain": "Nimma herzoagn",
+    "body": {
+      "description": "De Anwendung hüft da dabei, Stroßnnomen z'lernen! So konnst stortn:",
+      "selectPlayArea": "Wöh da Spü'gebiet",
+      "selectPlayAreaDescription": "Nimm des Polygon-Werkzeug und suach da dei Spü'gebiet auf da Kortn aus. Du konnst au de Suachleistn rechts obn verwendn, um zu oam bestimmtn Ort zu springn.",
+      "selectTools": "Mit de fuigenden Hifsmittl geht’s no afocher:",
+      "selectToolsSearch": "Find glei zu an bestimmtn Ort.",
+      "selectToolsGps": "Hol da dei Standpunkt, owa GPS muas scho laufen!",
+      "selectToolsSetSelection": "Schieb d’Auswö in die Mittn vo dem, wos grad siagst.",
+      "selectToolsLayers": "Schalt um zwischn normaler Kartn und der mit da Fotos vo ob’n.",
+      "startGame": "Geht scho, gemma",
+      "startGameDescription": "Wennda bereit bist, druckst auf den Start-Knopf und gib ihm!",
+      "guessName": "Wie hoaßt die Gossn?",
+      "guessNameDescription": "Des Spü zoagt da a Gossn. Tipp den Namens unt’n ein, bis ois richtig is!"
+    }
+  },
+  "controls": {
+    "start": "Oida, Start!",
+    "search": "Suach'n...",
+    "guess": "Wie hoaßt die Gossn",
+    "cancelModal": {
+      "title": "Willst echt abbrechn?",
+      "body": "Is da wirklich so wurscht? Wüst des Spü abbrechn?",
+      "cancel": "Jo, weg mit dem",
+      "continue": "Na, i wü no weidaspüln"
+    },
+    "locate": {
+      "errorModal": {
+        "title": "Jo, wo samma?",
+        "body": "Dei Standpunkt geht grad ned. Schalt’s frei und versuch’s no amoi!",
+        "close": "Jo passt scho"
+      }
+    },
+    "restart": "No amoi vo vuan!",
+    "congratulations": "Oida, ned schlecht!",
+    "summary": "Du host <strong>{{road}}</strong> in <strong>{{time}}</strong> {{incorrect}} erkannt!",
+    "time_minutes_zero": "",
+    "time_minutes_one": "ana Minutn und ",
+    "time_minutes_other": "{{count}} Minutn und ",
+    "time_seconds_one": "ana Sekundn",
+    "time_seconds_other": "{{count}} Sekundn",
+    "incorrect_zero": "ohne a einzige foische Auswahl",
+    "incorrect_one": "mit ana foischn Auswahl",
+    "incorrect_other": "mit {{count}} foischn Wahln",
+    "roads_one": "a einzige Gossn",
+    "roads_other": "alle {{count}} Gossn"
+  },
+  "success": {
+    "0": "Supa!",
+    "1": "Jowui.",
+    "2": "Fix!",
+    "3": "Oida, des stimmt!",
+    "4": "Guat gmocht.",
+    "5": "So iss es.",
+    "6": "Deis scho!",
+    "7": "Jo, eh logisch!",
+    "8": "Isso."
+  },
+  "errors": {
+    "overpass": "Du host’s viel z’kompliziert gmacht. Zeich’s Polygon afocher und probiers no amoi."
+  },
+  "score": {
+    "wrong": "foisch"
+  }
+}

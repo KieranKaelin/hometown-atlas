@@ -1,0 +1,25 @@
+.leaflet-control-zoom-in,
+.leaflet-control-zoom-out,
+.leaflet-control-geocoder {
+    filter: invert(100%) hue-rotate(180deg) brightness(95%) contrast(90%);
+}
+
+.leaflet-control-geocoder {
+    border: 1px solid hsl(221, 14% ,calc( 24% + 0%)) !important;
+    border-radius: 4px;
+    -webkit-border-radius: 4px;
+    -moz-border-radius: 4px;
+}
+
+.leaflet-control-geocoder-icon {
+    width: 30px;
+    height: 30px;
+}
+
+.leaflet-control-geocoder-icon {
+    background-color: unset;
+    background-image: url("../icons/globalSearch.svg");
+    background-repeat: no-repeat;
+    background-position: 5px 5px;
+    background-size: 19px 19px;
+}

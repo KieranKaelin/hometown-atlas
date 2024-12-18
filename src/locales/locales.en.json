@@ -1,0 +1,77 @@
+{
+  "language": "English",
+  "title": "Hometown Atlas by Kieran",
+  "tutorial": {
+    "title": "Hometown Atlas",
+    "attribution": "by Kieran",
+    "close": "Close",
+    "doNotShowAgain": "Do not show again",
+    "body": {
+      "description": "This application is designed to help you learn street names. Follow these steps to get started:",
+      "selectPlayArea": "Select Your Play Area",
+      "selectPlayAreaDescription": "Use the polygon tool to define your play area on the map. You can also use the search bar in the top-right corner to jump to a specific location.",
+      "selectTools": "The following tools may help you choose your selection:",
+      "selectToolsSearch": "Quickly navigate to a specific area.",
+      "selectToolsGps": "Center the map to your current location (requires location permissions).",
+      "selectToolsSetSelection": "Move the selection to the center of your current map view.",
+      "selectToolsLayers": "Switch between standard and satellite view.",
+      "startGame": "Start the Game",
+      "startGameDescription": "Once you’re ready, click the Start button to begin.",
+      "guessName": "Guess the Street Name",
+      "guessNameDescription": "The game will highlight a street. Enter your guess in the input box at the bottom of the screen. Keep guessing until you get them all right!"
+    }
+  },
+  "controls": {
+    "start": "Start",
+    "search": "Search...",
+    "guess": "What is the name of this street?",
+    "cancelModal": {
+      "title": "Cancel game?",
+      "body": "Are you sure that you want to cancel your game?",
+      "cancel": "Cancel",
+      "continue": "Continue playing"
+    },
+    "locate": {
+      "errorModal": {
+        "title": "Location failure",
+        "body": "Unable to determine your current location. Please make sure you allow your browser to read your coordinates and try again.",
+        "close": "Close"
+      }
+    },
+    "restart": "Restart",
+    "congratulations": "Congratulations!",
+    "summary": "You successfully identified <strong>{{road}}</strong> in just <strong>{{time}}</strong> {{incorrect}}!",
+    "time_minutes_zero": "",
+    "time_minutes_one": "one minute and ",
+    "time_minutes_other": "{{count}} minutes and ",
+    "time_seconds_one": "one second",
+    "time_seconds_other": "{{count}} seconds",
+    "incorrect_zero": "without a single incorrect guess",
+    "incorrect_one": "with one incorrect guess",
+    "incorrect_other": "with {{count}} incorrect guesses",
+    "roads_one": "a single road",
+    "roads_other": "all {{count}} roads"
+  },
+  "success": {
+    "0": "Nice!",
+    "1": "Yes!",
+    "2": "Yep.",
+    "3": "Correct!",
+    "4": "Well done.",
+    "5": "Got it!",
+    "6": "Correct!",
+    "7": "Spot on.",
+    "8": "Right!"
+  },
+  "errors": {
+    "overpass": "Your polygon is too detailed. Please simplify it by removing some vertices and try again."
+  },
+  "score": {
+    "wrong": "wrong",
+    "elapsedTime": "Elapsed time",
+    "seconds": "seconds",
+    "minutes": "minutes",
+    "wrongGuesses": "Incorrect guesses",
+    "totalRoads": "Total roads"
+  }
+}
